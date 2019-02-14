@@ -22,7 +22,7 @@
 <!-- Navbar Include CSS END-->
       
      
-      <section style="background: url(img/fixed-background-2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb color-white text-center bg-fixed relative-positioned">
+      <section style="background: url(img/backGG.jpg) center top no-repeat; background-size: cover;" class="bar no-mb color-white text-center bg-fixed relative-positioned">
         <div class="dark-mask"></div>
         <div class="container">
           <div class="icon icon-outlined icon-lg"><i class="fa fa-file-code-o"></i></div>
@@ -33,7 +33,7 @@
       
 
       
-<section style="background: url(img/fixed-background-2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb color-white text-center bg-fixed relative-positioned">
+<section style="background: url(img/backGG2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb color-white text-center bg-fixed relative-positioned">
         <div class="dark-mask"></div>
         <div class="container">
           <div class="icon icon-outlined icon-lg"><i class="fa fa-file-code-o"></i></div>
@@ -50,7 +50,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="heading text-center">
-                <h2>Packages we offer</h2>
+                <h2>자주 이용하는 메뉴</h2>
               </div>
               <!-- Packages Start-->
               <div class="row packages">

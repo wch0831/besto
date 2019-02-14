@@ -11,7 +11,6 @@
                 <li class="nav-item dropdown"><a href="board_game_buy.jsp" data-toggle="dropdown" class="dropdown-toggle">게임구매 <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item"><a href="board_game_buy.jsp" class="nav-link">구매가능 게임</a></li>
-                    <li class="dropdown-item"><a href="board_game_end.jsp" class="nav-link">마감게임 보기</a></li>
                     <li class="dropdown-item"><a href="board_game_schedule.jsp" class="nav-link">게임 일정</a></li>
                     <li class="dropdown-item"><a href="board_game_hit_result.jsp" class="nav-link">적중 결과</a></li>
                   </ul>

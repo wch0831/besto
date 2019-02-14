@@ -57,67 +57,79 @@
                   		<p class="text-muted lead"><font size="2">상세내용을 보시려면 <strong>게임종류, 구매일시, 상태</strong>를 클릭해 주세요.</font></p>
                     <div class="table-responsive">
                     
-                    <div role="alert" class="alert alert-success">※ 현재 예치금 잔액 : <strong>30,000 원		 &emsp;&emsp;&emsp;&nbsp;&nbsp;</strong>
-                    <button type="button" class="btn btn-link">내역보기</button>
-                    <button type="button" class="btn btn-link">출금하기</button>
-                    </div>
+                    <p><strong>·본인 명의의 은행계좌</strong>로 출금이 가능합니다.</p>
+                    <p><font size="2">예치금 출금 시에는 결제대행 수수료가 부과되며 예치금 충전 방법에 따라 다르게 부과됩니다.</font></p>
+                    <p><font size="2">단, 적중금과 경기취소 및 구매오류로 인한 환불금은 수수료 없이 출금 가능합니다.</font></p>
                     
+                    <br>
+                    <div role="alert" class="alert alert-success">※ 현재 예치금 잔액 : <strong>30,000 원		 &emsp;&emsp;&emsp;&nbsp;&nbsp;</strong>
+                    <button type="button" class="btn btn-link">출금신청</button>
+                    </div>
+                    <p> <font size="2">- 예치금은 출금신청 시간에 따라 당일 혹은 익일에 입금됩니다.</font></p>
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>/</th>
-                        <th>게임종류</th>
-                        <th>발매회차</th>
-                        <th>보관일시</th>
-                        <th>구매금액</th>
-                        <th>상태</th>
-                        <th>수정/삭제</th>
+                        <th bgcolor="#EEEEEE">예치금 출금신청 시간</th>
+                        <th bgcolor="#EEEEEE">입금시간</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td><input type="checkbox"></td>
-                        <td>승부식</td>
-                        <td>19.2회차</td>
-                        <td>19.02.12 18:30</td>
-                        <td>95,000 <strong>원</strong></td>
-                        <td>대기중</td>
-                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                        <td>0시부터 8시까지</td>
+                        <td>당일 9시 30분부터 14시까지</td>
                       </tr>
                       <tr>
-                        <td><input type="checkbox"></td>
-                        <td>승부식</td>
-                        <td>19.2회차</td>
-                        <td>19.02.12 18:30</td>
-                        <td>95,000 <strong>원</strong></td>
-                        <td>대기중</td>
-                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                        <td>8시부터 16시까지</td>
+                        <td>당일 14시부터 18시까지</td>
+                      </tr>
+                      <tr>
+                        <td>16시부터 24시까지</td>
+                        <td>익일 9시 30분부터 14시까지</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
                 <hr>
                </div>
-                  <button type="button" class="btn btn-outline-primary" style="display:block; margin:0 auto;">결제하기</button>
+               <br>
+               <h4>◈ 예치금 출금내역</h4>
+               <div class="col-md-13">
+                  <div class="box-simple box-white same-height">
+                    <p style = "text-align:left;"><strong>조회 일자 : </strong>웹에서 지원해주는 달력쓰셈</p>
+                    <p style = "text-align:left;"><strong>조회 기간 : </strong></p>
+                    <br>
+                    <table class="table">
+                    <thead>
+                      <tr>
+                        <th bgcolor="#EEEEEE">신청일자</th>
+                        <th bgcolor="#EEEEEE">시간</th>
+                        <th bgcolor="#EEEEEE">신청금액</th>
+                        <th bgcolor="#EEEEEE">결제대행 수수료</th>
+                        <th bgcolor="#EEEEEE">내용</th>
+                        <th bgcolor="#EEEEEE">상태</th>
+                        <th bgcolor="#EEEEEE">출금완료일</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                    
+                  </div>
+                </div>
+               
                 </form>
             </div>
             <br>
-<!-- 페이징하셈 -->
-              <div class="pages">
-                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                  <ul class="pagination">
-                    <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </nav>
-              </div>
-<!-- 페이징하셈 --> 
-              
             </div>
           </div>
         </div>
