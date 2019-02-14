@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven />
+	
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<context:component-scan base-package="com.com.**" />
+
+
+
+	<!-- <tx:annotation-driven transaction-manager="txManager"/> -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="*" rollback-for="Exception"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<!-- where -->
+		<aop:pointcut id="cut" expression="execution(* com.com..*Impl.*(..))"/>
+		<!-- when + what -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="cut" />
+	</aop:config>
+
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	
+	<!-- bean은 기본적으로 싱글턴관리이다 쓰나 안쓰나 상관없다  -->
+	<!-- <bean scope="singleton" name="/login.do" class="com.biz.user.LoginController" >
+		<constructor-arg ref="uImpl"/>      1줄 타이핑            
+		<constructor-arg>
+			<ref bean="uvo"></ref>
+		</constructor-arg>
+		<constructor-arg value="2000"/>
+		<property name="userImpl" ref="uImpl" />
+		<property name="userVO" ref="uvo" />
+		<property name="userPoint" value="2000" />
+	</bean> -->
+	
+	<!-- <bean name="/logout.do" class="com.biz.user.LoginController">
+		<constructor-arg>
+			<ref bean="uImpl"></ref>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="uvo"></ref>
+		</constructor-arg>
+		<constructor-arg value="2000"/>
+		<property name="userImpl" ref="uImpl" />
+		<property name="userVO" ref="uvo" />
+		<property name="userPoint" value="2000" />
+	</bean> -->
+	
+	
+	
+	
+	<!-- web에서 scope종류 : page request session application -->
+	<!-- spring에서 scope종류 : prototype singleton global application -->
+	<!-- scope="prototype" 은 중앙관리는 하지만 각자 객체화 해서 관리함 -->
+	<!-- <bean scope="prototype" name="uvo" class="com.biz.user.UserVO"/> -->
+	
+	<!-- <bean name="uDao" class="com.biz.user.UserDAO"/> -->
+	
+	<!-- <bean name="uImpl" class="com.biz.user.UserServiceImpl">
+		<constructor-arg>
+			<ref bean="uDao"></ref>
+		</constructor-arg>
+		<property name="userImpl" ref="uDao"/>
+	</bean> -->
+	
+	
+	<!-- <bean name="CP" class="com.biz.user.UserDAOCP" /> -->
+	
+	<!-- <bean name="aspectName" class="com.biz.common.CommonAspect" /> -->
+	<aop:aspectj-autoproxy />
+	<!-- <aop:config>
+		<aop:aspect ref="aspectName">
+			<aop:pointcut expression="execution(* com.biz..*Impl.*(..))" id="mycut"/>
+			<aop:before pointcut-ref="mycut" method="beforeLogWrite"/>
+			<aop:after pointcut-ref="mycut" method="afterLogWrite"/>
+		</aop:aspect>
+	</aop:config> -->
+	
+	<!-- MultipartResolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10000000" />
+        <property name="defaultEncoding" value="UTF-8" />
+        <property name="uploadTempDir" value="/uploads" />
+    </bean>
+    
+    <!-- InternalResourceViewResolver 가장 하단에 둘 것 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".html" />
+	</bean>
+	
+	
+	
+	
+	
+	
+		
+</beans>
