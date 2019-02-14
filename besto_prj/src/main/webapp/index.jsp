@@ -21,46 +21,30 @@
 <%@ include file="/include/navbar.jsp" %>
 <!-- Navbar Include CSS END-->
       
-      <section class="no-mb relative-positioned">
-        <!--
-        *** JUMBOTRON ***
-        _________________________________________________________
-        -->
-        <div style="background: url('img/photogrid.jpg') center center repeat; background-size: cover;" class="jumbotron relative-positioned color-white text-md-center">
-          <div class="dark-mask mask-primary"></div>
-          <div class="container">
-            <div class="row mb-small">
-              <div class="col-md-12 text-center">
-                <h1 class="text-uppercase">Universal is great</h1>
-                <h2 class="text-uppercase">Last week more than 100 companies signed up to help them in their projects.</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-small"><img src="img/template-mac.png" alt="..." class="img-fluid"></div>
-              <div class="col-md-6 text-center-sm">
-                <p class="text-uppercase text-bold">Business. Corporate. Agency.<br>Portfolio. Blog. E-commerce.<br>We have covered everything.</p>
-                <p class="no-letter-spacing">See our current packages comparison<br>to choose the right one for you.</p>
-                <p><a href="#packages" class="scroll-to btn btn-template-outlined-white">See packages</a></p>
-              </div>
-            </div>
-          </div>
+     
+      <section style="background: url(img/fixed-background-2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb color-white text-center bg-fixed relative-positioned">
+        <div class="dark-mask"></div>
+        <div class="container">
+          <div class="icon icon-outlined icon-lg"><i class="fa fa-file-code-o"></i></div>
+          <h1>Block with fixed image background and icon</h1>
+          <p class="lead mb-0">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
         </div>
-        <!-- *** JUMBOTRON END ***-->
       </section>
       
 
-      <section class="bar bg-gray no-mb padding-big text-center-sm">
+      
+<section style="background: url(img/fixed-background-2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb color-white text-center bg-fixed relative-positioned">
+        <div class="dark-mask"></div>
         <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <h2 class="text-uppercase">Easy to customize</h2>
-              <p class="mb-small">We have made this template with focus on future client customization. You get <strong>40+ prepared HTML templates</strong>, many <strong>reusable components</strong> and <strong>LESS files</strong> for even easier template customization.</p>
-              <p><a href="#" class="btn btn-template-main">Read more</a></p>
-            </div>
-            <div class="col-md-6 text-center"><img src="img/template-easy-customize.png" alt="" class="img-fluid"></div>
-          </div>
+          <div class="icon icon-outlined icon-lg"><i class="fa fa-file-code-o"></i></div>
+          <h1>Block with fixed image background and icon</h1>
+          <p class="lead mb-0">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
         </div>
       </section>
+
+
+
+
       <section id="packages" class="bar no-mb">
         <div data-animate="fadeInUp" class="container">
           <div class="row">
@@ -68,7 +52,6 @@
               <div class="heading text-center">
                 <h2>Packages we offer</h2>
               </div>
-              <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
               <!-- Packages Start-->
               <div class="row packages">
               <!-- / END FIRST PACKAGE-->

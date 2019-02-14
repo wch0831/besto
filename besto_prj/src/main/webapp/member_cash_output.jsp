@@ -25,7 +25,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">도전분석방</h1>
+              <h1 class="h2">예치금 > 출금</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
@@ -50,75 +50,58 @@
             
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
-              
-              
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
-                    <h4>◈ 구매/적중내역</h4>
+                    <h4>◈ 예치금 > 출금</h4>
                   		<p class="text-muted lead"><font size="2">상세내용을 보시려면 <strong>게임종류, 구매일시, 상태</strong>를 클릭해 주세요.</font></p>
-                  
-    
-                    <table class="table">
-	                      <thead>
-	                        <tr>
-	                          <th style = "text-align:center;">/</th>
-	                          <th style = "text-align:center;">게임종류</th>
-	                          <th style = "text-align:center;">회차</th>
-	                          <th style = "text-align:center;">구매일시</th>
-	                          <th style = "text-align:center;">투표권 고유번호</th>
-	                          <th style = "text-align:center;">구매금액</th>
-	                          <th style = "text-align:center;">상태</th>
-	                        </tr>
-	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">
-                					<label>
-                   						<input type="checkbox"><span class="colour white"></span>
-                					</label>
-							  </td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;">C0D1-38BB-C570-FA30</td>
-	                          <td style = "text-align:center;">2,000   <strong>원</strong>	</td>
-	                          <td style = "text-align:center;">발매중</td>
-	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">
-                					<label>
-                   						<input type="checkbox"><span class="colour white"></span>
-                					</label>
-							  </td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;">C0D1-38BB-C570-FA31</td>
-	                          <td style = "text-align:center;">5,000   <strong>원</strong>	</td>
-	                          <td style = "text-align:center;">적중안됨</td>
-	                        </tr>
-	                      </tbody>
-	                    </table>
-                  </div>
+                    <div class="table-responsive">
+                    
+                    <div role="alert" class="alert alert-success">※ 현재 예치금 잔액 : <strong>30,000 원		 &emsp;&emsp;&emsp;&nbsp;&nbsp;</strong>
+                    <button type="button" class="btn btn-link">내역보기</button>
+                    <button type="button" class="btn btn-link">출금하기</button>
+                    </div>
+                    
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>/</th>
+                        <th>게임종류</th>
+                        <th>발매회차</th>
+                        <th>보관일시</th>
+                        <th>구매금액</th>
+                        <th>상태</th>
+                        <th>수정/삭제</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>승부식</td>
+                        <td>19.2회차</td>
+                        <td>19.02.12 18:30</td>
+                        <td>95,000 <strong>원</strong></td>
+                        <td>대기중</td>
+                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>승부식</td>
+                        <td>19.2회차</td>
+                        <td>19.02.12 18:30</td>
+                        <td>95,000 <strong>원</strong></td>
+                        <td>대기중</td>
+                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <hr>
+               </div>
+                  <button type="button" class="btn btn-outline-primary" style="display:block; margin:0 auto;">결제하기</button>
                 </form>
             </div>
-            <hr>
-            
-            <!-- 검색바 -->
-              <div class="col-md-3 pull-right">
-            <div class="panel-body">
-                  <form role="search">
-                    <div class="input-group">
-                      <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
-                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
-                    </div>
-                  </form>
-                </div>
-            </div>
             <br>
-<!-- 검색바 -->
-            
 <!-- 페이징하셈 -->
               <div class="pages">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">

@@ -56,9 +56,7 @@
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
                   <h4>◈ 맞대결 전적</h4>
-                  <br>
             	  </div>
-            	  
                     <table class="table">
 	                      <thead>
 	                        <tr>
