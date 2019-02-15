@@ -42,11 +42,9 @@
           <div class="row bar">
           
             <div class="col-md-2">
-            
 <!-- Sidebar_Main Include CSS START-->
 <%@ include file="/include/sidebar_board_main.jsp" %>
 <!-- Sidebar_Main Include CSS END-->
-
             </div>
             
 <!-- 게시판 메인부분 -->
@@ -60,9 +58,9 @@
                     <table class="table">
 	                      <thead>
 	                        <tr>
-	                          <th style = "text-align:center;"><div><img></div><a href="#">강원FC</a><br>[8위]</th>
+	                          <th style = "text-align:center;"><div><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div><a href="#">강원FC</a><br>[8위]</th>
 	                          <th style = "text-align:center;">팀명<br>[리그순위]</th>
-	                          <th style = "text-align:center;"><div><img></div><a href="#">서울FC</a><br>[7위]</th>
+	                          <th style = "text-align:center;"><div><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div><a href="#">서울FC</a><br>[7위]</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>

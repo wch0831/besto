@@ -102,7 +102,7 @@
                   </table>
                   	<p>▷ 예상 적중 배당률 : 2.7 <b>배</b></p>
                   <hr>
-                 	<p>▷ 베팅금액 : <input id="input_cash" type="text" size="10.5%"> <strong>원</strong>입니다.</p>
+                 	<p>▷ 베팅금액 : <input id="input_cash" type="text" size="10.5%"> <strong>원</strong></p>
                   <hr>
                   	<p>▷ 예상적중금 : 7,500 <strong>원</strong>입니다.</p>
                   <hr>

@@ -28,6 +28,15 @@
           <div class="icon icon-outlined icon-lg"><i class="fa fa-file-code-o"></i></div>
           <h1>B E S T O</h1>
           <p class="lead mb-0">너의 돈이 곧 나의 돈이다.</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          
+          
+          
         </div>
       </section>
       
