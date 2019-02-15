@@ -72,7 +72,8 @@
 	                          <td style = "text-align:center;">19.3회차</td>
 	                          <td><button type="button" class="btn btn-sm btn-success" style="display: block; margin: 0 auto;">대상경기+</button></td>
 	                          <td style = "text-align:center;">2019.02.12 09:20</td>
-	                          <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;">구매하기></button></td>
+	                          <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;"  
+	                          			  data-toggle="modal" data-target="#login-modal"> 구매하기> </button></td>
 	                        </tr>
 	                        <tr>
 	                          <td style = "text-align:center;">기록식</td>
@@ -84,6 +85,55 @@
 	                      </tbody>
 	                    </table>
                   </div>
+                  
+              
+              
+              
+                  
+ <!-- if 승부식이라면  -->
+       <!--<div id="#login-modal" tabindex="" role="dialog" aria-labelledby="game_vs" aria-hidden="true" class="modal fade">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 id="game_vs" class="modal-title">프로토 승부식</h4>
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            
+            <div class="modal-body">
+				
+            </div>
+            
+          </div>
+        </div>
+      </div>
+                  
+                  
+if 기록식이라면 
+      <div id="#login-modal" tabindex="" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" class="modal fade">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 id="login-modalLabel" class="modal-title">프로토 기록식</h4>
+              <button type="button" data-dismiss="modal_1" aria-label="Close" class="close"><span aria-hidden="true">X</span></button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                  <input id="email_modal" type="text" placeholder="ID" class="form-control">
+                </div>
+                
+                <p class="text-center"><button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> 로그인</button>
+                </p>
+              <p class="text-center text-muted">아직 회원이 아니세요?</p>
+              <p class="text-center text-muted"><a href="member_register.jsp"><strong>회원가입 하기</strong></a></p>
+            </div>
+            
+          </div>
+        </div>
+      </div>     
+-->       
+                  
+                  
                 </form>
             </div>
             <hr>

@@ -103,6 +103,7 @@
 	                      </tbody>
 	                    </table>
 	                    <br>
+                  <button type="button" class="btn btn-primary pull-right">글쓰기</button>
 <!-- 검색바 -->
               <div class="col-md-3 pull-right">
             <div class="panel-body">
@@ -163,7 +164,9 @@
 	                      </tbody>
 	                    </table>
 	                    <br>
+	                    <button type="button" class="btn btn-primary pull-right">글쓰기</button>
 <!-- 검색바 -->
+                  
               <div class="col-md-3 pull-right">
             <div class="panel-body">
                   <form role="search">
