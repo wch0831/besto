@@ -101,7 +101,7 @@
 	                      <thead>
 	                        <tr>
 	                          <th style = "text-align:center;">대상게임</th>
-	                          <th style = "text-align:center;">홈<font color="red">vs</font>원정</th>
+	                          <th style = "text-align:center;">홈 <span class="badge badge-danger">VS</span> 원정</th>
 	                          <th style = "text-align:center;">경기일시</th>
 	                          <th style = "text-align:center;">구매하기</th>
 	                          
