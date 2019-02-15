@@ -85,7 +85,7 @@
 	                      </tbody>
 	                    </table>
 	                    <br>
-                  <button type="button" class="btn btn-primary pull-right">글쓰기</button>
+                  <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_challenge_register.jsp'">글쓰기</button>
                   </div>
                 </form>
             </div>

@@ -57,10 +57,20 @@
                       <tbody>
                         <tr>
                           <td>1</td>
-                          <td>02-15(금)<br>
-                          15:50</td>
+                          <td>02-15(금)<br>15:50</td>
                           <td>--</td>
+                          <td><span class="badge badge-info">일반</span></td>
                           <td>--</td>
+                          <td><font color="red">승</font>1.34 <input type="checkbox"></td>
+                          <td>무 1.50 <input type="checkbox"></td>
+                          <td><font color="blue">패</font>2.55 <input type="checkbox"></td>
+                          <td>--</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>02-15(금)<br>15:50</td>
+                          <td>--</td>
+                          <td><span class="badge badge-info">일반</span></td>
                           <td>--</td>
                           <td><font color="red">승</font>1.34 <input type="checkbox"></td>
                           <td>무 1.50 <input type="checkbox"></td>

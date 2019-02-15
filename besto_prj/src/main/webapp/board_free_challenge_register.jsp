@@ -53,75 +53,132 @@
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               
               
+              <h3>◈ 도전분석 작성하기</h3>
+              <br>
+              
+              
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">
-                  <div class="table-responsive">
-                  <h4>◈ 도전분석</h4>
+                 <h4>◈ 투표용지영역</h4>
+                  <div class="col-md-13">
+                  <div class="box-simple box-white same-height">
+                    <div class="row">
+                          <div class="table-responsive col-md-30">
                     <table class="table">
-	                      <thead>
-	                        <tr>
-	                          <th style = "text-align:center;">글번호</th>
-	                          <th style = "text-align:center;">게임구분</th>
-	                          <th style = "text-align:center;">회차</th>
-	                          <th style = "text-align:center;">제목</th>
-	                          <th style = "text-align:center;">작성자</th>
-	                          <th style = "text-align:center;">등록일</th>
-	                          <th style = "text-align:center;">조회수</th>
-	                        </tr>
-	                      </thead>
-	                      <tbody>
-	                      <!-- pull-right -->
-	                      
-	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="#"><font color="black">다 날려먹었어요..</font></a></td>
-	                          <td style = "text-align:center;">이문경</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">30</td>
-	                        </tr>
-	                        
-	                      </tbody>
-	                    </table>
-	                    <br>
-                  <button type="button" class="btn btn-primary pull-right">글쓰기</button>
+                      <thead>
+                        <tr>
+                          <th bgcolor="#EEEEEE">번호</th>
+                          <th bgcolor="#EEEEEE">예상</th>
+                          <th bgcolor="#EEEEEE">배당률</th>
+                          <th bgcolor="#EEEEEE">번호</th>
+                          <th bgcolor="#EEEEEE">예상</th>
+                          <th bgcolor="#EEEEEE">배당률</th>
+                          <th bgcolor="#EEEEEE">번호</th>
+                          <th bgcolor="#EEEEEE">예상</th>
+                          <th bgcolor="#EEEEEE">배당률</th>
+                          <th bgcolor="#EEEEEE">번호</th>
+                          <th bgcolor="#EEEEEE">예상</th>
+                          <th bgcolor="#EEEEEE">배당률</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">--</td>
+                          <td>--</td>
+                          <td>--<input type="checkbox"></td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
+                      </div>
+                    
+                  </div>
+                </div>
+                  <br>
+                  
+                  
+                  
+                    <h4>◈ 투표용지영역</h4>
+                  <div class="col-md-13">
+                  <div class="box-simple box-white same-height">
+                    <p style = "text-align:left;">내용 입력란</p>
+                  </div>
+                </div>
+                  
+                  <br>
+                  <button type="button" class="btn btn-danger pull-right">취소</button>
+                  <button type="button" class="btn btn-primary pull-right">작성</button>
+                  
+                  
                 </form>
             </div>
-            <hr>
-            
-            <!-- 검색바 -->
-              <div class="col-md-3 pull-right">
-            <div class="panel-body">
-                  <form role="search">
-                    <div class="input-group">
-                      <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
-                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
-                    </div>
-                  </form>
-                </div>
-            </div>
             <br>
-<!-- 검색바 -->
             
-            
-<!-- 페이징하셈 -->
-              <div class="pages">
-                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                  <ul class="pagination">
-                    <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </nav>
-              </div>
-<!-- 페이징하셈 --> 
-              
             </div>
           </div>
         </div>
