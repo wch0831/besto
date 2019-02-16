@@ -54,7 +54,7 @@
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
                     <h4>◈ 회원탈퇴</h4>
-                  		<p class="text-muted lead"><font size="2" color="red">※ 비밀번호 확인이 이루어지면 즉시 탈퇴됩니다.</font></p>
+                  		<p class="text-muted lead"><font size="2" color="red">※ 비밀번호 확인이 이루어지면 즉시 탈퇴되며, 예치금은 소멸됩니다.</font></p>
                     <div class="table-responsive">
                     <h5>▶ 본인확인</h5>
                   
@@ -63,7 +63,7 @@
                     <h5>※ 비밀번호 확인</h5>
                     <input id="confirm_password" type="password" class="form-control">
                     <br>
-                    <button type="submit" class="btn btn-template-outlined" style="display: block; margin: 0 auto;">비밀번호 확인</button>
+                    <button type="submit" class="btn btn-template-outlined" style="display: block; margin: 0 auto;">탈퇴하기</button>
                     <br>
                     
                 </div>

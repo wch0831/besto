@@ -76,7 +76,7 @@
 	                          <td style = "text-align:center;">1</td>
 	                          <td style = "text-align:center;">승부식</td>
 	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="#"><font color="black">다 날려먹었어요..</font></a></td>
+	                          <td style = "text-align:center;"><a href="board_free_challenge_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
 	                          <td style = "text-align:center;">이문경</td>
 	                          <td style = "text-align:center;">2019.02.12</td>
 	                          <td style = "text-align:center;">30</td>

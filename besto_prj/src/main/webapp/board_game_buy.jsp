@@ -5,9 +5,31 @@
 <html>
 
 <head>  
+
+
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+
+<script>
+
+
+
+
+
+
+
+
+/* 새창띄우기 Script */
+function openWindow_match(){  
+    window.open("board_open_window_match.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
+}
+
+function openWindow_history(){  
+    window.open("board_open_window_history.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
+}
+</script>
+
 </head>
 
   <body>
@@ -70,74 +92,114 @@
 	                        <tr>
 	                          <td style = "text-align:center;">승부식</td>
 	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td><button type="button" class="btn btn-sm btn-success" style="display: block; margin: 0 auto;">대상경기+</button></td>
+	                          <td><button id="match_open" type="button" class="btn btn-sm btn-success" style="display: block; margin: 0 auto;">대상경기+</button></td>
 	                          <td style = "text-align:center;">2019.02.12 09:20</td>
-	                          <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;"  
-	                          			  data-toggle="modal" data-target="#login-modal"> 구매하기> </button></td>
+	                          <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_match();"> 구매하기> </button></td>
 	                        </tr>
 	                        <tr>
 	                          <td style = "text-align:center;">기록식</td>
 	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td><button type="button" class="btn btn-sm btn-success" style="display: block; margin: 0 auto;">대상경기+</button></td>
+	                          <td><button id="histroy_open" type="button" class="btn btn-sm btn-success" style="display: block; margin: 0 auto;">대상경기+</button></td>
 	                          <td style = "text-align:center;">2019.02.12 09:20</td>
-	                          <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;">구매하기></button></td>
+	                          <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_history();">구매하기></button></td>
 	                        </tr>
 	                      </tbody>
 	                    </table>
                   </div>
-                  
-              
-              
-              
-                  
- <!-- if 승부식이라면  -->
-       <!--<div id="#login-modal" tabindex="" role="dialog" aria-labelledby="game_vs" aria-hidden="true" class="modal fade">
-        <div role="document" class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 id="game_vs" class="modal-title">프로토 승부식</h4>
-              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-            </div>
-            
-            <div class="modal-body">
-				
-            </div>
-            
-          </div>
-        </div>
-      </div>
-                  
-                  
-if 기록식이라면 
-      <div id="#login-modal" tabindex="" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" class="modal fade">
-        <div role="document" class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 id="login-modalLabel" class="modal-title">프로토 기록식</h4>
-              <button type="button" data-dismiss="modal_1" aria-label="Close" class="close"><span aria-hidden="true">X</span></button>
-            </div>
-            
-            <div class="modal-body">
-                <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="ID" class="form-control">
-                </div>
-                
-                <p class="text-center"><button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> 로그인</button>
-                </p>
-              <p class="text-center text-muted">아직 회원이 아니세요?</p>
-              <p class="text-center text-muted"><a href="member_register.jsp"><strong>회원가입 하기</strong></a></p>
-            </div>
-            
-          </div>
-        </div>
-      </div>     
--->       
+
                   
                   
                 </form>
+                
+                <div class="table-responsive col-md-12">
+                <hr>
+                <p>↓ ↓ ↓ ↓ ↓ 대상경기 버튼이 눌러졌을때 보여줘야할 테이블 ↓ ↓ ↓ ↓ ↓ 화이팅^^</p>
+<!-- c:if 기록식게임버튼클릭 -> 아래의 테이블 보이기 -->
+                    <table id="game_history_view" class="table" >
+	                      <thead bgcolor="#EEEEEE">
+	                        <tr>
+	                          <th style = "text-align:center;">게임</th>
+	                          <th style = "text-align:center;">경기일</th>
+	                          <th style = "text-align:center;">경기시간</th>
+	                          <th style = "text-align:center;">게임주제</th>
+	                          <th style = "text-align:center;">경기장소</th>
+	                        </tr>
+	                      </thead>
+	                      <tbody>
+	                        <tr>
+	                          <td style = "text-align:center;">A</td>
+	                          <td style = "text-align:center;">19.02.16</td>
+	                          <td style = "text-align:center;">19:00</td>
+	                          <td style = "text-align:center;">EPL 울버햄틴-뉴캐슬 점수</td>
+	                          <td style = "text-align:center;">몰리뉴스타디움</td>
+	                        </tr>
+	                        <tr>
+	                          <td style = "text-align:center;">B</td>
+	                          <td style = "text-align:center;">19.02.16</td>
+	                          <td style = "text-align:center;">19:00</td>
+	                          <td style = "text-align:center;">EPL 울버햄틴-뉴캐슬 점수</td>
+	                          <td style = "text-align:center;">몰리뉴스타디움</td>
+	                        </tr>
+	                        <tr>
+	                          <td style = "text-align:center;">C</td>
+	                          <td style = "text-align:center;">19.02.16</td>
+	                          <td style = "text-align:center;">19:00</td>
+	                          <td style = "text-align:center;">EPL 울버햄틴-뉴캐슬 점수</td>
+	                          <td style = "text-align:center;">몰리뉴스타디움</td>
+	                        </tr>
+	                      </tbody>
+	                    </table>
+	                    
+<!-- c:if 승부식게임버튼클릭 -> 아래의 테이블 보이기 -->
+	                    <table id="game_match_view" class="table" >
+	                      <thead bgcolor="#EEEEEE">
+	                        <tr>
+	                          <th style = "text-align:center;">경기</th>
+	                          <th style = "text-align:center;">경기일</th>
+	                          <th style = "text-align:center;">경기시간</th>
+	                          <th style = "text-align:center;">대회명</th>
+	                          <th style = "text-align:center;">유형</th>
+	                          <th style = "text-align:center;">홈팀 <span class="badge badge-danger">VS</span> 원정팀</th>
+	                          <th style = "text-align:center;">경기장소</th>
+	                        </tr>
+	                      </thead>
+	                      <tbody>
+	                        <tr>
+	                          <td style = "text-align:center;">1</td>
+	                          <td style = "text-align:center;">19.02.16</td>
+	                          <td style = "text-align:center;">19:00</td>
+	                          <td style = "text-align:center;">세리에A</td>
+	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
+	                          <td style = "text-align:center;">유벤투스 <span class="badge badge-danger">VS</span> 프로시노</td>
+	                          <td style = "text-align:center;">알리안츠스타디움</td>
+	                        </tr>
+	                        <tr>
+	                          <td style = "text-align:center;">1</td>
+	                          <td style = "text-align:center;">19.02.16</td>
+	                          <td style = "text-align:center;">19:00</td>
+	                          <td style = "text-align:center;">세리에A</td>
+	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
+	                          <td style = "text-align:center;">유벤투스 <span class="badge badge-danger">VS</span> 프로시노</td>
+	                          <td style = "text-align:center;">알리안츠스타디움</td>
+	                        </tr>
+	                        <tr>
+	                          <td style = "text-align:center;">1</td>
+	                          <td style = "text-align:center;">19.02.16</td>
+	                          <td style = "text-align:center;">19:00</td>
+	                          <td style = "text-align:center;">세리에A</td>
+	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
+	                          <td style = "text-align:center;">유벤투스 <span class="badge badge-danger">VS</span> 프로시노</td>
+	                          <td style = "text-align:center;">알리안츠스타디움</td>
+	                        </tr>
+	                      </tbody>
+	                    </table>
+	                    
+	                    
+	                    
+	                    
+                  </div>
             </div>
             <hr>
-              
             </div>
           </div>
         </div>

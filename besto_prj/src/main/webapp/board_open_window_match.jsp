@@ -24,19 +24,14 @@
               <div class="heading">
                 <h2>구매투표용지</h2>
               </div>
-              <div id="basket" class="col-lg-12">
+              <div id="basket" class="col-lg-13">
                   <div class="table-responsive">
                   
 <!-- c:if 승부식이면 아래 테이블 띄우기-->
-                    <div class="row bar">
+                    <div class="row bar col-lg-12">
             <div class="col-lg-12">
                   <h4>▶ 프로토 승부식</h4>
             </div>
-            
-                   
-            
-            
-            
             <div id="basket" class="col-lg-8">
                   <!-- <!--  -->
                   <div class="table-responsive col-md-30">
@@ -88,7 +83,6 @@
                 <div class="box-header mt-0">
                   <h3>구입내역 확인</h3>
                 </div>
-                
                 <div class="table-responsive">
                   <table class="table">
                   <thead>
@@ -125,26 +119,8 @@
             </div>
           </div>
 <!-- 합계 -->           
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-<!-- c:if 기록식이면 아래 테이블 -->
-
-
-
-
-
-
                     <br>
                   </div>
-                  
-              
             </div>
             <hr>
             </div>

@@ -55,10 +55,12 @@
            <div class="row">
             <div class="col-lg-6">
               <div class="box">
+              <blockquote class="blockquote">
                 <h2 class="text-uppercase">아이디 찾기</h2>
                 <p>아이디는 가입 시 입력했던 이메일(e-mail)을 통해 확인하실 수 있습니다.</p>
+              </blockquote>
                 <p class="text-muted">※본인 인증 시 입력하신 정보는 베스토에서 직접수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
-                <hr>
+                <br>
                 <form action="customer-orders.html" method="get">
                   
                   <div class="form-group">
@@ -76,10 +78,10 @@
             
             <div class="col-lg-6">
               <div class="box">
+              <blockquote class="blockquote">
                 <h2 class="text-uppercase">비밀번호 찾기</h2>
                 <p>본인의 아이디와 이메일(e-mail)을 통해 임시비밀번호를 발급받으실 수 있습니다.</p>
-                <p class="text-muted">※본인 인증 시 입력하신 정보는 베스토에서 직접수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
-                <hr>
+              </blockquote>
                 <form action="customer-orders.html" method="get">
                   <div class="form-group">
                     <label for="id">아이디</label>
