@@ -13,6 +13,7 @@
                     <li class="dropdown-item"><a href="board_game_buy.jsp" class="nav-link">구매가능 게임</a></li>
                     <li class="dropdown-item"><a href="board_game_schedule.jsp" class="nav-link">게임 일정</a></li>
                     <li class="dropdown-item"><a href="board_game_hit_result.jsp" class="nav-link">적중 결과</a></li>
+                    <li class="dropdown-item"><a href="board_game_create.jsp" class="nav-link">관리자 게임 만들기</a></li>
                   </ul>
                 </li>
                 
