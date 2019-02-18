@@ -61,10 +61,10 @@
 	
 	
 	<!-- 유저 탈퇴 -->
-	<update id="memberDelete" parameterType="String">
+	<update id="memberDelete" parameterType="com.com.member.MemberVO">
 		update users
 		 	   set users_grant='0', users_del='y'
-		 	   where users_id=#{value} and users_del='n'
+		 	   where users_id=#{usersId} and users_pw=#{usersPw} and users_del='n'
 	</update>
 	
 	
@@ -85,6 +85,11 @@
 	     where user_email=#{userEmail} and user_id=#{userPw}
 	</update>
 
+	<select id="findId" parameterType="String" resultType="String">
+ 		select users_id
+		from users
+		where users_email=#{usersEmail} and users_del='n'
+ 	</select>
 	
 	
 </mapper>	
