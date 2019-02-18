@@ -26,6 +26,7 @@ public class GameController {
 	public ModelAndView ctlAdminBoardSelect(GameVO vo) {
 		ModelAndView mav = new ModelAndView();	
 		
+		
 //		ArrayList<BoardVO> brlist = boardService.svcAdminBoardList();
 //		mav.addObject("KEY_BRLIST", brlist);
 //		mav.setViewName("board/admin_board_list");
