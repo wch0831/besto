@@ -63,7 +63,7 @@
 	                        <tr>
 	                          <th style = "text-align:center;">리그</th>
 	                          <th style = "text-align:center;">시간</th>
-	                          <th style = "text-align:center;">홈팀 <font color="red">vs</font> 원정팀</th>
+	                          <th style = "text-align:center;">홈팀 <span class="badge badge-danger">VS</span> 원정팀</th>
 	                          <th style = "text-align:center;">맞대결 전적</th>
 	                          <th style = "text-align:center;">중계일정</th>
 	                          <th style = "text-align:center;">구장정보</th>
@@ -74,7 +74,7 @@
 	                        <tr>
 	                          <td style = "text-align:center;">K리그 2부</td>
 	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">A팀 <font color="red">vs</font> B팀</td>
+	                          <td style = "text-align:center;">A팀 <span class="badge badge-danger">VS</span> B팀</td>
 	                          <td style = "text-align:center;">----</td>
 	                          <td style = "text-align:center;">----</td>
 	                          <td style = "text-align:center;">코스모 스타디움</td>
