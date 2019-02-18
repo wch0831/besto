@@ -88,7 +88,7 @@
                   
                   <h4>◈ 순위정보</h4>
                   <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">순위</th>
 	                          <th style = "text-align:center;">팀명</th>
