@@ -1,96 +1,97 @@
 package com.com.member;
 
 public class MemberVO {
-	private int users_seq;
-	private String users_id;
-	private String users_pw;
-	private String users_name;
-	private String users_email;
-	private String users_address;
-	private String users_detail_address;
-	private String users_phone;
-	private String users_birth;
-	private String users_bank;
-	private String users_account;
-	private String users_del;
-	private String users_grant;
+	private int usersSeq;
+	private String usersId;
+	private String usersPw;
+	private String usersName;
+	private String usersEmail;
+	private String usersAddress;
+	private String usersDetailAddress;
+	private String usersPhone;
+	private String usersBirth;
+	private String usersBank;
+	private String usersAccount;
+	private String usersDel;
+	private String usersGrant;
 	
-	public int getUsers_seq() {
-		return users_seq;
+	public int getUsersSeq() {
+		return usersSeq;
 	}
-	public void setUsers_seq(int users_seq) {
-		this.users_seq = users_seq;
+	public void setUsersSeq(int usersSeq) {
+		this.usersSeq = usersSeq;
 	}
-	public String getUsers_id() {
-		return users_id;
+	public String getUsersId() {
+		return usersId;
 	}
-	public void setUsers_id(String users_id) {
-		this.users_id = users_id;
+	public void setUsersId(String usersId) {
+		this.usersId = usersId;
 	}
-	public String getUsers_pw() {
-		return users_pw;
+	public String getUsersPw() {
+		return usersPw;
 	}
-	public void setUsers_pw(String users_pw) {
-		this.users_pw = users_pw;
+	public void setUsersPw(String usersPw) {
+		this.usersPw = usersPw;
 	}
-	public String getUsers_name() {
-		return users_name;
+	public String getUsersName() {
+		return usersName;
 	}
-	public void setUsers_name(String users_name) {
-		this.users_name = users_name;
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
 	}
-	public String getUsers_email() {
-		return users_email;
+	public String getUsersEmail() {
+		return usersEmail;
 	}
-	public void setUsers_email(String users_email) {
-		this.users_email = users_email;
+	public void setUsersEmail(String usersEmail) {
+		this.usersEmail = usersEmail;
 	}
-	public String getUsers_address() {
-		return users_address;
+	public String getUsersAddress() {
+		return usersAddress;
 	}
-	public void setUsers_address(String users_address) {
-		this.users_address = users_address;
+	public void setUsersAddress(String usersAddress) {
+		this.usersAddress = usersAddress;
 	}
-	public String getUsers_detail_address() {
-		return users_detail_address;
+	public String getUsersDetailAddress() {
+		return usersDetailAddress;
 	}
-	public void setUsers_detail_address(String users_detail_address) {
-		this.users_detail_address = users_detail_address;
+	public void setUsersDetailAddress(String usersDetailAddress) {
+		this.usersDetailAddress = usersDetailAddress;
 	}
-	public String getUsers_phone() {
-		return users_phone;
+	public String getUsersPhone() {
+		return usersPhone;
 	}
-	public void setUsers_phone(String users_phone) {
-		this.users_phone = users_phone;
+	public void setUsersPhone(String usersPhone) {
+		this.usersPhone = usersPhone;
 	}
-	public String getUsers_birth() {
-		return users_birth;
+	public String getUsersBirth() {
+		return usersBirth;
 	}
-	public void setUsers_birth(String users_birth) {
-		this.users_birth = users_birth;
+	public void setUsersBirth(String usersBirth) {
+		this.usersBirth = usersBirth;
 	}
-	public String getUsers_bank() {
-		return users_bank;
+	public String getUsersBank() {
+		return usersBank;
 	}
-	public void setUsers_bank(String users_bank) {
-		this.users_bank = users_bank;
+	public void setUsersBank(String usersBank) {
+		this.usersBank = usersBank;
 	}
-	public String getUsers_account() {
-		return users_account;
+	public String getUsersAccount() {
+		return usersAccount;
 	}
-	public void setUsers_account(String users_account) {
-		this.users_account = users_account;
+	public void setUsersAccount(String usersAccount) {
+		this.usersAccount = usersAccount;
 	}
-	public String getUsers_del() {
-		return users_del;
+	public String getUsersDel() {
+		return usersDel;
 	}
-	public void setUsers_del(String users_del) {
-		this.users_del = users_del;
+	public void setUsersDel(String usersDel) {
+		this.usersDel = usersDel;
 	}
-	public String getUsers_grant() {
-		return users_grant;
+	public String getUsersGrant() {
+		return usersGrant;
 	}
-	public void setUsers_grant(String users_grant) {
-		this.users_grant = users_grant;
+	public void setUsersGrant(String usersGrant) {
+		this.usersGrant = usersGrant;
 	}
+
 }
