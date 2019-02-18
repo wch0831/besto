@@ -96,7 +96,26 @@
 	                          <td style = "text-align:center;">30</td>
 	                          <td style = "text-align:center;"><font color="grey">발표전</font></td>
 	                        </tr>
-	                        
+	                        <tr>
+	                          <td style = "text-align:center;">1</td>
+	                          <td style = "text-align:center;">승부식</td>
+	                          <td style = "text-align:center;">19.3회차</td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
+	                          <td style = "text-align:center;">이문경</td>
+	                          <td style = "text-align:center;">2019.02.12</td>
+	                          <td style = "text-align:center;">30</td>
+	                          <td style = "text-align:center;"><i class="fa fa-times-circle"></i></td>
+	                        </tr>
+	                        <tr>
+	                          <td style = "text-align:center;">1</td>
+	                          <td style = "text-align:center;">승부식</td>
+	                          <td style = "text-align:center;">19.3회차</td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
+	                          <td style = "text-align:center;">이문경</td>
+	                          <td style = "text-align:center;">2019.02.12</td>
+	                          <td style = "text-align:center;">30</td>
+	                          <td style = "text-align:center;"><font color="red">발매중</font></td>
+	                        </tr>
 	                      </tbody>
 	                    </table>
 	                    <br>
@@ -152,7 +171,7 @@
 	                          <td style = "text-align:center;">1</td>
 	                          <td style = "text-align:center;">승부식</td>
 	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="#"><font color="black">다 날려먹었어요..</font></a></td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
 	                          <td style = "text-align:center;">이문경</td>
 	                          <td style = "text-align:center;">2019.02.12</td>
 	                          <td style = "text-align:center;">30</td>
