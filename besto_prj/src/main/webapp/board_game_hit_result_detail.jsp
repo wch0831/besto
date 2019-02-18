@@ -99,9 +99,9 @@
 	                          <td style = "text-align:center;">K-LEAGUE</td>
 	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
 	                          <td style = "text-align:center;">AT마드<span class="badge badge-danger">VS</span>비야레알</td>
-	                          <td><font color="red">승</font>1.34<input type="checkbox"></td>
-	                          <td>무1.34<input type="checkbox"></td>
-	                          <td><font color="blue">패</font>2.56<input type="checkbox"></td>
+	                          <td><font color="red">승</font>1.34</td>
+	                          <td>무1.34</td>
+	                          <td><font color="blue">패</font>2.56</td>
 	                          <td style = "text-align:center;">4:3</td>
 	                          <td style = "text-align:center;">승</td>
 	                        </tr>

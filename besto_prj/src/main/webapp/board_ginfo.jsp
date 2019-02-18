@@ -103,7 +103,7 @@
 	                          <th style = "text-align:center;"><font color="red">실점<br>평균</font></th>
 	                          <th style = "text-align:center;">득실차</th>
 	                          <th style = "text-align:center;">연속</th>
-	                          <th style = "text-align:center;">최근10경기</th>
+	                          <th style = "text-align:center;">최근<br>10경기</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>

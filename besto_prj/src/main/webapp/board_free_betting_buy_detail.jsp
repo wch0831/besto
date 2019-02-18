@@ -25,7 +25,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">도전분석방 > 상세보기</h1>
+              <h1 class="h2">베팅토론방 > 구매내역토론방 > 상세보기</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
@@ -57,7 +57,7 @@
                   <br>
                   <h5>구매내역토론방 11111</h5><hr>
                   <font size="2"><strong>작성자</strong> : 송은규(sek2***) </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                  						    <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
+                                        <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
                   <div class="col-md-13">
                   <div class="box-simple box-white same-height">
                     <div class="row">
@@ -259,10 +259,10 @@
                 <hr>
                 <br>  
                   <h4>◈ 나의 의견</h4>
-                    	<br>
+                       <br>
                   <div class="col-sm-10">
                     <div class="form-group">
-                    	글쓰기에서 입력한 내용 가져오기
+                       글쓰기에서 입력한 내용 가져오기
                     </div>
                     <br>
                     </div>
@@ -285,33 +285,33 @@
 <!-- 댓글  영역-->                 
                 <h4><i class="fa fa-quote-left"></i> 댓글(3)</h4>
                 <br>
-             	
+                
              <div class="col-sm-12">
-             	
-             	
+                
+                
    <!-- 댓글 루프돌릴 div영역 -->
-             	<div class="col-sm-12">
-             	<i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
-             		<a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
-             		<a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
-             	<hr>
-             	</div>
+                <div class="col-sm-12">
+                <i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
+                   <a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
+                   <a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
+                <hr>
+                </div>
    <!-- 댓글 루프돌릴 div영역 -->
-             	<div class="col-sm-12">
-             	<i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
-             		<a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
-             		<a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
-             	<hr>
-             	</div>
+                <div class="col-sm-12">
+                <i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
+                   <a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
+                   <a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
+                <hr>
+                </div>
    <!-- 댓글 루프돌릴 div영역 -->
-             	<div class="col-sm-12">
-             	<i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
-             		<a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
-             		<a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
-             	<hr>
-             	</div>
+                <div class="col-sm-12">
+                <i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
+                   <a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
+                   <a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
+                <hr>
+                </div>
    <!-- 댓글 루프돌릴 div영역 -->
-             	
+                
            <br>
            <!-- 댓글입력폼-->
                  <div class="row">

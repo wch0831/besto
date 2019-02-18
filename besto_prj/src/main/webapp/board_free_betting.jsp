@@ -104,7 +104,7 @@
 	                          <td style = "text-align:center;">이문경</td>
 	                          <td style = "text-align:center;">2019.02.12</td>
 	                          <td style = "text-align:center;">30</td>
-	                          <td style = "text-align:center;"><i class="fa fa-times-circle"></i></td>
+	                          <td style = "text-align:center;">적중</td>
 	                        </tr>
 	                        <tr>
 	                          <td style = "text-align:center;">1</td>
@@ -119,7 +119,7 @@
 	                      </tbody>
 	                    </table>
 	                    <br>
-                  <button type="button" class="btn btn-primary pull-right" onclick="location.href=''">글쓰기</button>
+                  <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_betting_buy_register.jsp'">글쓰기</button>
 <!-- 검색바 -->
               <div class="col-md-3 pull-right">
             <div class="panel-body">
@@ -180,7 +180,7 @@
 	                      </tbody>
 	                    </table>
 	                    <br>
-	                    <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_betting_hit_detail.jsp'">글쓰기</button>
+	                    <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_hit_register.jsp'">글쓰기</button>
 <!-- 검색바 -->
                   
               <div class="col-md-3 pull-right">
