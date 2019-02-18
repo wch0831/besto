@@ -63,7 +63,7 @@
                 <div id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" class="tab-pane fade show active">
 					<div class="table-responsive">
 	                    <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">글번호</th>
 	                          <th style = "text-align:center;">게임구분</th>
@@ -76,8 +76,6 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-	                      <!-- pull-right -->
-	                      
 	                        <tr>
 	                          <td style = "text-align:center;">1</td>
 	                          <td style = "text-align:center;">승부식</td>
@@ -88,7 +86,6 @@
 	                          <td style = "text-align:center;">30</td>
 	                          <td style = "text-align:center;"><font color="red">발매중</font></td>
 	                        </tr>
-	                        
 	                        <tr>
 	                          <td style = "text-align:center;">1</td>
 	                          <td style = "text-align:center;">승부식</td>
@@ -138,7 +135,7 @@
                 <div id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" class="tab-pane fade">
                 <div class="table-responsive">
 	                    <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">글번호</th>
 	                          <th style = "text-align:center;">게임구분</th>

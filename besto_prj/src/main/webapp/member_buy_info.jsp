@@ -59,7 +59,7 @@
                     <h5>◈ 기본구매현황</h5>
                     <h6></h6>
                   <table class="table">
-                    <thead>
+                    <thead bgcolor="#EEEEEE">
                       <tr>
                         <th>구매금액</th>
                         <th>적중금액</th>

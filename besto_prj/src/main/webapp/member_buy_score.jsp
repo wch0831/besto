@@ -60,7 +60,7 @@
                   
     
                     <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">/</th>
 	                          <th style = "text-align:center;">게임종류</th>
