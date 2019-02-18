@@ -59,7 +59,7 @@
                   <h4>◈ 경기일정</h4>
                   <br>
                     <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">날짜</th>
 	                          <th style = "text-align:center;">시간</th>

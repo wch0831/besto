@@ -96,7 +96,7 @@
                   
                   <h4>◈ 구매가능게임</h4>
                   <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">대상게임</th>
 	                          <th style = "text-align:center;">홈 <span class="badge badge-danger">VS</span> 원정</th>
@@ -120,7 +120,7 @@
 	              
 	              <h4>◈ 맞대결 흐름</h4>
 	              <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">팀명</th>
 	                          <th style = "text-align:center;">전적</th>
@@ -142,7 +142,7 @@
 	              
 	              <h4>◈ 맞대결 상대전적</h4>
 	              <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">팀A</th>
 	                          <th style = "text-align:center;"><span class="badge badge-danger">VS</span></th>

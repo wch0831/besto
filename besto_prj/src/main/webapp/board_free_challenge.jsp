@@ -58,7 +58,7 @@
                   <div class="table-responsive">
                   <h4>◈ 도전분석</h4>
                     <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">글번호</th>
 	                          <th style = "text-align:center;">게임구분</th>

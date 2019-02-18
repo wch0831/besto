@@ -3,20 +3,10 @@
 
 <div class="panel panel-default sidebar-menu">
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <div class="panel-heading">
-                  <h3 class="h4 panel-title">게시판</h3>
-                </div>
+               <div class="panel-heading">
+                  <h3 class="h4 panel-title">공지사항</h3>
+               </div>
+               
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
                     <li class="nav-item"><a href="board_protice.jsp" class="nav-link"><span><font color="black">공지사항</font></span></a></li>
@@ -25,6 +15,4 @@
                     <li class="nav-item"><a href="board_protice_find.jsp" class="nav-link"><span><font color="black">ID/PW 찾기</font></span></a></li>
                   </ul>
                 </div>
-                
-                
               </div>
