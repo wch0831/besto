@@ -58,21 +58,21 @@
                   <h4>◈ 적중 결과<button type="button" class="btn btn-sm btn-info pull-right">구매/적중 내역</button></h4>
                   
                     <table class="table">
-	                      <thead bgcolor="#EEEEEE">
-	                        <tr>
-	                          <th style = "text-align:center;">게임명</th>
-	                          <th style = "text-align:center;">발표일</th>
-	                          <th style = "text-align:center;">적중결과</th>
-	                        </tr>
-	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;"><a href="board_game_hit_result_detail.jsp"><font color="green">프로토 승부식 14회차</font></a></td>
-	                          <td style = "text-align:center;">19.02.15</td>
-	                          <td style = "text-align:center;">-</td>
-	                        </tr>
-	                      </tbody>
-	                    </table>
+                         <thead bgcolor="#EEEEEE">
+                           <tr>
+                             <th style = "text-align:center;">게임명</th>
+                             <th style = "text-align:center;">발표일</th>
+                             <th style = "text-align:center;">적중결과</th>
+                           </tr>
+                         </thead>
+                         <tbody>
+                           <tr>
+                             <td style = "text-align:center;"><a href="board_game_hit_result_detail.jsp"><font color="green">프로토 승부식 14회차</font></a></td>
+                             <td style = "text-align:center;">19.02.15</td>
+                             <td style = "text-align:center;">-</td>
+                           </tr>
+                         </tbody>
+                       </table>
                   </div>
                 </form>
             </div>
