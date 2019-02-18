@@ -14,7 +14,6 @@ public class LeagueVO {
 	private int lossavg;	  
 	private int goaldifference; 
 	private String recent10games;
-	int wonchi;
 
 	
 	public int getRank() {
