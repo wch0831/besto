@@ -35,8 +35,8 @@
                 <li class="nav-item dropdown active"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">마이페이지<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item"><a href="member_info.jsp" class="nav-link">개인정보</a></li>
-                    <li class="dropdown-item"><a href="member_buy_info.jsp" class="nav-link">구매/적중내역</a></li>
-                    <li class="dropdown-item"><a href="member_buy_score.jsp" class="nav-link">구매현황분석</a></li>
+                    <li class="dropdown-item"><a href="member_buy_score.jsp" class="nav-link">구매/적중내역</a></li>
+                    <li class="dropdown-item"><a href="member_buy_info.jsp" class="nav-link">구매현황분석</a></li>
                     <li class="dropdown-item"><a href="member_cart.jsp" class="nav-link">쇼핑카트</a></li>
                     <li class="dropdown-item"><a href="member_cash_detail.jsp" class="nav-link">예치금</a></li>
                     <li class="dropdown-item"><a href="member_drop.jsp" class="nav-link">회원탈퇴</a></li>
