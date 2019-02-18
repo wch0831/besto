@@ -137,13 +137,15 @@
 	                        </tr>
 	                      </tbody>
 	                    </table>
+	                    <hr>
+	              		<br>
 	              
 	              <h4>◈ 맞대결 상대전적</h4>
 	              <table class="table">
 	                      <thead>
 	                        <tr>
 	                          <th style = "text-align:center;">팀A</th>
-	                          <th style = "text-align:center;">VS</th>
+	                          <th style = "text-align:center;"><span class="badge badge-danger">VS</span></th>
 	                          <th style = "text-align:center;">팀B</th>
 	                        </tr>
 	                        <thead>
@@ -159,23 +161,6 @@
 	            </div>  
             </div>
             <hr>
-            
-            
-<!-- 페이징하셈 -->
-              <div class="pages">
-                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                  <ul class="pagination">
-                    <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </nav>
-              </div>
-<!-- 페이징하셈 --> 
               
             </div>
           </div>

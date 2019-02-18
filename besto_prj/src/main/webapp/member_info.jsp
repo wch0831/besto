@@ -51,19 +51,18 @@
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
               <div id="basket" class="col-lg-12">
-                <form method="get" action="shop-checkout1.html">
+                <form method="get" action="member_update.jsp">
                   <div class="table-responsive">
                     <h4>◈ 개인정보</h4>
                   		<p class="text-muted lead"><font size="2">개인정보를 <strong>확인, 수정</strong>하기 위해서는 비밀번호를 입력해주세요.</font></p>
                     <div class="table-responsive">
                     <h5>▶ 본인확인</h5>
-                  
                   <div class="col-md-4 pull-center">
                   <br>
                     <h5>※ 비밀번호 확인</h5>
                     <input id="confirm_password" type="password" class="form-control">
                     <br>
-                    <button type="submit" class="btn btn-template-outlined" style="display: block; margin: 0 auto;">비밀번호 확인</button>
+                    <button type="submit" class="btn btn-template-outlined"  onclick="location.href='member_update.jsp'" style="display: block; margin: 0 auto;">비밀번호 확인</button>
                 </div>
                 </div>
                </div>
