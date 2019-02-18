@@ -70,8 +70,6 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-	                      <!-- pull-right -->
-	                      
 	                        <tr>
 	                          <td style = "text-align:center;">1</td>
 	                          <td style = "text-align:center;">승부식</td>

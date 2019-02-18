@@ -58,7 +58,7 @@
               		<thead>
               			<tr>
               				<th style = "text-align:center;"><i class="fa fa-chevron-left"></i></th>
-              				<th style = "text-align:center;">2019.02</th>
+              				<th style = "text-align:center;"><font size="3">2019.02</font></th>
               				<th style = "text-align:center;"><i class="fa fa-chevron-right"></i></th>
               			</tr>
               		</thead>
