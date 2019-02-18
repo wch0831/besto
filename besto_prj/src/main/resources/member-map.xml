@@ -15,7 +15,7 @@
 		<result property="regdate" 		column="regdate" />
 		<result property="userDel" 		column="user_del" />
 		<result property="ppath" 		column="ppath" />
-		<result property="pname" 		column="pname" />
+		<result property="pname" 		column="pname" />   
 		<result property="sysname" 		column="sysname" />
 		<result property="joinPath" 	column="join_path" />
 	</resultMap>
