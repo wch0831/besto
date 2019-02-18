@@ -61,8 +61,8 @@
               	 <p>▶ 승부선택</p>
               	 
 <!-- 승부선택 영역 -->
-              	 <div class="btn-group bootstrap-select bs-select">
-              	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
+              	<div class="btn-group bootstrap-select bs-select">
+              	<div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
               	</div>
               	<select class="bs-select" tabindex="-98">
                           <option value="match">프로토 승부식 19년 14회차</option>

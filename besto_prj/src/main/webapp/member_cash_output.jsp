@@ -67,7 +67,7 @@
                     </div>
                     <p> <font size="2">- 예치금은 출금신청 시간에 따라 당일 혹은 익일에 입금됩니다.</font></p>
                   <table class="table">
-                    <thead>
+                    <thead bgcolor="#EEEEEE">
                       <tr>
                         <th bgcolor="#EEEEEE">예치금 출금신청 시간</th>
                         <th bgcolor="#EEEEEE">입금시간</th>

@@ -79,7 +79,7 @@ function openWindow_history(){
                   <div class="table-responsive">
                   <h4>◈ 구매가능 게임</h4>
                     <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">게임구분</th>
 	                          <th style = "text-align:center;">회차</th>

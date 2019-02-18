@@ -59,7 +59,7 @@
                   <h4>◈ 오늘의 경기</h4>
                   <br>
                     <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">리그</th>
 	                          <th style = "text-align:center;">시간</th>
