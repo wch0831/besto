@@ -13,6 +13,10 @@
                     <li class="dropdown-item"><a href="board_game_buy.jsp" class="nav-link">구매가능 게임</a></li>
                     <li class="dropdown-item"><a href="board_game_schedule.jsp" class="nav-link">게임 일정</a></li>
                     <li class="dropdown-item"><a href="board_game_hit_result.jsp" class="nav-link">적중 결과</a></li>
+<<<<<<< HEAD
+=======
+                    <li class="dropdown-item"><a href="manager_game_create.jsp" class="nav-link">관리자 게임 만들기</a></li>
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
                   </ul>
                 </li>
                 
@@ -51,8 +55,20 @@
                     <li class="dropdown-item"><a href="board_protice_find.jsp" class="nav-link">아이디/비밀번호 찾기</a></li>
                   </ul>
                 </li>
-                <!-- ========== Contact dropdown end ==================-->
+                
+                <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                  	<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
+                  </ul>
+                </li>
+                
               </ul>
+              
+              
+              
+              
+              
+              
             </div>
             
             <div id="search" class="collapse clearfix">

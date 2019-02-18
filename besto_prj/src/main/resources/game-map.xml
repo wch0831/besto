@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <mapper namespace="userNameSpace"> -->
+<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
+
+<mapper namespace="com.com.mapper.GameMapper">
+	<resultMap id="matchMap" type="com.com.game.MatchVO">
+		<id 	property="matchSeq" 		column="match_seq" />
+		<result property="gameSeq" 		column="game_seq" />
+		<result property="matchStarttime" 		column="match_starttime" />
+		<result property="matchHometeam" 	column="match_hometeam" />
+		<result property="matchAwayteam" 	column="match_awayteam" />
+		<result property="matchVsrecord" 	column="match_vsrecord" />
+		<result property="matchStadium" 		column="match_stadium" />
+		<result property="matchStatus" 		column="match_status" />
+		<result property="usersSeq" 		column="users_seq" />		
+		
+	</resultMap>
+	
+	<resultMap id="gameMap" type="com.com.game.GameVO">
+		<id 	property="gameSeq" 		column="game_seq" />
+		<result property="gameGubun" 		column="game_gubun" />
+		<result property="gameFinishdate" 		column="game_finishdate" />
+		<result property="gameStatus" 	column="game_status" />
+		<result property="gameRoundseq" 	column="game_roundseq" />
+		<result property="gameRegdate" 	column="game_regdate" />
+		<result property="usersSeq" 		column="users_seq" />			
+	</resultMap>
+	
+	<resultMap id="recordRateMap" type="com.com.game.RecordRateVO">
+		<id 	property="matchSeq" 		column="match_seq" />
+		<result property="recoderate00" 		column="recoderate_00" />
+		<result property="recoderate10" 		column="recoderate_10" />
+		<result property="recoderate20" 	column="recoderate_20" />
+		<result property="recoderate11" 	column="recoderate_11" />
+		<result property="recoderate22" 	column="recoderate_22" />
+		<result property="recoderate01" 		column="recoderate_01" />
+		<result property="recoderate02" 		column="recoderate_02" />				
+	</resultMap>	
+	
+	<resultMap id="victoryRateMap" type="com.com.game.VictoryRateVO">
+		<id 	property="matchSeq" 		column="match_seq" />
+		<result property="victoryrateWin" 		column="victoryrate_win" />
+		<result property="victoryrateDraw" 		column="victoryrate_draw" />
+		<result property="victoryrateLose" 	column="victoryrate_lose" />			
+	</resultMap>		
+
+	
+ 	<sql id="commonSelect">user_name, user_gubun</sql>
+ 	
+ 	
+ 	
+ 	<!-- 멤버 로그인 -->
+ 	<select id="availableGame" parameterType="com.com.game.GameVO" resultMap="gameMap">
+ 		select game_gubun,game_roundseq,game_finishdate
+ 		from game
+ 		where game_status='p'
+ 	</select>
+ 	
+ 	<select id="objectGame" parameterType="com.com.game.GameVO" resultMap="matchMap">
+ 		select game_gubun,game_roundseq,game_finishdate
+ 		from game
+ 		where game_status='p'
+ 	</select>
+	
+	
+	<insert id="logwrite">
+		insert into log values('loglogvisit')
+	</insert>
+	
+	
+	<!-- 멤버 회원가입 -->
+	<insert id="memberRegister" parameterType="com.biz.member.MemberVO">
+		insert into member(user_seq, user_id, user_name, user_pw, user_email, user_gubun, regdate, user_del, ppath, pname, sysname, join_path)
+		values(users_seq.nextval, #{userId}, #{userName}, #{userPw}, #{userEmail}, 'u', sysdate, 'n', #{ppath}, #{pname}, #{sysname}, #{joinPath})
+	</insert>
+	
+	
+	
+	<!-- 멤버 리스트(유저만) -->
+	<select id="memberList" parameterType="com.biz.member.MemberVO" resultMap="memberMap">
+ 		select * 
+ 		from member
+ 	  <where>
+ 		<if test="searchGubun != null"> 
+ 			${searchGubun}=#{searchStr}
+ 		</if>
+ 	  </where>
+ 		order by user_seq
+ 	</select>
+	
+	
+	
+	<!-- 멤버 디테일 -->
+	<select id="memberDetail" parameterType="String" resultMap="memberMap">
+ 		select user_id, user_name, user_email, user_gubun, ppath, pname, sysname
+		from member
+		where user_id=#{value} and USER_DEL='n'
+ 	</select>
+	
+	
+	
+	<!-- 유저 탈퇴 -->
+	<update id="memberDelete" parameterType="String">
+		update member
+		 	   set user_gubun='0', user_del='y'
+		 	   where user_id=#{value} and USER_DEL='n'
+	</update>
+	
+	
+	
+	<!-- 유저 정보 수정 -->	
+	<update id="memberUpdate" parameterType="com.biz.member.MemberVO">
+		update member
+		       set user_name=#{userName}, user_pw=#{userPw}, user_email=#{userEmail}, ppath=#{ppath}, pname=#{pname}, sysname=#{sysname}
+			   where user_id=#{userId} and USER_DEL='n'
+	</update>
+	
+
+	<update id="changePassword" parameterType="com.biz.member.MemberVO">
+		update member
+		   set user_pw=#{userPw}
+	     where user_email=#{userEmail} and user_id=#{userPw}
+	</update>
+
+	
+	
+</mapper>	
+
