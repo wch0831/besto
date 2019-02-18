@@ -25,7 +25,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">자유게시판</h1>
+              <h1 class="h2">예치금 > 내역보기</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
@@ -37,74 +37,69 @@
         </div>
       </div>
       
-      
-      
       <div id="content">
         <div class="container">
           <div class="row bar">
             <div class="col-md-2">
 
 <!-- Sidebar_Main Include CSS START-->
-<%@ include file="/include/sidebar_board_main.jsp" %>
+<%@ include file="/include/sidebar_member.jsp" %>
 <!-- Sidebar_Main Include CSS END-->
               
             </div>
             
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
-              <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
-              
-              
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
-                  <h4>◈ 자유게시판</h4>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th style = "text-align:center;">글번호</th>
-                          <th style = "text-align:center;">제목</th>
-                          <th style = "text-align:center;">작성자</th>
-                          <th style = "text-align:center;">등록일</th>
-                          <th style = "text-align:center;">조회수</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td style = "text-align:center;">1</td>
-                          <td style = "text-align:center;"><a href="board_free_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-                          <td style = "text-align:center;">이문경</td>
-                          <td style = "text-align:center;">2019.02.12</td>
-                          <td style = "text-align:center;">30</td>
-                        </tr>
-                        
-                        
-                      </tbody>
-                    </table>
-                    <br>
-                  <button type="button" class="btn btn-primary pull-right">글쓰기</button>
-                  </div>
-                  
-                </form>
-              
-            </div>
-            <hr>
-            
-<!-- 검색바 -->
-              <div class="col-md-3 pull-right">
-            <div class="panel-body">
-                  <form role="search">
-                    <div class="input-group">
-                      <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
-                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
+                    <h4>◈ 예치금 > 내역보기</h4>
+                  		<p class="text-muted lead"><font size="2">상세내용을 보시려면 <strong>게임종류, 구매일시, 상태</strong>를 클릭해 주세요.</font></p>
+                    <div class="table-responsive">
+                    <div role="alert" class="alert alert-success">※ 현재 예치금 잔액 : <strong>30,000 원		 &emsp;&emsp;&emsp;&nbsp;&nbsp;</strong>
+                    <button type="button" class="btn btn-link">충전하기</button>
+                    <button type="button" class="btn btn-link">출금하기</button>
                     </div>
-                  </form>
+                    
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>구분</th>
+                        <th>거래일자</th>
+                        <th>시간</th>
+                        <th>내역</th>
+                        <th>입금</th>
+                        <th>출금</th>
+                        <th>비고</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><font color="pink"><strong>구매</strong></font></td>
+                        <td>19.02.12</td>
+                        <td>18:30</td>
+                        <td>게임 구매</td>
+                        <td>5,000 <strong>원</strong></td>
+                        <td>0 <strong>원</strong></td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td><font color="skyblue"><strong>충전</strong></font></td>
+                        <td>19.02.12</td>
+                        <td>18:30</td>
+                        <td>무통장 입금</td>
+                        <td>0 <strong>원</strong></td>
+                        <td>5,000 <strong>원</strong></td>
+                        <td>-</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+                <hr>
+               </div>
+                </form>
             </div>
             <br>
-<!-- 검색바 -->
-
-
 <!-- 페이징하셈 -->
               <div class="pages">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">

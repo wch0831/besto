@@ -42,11 +42,9 @@
           <div class="row bar">
           
             <div class="col-md-2">
-            
 <!-- Sidebar_Main Include CSS START-->
 <%@ include file="/include/sidebar_board_main.jsp" %>
 <!-- Sidebar_Main Include CSS END-->
-
             </div>
             
 <!-- 게시판 메인부분 -->
@@ -56,15 +54,13 @@
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
                   <h4>◈ 맞대결 전적</h4>
-                  <br>
             	  </div>
-            	  
                     <table class="table">
 	                      <thead>
 	                        <tr>
-	                          <th style = "text-align:center;"><div><img></div><a href="#">강원FC</a><br>[8위]</th>
+	                          <th style = "text-align:center;"><div><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div><a href="#">강원FC</a><br>[8위]</th>
 	                          <th style = "text-align:center;">팀명<br>[리그순위]</th>
-	                          <th style = "text-align:center;"><div><img></div><a href="#">서울FC</a><br>[7위]</th>
+	                          <th style = "text-align:center;"><div><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div><a href="#">서울FC</a><br>[7위]</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
@@ -103,7 +99,7 @@
 	                      <thead>
 	                        <tr>
 	                          <th style = "text-align:center;">대상게임</th>
-	                          <th style = "text-align:center;">홈<font color="red">vs</font>원정</th>
+	                          <th style = "text-align:center;">홈 <span class="badge badge-danger">VS</span> 원정</th>
 	                          <th style = "text-align:center;">경기일시</th>
 	                          <th style = "text-align:center;">구매하기</th>
 	                          
@@ -141,13 +137,15 @@
 	                        </tr>
 	                      </tbody>
 	                    </table>
+	                    <hr>
+	              		<br>
 	              
 	              <h4>◈ 맞대결 상대전적</h4>
 	              <table class="table">
 	                      <thead>
 	                        <tr>
 	                          <th style = "text-align:center;">팀A</th>
-	                          <th style = "text-align:center;">VS</th>
+	                          <th style = "text-align:center;"><span class="badge badge-danger">VS</span></th>
 	                          <th style = "text-align:center;">팀B</th>
 	                        </tr>
 	                        <thead>
@@ -163,23 +161,6 @@
 	            </div>  
             </div>
             <hr>
-            
-            
-<!-- 페이징하셈 -->
-              <div class="pages">
-                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                  <ul class="pagination">
-                    <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </nav>
-              </div>
-<!-- 페이징하셈 --> 
               
             </div>
           </div>

@@ -61,9 +61,7 @@
               
               <div id="pills-tabContent" class="tab-content">
                 <div id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" class="tab-pane fade show active">
-
 					<div class="table-responsive">
-					
 	                    <table class="table">
 	                      <thead>
 	                        <tr>
@@ -104,8 +102,39 @@
 	                        
 	                      </tbody>
 	                    </table>
+	                    <br>
+                  <button type="button" class="btn btn-primary pull-right">글쓰기</button>
+<!-- 검색바 -->
+              <div class="col-md-3 pull-right">
+            <div class="panel-body">
+                  <form role="search">
+                    <div class="input-group">
+                      <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
+                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
+                    </div>
+                  </form>
+                </div>
+            </div>
+            <br>
+<!-- 검색바 -->
+<!-- 페이징 -->
+					<nav aria-label="Page navigation example">
+                      <ul class="pagination pagination-sm">
+                        <li class="page-item"><a href="#" class="page-link">«</a></li>
+                        <li class="page-item"><a href="#" class="page-link">1</a></li>
+                        <li class="page-item"><a href="#" class="page-link">2</a></li>
+                        <li class="page-item"><a href="#" class="page-link">3</a></li>
+                        <li class="page-item"><a href="#" class="page-link">4</a></li>
+                        <li class="page-item"><a href="#" class="page-link">5</a></li>
+                        <li class="page-item"><a href="#" class="page-link">»</a></li>
+                      </ul>
+                    </nav>
+<!-- 페이징 -->
 	                   </div>
                   </div>
+                
+                
+<!-- 두번째 탭 영역  -->
                 <div id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" class="tab-pane fade">
                 <div class="table-responsive">
 	                    <table class="table">
@@ -132,17 +161,12 @@
 	                          <td style = "text-align:center;">30</td>
 	                          <td style = "text-align:center;">4.5</td>
 	                        </tr>
-	                        
 	                      </tbody>
 	                    </table>
-	                   </div>
-                
-                </div>
-              </div>
-            </div>
-              <br>
-              
+	                    <br>
+	                    <button type="button" class="btn btn-primary pull-right">글쓰기</button>
 <!-- 검색바 -->
+                  
               <div class="col-md-3 pull-right">
             <div class="panel-body">
                   <form role="search">
@@ -155,25 +179,26 @@
             </div>
             <br>
 <!-- 검색바 -->
-              
-              
-            
-<!-- 페이징하셈 -->
-              <div class="pages">
-                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                  <ul class="pagination">
-                    <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </nav>
+<!-- 페이징 -->
+					<nav aria-label="Page navigation example">
+                      <ul class="pagination pagination-sm">
+                        <li class="page-item"><a href="#" class="page-link">«</a></li>
+                        <li class="page-item"><a href="#" class="page-link">1</a></li>
+                        <li class="page-item"><a href="#" class="page-link">2</a></li>
+                        <li class="page-item"><a href="#" class="page-link">3</a></li>
+                        <li class="page-item"><a href="#" class="page-link">4</a></li>
+                        <li class="page-item"><a href="#" class="page-link">5</a></li>
+                        <li class="page-item"><a href="#" class="page-link">»</a></li>
+                      </ul>
+                    </nav>
+<!-- 페이징 -->
+
+	              </div>
+                </div>
+<!-- 두번째 탭 영역  -->
               </div>
-<!-- 페이징하셈 --> 
-              
+            </div>
+              <br>
             </div>
           </div>
         </div>

@@ -25,7 +25,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">자유게시판</h1>
+              <h1 class="h2">쇼핑카트</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
@@ -37,74 +37,67 @@
         </div>
       </div>
       
-      
-      
       <div id="content">
         <div class="container">
           <div class="row bar">
             <div class="col-md-2">
 
 <!-- Sidebar_Main Include CSS START-->
-<%@ include file="/include/sidebar_board_main.jsp" %>
+<%@ include file="/include/sidebar_member.jsp" %>
 <!-- Sidebar_Main Include CSS END-->
               
             </div>
             
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
-              <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
-              
-              
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
-                  <h4>◈ 자유게시판</h4>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th style = "text-align:center;">글번호</th>
-                          <th style = "text-align:center;">제목</th>
-                          <th style = "text-align:center;">작성자</th>
-                          <th style = "text-align:center;">등록일</th>
-                          <th style = "text-align:center;">조회수</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td style = "text-align:center;">1</td>
-                          <td style = "text-align:center;"><a href="board_free_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-                          <td style = "text-align:center;">이문경</td>
-                          <td style = "text-align:center;">2019.02.12</td>
-                          <td style = "text-align:center;">30</td>
-                        </tr>
-                        
-                        
-                      </tbody>
-                    </table>
-                    <br>
-                  <button type="button" class="btn btn-primary pull-right">글쓰기</button>
-                  </div>
-                  
-                </form>
-              
-            </div>
-            <hr>
-            
-<!-- 검색바 -->
-              <div class="col-md-3 pull-right">
-            <div class="panel-body">
-                  <form role="search">
-                    <div class="input-group">
-                      <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
-                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
-                    </div>
-                  </form>
+                    <h4>◈ 쇼핑카트</h4>
+                  		<p class="text-muted lead"><font size="2">상세내용을 보시려면 <strong>게임종류, 구매일시, 상태</strong>를 클릭해 주세요.</font></p>
+                    <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>/</th>
+                        <th>게임종류</th>
+                        <th>발매회차</th>
+                        <th>보관일시</th>
+                        <th>구매금액</th>
+                        <th>상태</th>
+                        <th>수정/삭제</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>승부식</td>
+                        <td>19.2회차</td>
+                        <td>19.02.12 18:30</td>
+                        <td>95,000 <strong>원</strong></td>
+                        <td>대기중</td>
+                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>승부식</td>
+                        <td>19.2회차</td>
+                        <td>19.02.12 18:30</td>
+                        <td>95,000 <strong>원</strong></td>
+                        <td>대기중</td>
+                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+                <hr>
+               </div>
+                <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-trash-o"></i>카트 비우기</button>
+                  <button type="button" class="btn btn-outline-primary" style="display:block; margin:0 auto;">결제하기</button>
+                </form>
             </div>
             <br>
-<!-- 검색바 -->
-
-
+            
 <!-- 페이징하셈 -->
               <div class="pages">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
