@@ -25,7 +25,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">베팅토론방 > 적중내역토론방 > 상세보기</h1>
+              <h1 class="h2">도전분석방 > 상세보기</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
@@ -53,16 +53,32 @@
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
-                  <h4>◈ 베팅토론방<font size="3"> - 적중내역토론방</font> </h4>
+                  <h4>◈ 베팅토론방<font size="3"> - 구매내역토론방 작성하기</font> </h4>
                   <br>
-                  <h5>적중내역토론방 11111</h5><hr>
-                  <font size="2"><strong>작성자</strong> : 송은규(sek2***) </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                  						    <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
                   <div class="col-md-13">
                   <div class="box-simple box-white same-height">
                     <div class="row">
-                          <div class="table-responsive col-md-30">
+                       <div class="table-responsive col-md-12">
                           
+                <div class="btn-group bootstrap-select bs-select">
+              	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
+              		</div>
+              	   		<h4>◈ 나의 구매내역</h4>
+						<select class="bs-select" tabindex="-98">
+                          <option value="match">구매내역이 없습니다</option>
+                          <option value="match">8회차 [2월 24일 일요일 마감]</option>
+                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
+                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
+                        </select>
+                 </div>
+                          
+                  <div class="table-responsive col-md-12">
+                  <p>현재 발매 중인 게임을 구매한 내역이 없습니다.<br>게임 구매 후 작성해주세요.</p>
+                  <button type="button" class="btn btn-info">게임가능 게임 보러가기</button>
+                  </div>        
+                 
+                         <br>
+                       <br> 
             <!-- 승부 선택에서  기록식이라면 아래의 테이블을-->
                     <table class="table">
                     <h4>프로토 기록식 (19년 15회차)  <font size="2">- 구매일시 : 19.02.18 17:00</font></h4>
@@ -258,76 +274,19 @@
                 <br>
                 <hr>
                 <br>  
-                  <h4>◈ 적중 후기</h4>
+                  <h4>◈ 나의 분석</h4>
                     	<br>
                   <div class="col-sm-10">
                     <div class="form-group">
-                    	글쓰기에서 입력한 내용 가져오기
+                    <input id="firstname" class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;"><br>
+                    <textarea id="message" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
                     </div>
-                    <br>
                     </div>
-                  <hr>
-                
-                
-                <div class="col-md-12 pull-right">
-                <br>
-<!-- 세션비교 후 작성자만 보이게 설정하기 -->
-                  <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 삭제</i></button>
-                  <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 수정</i></button>
-<!-- 세션비교 후 작성자만 보이게 설정하기 -->
-                  <br><br>
-                  </div>
-                  <br><br><br>
-                  <div class="col-lg-12">
-                  <div role="alert" class="alert alert-info">※ 분석정보는 베팅시 <font color="red"><b>참고용</b></font>으로 사용해 주시기 바랍니다.</div>
-                  <br>
-                  </div>
-<!-- 댓글  영역-->                 
-                <h4><i class="fa fa-quote-left"></i> 댓글(3)</h4>
-                <br>
-             	
-             <div class="col-sm-12">
-             	
-             	
-   <!-- 댓글 루프돌릴 div영역 -->
-             	<div class="col-sm-12">
-             	<i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
-             		<a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
-             		<a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
-             	<hr>
-             	</div>
-   <!-- 댓글 루프돌릴 div영역 -->
-             	<div class="col-sm-12">
-             	<i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
-             		<a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
-             		<a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
-             	<hr>
-             	</div>
-   <!-- 댓글 루프돌릴 div영역 -->
-             	<div class="col-sm-12">
-             	<i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
-             		<a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
-             		<a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
-             	<hr>
-             	</div>
-   <!-- 댓글 루프돌릴 div영역 -->
-             	
-           <br>
-           <!-- 댓글입력폼-->
-                 <div class="row">
-                    <div class="col-md-8">
-                    <textarea id="message" class="form-control" placeholder="댓글을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 48px; width: 775px;"> </textarea>
-                    </div>
-                    <div class="col-md-4">
-                    <button type="button" class="btn btn-lg btn-primary pull-right"><font size="3">입력</font></button>
-                    </div>
-                    <br>
-                 </div>
-              </div>
-<!-- 댓글영역 -->
-
-
+                  <button type="button" class="btn btn-danger pull-right">취소</button>
+                  <button type="button" class="btn btn-primary pull-right">작성</button>
                 </form>
+                  </div>
+
             </div>
             </div>
           </div>

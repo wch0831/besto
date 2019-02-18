@@ -19,6 +19,7 @@
 		<result property="usersAccount" 		column="users_account" />
 		<result property="usersDel" 	column="users_del" />
 		<result property="usersGrant" 	column="users_grant" />			
+
 	</resultMap>
 	
  	<!-- <sql id="commonSelect">user_name, user_gubun</sql> --> 	
