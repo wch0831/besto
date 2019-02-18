@@ -1,5 +1,9 @@
 package com.com.mapper;
 
-public class GameMapper {
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface GameMapper {
+	public int GameInsert();
 
 }
