@@ -25,9 +25,42 @@
       <section style="background: url(img/backGG.jpg) center top no-repeat; background-size: cover;" class="bar no-mb color-white text-center bg-fixed relative-positioned">
         <div class="dark-mask"></div>
         <div class="container">
-          <div class="icon icon-outlined icon-lg"><i class="fa fa-file-code-o"></i></div>
+          <br><br><div class="icon icon-outlined icon-lg"><i class="fa fa-users"></i></div>
+          <br>
           <h1>B E S T O</h1>
-          <p class="lead mb-0">너의 돈이 곧 나의 돈이다.</p>
+          <br>
+          <font size="3"><b>최고의 기쁨과 즐거움을 선사해드립니다.</b></font>
+          <br><br><br><br>
+          
+          <div class="row showcase text-center">
+            <div class="col-md-3 col-sm-6">
+              <div class="item">
+                <div class="icon-outlined icon-sm icon-thin"><i class="fa fa-file-code-o"></i></div>
+                <h3><span class="h1 counter">45</span><br>총 경기</h3>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="item">
+                <div class="icon-outlined icon-sm icon-thin"><i class="fa fa-align-justify"></i></div>
+                <h3><span class="h1 counter">30</span><br>오늘 경기</h3>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="item">
+                <div class="icon-outlined icon-sm icon-thin"><i class="fa fa-copy"></i></div>
+                <h3><span class="h1 counter">74,605,300</span><br>최고 적중금액</h3>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="item">
+                <div class="icon-outlined icon-sm icon-thin"><i class="fa fa-font"></i></div>
+                <h3><span class="h1 counter">923</span><br>???</h3>
+              </div>
+            </div>
+          </div>
+          
+          
+          
         </div>
       </section>
       
