@@ -35,14 +35,17 @@
           </div>
         </div>
       </div>
+      
+      
+      
       <div id="content">
         <div class="container">
           <div class="row bar">
-            <div id="customer-account" class="col-lg-9 clearfix">
+            <div id="customer-account" class="col-lg-12 clearfix">
 
 			<blockquote class="blockquote">
 			<p><h3>이용약관</h3></p>
-                    <p><h4>여러분을 환영합니다.</h4>베토디 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 베토디 서비스의 이용과 관련하여 베토디 서비스를 제공하는 베토디 주식회사(이하 ‘베토디’)와 이를 이용하는 베토디 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 베토디 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.</p>
+                    <p><h4>여러분을 환영합니다.</h4>베스토(BESTO) 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 베스토(BESTO) 서비스의 이용과 관련하여 베스토(BESTO) 서비스를 제공하는 베스토(BESTO) 주식회사(이하 ‘베토디’)와 이를 이용하는 베스토(BESTO) 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 베스토(BESTO) 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.</p>
             </blockquote>
               <div class="checkbox">
                 <label>
@@ -62,6 +65,7 @@
                         <label for="firstname">아이디<font size="2" color="green">(필수)</font></label>
                         <input id="firstname" type="text" class="form-control"><button type="button" class="btn btn-template-main pull-right">중복확인</button>
                       </div>
+                    <br><br>
                     </div>
                   </div>
                   
@@ -71,6 +75,7 @@
                         <label for="company">비밀번호<font size="2" color="green">(필수)</font></label>
                         <input id="company" type="text" class="form-control">
                       </div>
+                      <br><br>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
@@ -86,6 +91,7 @@
                         <label for="city">이름<font size="2" color="green">(필수)</font></label>
                         <input id="city" type="text" class="form-control">
                       </div>
+                      <br><br>
                     </div>
                     <div class="col-md-6 col-lg-3">
                       <div class="form-group">
@@ -107,6 +113,7 @@
                         <label for="city">주민등록번호 앞자리<font size="2" color="green">(필수)</font></label>
                         <input id="city" type="text" class="form-control">
                       </div>
+                      <br><br>
                     </div>
                     -
                     <div class="col-md-6 col-lg-3">
@@ -127,40 +134,28 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="email_account">상세주소</label>
-                        <input id="email_account" type="text" class="form-control">
+                        <label for="account_addres">상세주소</label>
+                        <input id="account_addres" type="text" class="form-control">
                       </div>
+                    <br><br><br>
                     </div>
                     
                   </div>
                     <div class="col-md-12 text-center">
                     <hr>
                       <button type="submit" class="btn btn-template-outlined"><i class="fa fa-save"></i> 가입하기 </button>
+                    <button type="button" class="btn btn-template-outlined">취소 </button>
+                    <br>
                     </div>
                 </form>
               </div>
+              <br>
             </div>
             
             
             
 <!-- ------ -->
             
-            <div class="col-lg-3 mt-4 mt-lg-0">
-              <!-- CUSTOMER MENU -->
-              <div class="panel panel-default sidebar-menu">
-                <div class="panel-heading">
-                  <h3 class="h4 panel-title">Customer section</h3>
-                </div>
-                <div class="panel-body">
-                  <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="customer-orders.html" class="nav-link active"><i class="fa fa-list"></i> My orders</a></li>
-                    <li class="nav-item"><a href="customer-wishlist.html" class="nav-link"><i class="fa fa-heart"></i> My wishlist</a></li>
-                    <li class="nav-item"><a href="customer-account.html" class="nav-link"><i class="fa fa-user"></i> My account</a></li>
-                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

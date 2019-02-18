@@ -70,15 +70,12 @@
                         </tr>
                       </thead>
                       <tbody>
-                      <!-- pull-right -->
-                      
                         <tr>
                           <td style = "text-align:center;">1</td>
                           <td style = "text-align:center;"><a href="board_free_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
                           <td style = "text-align:center;">이문경</td>
                           <td style = "text-align:center;">2019.02.12</td>
                           <td style = "text-align:center;">30</td>
-                          <td style = "text-align:center;"><a href="#"><i class="fa fa-trash-o"></i></a></td> <!-- 혹시 작성자만 보이게 할거면 세션 비교할 것! -->
                         </tr>
                         
                         

@@ -92,10 +92,12 @@
                 </div>
                 <hr>
                </div>
+                <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-trash-o"></i>카트 비우기</button>
                   <button type="button" class="btn btn-outline-primary" style="display:block; margin:0 auto;">결제하기</button>
                 </form>
             </div>
             <br>
+            
 <!-- 페이징하셈 -->
               <div class="pages">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">

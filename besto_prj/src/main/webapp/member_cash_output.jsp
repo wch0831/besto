@@ -96,7 +96,7 @@
                <div class="col-md-13">
                   <div class="box-simple box-white same-height">
                     <p style = "text-align:left;"><strong>조회 일자 : </strong>웹에서 지원해주는 달력쓰셈</p>
-                    <p style = "text-align:left;"><strong>조회 기간 : </strong></p>
+                    <p style = "text-align:left;"><strong>조회 기간 : </strong><i class="fa fa-calendar-o"> 2019.02.01 - </i> <i class="fa fa-calendar-o"> 2019.02.20</i></p>
                     <br>
                     <table class="table">
                     <thead>
