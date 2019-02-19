@@ -9,4 +9,6 @@ public interface PointService {
 	public int pointRefund(PointVO vo);
 	//포인트 내역조회
 	public ArrayList<PointVO> pointSelect(int usersSeq);
+	//포인트 첫번째 1000원충전
+	public int point1000(int usersSeq);
 }
