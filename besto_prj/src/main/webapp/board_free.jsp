@@ -82,31 +82,38 @@
                       </tbody>
                     </table>
                     <br>
-                  <button type="button" class="btn btn-primary pull-right">글쓰기</button>
+                  <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_register.jsp'">글쓰기</button>
                   </div>
-                  
                 </form>
-              
             </div>
             <hr>
             
+<!-- style = "vertical-align:right;" -->
 <!-- 검색바 -->
-              <div class="col-md-3 pull-right">
-            <div class="panel-body">
+			<div class="col-md-10 pull-right">
+              <div class="row pull-right">
+              <div class="btn-group bootstrap-select bs-select ">
+              	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position:absolute; align:right; will-change: transform; top:0px; left:50px;">
+              	 </div>
+					<select class="bs-select" tabindex="-98" style="width:50px;">
+                      <option value="title">제목</option>
+                      <option value="user">작성자</option>
+                     </select>
+                 </div>
+            	<div class="panel-body" >
                   <form role="search">
                     <div class="input-group">
-                      <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
+                      <input type="text" placeholder="검색" class="form-control"><span class="input-group-btn">
                         <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
                     </div>
                   </form>
                 </div>
             </div>
-            <br>
+            </div>
+            
 <!-- 검색바 -->
-
-
 <!-- 페이징하셈 -->
-              <div class="pages">
+              <div class="pages" style="position:relative; left: 360px; top: 40px;">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                   <ul class="pagination">
                     <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>
@@ -120,6 +127,12 @@
                 </nav>
               </div>
 <!-- 페이징하셈 --> 
+              
+              
+              
+              
+              
+              
               
             </div>
           </div>
