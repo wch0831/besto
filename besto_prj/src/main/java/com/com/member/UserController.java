@@ -1,5 +1,7 @@
 package com.com.member;
 
+import java.io.PrintWriter;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -55,5 +57,18 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
 		return mav;
+	}
+	
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+	@ResponseBody
+	public void idCheck(HttpServletResponse response, MemberVO mvo) {
+		try {
+			String uid = userService.checkId(mvo.getUsersId());
+			PrintWriter out = response.getWriter();
+			out.println(uid);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

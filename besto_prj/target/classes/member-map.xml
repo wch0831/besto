@@ -39,13 +39,12 @@
 		#{usersDetailAddress}, #{usersPhone}, #{usersBirth}, 'n', 'u')
 	</insert>
 	
-	<select id="checkId" parameterType="String" resultType="String">
- 		select users_id
-		from users
-		where users_id=#{usersId}
+	<select id="checkId" parameterType="String" resultType="Integer">
+ 		select count(*) from users
+      	where users_id = #{usersId}
  	</select>
 	
-	<select id="findSeq" parameterType="String" resultType="int">
+	<select id="findSeq" parameterType="String" resultType="Integer">
  		select users_seq
 		from users
 		where users_id=#{usersId} and users_del='n'

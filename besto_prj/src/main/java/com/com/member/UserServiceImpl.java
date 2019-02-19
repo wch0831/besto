@@ -19,6 +19,13 @@ public class UserServiceImpl implements UserService {
 		return vo;
 	}
 
+	public String checkId(String uid) throws Exception {
+		if(mMapper.checkId(uid) > 0) {
+			uid = "";
+		}
+		return uid;
+	}
+
 	public int memberRegister(MemberVO vo) throws Exception {
 		int res = mMapper.memberRegister(vo);
 		if(res>0) {
@@ -47,5 +54,6 @@ public class UserServiceImpl implements UserService {
 	public String findId(String uemail) throws Exception {
 		return mMapper.findId(uemail);
 	}
+
 
 }
