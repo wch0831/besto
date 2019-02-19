@@ -98,23 +98,6 @@
                     </div>
                     </div>
                    
-                   <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                      <div class="form-group">
-                        <label for="city">주민등록번호 앞자리<font size="2" color="red">(변경불가)</font></label>
-                        <input id="city" type="text" class="form-control" readonly="readonly">
-                      </div>
-                      <br><br>
-                    </div>
-                    -
-                    <div class="col-md-6 col-lg-3">
-                      <div class="form-group">
-                        <label for="zip">주민등록번호 뒷자리<font size="2" color="red" >(변경불가)</font></label>
-                        <input id="zip" type="password" class="form-control" readonly="readonly">
-                      </div>
-                    </div>
-                   </div>
-                   
                     
                     <div class="row">
                     <div class="col-md-6">

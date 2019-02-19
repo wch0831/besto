@@ -1,4 +1,4 @@
-package com.com.boardchallenge;
+package com.com.board;
 
 import java.util.ArrayList;
 
@@ -14,13 +14,13 @@ public class BoardChallngeController {
 	
 	@Autowired BoardChallengeService bs;
 	
-	@RequestMapping(value="/board_challenge" , method = RequestMethod.GET)
+	@RequestMapping(value="/board_free_challenge" , method = RequestMethod.GET)
 	public ModelAndView ctlAdminBoardSelect() {
 		ModelAndView mav = new ModelAndView();
 		ArrayList<BoardChallengeVO> brlist =bs.BoardChallengeList();
 		System.out.println(brlist.get(0).getPostSeq());
 		mav.addObject("KEY_RESULT", brlist);
-		mav.setViewName("board_challenge");
+		mav.setViewName("board_free_challenge");
 		return mav;
 	}
 	

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.com.boardchallenge.BoardChallengeVO;
-import com.com.boardfree.BoardFreeVO;
+import com.com.board.BoardFreeVO;
+import com.com.board.BoardChallengeVO;
 
 @Mapper
 public interface BoardMapper{
