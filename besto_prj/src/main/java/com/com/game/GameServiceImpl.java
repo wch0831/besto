@@ -8,15 +8,9 @@ import org.springframework.stereotype.Service;
 import com.com.mapper.GameMapper;
 
 @Service
-<<<<<<< HEAD
 public class GameServiceImpl implements GameService {
-=======
-public class GameServiceImpl implements GameService{
->>>>>>> branch 'master' of https://github.com/wch0831/besto
-	
 	@Autowired
 	private GameMapper gameMapper;
-<<<<<<< HEAD
 
 	@Override
 	public int svcGameInsert(GameVO vo) {
@@ -39,10 +33,8 @@ public class GameServiceImpl implements GameService{
 	}
 
 
-=======
 	
 //	public int svcGameInsert() {
 //		return gameMapper.GameInsert();
 //	}
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 }
