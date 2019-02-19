@@ -9,12 +9,7 @@
 	
 	
 	
-	<resultMap id="myPageMap" type="com.mypage.com.MypageVO">
-		<id property="bseq" column="bseq" />
-		<result property="btitle" column="btitle" />
-		<result property="regid" column="regid" />
-		<result property="regdate" column="regdate" />
-	</resultMap>
+	
 	
 	
 	
