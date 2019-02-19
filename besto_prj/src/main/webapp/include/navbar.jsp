@@ -57,13 +57,7 @@
                   	<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
                   </ul>
                 </li>
-                
               </ul>
-              
-              
-              
-              
-              
               
             </div>
             

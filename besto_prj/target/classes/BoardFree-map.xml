@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.com.mapper.BoardMapper">
+	<resultMap id="boardfree-map" type="com.com.boardfree.BoardFreeVO">
+		<id 	property="postSeq" 		column="post_seq" />
+		<result property="boardCode" 			column="board_code" />
+		<result property="userSeq" 				column="users_seq" />
+		<result property="freeBoardTitle" 		column="free_board_title" />
+		<result property="freeBoardContent" 	column="free_board_content" />
+		<result property="freeBoardRegdate" 	column="free_board_regdate" />
+		<result property="freeBoardHits" 		column="free_board_hits" />
+		<result property="freeBoardDel" 		column="free_board_del" />	
+	</resultMap>	
+<!-- 	<insert id="free_board_insert">
+	insert into FREE_BOARD(post_seq, free_board_title, free_board_content,users_seq,board_code)
+		values(#{postSeq}.nextval,#{freeBoardTitle},#{freeBoardContent},#{userSeq},#{boardCode})
+	</insert> -->
+ 	
+ 	<select id="free_board_select" resultMap="boardfree-map">
+ 	 select post_seq,free_board_title,free_board_content,users_seq,board_code,free_board_regdate,free_board_hits
+ 	from FREE_BOARD
+ 	</select>
+ <!-- 
+ oo글 수정
+ update FREE_BOARD
+ set
+  free_board_title = '글 제목_수정',
+  free_board_content = '글 내용_수정'
+ where post_seq = 44;
+ oo글 삭제
+ delete free_board -->
+
+</mapper>	
+

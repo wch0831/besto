@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <mapper namespace="userNameSpace"> -->
-<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
 <mapper namespace="com.com.mapper.GameMapper">
 	<resultMap id="matchMap" type="com.com.game.MatchVO">
@@ -91,13 +89,18 @@
  		where game_status='p'
  	</select>
 	
+<!-- 	
 	
+<<<<<<< HEAD
 	<insert id="logwrite">
 		insert into log values('loglogvisit')
 	</insert>
 	
 	
 	<!--
+=======
+	멤버 회원가입
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	<insert id="memberRegister" parameterType="com.biz.member.MemberVO">
 		insert into member(user_seq, user_id, user_name, user_pw, user_email, user_gubun, regdate, user_del, ppath, pname, sysname, join_path)
 		values(users_seq.nextval, #{userId}, #{userName}, #{userPw}, #{userEmail}, 'u', sysdate, 'n', #{ppath}, #{pname}, #{sysname}, #{joinPath})
@@ -118,7 +121,12 @@
  	</select> -->
 	
 	
+<<<<<<< HEAD
 	<!-- 
+=======
+	
+	멤버 디테일
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	<select id="memberDetail" parameterType="String" resultMap="memberMap">
  		select user_id, user_name, user_email, user_gubun, ppath, pname, sysname
 		from member
@@ -127,6 +135,10 @@
 	
 	
 	
+<<<<<<< HEAD
+=======
+	유저 탈퇴
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	<update id="memberDelete" parameterType="String">
 		update member
 		 	   set user_gubun='0', user_del='y'
@@ -135,6 +147,10 @@
 	
 	
 	
+<<<<<<< HEAD
+=======
+	유저 정보 수정	
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	<update id="memberUpdate" parameterType="com.biz.member.MemberVO">
 		update member
 		       set user_name=#{userName}, user_pw=#{userPw}, user_email=#{userEmail}, ppath=#{ppath}, pname=#{pname}, sysname=#{sysname}
