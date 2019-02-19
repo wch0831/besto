@@ -3,7 +3,6 @@ package com.com.member;
 import com.com.member.MemberVO;
 
 public interface UserService {
-
 	public MemberVO login(MemberVO vo) throws Exception;
 	public int memberRegister(MemberVO vo) throws Exception;
 	public MemberVO memberDetail(String uid) throws Exception;

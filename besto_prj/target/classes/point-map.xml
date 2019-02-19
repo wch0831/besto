@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 
 <mapper namespace="userNameSpace">
 <!-- <mapper namespace="com.biz.mapper.MemberMap">
+=======
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 
+<<<<<<< HEAD
  -->
+=======
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 
-<resultMap id="memberMap" type="com.biz.member.MemberVO">
+<mapper namespace="com.com.mapper.PointMapper">
+	<resultMap id="pointMap" type="com.com.point.PointVO">
+		<id property="pointSeq" column="point_seq" />
+		<result property="pointChange" column="point_change" />
+		<result property="pointCurrent" column="point_current" />
+		<result property="pointGubun" column="point_gubun" />
+		<result property="pointRegdate" column="point_regdate" />
+		<result property="usersSeq" column="users_seq" />
+		<result property="refundSeq" column="refund_seq" />
+	</resultMap>
 
+<<<<<<< HEAD
 		<id 	property="userSeq" 		column="user_seq" />
 		<result property="userId" 		column="user_id" />
 		<result property="userPw" 		column="user_pw" />
@@ -22,7 +38,14 @@
 		<result property="joinPath" 	column="join_path" />
 	</resultMap>
 	
+=======
+	<!-- 특정회원에 대한 포인트 조회 -->
+	<select id="pointSelectOne" parameterType="int"	resultMap="pointMap">
+		select * from point where users_seq = #{usersSeq}
+	</select>
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	
+<<<<<<< HEAD
  	
  	
  	
@@ -38,7 +61,18 @@
 	
 	<insert id="logwrite">
 		insert into log values('loglogvisit')
+=======
+	<!-- 회원의 포인트 충전 -->
+	<insert id="pointRecharge" parameterType="com.com.point.PointVO">
+		insert into point(point_seq, point_change, point_current, point_gubun,
+		point_regdate, users_seq)
+		values(point_seq.nextval,#{pointChange},(select point_current+#{pointChange} from point where point_regdate =
+		(select max(point_regdate) from point where users_seq =
+		#{usersSeq})),charge,to_char(sysdate, 'mm/dd/yyyy
+		hh24:mi'),#{usersSeq})
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	</insert>
+<<<<<<< HEAD
 	
 	
 	멤버 회원가입
@@ -100,3 +134,17 @@
 
 </mapper>	
 
+=======
+	
+	<!-- 회원의 포인트 환급 -->
+	<insert id="pointRefund" parameterType="com.com.point.PointVO">
+	insert into point(point_seq, point_change, point_current, point_gubun,
+		point_regdate, users_seq)
+		values(point_seq.nextval,#{pointChange},(select point_current-#{pointChange} from point where point_regdate = (select
+		max(point_regdate) from point where users_seq =
+		#{usersSeq})),refund,to_char(sysdate, 'mm/dd/yyyy
+		hh24:mi'),#{usersSeq})
+	</insert>
+ 	
+</mapper>	
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
