@@ -11,8 +11,12 @@ public interface MypageMapper {
 
 		public ArrayList<MypageVO> buyhitselect();
 		
-		public ArrayList<MypageVO> buyanalselect();
+		public int buyanalselect1(int users_seq);
+		public int buyanalselect2(int users_seq);
+		public int buyanalselect3(int users_seq);
 		
+		
+
 		public ArrayList<MypageVO> buycartselect();
 		
 }

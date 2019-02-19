@@ -2,12 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.com.mapper.MypageMapper">
-	<resultMap id="buy_hit_list" type="com.com.mypage.MypageVO" 
-		extends="myPageMap">
-		
+	
+	<resultMap id="buy_hit_list" type="com.biz.member.MemberVO">
+		<id 		property="bseq" 		column="betting_seq" />
+		<result property="groundseq" 		column="game_roundseq" />
+		<result property="ggubun" 		column="game_gubun" />
+		<result property="bregdate" 	column="betting_regdate" />
+		<result property="bprice" 		column="betting_price" />
+		<result property="gstatus" 	column="game_status" />
+		<result property="bhityn" 	column="betting_hityn" />
+		<result property="bhitrate" 		column="betting_hitrate" />
+		<result property="cregdate" 		column="cart_regdate" />
+		<result property="cprice" 			column="cart_price" />
+	
 	</resultMap>
-	
-	
 	
 	
 	
@@ -20,6 +28,45 @@
 		where #{users_seq}
 		and u.users_seq = b.betting_seq
 		and g.game_seq = b.game_seq
+	</select>
+	
+	<select id="buycart" parameterType="int" resultMap="buy_hit_list">
+		select g.game_gubun, g.game_roundseq, g.game_status
+		b.betting_regdate, b.betting_seq, b.betting_price
+		from users u, betting b, game g
+		where #{value}
+		and u.users_seq = b.betting_seq
+		and g.game_seq = b.game_seq
+	</select>
+	
+	
+	<select id="buyanalselect1" parameterType="int" resultType="int">
+	
+	  select sum(betting_price) as betting_price from betting 
+		where #{value}
+	
+	</select>
+	
+	
+	
+	<select id="buyanalselect2" parameterType="int" resultType="int">
+	
+	  select sum(betting_price*betting_hitrate)as betting_content 
+	  from betting
+	  where betting_hityn='y' 
+	  and #{value}
+	  
+	
+	</select>
+	
+	
+	
+	<select id="buyanalselect3" parameterType="int" resultType="int">
+	
+	  select max(betting_price*betting_hitrate)as betting_content 
+	  from betting
+      where betting_hityn='y' and #{value}
+	
 	</select>
 	
 </mapper>	

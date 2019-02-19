@@ -7,10 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-<<<<<<< HEAD
-=======
-import org.springframework.web.bind.annotation.ModelAttribute;
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,11 +28,6 @@ public class UserController {
 	@ResponseBody
 	public ModelAndView login(HttpServletRequest request, MemberVO mvo) {
 		ModelAndView mav = new ModelAndView();
-<<<<<<< HEAD
-		
-		
-		
-=======
 		try {
 			mvo = userService.login(mvo);
 			if(!mvo.getUsersName().equals("")) {
@@ -53,7 +44,6 @@ public class UserController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 		return mav;
 	}
 }

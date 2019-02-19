@@ -6,8 +6,14 @@ public class MypageVO {
 	private int bseq;
 	private String ggubun;
 	private String bregdate;
-	private String bprice;
+	private int bprice;
 	private String gstatus;
+	private String bhityn;
+	private String bhitrate;
+	private String cregdate;
+	private int cprice;
+	
+	
 	
 	
 	public int getGroundseq() {
@@ -34,10 +40,10 @@ public class MypageVO {
 	public void setBregdate(String bregdate) {
 		this.bregdate = bregdate;
 	}
-	public String getBprice() {
+	public int getBprice() {
 		return bprice;
 	}
-	public void setBprice(String bprice) {
+	public void setBprice(int bprice) {
 		this.bprice = bprice;
 	}
 	public String getGstatus() {
@@ -46,5 +52,32 @@ public class MypageVO {
 	public void setGstatus(String gstatus) {
 		this.gstatus = gstatus;
 	}
+	public String getBhityn() {
+		return bhityn;
+	}
+	public void setBhityn(String bhityn) {
+		this.bhityn = bhityn;
+	}
+	public String getBhitrate() {
+		return bhitrate;
+	}
+	public void setBhitrate(String bhitrate) {
+		this.bhitrate = bhitrate;
+	}
+	public String getCregdate() {
+		return cregdate;
+	}
+	public void setCregdate(String cregdate) {
+		this.cregdate = cregdate;
+	}
+	public int getCprice() {
+		return cprice;
+	}
+	public void setCprice(int cprice) {
+		this.cprice = cprice;
+	}
+	
+	
+	
 
 }

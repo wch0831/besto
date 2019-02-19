@@ -13,9 +13,9 @@ public interface MypageService {
 	
 	//구매현황
 	
-	public ArrayList<MypageVO> buyAnalSysList();
-	
-	//쇼핑카트
-	
+	public ArrayList<Object> buyAnalSysList(int users_seq);
+//	
+//	//쇼핑카트
+//	
 	public ArrayList<MypageVO> buyCartList();
 }
