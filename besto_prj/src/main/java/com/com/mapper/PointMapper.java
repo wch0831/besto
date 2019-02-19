@@ -11,4 +11,5 @@ public interface PointMapper {
 	public int pointRecharge(PointVO vo);
 	public int pointRefund(PointVO vo);
 	public ArrayList<PointVO> pointSelectOne(int usersSeq);
+	public int point1000(int usersSeq);
 }
