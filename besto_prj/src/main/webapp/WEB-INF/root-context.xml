@@ -55,21 +55,12 @@
 	
 	
 	<!-- MapperInterface.java 사용 시 -->
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.com.mapper" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean> 
-<<<<<<< HEAD
-	 
-=======
 
->>>>>>> branch 'master' of https://github.com/wch0831/besto
-	
 	
 	
 

@@ -1,4 +1,4 @@
-package com.mypage.com;
+package com.com.mypage;
 
 public class MypageVO {
 
