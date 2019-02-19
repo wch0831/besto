@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.com.mapper.MypageMapper">
+	<resultMap id="buy_hit_list" type="com.mypage.com.MypageVO" 
+		extends="myPageMap">
+		
+	</resultMap>
+	
+	
+	
+	<resultMap id="myPageMap" type="com.mypage.com.MypageVO">
+		<id property="bseq" column="bseq" />
+		<result property="btitle" column="btitle" />
+		<result property="regid" column="regid" />
+		<result property="regdate" column="regdate" />
+	</resultMap>
+	
+	
+	
+	<select id="buyhitselect" parameterType="int" resultMap="buy_hit_list">
+		select g.game_gubun, g.game_roundseq, g.game_status
+		b.betting_regdate, b.betting_seq, b.betting_price
+		from users u, betting b, game g
+		where #{users_seq}
+		and u.users_seq = b.betting_seq
+		and g.game_seq = b.game_seq
+	</select>
+	
+</mapper>	
