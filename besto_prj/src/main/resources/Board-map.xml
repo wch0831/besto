@@ -51,8 +51,8 @@
 
 	<!-- 자유게시판 -->
  	<select id="free_board_select" resultMap="boardfree-map">
- 	 select post_seq,free_board_title,free_board_content,users_seq,board_code,free_board_regdate,free_board_hits
- 	from FREE_BOARD
+ 	select post_seq,free_board_title,free_board_content,users_seq,board_code,free_board_regdate,free_board_hits
+ 	from free_board
  	</select>
 
 
@@ -61,6 +61,18 @@
 	select post_seq, board_code, users_seq, challenge_board_gcode, challenge_boadr_roundseq, challenge_board_title, challenge_board_regdate, challenge_board_hits, challenge_board_content
  	from challenge_board
 	</select>
+	
+	<!-- 적중분석 -->
+	<select id = "hithistory_board_select" resultMap="boardhithistory-map">
+	select POST_SEQ,BOARD_CODE,USERS_SEQ,HITHISTORY_DISCUSSION_GCODE,HITHISTORY_DISCUSSION_ROUNDSEQ,HITHISTORY_DISCUSSION_TITLE,HITHISTORY_DISCUSSION_REGDATE,HITHISTORY_DISCUSSION_HITS,HITHISTORY_DISCUSSION_CONTENT
+	 from hithistory_discussion
+	</select>
+	
+	<!-- 구매분석  -->
+	<select id = "buystory_board_select" resultMap="boardbuyhistory-map">
+	select POST_SEQ, BOARD_CODE, BUYHISTORY_DISCUSSION_GCODE, BUYHISTORY_DISCUSSION_ROUNDSEQ, BUYHISTORY_DISCUSSION_TITLE, BUYHISTORY_DISCUSSION_REGDATE, BUYHISTORY_DISCUSSION_HITS, USERS_SEQ, BUYHISTORY_DISCUSSION_CONTENT
+ 	from buyhistory_discussion
+ 	</select>
 
 
 </mapper>	

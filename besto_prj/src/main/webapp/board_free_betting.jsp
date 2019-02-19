@@ -37,6 +37,36 @@
         </div>
       </div>
       
+      
+      
+      <script>
+	$(function() {
+		// tab operation
+		$('.tabmenu').click(function() {
+			var activeTab = $(this).attr('data-tab');
+			$('li').css('background-color', 'white');
+			$(this).css('background-color', 'green');
+			$.ajax({
+				type : 'GET',                 //get방식으로 통신
+				url : activeTab + ".html",    //탭의 data-tab속성의 값으로 된 html파일로 통신
+				dataType : "html",            //html형식으로 값 읽기
+				error : function() {          //통신 실패시
+					alert('통신실패!');
+				},
+				
+				
+				success : function(data) {    //통신 성공시 탭 내용담는 div를 읽어들인 값으로 채운다.
+					$('#tabcontent').html(data);
+				}
+			});
+		});
+		$('#default').click();          
+	});
+</script>
+
+
+
+      
       <div id="content">
         <div class="container">
           <div class="row bar">
@@ -48,6 +78,8 @@
               
             </div>
             
+            
+            
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
@@ -58,6 +90,7 @@
                 <li class="nav-item"><a id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" class="nav-link active">구매내역 토론방</a></li>
                 <li class="nav-item"><a id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" class="nav-link">적중내역 토론방</a></li>
               </ul>
+   
               
               <div id="pills-tabContent" class="tab-content">
                 <div id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" class="tab-pane fade show active">
@@ -76,46 +109,18 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
+	                       <c:forEach var="a" items="${KEY_RESULT_HIT}">
 	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-	                          <td style = "text-align:center;">이문경</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">30</td>
-	                          <td style = "text-align:center;"><font color="red">발매중</font></td>
+	                          <td style = "text-align:center;">${a.postSeq}</td>
+	                          <td style = "text-align:center;">${a.hithistoryDiscussionGcode}</td>
+	                          <td style = "text-align:center;">${a.hithistoryDiscussionRoundseq}</td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">${a.hithistoryDiscussionTitle}</font></a></td>
+	                          <td style = "text-align:center;">${a.usersSeq}</td>
+	                          <td style = "text-align:center;">${a.hithistoryDiscussionRegdate}</td>
+	                          <td style = "text-align:center;">${a.hithistoryDiscussionHits}</td>
+	                          <td style = "text-align:center;"><font color="red">${a.hithistoryDiscussionContent}</font></td>
 	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-	                          <td style = "text-align:center;">이문경</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">30</td>
-	                          <td style = "text-align:center;"><font color="grey">발표전</font></td>
-	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-	                          <td style = "text-align:center;">이문경</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">30</td>
-	                          <td style = "text-align:center;">적중</td>
-	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-	                          <td style = "text-align:center;">이문경</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">30</td>
-	                          <td style = "text-align:center;"><font color="red">발매중</font></td>
-	                        </tr>
+	                       </c:forEach>
 	                      </tbody>
 	                    </table>
 	                    <br>
@@ -167,16 +172,18 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
+	                       <c:forEach var="a" items="${KEY_RESULT_BUY}">
 	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-	                          <td style = "text-align:center;">이문경</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">30</td>
+	                          <td style = "text-align:center;">${a.postSeq}</td>
+	                          <td style = "text-align:center;">${a.buyhistoryDiscussionGcode}</td>
+	                          <td style = "text-align:center;">${a.buyhistoryDiscussionRoundseq}</td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">${a.buyhistoryDiscussionTitle}</font></a></td>
+	                          <td style = "text-align:center;">${a.usersSeq}</td>
+	                          <td style = "text-align:center;">${a.buyhistoryDiscussionRegdate}</td>
+	                          <td style = "text-align:center;">${a.buyhistoryDiscussionHits}</td>
 	                          <td style = "text-align:center;">4.5</td>
 	                        </tr>
+	                        </c:forEach>
 	                      </tbody>
 	                    </table>
 	                    <br>
