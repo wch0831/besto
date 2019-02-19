@@ -50,8 +50,6 @@
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
-              
-              
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
@@ -60,9 +58,6 @@
                   <h5>이렇게 투표했어요...</h5><hr>
                   <font size="2"><strong>작성자</strong> : 송은규(sek2***) </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                   						    <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
-                  
-                  
-                  
                   <div class="col-md-13">
                   <div class="box-simple box-white same-height">
                     <div class="row">
@@ -210,7 +205,6 @@
                 <br>
                 <hr>
                 <br>  
-                  
                   <h4>◈ 나의 경기분석</h4>
                     	<br>
                   <div class="col-sm-10">
