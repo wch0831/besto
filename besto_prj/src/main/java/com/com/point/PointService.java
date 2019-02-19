@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public interface PointService {
 	//포인트 충전
-	public int pointRecharge() throws Exception;
+	public int pointRecharge(PointVO vo);
 	//포인트 환급
-	public int pointRefund() throws Exception;
+	public int pointRefund(PointVO vo);
 	//포인트 내역조회
-	public ArrayList<PointVO> pointSelect() throws Exception;
+	public ArrayList<PointVO> pointSelect(int usersSeq);
 }

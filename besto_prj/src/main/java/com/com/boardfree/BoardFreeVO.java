@@ -1,4 +1,4 @@
-package com.besto.boardfree;
+package com.com.boardfree;
 
 public class BoardFreeVO {
 	
