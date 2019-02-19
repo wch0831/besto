@@ -26,7 +26,7 @@
  	
  	<!-- 멤버 로그인 -->
  	<select id="login" parameterType="com.com.member.MemberVO" resultMap="memberMap">
- 		select users_seq, users_name, users_id
+ 		select users_seq, users_name, users_id, users_grant
  		from users
  		where users_id=#{usersId} and users_pw=#{usersPw} and users_del='n'
  	</select>
@@ -76,20 +76,20 @@
 		       set users_name=#{usersName}, users_pw=#{usersPw}, users_email=#{usersEmail},
 		       users_address=#{usersAddress}, users_detail_address=#{usersDetailAddress}, 
 		       users_phone=#{usersPhone}, users_birth=#{usersBirth}
-			   where user_id=#{userId} and USER_DEL='n'
+			   where users_id=#{usersId} and users_del='n'
 	</update>
 	
 
 	<update id="changePassword" parameterType="com.com.member.MemberVO">
 		update users
-		   set user_pw=#{userPw}
-	     where user_email=#{userEmail} and user_id=#{userPw}
+		   set users_pw=#{usersPw}
+	     where users_email=#{usersEmail} and users_id=#{usersId} and users_del='n'
 	</update>
 
 	<select id="findId" parameterType="String" resultType="String">
  		select users_id
 		from users
-		where users_email=#{usersEmail} and users_del='n'
+		where users_email=#{usersEmail} and users_name=#{usersName} and users_del='n'
  	</select>
 	
 	

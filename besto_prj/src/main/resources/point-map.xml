@@ -5,6 +5,7 @@
 <!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
 <mapper namespace="com.com.mapper.MemberMapper">
+<<<<<<< HEAD
 
 	<!-- <resultMap id="memberMap" type="com.biz.member.MemberVO">
 
@@ -100,6 +101,8 @@
 
 	 -->
 
+=======
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	
 </mapper>	
 
