@@ -17,11 +17,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public int memberRegister(MemberVO vo) throws Exception {
-		return mapper.memberRegister(vo);		
+		int res = mapper.memberRegister(vo);
+		if(res>0) {
+			int firstSeq = mapper.findSeq(vo.getUsersId());
+			
+		}
+		return res;		
 	}
 
-	public MemberVO memberDetail(String uid) throws Exception {
-		return mapper.memberDetail(uid);
+	public MemberVO memberDetail(MemberVO vo) throws Exception {
+		return mapper.memberDetail(vo);
 	}
 
 	public int memberDelete(MemberVO vo) throws Exception {

@@ -39,6 +39,18 @@
 		#{usersDetailAddress}, #{usersPhone}, #{usersBirth}, 'n', 'u')
 	</insert>
 	
+	<select id="checkId" parameterType="String" resultType="String">
+ 		select users_id
+		from users
+		where users_id=#{usersId}
+ 	</select>
+	
+	<select id="findSeq" parameterType="String" resultType="int">
+ 		select users_seq
+		from users
+		where users_id=#{usersId} and users_del='n'
+ 	</select>
+	
 	<!-- 멤버 리스트(유저만)
 	<select id="memberList" parameterType="com.com.member.MemberVO" resultMap="memberMap">
  		select * from users
@@ -53,7 +65,7 @@
 	
 	
 	<!-- 멤버 디테일 -->
-	<select id="memberDetail" parameterType="String" resultMap="memberMap">
+	<select id="memberDetail" parameterType="com.com.member.MemberVO" resultMap="memberMap">
  		select users_id, users_name, users_email, users_address, users_detail_address, users_phone, users_birth
 		from users
 		where users_id=#{usersId} and users_pw=#{usersPw} and users_del='n'
