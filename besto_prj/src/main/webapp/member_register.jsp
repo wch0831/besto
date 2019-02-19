@@ -7,6 +7,13 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+
+<script>
+function member_idCheck(){  
+    window.open("member_open_window_id_check.jsp", "아이디 중복체크", "width=630, height=350, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
+}
+</script>
+
 </head>
 
   <body>
@@ -63,7 +70,8 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="firstname">아이디<font size="2" color="green">(필수)</font></label>
-                        <input id="firstname" type="text" class="form-control"><button type="button" class="btn btn-template-main pull-right">중복확인</button>
+                        <input id="firstname" type="text" class="form-control">
+                        <button type="button" class="btn btn-template-main pull-right" onclick="javascript:member_idCheck();">중복확인</button>
                       </div>
                     <br><br>
                     </div>
@@ -106,24 +114,6 @@
                       </div>
                     </div>
                     </div>
-                   
-                   <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                      <div class="form-group">
-                        <label for="city">주민등록번호 앞자리<font size="2" color="green">(필수)</font></label>
-                        <input id="city" type="text" class="form-control">
-                      </div>
-                      <br><br>
-                    </div>
-                    -
-                    <div class="col-md-6 col-lg-3">
-                      <div class="form-group">
-                        <label for="zip">주민등록번호 뒷자리<font size="2" color="green">(필수)</font></label>
-                        <input id="zip" type="password" class="form-control">
-                      </div>
-                    </div>
-                   </div>
-                   
                     
                     <div class="row">
                     <div class="col-md-6">

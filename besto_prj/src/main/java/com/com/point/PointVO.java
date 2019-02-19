@@ -1,4 +1,4 @@
-package com.com.cash;
+package com.com.point;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,6 +10,7 @@ public class PointVO {
 	private String point_regdate;
 	private int users_seq;
 	private int refund_seq;
+	
 	public int getPoint_seq() {
 		return point_seq;
 	}
@@ -52,5 +53,5 @@ public class PointVO {
 	public void setRefund_seq(int refund_seq) {
 		this.refund_seq = refund_seq;
 	}
-	
+	 
 }

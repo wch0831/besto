@@ -46,4 +46,13 @@ public class UserController {
 		}
 		return mav;
 	}
+	
+	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+	public ModelAndView logout(HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		return mav;
+	}
 }
