@@ -5,6 +5,11 @@
 <html>
 
 <head>  
+<!-- <script>
+$(document).ready(function(){
+	
+});
+</script> -->
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
@@ -25,7 +30,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">도전분석방</h1>
+              <h1 class="h2">적중토론방</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
@@ -36,7 +41,6 @@
           </div>
         </div>
       </div>
-      
       <div id="content">
         <div class="container">
           <div class="row bar">
@@ -51,46 +55,44 @@
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
-              
-              
               <div id="basket" class="col-lg-12">
                 <form method="get" action="/register">
                   <div class="table-responsive">
-                  <h4>◈ 도전분석방</h4>
+                  <h4>◈ 적중내역토론방</h4>
                     <table class="table">
-	                      <thead bgcolor="#EEEEEE">
-	                        <tr>
-	                          <th style = "text-align:center;">글번호</th>
-	                          <th style = "text-align:center;">게임구분</th>
-	                          <th style = "text-align:center;">회차</th>
-	                          <th style = "text-align:center;">제목</th>
-	                          <th style = "text-align:center;">작성자</th>
-	                          <th style = "text-align:center;">등록일</th>
-	                          <th style = "text-align:center;">조회수</th>
-	                        </tr>
-	                      </thead>
-	                      <tbody>
-	                       <c:forEach var="a" items="${KEY_RESULT}">
-	                        <tr>
-	                          <td style = "text-align:center;">${a.postSeq}</td>
-	                          <td style = "text-align:center;">${a.challengeBoardGcode}</td>
-	                          <td style = "text-align:center;">${a.challengeBoadrRoundseq}</td>
-	                          <td style = "text-align:center;"><a href="board_free_challenge_detail.jsp"><font color="black">${a.challengeBoardTitle}</font></a></td>
-	                          <td style = "text-align:center;">${a.usersSeq}</td>
-	                          <td style = "text-align:center;">${a.challengeBoardRegdate}</td>
-	                          <td style = "text-align:center;">${a.challengeBoardHits}</td>
-	                        </tr>
-	                        </c:forEach>
-	                        
-	                      </tbody>
-	                    </table>
-	                    <br>
-                  <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_challenge_register.jsp'">글쓰기</button>
+                      <thead bgcolor="#EEEEEE">
+                        <tr>
+                          <th style = "text-align:center;">글번호</th>
+                          <th style = "text-align:center;">게임구분</th>
+                          <th style = "text-align:center;">회차</th>
+                          <th style = "text-align:center;">제목</th>
+                          <th style = "text-align:center;">작성자</th>
+                          <th style = "text-align:center;">등록일</th>
+                          <th style = "text-align:center;">조회수</th>
+                          <th style = "text-align:center;">적중<br>배당률</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>    
+                          <td style = "text-align:center;">1</td>
+	                       <td style = "text-align:center;">승부식</td>
+	                       <td style = "text-align:center;">19.3회차</td>
+                           <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
+                           <td style = "text-align:center;">이문경</td>
+                           <td style = "text-align:center;">2019.02.12</td>
+                           <td style = "text-align:center;">30</td>
+                           <td style = "text-align:center;">4.5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <br>
+                  <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_hit_register.jsp'">글쓰기</button>
                   </div>
                 </form>
             </div>
             <hr>
             
+<!-- style = "vertical-align:right;" -->
 <!-- 검색바 -->
 			<div class="col-md-10 pull-right">
               <div class="row pull-right">
@@ -129,6 +131,12 @@
                 </nav>
               </div>
 <!-- 페이징하셈 --> 
+              
+              
+              
+              
+              
+              
               
             </div>
           </div>

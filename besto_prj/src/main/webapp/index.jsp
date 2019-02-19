@@ -141,7 +141,7 @@
                         <li>저 이렇게 갑니다...</li>
                         <li>저 이렇게 갑니다...</li>
                         <li>저 이렇게 갑니다...</li>
-                      </ul><a href="board_free_betting.jsp" class="btn btn-template-outlined">+더보기</a>
+                      </ul><a href="board_free_challenge.jsp" class="btn btn-template-outlined">+더보기</a>
                     </div>
                   </div>
                 </div>
