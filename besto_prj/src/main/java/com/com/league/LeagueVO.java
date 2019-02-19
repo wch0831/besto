@@ -4,15 +4,15 @@ public class LeagueVO {
 	private int rank;
 	private String team;
 	private int matchcount;
-	private int winpoint; 
+	private int winpoint;
 	private int win;
 	private int tie;
 	private int loss;
-	private int goalall;	  
-	private int goalavg;	
-	private int lossall; 
-	private int lossavg;	  
-	private int goaldifference; 
+	private int goalall;
+	private int goalavg;
+	private int lossall;
+	private int lossavg;
+	private int goaldifference;
 	private String recent10games;
 
 	

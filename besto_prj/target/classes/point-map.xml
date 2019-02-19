@@ -5,7 +5,11 @@
 <!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
 <mapper namespace="com.com.mapper.MemberMapper">
+<<<<<<< HEAD
 	<!-- <resultMap id="memberMap" type="com.biz.member.MemberVO">
+=======
+<!-- 	<resultMap id="memberMap" type="com.biz.member.MemberVO">
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 		<id 	property="userSeq" 		column="user_seq" />
 		<result property="userId" 		column="user_id" />
 		<result property="userPw" 		column="user_pw" />
@@ -92,8 +96,13 @@
 		   set user_pw=#{userPw}
 	     where user_email=#{userEmail} and user_id=#{userPw}
 	</update>
+<<<<<<< HEAD
 
 	 -->
+=======
+ -->
+	
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	
 </mapper>	
 
