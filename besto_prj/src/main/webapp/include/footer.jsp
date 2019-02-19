@@ -4,21 +4,59 @@
 <footer class="main-footer">
         <div class="container">
           <div class="row">
-            <div class="col-lg-3">
-              <h5 class="h5">베스토란.</h5>
-              <h5 class="h6">체육진흥투표권 공식 인터넷 발매상이트로서 발매되는 프로토 게임을 온라인으로 쉽게 참여할 수 있는 사이트 입니다.</h5>
-              <hr>
-              <hr class="d-block d-lg-none">
-            </div>
-            <div class="col-lg-5">
-            	<h5 class="h5">▶ 기업정보</h5><br>
-            	<h5 class="h6">▷ 대표자명 : 송은규</h5>
-            	<h5 class="h6">▷ 사업자 등록번호 : 105-88-1234</h5>
-            	<h5 class="h6">▷ 문의 : lss911@besto.com</h5>
-            	<h5 class="h6">▷ 위치 : 서울특별시 마포구 12-5 **빌딩 14층</h5>
-            	<h5 class="h6">▷ 고객상담전화 : 1588-8282</h5>
+          <div class="col-md-4">
+                <div class="heading">
+                  <h4>공지사항</h4>
+                </div>
+                <ul class="ul-icons list-unstyled">
+                  <li>
+                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_protice.jsp"><font color="white" size="3">공지사항</font></a>
+                  </li>
+                  <li>
+                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_protice_faq.jsp"><font color="white" size="3">FAQ</font></a>
+                  </li>
+                  <li>
+                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_protice_use.jsp"><font color="white" size="3">이용안내</font></a>
+                  </li>
+                </ul>
+              </div>
             
-            </div>
+            <div class="col-md-4">
+                <div class="heading">
+                  <h4>커뮤니티</h4>
+                </div>
+                <ul class="ul-icons list-unstyled">
+                  <li>
+                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_free_betting.jsp"><font color="white" size="3">베팅토론방</font></a>
+                  </li>
+                  <li>
+                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_free_challenge.jsp"><font color="white" size="3">도전분석방</font></a>
+                  </li>
+                  <li>
+                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_free.jsp"><font color="white" size="3">자유게시판</font></a>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="col-md-4">
+                <div class="heading">
+                  <h4>빠른이동</h4>
+                </div>
+                <ul class="ul-icons list-unstyled">
+                  <li>
+                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="member_register.jsp"><font color="white" size="3">회원가입</font></a>
+                  </li>
+                  <li>
+                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_protice_find.jsp"><font color="white" size="3">정보찾기</font></a>
+                  </li>
+                  <li>
+                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="member_drop.jsp"><font color="white" size="3">회원탈퇴</font></a>
+                  </li>
+                </ul>
+              </div>
+              
+              
+              
             
           </div>
         </div>
