@@ -7,7 +7,61 @@
 <head>  
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Header Include CSS END-->
+<script>
+$(document).ready(function() {
+
+	  $("#vsBtn").click(function(){
+	           
+	           var team1 = $("#teamId1").val();
+	           var team2 = $("#teamId2").val();
+	           console.log(team1);
+	           console.log(team2);
+	           
+	            $.ajax({ 
+	                  //url:"/rinsert.do",
+	                  //type:"post",
+	                  //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+	                  //data:strData,
+	                  
+	                  //url:"/rinsert_rest3x.do",
+	                  //type:"post",
+	                  //contentType: "application/json; charset=UTF-8",
+	                  //data:JSON.stringify(jsonData),
+	                  
+	                  url:"http://192.168.0.107:8085/alist.do",
+	                  type:"get",
+	                  contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+	                  data:"team1="+team1+"&team2="+team2,
+	                  success:function(jsonObj){
+	                     
+	                        console.log(jsonObj);      //[{"rseq":1 , "reply":"aa"} , {}]
+	                        
+	                         $.map(jsonObj, function(vv, idx){
+	                         
+	                        	 $('#h1').html(vv.homeTeam);
+	                        	 $('#h2').html(vv.homeSeasonrecord);
+	                        	 $('#h3').html(vv.homeMatchhistory);
+	                        	 $('#h4').html(vv.homeRecentrecord);
+	                        	 $('#h5').html(vv.homeGoalandloss);
+	                        	 $('#h6').html(vv.homeGoalavg);
+	                        	 
+	                        	 $('#a1').html(vv.awayTeam);
+	                        	 $('#a2').html(vv.awaySeasonrecord);
+	                        	 $('#a3').html(vv.awayMatchhistory);
+	                        	 $('#a4').html(vv.awayRecentrecord);
+	                        	 $('#a5').html(vv.awayGoalandloss);
+	                        	 $('#a6').html(vv.awayGoalavg);
+	                          
+	                       });
+	                  }
+	         }); //end of ajax 
+	      });
+	      
+	      
+	});
+</script>
 </head>
 
   <body>
@@ -57,37 +111,84 @@
             	  </div>
                     <table class="table">
 	                      <thead>
+	                      	<tr>
+	                      	  <th>HOME: <select style="width:115px;" name="teamId1" id="teamId1">
+						            <option value="4087">뉴캐슬</option>
+						            <option value="4693">레스터</option>
+						            <option value="4075">리버풀</option>
+						            <option value="4222">맨체스C</option>
+						            <option value="4080">맨체스U</option>
+						            <option value="4486">번리</option>
+						            <option value="102706">본머스</option>
+						            <option value="100050">브라이턴</option>
+						            <option value="4874">사우샘프</option>
+						            <option value="4007">아스널</option>
+						            <option value="4047">에버턴</option>
+						            <option value="4970">왓포드</option>
+						            <option value="4211">울버햄턴</option>
+						            <option value="4144">웨스트햄</option>
+						            <option value="4034">첼시</option>
+						            <option value="4491">카디프</option>
+						            <option value="100094">크리스탈</option>
+						            <option value="4129">토트넘</option>
+						            <option value="102785">풀럼</option>
+						            <option value="100092">허더즈필</option>
+            						</select></th>
+	                      	  <th><input type="button" id="vsBtn" value="VS"></th>
+	                      	  <th>AWAY: <select style="width:115px;" name="teamId2" id="teamId2">
+						            <option value="4087">뉴캐슬</option>
+						            <option value="4693">레스터</option>
+						            <option value="4075">리버풀</option>
+						            <option value="4222">맨체스C</option>
+						            <option value="4080">맨체스U</option>
+						            <option value="4486">번리</option>
+						            <option value="102706">본머스</option>
+						            <option value="100050">브라이턴</option>
+						            <option value="4874">사우샘프</option>
+						            <option value="4007">아스널</option>
+						            <option value="4047">에버턴</option>
+						            <option value="4970">왓포드</option>
+						            <option value="4211">울버햄턴</option>
+						            <option value="4144">웨스트햄</option>
+						            <option value="4034">첼시</option>
+						            <option value="4491">카디프</option>
+						            <option value="100094">크리스탈</option>
+						            <option value="4129">토트넘</option>
+						            <option value="102785">풀럼</option>
+						            <option value="100092">허더즈필</option>
+            						</select></th>
+	                      	<tr/>
 	                        <tr>
-	                          <th style = "text-align:center;"><div><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div><a href="#">강원FC</a><br>[8위]</th>
-	                          <th style = "text-align:center;">팀명<br>[리그순위]</th>
-	                          <th style = "text-align:center;"><div><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div><a href="#">서울FC</a><br>[7위]</th>
+	                          <th style = "text-align:center;"><div><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div><p id="h1">강원FC</p></th>
+	                          <th style = "text-align:center;">팀명[리그순위]</th>
+	                          <th style = "text-align:center;"><div><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div><p id="a1">서울FC</p></th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
 	                        <tr>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
-	                          <td style = "text-align:center;">18`시즌성적</td>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="h2">----</td>
+	                          <td style = "text-align:center;" id="s1">시즌성적</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="a2">----</td>
 	                        </tr>
 	                        <tr>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="h3">----</td>
 	                          <td style = "text-align:center;">맞대결 전적/승점</td>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="a3">----</td>
 	                        </tr>
 	                        <tr>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="h4">----</td>
 	                          <td style = "text-align:center;">득점/실점</td>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="a4">----</td>
 	                        </tr>
 	                        <tr>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="h5">----</td>
 	                          <td style = "text-align:center;">평균득점/평균실점</td>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="a5">----</td>
 	                        </tr>
 	                        <tr>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="h6">----</td>
 	                          <td style = "text-align:center;">경고/퇴장</td>
-	                          <td style = "text-align:center;" bgcolor='#EEEEEE'>----</td>
+	                          <td style = "text-align:center;" bgcolor='#EEEEEE' id="a6">----</td>
 	                        </tr>
 	                      </tbody>
 	                    </table>
