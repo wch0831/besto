@@ -12,38 +12,32 @@ public class UserServiceImpl implements UserService {
 	private MemberMapper mapper;
 	
 	public MemberVO login(MemberVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		vo = mapper.login(vo);
+		return vo;
 	}
 
-	public void memberRegister(MemberVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public int memberRegister(MemberVO vo) throws Exception {
+		return mapper.memberRegister(vo);		
 	}
 
 	public MemberVO memberDetail(String uid) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.memberDetail(uid);
 	}
 
-	public void memberDelete(MemberVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public int memberDelete(MemberVO vo) throws Exception {
+		return mapper.memberDelete(vo);
 	}
 
-	public void memberUpdate(MemberVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public int memberUpdate(MemberVO vo) throws Exception {
+		return mapper.memberUpdate(vo);
 	}
 
-	public void changePassword(MemberVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public int changePassword(MemberVO vo) throws Exception {
+		return mapper.changePassword(vo);
 	}
 
 	public String findId(String uemail) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.findId(uemail);
 	}
 
 }

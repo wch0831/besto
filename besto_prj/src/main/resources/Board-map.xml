@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.com.mapper.BoardMapper">
+	<resultMap id="boardfree-map" type="com.com.board.BoardFreeVO">
+		<id 	property="postSeq" 		column="post_seq" />
+		<result property="boardCode" 			column="board_code" />
+		<result property="userSeq" 				column="users_seq" />
+		<result property="freeBoardTitle" 		column="free_board_title" />
+		<result property="freeBoardContent" 	column="free_board_content" />
+		<result property="freeBoardRegdate" 	column="free_board_regdate" />
+		<result property="freeBoardHits" 		column="free_board_hits" />
+		<result property="freeBoardDel" 		column="free_board_del" />	
+	</resultMap>
+	
+	<resultMap id="boardchallenge-map" type="com.com.board.BoardChallengeVO">
+		<id 	property="postSeq" 		column="post_seq" />
+		<result property="boardCode" 					column="board_code" />
+		<result property="usersSeq" 					column="users_seq" />
+		<result property="challengeBoardGcode" 		column="challenge_board_gcode" />
+		<result property="challengeBoadrRoundseq" 	column="challenge_boadr_roundseq" />
+		<result property="challengeBoardTitle" 		column="challenge_board_title" />
+		<result property="challengeBoardRegdate" 		column="challenge_board_regdate" />
+		<result property="challengeBoardHits" 		column="challenge_board_hits" />
+		<result property="challengeBoardContent" 		column="challenge_board_content" />	
+	</resultMap>
+	
+	<resultMap id="boardhithistory-map" type="com.com.board.BoardHithistoryVO">
+		<id 	property="postSeq" 					column="post_seq" />
+		<result property="boardCode" 					column="board_code" />
+		<result property="usersSeq" 					column="users_seq" />
+		<result property="hithistoryDiscussionGcode" 		column="hithistory_discussion_gcode" />
+		<result property="hithistoryDiscussionRoundseq" 	column="hithistory_discussion_roundseq" />
+		<result property="hithistoryDiscussionTitle" 		column="hithistory_discussion_title" />
+		<result property="hithistoryDiscussionRegdate" 		column="hithistory_discussion_regdate" />
+		<result property="hithistoryDiscussionHits" 		column="hithistory_discussion_hits" />
+		<result property="hithistoryDiscussionContent" 		column="hithistory_discussion_content" />	
+	</resultMap>
+	
+	<resultMap id="boardbuyhistory-map" type="com.com.board.BoardBuyhistoryVO">
+		<id 	property="postSeq" 		column="post_seq" />
+		<result property="boardCode" 					column="board_code" />
+		<result property="usersSeq" 					column="users_seq" />
+		<result property="buyhistoryDiscussionGcode" 		column="buyhistory_discussion_gcode" />
+		<result property="buyhistoryDiscussionRoundseq" 	column="buyhistory_discussion_roundseq" />
+		<result property="buyhistoryDiscussionTitle" 		column="buyhistory_discussion_title" />
+		<result property="buyhistoryDiscussionRegdate" 		column="buyhistory_discussion_regdate" />
+		<result property="buyhistoryDiscussionHits" 		column="buyhistory_discussion_hits" />
+		<result property="buyhistoryDiscussionContent" 		column="buyhistory_discussion_content" />	
+	</resultMap>
+
+	<!-- 자유게시판 -->
+ 	<select id="free_board_select" resultMap="boardfree-map">
+ 	 select post_seq,free_board_title,free_board_content,users_seq,board_code,free_board_regdate,free_board_hits
+ 	from FREE_BOARD
+ 	</select>
+
+
+	<!-- 도전분석 -->
+	<select id="challenge_board_select" resultMap="boardchallenge-map">	
+	select post_seq, board_code, users_seq, challenge_board_gcode, challenge_boadr_roundseq, challenge_board_title, challenge_board_regdate, challenge_board_hits, challenge_board_content
+ 	from challenge_board
+	</select>
+
+
+</mapper>	
+

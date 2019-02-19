@@ -60,7 +60,6 @@
 		<property name="basePackage" value="com.com.mapper" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean> 
-
 	
 	
 

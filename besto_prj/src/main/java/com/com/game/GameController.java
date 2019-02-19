@@ -14,15 +14,21 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 	
+	//game 생성 insert
 	@RequestMapping(value="/gameCreate.do") //get방식
-	public ModelAndView ctlAdminBoardSelect(GameVO vo) {
-		ModelAndView mav = new ModelAndView();	
-//		insert
-		
-//		ArrayList<BoardVO> brlist = boardService.svcAdminBoardList();
-//		mav.addObject("KEY_BRLIST", brlist);
-//		mav.setViewName("board/admin_board_list");
-		return mav;
+	public String gameinsert(GameVO vo) {
+		if(vo.getGameSeq() != 0) {
+			int res = gameService.svcGameInsert(vo);
+			if(res != 0) {
+				
+			}
+		} else {
+			System.out.println("나중에 트랜잭션");
+		}
+		return "index";
 	}
+	
+	
+	
 
 }
