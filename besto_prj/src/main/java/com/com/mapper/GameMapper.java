@@ -10,6 +10,7 @@ import com.com.game.MatchVO;
 @Mapper
 public interface GameMapper {
 	public int gameInsert(GameVO vo);
+	public int matchInsert(MatchVO vo);
 	public ArrayList<MatchVO> gameInsertSelect(GameVO vo);
 
 }

@@ -31,6 +31,10 @@
 		<result property="usersSeq" 		column="users_seq" />			
 	</resultMap>
 	
+	<resultMap id="gameMap_1n" type="com.com.game.GameVO" extends="gameMap">
+		<collection property="matchlist" resultMap="matchMap"/>
+	</resultMap>
+	
 	<resultMap id="recordRateMap" type="com.com.game.RecordRateVO">
 		<id 	property="matchSeq" 		column="match_seq" />
 		<result property="recoderate00" 		column="recoderate_00" />
@@ -54,8 +58,14 @@
  	
  	<!-- 게임 insert -->
 	<insert id="gameInsert" parameterType="com.com.game.GameVO">
-		insert into game(game_seq, game_gubun, game_finishdate, game_status, game_roundseq, game_regdate, users_seq)
-		values(games_seq.nextval, 'v', #{gameFinishdate}, 'p', #{gameRoundseq}, sysdate, #{usersSeq});
+		insert into game(game_seq, game_gubun, game_finishdate, game_status, game_roundseq, game_regdate)
+		values(games_seq.nextval, #{gameGubun}, #{gameFinishdate}, 'p', game_roundseq.nextval, sysdate);
+	</insert>
+	
+	<!-- 매치 insert -->
+	<insert id="matchInsert" parameterType="com.com.game.MatchVO">
+		insert into match(match_seq, game_seq, match_starttime, match_hometeam, match_awayteam, match_vsrecord, match_stadium, match_status)
+		values(match_seq.nextval, #{gameSeq}, #{matchStarttime}, #{matchHometeam}, #{matchAwayteam}, #{matchVsrecord}, #{matchStadium}, 'p')
 	</insert>
 	
 	<!-- 경기 불러오기.  g.game_status = 'f' 수정해야한다. -->

@@ -17,10 +17,21 @@ public class GameServiceImpl implements GameService {
 	public int svcGameInsert(GameVO vo) {
 		return gameMapper.gameInsert(vo);
 	}
-
+	
+	@Override
+	public int svcMatchInsert(GameVO vo) {
+		int res = 0;
+		for(int i=0; i<vo.getMatchlist().size(); i++) {
+			res += gameMapper.matchInsert(vo.getMatchlist().get(i));
+		}
+		return res;
+	}
+	
 	@Override
 	public ArrayList<MatchVO> svcGameSelect(GameVO vo) {
 		ArrayList<MatchVO> list = gameMapper.gameInsertSelect(vo);
 		return list;
 	}
+
+
 }

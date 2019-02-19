@@ -30,11 +30,12 @@ $(document).ready(function() {
 						//contentType: "application/json; charset=UTF-8",
 						//data:JSON.stringify(jsonData),
 						
-						url:"/game_select_rest.do",
-						type:"post",
+						url:"http://192.168.0.107:8085/alist.do",
+						type:"get",
 						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-						data:jsonData,
+						
 						success:function(jsonObj){
+							
 								console.log(jsonObj);		//[{"rseq":1 , "reply":"aa"} , {}]
 								var htmlStr = "";
 					 			$.map(jsonObj, function(vv, idx){
@@ -59,6 +60,8 @@ $(document).ready(function() {
 						}
 			}); //end of ajax 
 		});
+		
+		
 });
 
 
@@ -132,10 +135,12 @@ function openWindow_history(){
               	</div>
 						<select class="bs-select" id="selectVS" tabindex="-98">
 						  <option value="" selected disabled hidden>게임을 선택하세요</option>
+						  <!-- value값을  -->
                           <option value="1">12회차 [2월 4일 일요일 마감]</option>
                           <option value="2">13회차 [2월 14일 일요일 마감]</option>
                           <option value="3">14회차 [2월 24일 일요일 마감]</option>
                         </select>
+                        
                         </div>
                         </div>
                         
@@ -160,21 +165,23 @@ function openWindow_history(){
 	                      </tbody>
 	                    </table>
 	                    <hr>
-	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> ????</i></button>
+	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 취소하기</i></button>
 	                    <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 등록하기</i></button>
 	                    <br><br><br><br><hr><br>
 	                    
+	           </form>
 	                    
+	           <form method="get" action="shop-checkout1.html">  
 	               <!-- 기록식(관리자) -->
 	               <div class="row pull-right">
                 <div class="btn-group bootstrap-select bs-select">
               	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
               	</div>
 						<select class="bs-select" tabindex="-98">
-                          <option value="match">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="match">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
+						  <option value="" selected disabled hidden>게임을 선택하세요</option>
+                          <option value="match">5회차 [2월 6일 일요일 마감]</option>
+                          <option value="match">6회차 [2월 16일 일요일 마감]</option>
+                          <option value="history">7회차 [2월 26일 일요일 마감]</option>
                         </select>
                         </div>
                         </div>
@@ -206,7 +213,7 @@ function openWindow_history(){
 	                      </tbody>
 	                    </table>
 	                    <hr>
-	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> ????</i></button>
+	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 취소하기</i></button>
 	                    <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 등록하기</i></button>
                 </form>
             </div>

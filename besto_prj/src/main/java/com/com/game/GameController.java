@@ -17,7 +17,14 @@ public class GameController {
 	//game 생성 insert
 	@RequestMapping(value="/gameCreate.do") //get방식
 	public String gameinsert(GameVO vo) {
-		int res = gameService.svcGameInsert(vo);
+		if(vo.getGameSeq() != 0) {
+			int res = gameService.svcGameInsert(vo);
+			if(res != 0) {
+				
+			}
+		} else {
+			System.out.println("나중에 트랜잭션");
+		}
 		return "index";
 	}
 	
