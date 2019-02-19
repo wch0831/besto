@@ -1,4 +1,4 @@
-package com.com.boardchallenge;
+package com.com.board;
 
 import java.util.ArrayList;
 

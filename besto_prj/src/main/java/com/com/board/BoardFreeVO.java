@@ -1,4 +1,4 @@
-package com.com.boardfree;
+package com.com.board;
 
 public class BoardFreeVO {
 	

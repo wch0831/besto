@@ -5,11 +5,11 @@
 <html>
 
 <head>  
-<script>
+<!-- <script>
 $(document).ready(function(){
 	
 });
-</script>
+</script> -->
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
