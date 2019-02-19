@@ -53,12 +53,26 @@
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               
               
+              <div class="table-responsive">
+              	<table class="table">
+              		<thead>
+              			<tr>
+              				<th style = "text-align:center;"><i class="fa fa-chevron-left"></i></th>
+              				<th style = "text-align:center;"><font size="3">2019.02</font></th>
+              				<th style = "text-align:center;"><i class="fa fa-chevron-right"></i></th>
+              			</tr>
+              		</thead>
+             	 </table>
+              </div>
+              
+              
+              
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
                   <h4>◈ 게임 일정</h4>
                     <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">구분</th>
 	                          <th style = "text-align:center;">게임명</th>
@@ -67,15 +81,12 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-	                      <!-- pull-right -->
-	                      
 	                        <tr>
 	                          <td style = "text-align:center;">축구</td>
-	                          <td style = "text-align:center;"><a href="#"><font color="green">프로토 승부식 14회차</font></a></td>
+	                          <td style = "text-align:center;"><a href="board_game_schedule_detail.jsp"><font color="green">프로토 승부식 14회차</font></a></td>
 	                          <td style = "text-align:center;">19.02.15 ~ 경기별 10분전 발매마감</td>
 	                          <td style = "text-align:center;">발매예정</td>
 	                        </tr>
-	                        
 	                      </tbody>
 	                    </table>
                   </div>
@@ -83,23 +94,9 @@
             </div>
             <hr>
             
-            <!-- 검색바 -->
-              <div class="col-md-3 pull-right">
-            <div class="panel-body">
-                  <form role="search">
-                    <div class="input-group">
-                      <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
-                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
-                    </div>
-                  </form>
-                </div>
-            </div>
-            <br>
-<!-- 검색바 -->
-            
             
 <!-- 페이징하셈 -->
-              <div class="pages">
+              <div class="pages" style="position:relative; left: 0px; top: 10px;">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                   <ul class="pagination">
                     <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>

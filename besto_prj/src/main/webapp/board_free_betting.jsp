@@ -63,7 +63,7 @@
                 <div id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" class="tab-pane fade show active">
 					<div class="table-responsive">
 	                    <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">글번호</th>
 	                          <th style = "text-align:center;">게임구분</th>
@@ -76,34 +76,50 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-	                      <!-- pull-right -->
-	                      
 	                        <tr>
 	                          <td style = "text-align:center;">1</td>
 	                          <td style = "text-align:center;">승부식</td>
 	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="#"><font color="black">다 날려먹었어요..</font></a></td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
 	                          <td style = "text-align:center;">이문경</td>
 	                          <td style = "text-align:center;">2019.02.12</td>
 	                          <td style = "text-align:center;">30</td>
 	                          <td style = "text-align:center;"><font color="red">발매중</font></td>
 	                        </tr>
-	                        
 	                        <tr>
 	                          <td style = "text-align:center;">1</td>
 	                          <td style = "text-align:center;">승부식</td>
 	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="#"><font color="black">다 날려먹었어요..</font></a></td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
 	                          <td style = "text-align:center;">이문경</td>
 	                          <td style = "text-align:center;">2019.02.12</td>
 	                          <td style = "text-align:center;">30</td>
 	                          <td style = "text-align:center;"><font color="grey">발표전</font></td>
 	                        </tr>
-	                        
+	                        <tr>
+	                          <td style = "text-align:center;">1</td>
+	                          <td style = "text-align:center;">승부식</td>
+	                          <td style = "text-align:center;">19.3회차</td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
+	                          <td style = "text-align:center;">이문경</td>
+	                          <td style = "text-align:center;">2019.02.12</td>
+	                          <td style = "text-align:center;">30</td>
+	                          <td style = "text-align:center;">적중</td>
+	                        </tr>
+	                        <tr>
+	                          <td style = "text-align:center;">1</td>
+	                          <td style = "text-align:center;">승부식</td>
+	                          <td style = "text-align:center;">19.3회차</td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_buy_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
+	                          <td style = "text-align:center;">이문경</td>
+	                          <td style = "text-align:center;">2019.02.12</td>
+	                          <td style = "text-align:center;">30</td>
+	                          <td style = "text-align:center;"><font color="red">발매중</font></td>
+	                        </tr>
 	                      </tbody>
 	                    </table>
 	                    <br>
-                  <button type="button" class="btn btn-primary pull-right">글쓰기</button>
+                  <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_betting_buy_register.jsp'">글쓰기</button>
 <!-- 검색바 -->
               <div class="col-md-3 pull-right">
             <div class="panel-body">
@@ -138,7 +154,7 @@
                 <div id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" class="tab-pane fade">
                 <div class="table-responsive">
 	                    <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">글번호</th>
 	                          <th style = "text-align:center;">게임구분</th>
@@ -155,7 +171,7 @@
 	                          <td style = "text-align:center;">1</td>
 	                          <td style = "text-align:center;">승부식</td>
 	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="#"><font color="black">다 날려먹었어요..</font></a></td>
+	                          <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
 	                          <td style = "text-align:center;">이문경</td>
 	                          <td style = "text-align:center;">2019.02.12</td>
 	                          <td style = "text-align:center;">30</td>
@@ -164,7 +180,7 @@
 	                      </tbody>
 	                    </table>
 	                    <br>
-	                    <button type="button" class="btn btn-primary pull-right">글쓰기</button>
+	                    <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_hit_register.jsp'">글쓰기</button>
 <!-- 검색바 -->
                   
               <div class="col-md-3 pull-right">

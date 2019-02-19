@@ -8,6 +8,16 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+
+<script>
+function member_find_id(){  
+    window.open("member_open_window_find_id.jsp", "아이디 찾기", "width=630, height=380, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
+}
+function member_find_pw(){  
+    window.open("member_open_window_find_pw.jsp", "비밀번호 찾기", "width=630, height=380, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
+}
+</script>
+
 </head>
 
   <body>
@@ -57,21 +67,15 @@
               <div class="box">
               <blockquote class="blockquote">
                 <h2 class="text-uppercase">아이디 찾기</h2>
-                <p>아이디는 가입 시 입력했던 이메일(e-mail)을 통해 확인하실 수 있습니다.</p>
+                <p>아이디는 가입 시 입력했던 이름과 이메일(e-mail)을 통해 확인하실 수 있습니다.</p>
               </blockquote>
                 <p class="text-muted">※본인 인증 시 입력하신 정보는 베스토에서 직접수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
                 <br>
-                <form action="customer-orders.html" method="get">
-                  
-                  <div class="form-group">
-                    <label for="email-login">이메일(Email)</label>
-                    <input id="email-login" type="text" class="form-control">
-                  </div>
-                  
+                <!-- <form action="#" method="get"> -->
                   <div class="text-center">
-                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-user-md"></i> 아이디 찾기</button>
+                    <button type="submit" class="btn btn-template-outlined" onclick="javascript:member_find_id();"><i class="fa fa-user-md"></i> 아이디 찾기</button>
                   </div>
-                </form>
+                <!-- </form> -->
               </div>
             </div>
             
@@ -82,19 +86,13 @@
                 <h2 class="text-uppercase">비밀번호 찾기</h2>
                 <p>본인의 아이디와 이메일(e-mail)을 통해 임시비밀번호를 발급받으실 수 있습니다.</p>
               </blockquote>
-                <form action="customer-orders.html" method="get">
-                  <div class="form-group">
-                    <label for="id">아이디</label>
-                    <input id="id" type="text" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">이메일(Email)</label>
-                    <input id="email" type="text" class="form-control">
-                  </div>
+              <p class="text-muted">※본인 인증 시 입력하신 정보는 베스토에서 직접수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
+                <br>
+                <!-- <form action="customer-orders.html" method="get"> -->
                   <div class="text-center">
-                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> 임시비밀번호 발급</button>
+                    <button type="submit" class="btn btn-template-outlined" onclick="javascript:member_find_pw();"><i class="fa fa-sign-in"></i> 임시비밀번호 발급</button>
                   </div>
-                </form>
+                <!-- </form> -->
               </div>
             </div>
           </div>

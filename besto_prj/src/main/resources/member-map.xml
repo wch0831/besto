@@ -4,53 +4,44 @@
 <!-- <mapper namespace="userNameSpace"> -->
 <!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
-<mapper namespace="com.biz.mapper.MemberMapper">
-	<resultMap id="memberMap" type="com.biz.member.MemberVO">
-		<id 	property="userSeq" 		column="user_seq" />
-		<result property="userId" 		column="user_id" />
-		<result property="userPw" 		column="user_pw" />
-		<result property="userName" 	column="user_name" />
-		<result property="userEmail" 	column="user_email" />
-		<result property="userGubun" 	column="user_gubun" />
-		<result property="regdate" 		column="regdate" />
-		<result property="userDel" 		column="user_del" />
-		<result property="ppath" 		column="ppath" />
-		<result property="pname" 		column="pname" />
-		<result property="sysname" 		column="sysname" />
-		<result property="joinPath" 	column="join_path" />
+<mapper namespace="com.com.mapper.MemberMapper">
+	<resultMap id="memberMap" type="com.com.member.MemberVO">
+		<id 	property="usersSeq" 	column="users_seq" />
+		<result property="usersId" 		column="users_id" />
+		<result property="usersPw" 		column="users_pw" />
+		<result property="usersName" 	column="users_name" />
+		<result property="usersEmail" 	column="users_email" />
+		<result property="usersAddress" 	column="users_address" />
+		<result property="usersDetailAddress" 		column="users_detail_address" />
+		<result property="usersPhone" 		column="users_phone" />
+		<result property="usersBirth" 		column="users_birth" />
+		<result property="usersBank" 		column="users_bank" />
+		<result property="usersAccount" 		column="users_account" />
+		<result property="usersDel" 	column="users_del" />
+		<result property="usersGrant" 	column="users_grant" />			
+
 	</resultMap>
 	
-	
- 	<sql id="commonSelect">user_name, user_gubun</sql>
- 	
- 	
+ 	<!-- <sql id="commonSelect">user_name, user_gubun</sql> --> 	
  	
  	<!-- 멤버 로그인 -->
- 	<select id="login" parameterType="com.biz.member.MemberVO" resultMap="memberMap">
- 		select user_seq, user_name, user_gubun, user_id, sysname
- 		from member
- 		where user_id=#{userId} and user_pw=#{userPw}
- 								and USER_DEL='n'
+ 	<select id="login" parameterType="com.com.member.MemberVO" resultMap="memberMap">
+ 		select users_seq, users_name, users_id, users_grant
+ 		from users
+ 		where users_id=#{usersId} and users_pw=#{usersPw} and users_del='n'
  	</select>
 	
-	
-	<insert id="logwrite">
-		insert into log values('loglogvisit')
-	</insert>
-	
-	
 	<!-- 멤버 회원가입 -->
-	<insert id="memberRegister" parameterType="com.biz.member.MemberVO">
-		insert into member(user_seq, user_id, user_name, user_pw, user_email, user_gubun, regdate, user_del, ppath, pname, sysname, join_path)
-		values(users_seq.nextval, #{userId}, #{userName}, #{userPw}, #{userEmail}, 'u', sysdate, 'n', #{ppath}, #{pname}, #{sysname}, #{joinPath})
+	<insert id="memberRegister" parameterType="com.com.member.MemberVO">
+		insert into member(users_seq, users_id, users_pw, users_name, users_email, users_address, 
+		users_detail_address, users_phone, users_birth, users_del, users_grant)
+		values(users_seq.nextval, #{usersId}, #{usersPw}, #{usersName}, #{usersEmail}, #{usersAddress},
+		#{usersDetailAddress}, #{usersPhone}, #{usersBirth}, 'n', 'u')
 	</insert>
 	
-	
-	
-	<!-- 멤버 리스트(유저만) -->
-	<select id="memberList" parameterType="com.biz.member.MemberVO" resultMap="memberMap">
- 		select * 
- 		from member
+	<!-- 멤버 리스트(유저만)
+	<select id="memberList" parameterType="com.com.member.MemberVO" resultMap="memberMap">
+ 		select * from users
  	  <where>
  		<if test="searchGubun != null"> 
  			${searchGubun}=#{searchStr}
@@ -58,41 +49,48 @@
  	  </where>
  		order by user_seq
  	</select>
-	
+	-->
 	
 	
 	<!-- 멤버 디테일 -->
 	<select id="memberDetail" parameterType="String" resultMap="memberMap">
- 		select user_id, user_name, user_email, user_gubun, ppath, pname, sysname
-		from member
-		where user_id=#{value} and USER_DEL='n'
+ 		select users_id, users_name, users_email, users_address, users_detail_address, users_phone, users_birth
+		from users
+		where users_id=#{usersId} and users_pw=#{usersPw} and users_del='n'
  	</select>
-	
+	 
 	
 	
 	<!-- 유저 탈퇴 -->
-	<update id="memberDelete" parameterType="String">
-		update member
-		 	   set user_gubun='0', user_del='y'
-		 	   where user_id=#{value} and USER_DEL='n'
+	<update id="memberDelete" parameterType="com.com.member.MemberVO">
+		update users
+		 	   set users_grant='0', users_del='y'
+		 	   where users_id=#{usersId} and users_pw=#{usersPw} and users_del='n'
 	</update>
 	
 	
 	
 	<!-- 유저 정보 수정 -->	
-	<update id="memberUpdate" parameterType="com.biz.member.MemberVO">
-		update member
-		       set user_name=#{userName}, user_pw=#{userPw}, user_email=#{userEmail}, ppath=#{ppath}, pname=#{pname}, sysname=#{sysname}
-			   where user_id=#{userId} and USER_DEL='n'
+	<update id="memberUpdate" parameterType="com.com.member.MemberVO">
+		update users
+		       set users_name=#{usersName}, users_pw=#{usersPw}, users_email=#{usersEmail},
+		       users_address=#{usersAddress}, users_detail_address=#{usersDetailAddress}, 
+		       users_phone=#{usersPhone}, users_birth=#{usersBirth}
+			   where users_id=#{usersId} and users_del='n'
 	</update>
 	
 
-	<update id="changePassword" parameterType="com.biz.member.MemberVO">
-		update member
-		   set user_pw=#{userPw}
-	     where user_email=#{userEmail} and user_id=#{userPw}
+	<update id="changePassword" parameterType="com.com.member.MemberVO">
+		update users
+		   set users_pw=#{usersPw}
+	     where users_email=#{usersEmail} and users_id=#{usersId} and users_del='n'
 	</update>
 
+	<select id="findId" parameterType="String" resultType="String">
+ 		select users_id
+		from users
+		where users_email=#{usersEmail} and users_name=#{usersName} and users_del='n'
+ 	</select>
 	
 	
 </mapper>	

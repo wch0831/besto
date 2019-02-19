@@ -20,6 +20,7 @@
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<context:component-scan base-package="com.com.**" />
 	<mvc:resources mapping="/**" location="/" />  <!-- html 다이렉트 접근 위한 설정 추가 .. -->
+	
 	 
 
 
@@ -47,7 +48,7 @@
     <!-- InternalResourceViewResolver 가장 하단에 둘 것 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/" />
-		<property name="suffix" value=".html" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 	
 	

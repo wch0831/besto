@@ -5,7 +5,7 @@
 <html>
 
 <head>  
-<!-- Header Include CSS START-->
+<!-- Header Include CSS START--> 
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
 </head>
@@ -59,7 +59,7 @@
                   <h4>◈ 오늘의 경기</h4>
                   <br>
                     <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">리그</th>
 	                          <th style = "text-align:center;">시간</th>
@@ -88,7 +88,7 @@
                   
                   <h4>◈ 순위정보</h4>
                   <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">순위</th>
 	                          <th style = "text-align:center;">팀명</th>
@@ -103,7 +103,7 @@
 	                          <th style = "text-align:center;"><font color="red">실점<br>평균</font></th>
 	                          <th style = "text-align:center;">득실차</th>
 	                          <th style = "text-align:center;">연속</th>
-	                          <th style = "text-align:center;">최근10경기</th>
+	                          <th style = "text-align:center;">최근<br>10경기</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
@@ -144,43 +144,10 @@
                 </form>
             </div>
             <hr>
-            
-            <!-- 검색바 -->
-              <div class="col-md-3 pull-right">
-            <div class="panel-body">
-                  <form role="search">
-                    <div class="input-group">
-                      <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
-                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
-                    </div>
-                  </form>
-                </div>
-            </div>
-            <br>
-<!-- 검색바 -->
-            
-            
-<!-- 페이징하셈 -->
-              <div class="pages">
-                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                  <ul class="pagination">
-                    <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </nav>
-              </div>
-<!-- 페이징하셈 --> 
-              
             </div>
           </div>
         </div>
       </div>
-      
       
 <!-- Footer Include CSS START-->
 <%@ include file="/include/footer.jsp" %>

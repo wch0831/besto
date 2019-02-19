@@ -62,7 +62,7 @@
                     </div>
                     
                   <table class="table">
-                    <thead>
+                    <thead bgcolor="#EEEEEE">
                       <tr>
                         <th>구분</th>
                         <th>거래일자</th>
