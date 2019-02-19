@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <mapper namespace="userNameSpace"> -->
-<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
+<mapper namespace="userNameSpace">
+<!-- <mapper namespace="com.biz.mapper.MemberMap">
 
-<mapper namespace="com.com.mapper.MemberMapper">
-
-
-	<!-- <resultMap id="memberMap" type="com.biz.member.MemberVO">
+ -->
 
 <resultMap id="memberMap" type="com.biz.member.MemberVO">
 
@@ -24,13 +21,13 @@
 		<result property="sysname" 		column="sysname" />
 		<result property="joinPath" 	column="join_path" />
 	</resultMap>
-	 -->
+	
 	
  	
  	
- <!-- 	
  	
- 	멤버 로그인
+ 	
+ <!-- 	멤버 로그인
  	<select id="login" parameterType="com.biz.member.MemberVO" resultMap="memberMap">
  		select user_seq, user_name, user_gubun, user_id, sysname
  		from member
@@ -84,7 +81,7 @@
 	
 	
 	
-	유저 정보 수정	
+유저 정보 수정	
 	<update id="memberUpdate" parameterType="com.biz.member.MemberVO">
 		update member
 		       set user_name=#{userName}, user_pw=#{userPw}, user_email=#{userEmail}, ppath=#{ppath}, pname=#{pname}, sysname=#{sysname}
@@ -96,10 +93,10 @@
 		update member
 		   set user_pw=#{userPw}
 	     where user_email=#{userEmail} and user_id=#{userPw}
-	</update>
-<<<<<<< HEAD
+	</update> -->
 
-	 -->
+
+	
 
 </mapper>	
 
