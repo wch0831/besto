@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <mapper namespace="userNameSpace"> -->
-<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
 <mapper namespace="com.com.mapper.GameMapper">
 	<resultMap id="matchMap" type="com.com.game.MatchVO">
@@ -16,6 +14,9 @@
 		<result property="matchStatus" 		column="match_status" />
 		<result property="usersSeq" 		column="users_seq" />		
 		
+		<result property="victoryrateWin" 		column="victoryrate_win" />
+		<result property="victoryrateDraw" 		column="victoryrate_draw" />
+		<result property="victoryrateLose" 		column="victoryrate_lose" />
 	</resultMap>
 	
 	<resultMap id="gameMap" type="com.com.game.GameVO">
@@ -26,6 +27,10 @@
 		<result property="gameRoundseq" 	column="game_roundseq" />
 		<result property="gameRegdate" 	column="game_regdate" />
 		<result property="usersSeq" 		column="users_seq" />			
+	</resultMap>
+	
+	<resultMap id="gameMap_1n" type="com.com.game.GameVO" extends="gameMap">
+		<collection property="matchlist" resultMap="matchMap"/>
 	</resultMap>
 	
 	<resultMap id="recordRateMap" type="com.com.game.RecordRateVO">
@@ -49,6 +54,26 @@
 	
  	<sql id="commonSelect">user_name, user_gubun</sql>
  	
+ 	<!-- 게임 insert -->
+	<insert id="gameInsert" parameterType="com.com.game.GameVO">
+		insert into game(game_seq, game_gubun, game_finishdate, game_status, game_roundseq, game_regdate)
+		values(games_seq.nextval, #{gameGubun}, #{gameFinishdate}, 'p', game_roundseq.nextval, sysdate);
+	</insert>
+	
+	<!-- 매치 insert -->
+	<insert id="matchInsert" parameterType="com.com.game.MatchVO">
+		insert into match(match_seq, game_seq, match_starttime, match_hometeam, match_awayteam, match_vsrecord, match_stadium, match_status)
+		values(match_seq.nextval, #{gameSeq}, #{matchStarttime}, #{matchHometeam}, #{matchAwayteam}, #{matchVsrecord}, #{matchStadium}, 'p')
+	</insert>
+	
+	<!-- 경기 불러오기.  g.game_status = 'f' 수정해야한다. -->
+ 	<select id="gameInsertSelect" parameterType="com.com.game.GameVO" resultMap="matchMap">
+ 		select m.match_starttime, m.match_hometeam, m.match_awayteam, v.victoryrate_win, v.victoryrate_draw, v.victoryrate_lose, m.match_stadium
+		from game g, match m, victoryrate v
+		where g.game_seq = m.game_seq and m.match_seq = v.match_seq and g.game_seq = #{gameSeq} and g.game_status = 'f'
+ 	</select>
+ 	
+ 	
  	
  	
  	<!-- 멤버 로그인 -->
@@ -63,67 +88,6 @@
  		from game
  		where game_status='p'
  	</select>
-	
-	
-	<!-- <insert id="logwrite">
-		insert into log values('loglogvisit')
-	</insert>
-	
-	
-	멤버 회원가입
-	<insert id="memberRegister" parameterType="com.biz.member.MemberVO">
-		insert into member(user_seq, user_id, user_name, user_pw, user_email, user_gubun, regdate, user_del, ppath, pname, sysname, join_path)
-		values(users_seq.nextval, #{userId}, #{userName}, #{userPw}, #{userEmail}, 'u', sysdate, 'n', #{ppath}, #{pname}, #{sysname}, #{joinPath})
-	</insert>
-	
-	
-	
-	멤버 리스트(유저만)
-	<select id="memberList" parameterType="com.biz.member.MemberVO" resultMap="memberMap">
- 		select * 
- 		from member
- 	  <where>
- 		<if test="searchGubun != null"> 
- 			${searchGubun}=#{searchStr}
- 		</if>
- 	  </where>
- 		order by user_seq
- 	</select>
-	
-	
-	
-	멤버 디테일
-	<select id="memberDetail" parameterType="String" resultMap="memberMap">
- 		select user_id, user_name, user_email, user_gubun, ppath, pname, sysname
-		from member
-		where user_id=#{value} and USER_DEL='n'
- 	</select>
-	
-	
-	
-	유저 탈퇴
-	<update id="memberDelete" parameterType="String">
-		update member
-		 	   set user_gubun='0', user_del='y'
-		 	   where user_id=#{value} and USER_DEL='n'
-	</update>
-	
-	
-	
-	유저 정보 수정	
-	<update id="memberUpdate" parameterType="com.biz.member.MemberVO">
-		update member
-		       set user_name=#{userName}, user_pw=#{userPw}, user_email=#{userEmail}, ppath=#{ppath}, pname=#{pname}, sysname=#{sysname}
-			   where user_id=#{userId} and USER_DEL='n'
-	</update>
-	
-
-	<update id="changePassword" parameterType="com.biz.member.MemberVO">
-		update member
-		   set user_pw=#{userPw}
-	     where user_email=#{userEmail} and user_id=#{userPw}
-	</update> -->
-
 	
 	
 </mapper>	
