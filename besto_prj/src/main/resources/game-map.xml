@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <mapper namespace="userNameSpace"> -->
-<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
 <mapper namespace="com.com.mapper.GameMapper">
 	<resultMap id="matchMap" type="com.com.game.MatchVO">
@@ -64,13 +62,9 @@
  		where game_status='p'
  	</select>
 	
+<!-- 	
 	
-	<insert id="logwrite">
-		insert into log values('loglogvisit')
-	</insert>
-	
-	
-	<!-- 멤버 회원가입 -->
+	멤버 회원가입
 	<insert id="memberRegister" parameterType="com.biz.member.MemberVO">
 		insert into member(user_seq, user_id, user_name, user_pw, user_email, user_gubun, regdate, user_del, ppath, pname, sysname, join_path)
 		values(users_seq.nextval, #{userId}, #{userName}, #{userPw}, #{userEmail}, 'u', sysdate, 'n', #{ppath}, #{pname}, #{sysname}, #{joinPath})
@@ -78,7 +72,7 @@
 	
 	
 	
-	<!-- 멤버 리스트(유저만) -->
+	멤버 리스트(유저만)
 	<select id="memberList" parameterType="com.biz.member.MemberVO" resultMap="memberMap">
  		select * 
  		from member
@@ -92,7 +86,7 @@
 	
 	
 	
-	<!-- 멤버 디테일 -->
+	멤버 디테일
 	<select id="memberDetail" parameterType="String" resultMap="memberMap">
  		select user_id, user_name, user_email, user_gubun, ppath, pname, sysname
 		from member
@@ -101,7 +95,7 @@
 	
 	
 	
-	<!-- 유저 탈퇴 -->
+	유저 탈퇴
 	<update id="memberDelete" parameterType="String">
 		update member
 		 	   set user_gubun='0', user_del='y'
@@ -110,7 +104,7 @@
 	
 	
 	
-	<!-- 유저 정보 수정 -->	
+	유저 정보 수정	
 	<update id="memberUpdate" parameterType="com.biz.member.MemberVO">
 		update member
 		       set user_name=#{userName}, user_pw=#{userPw}, user_email=#{userEmail}, ppath=#{ppath}, pname=#{pname}, sysname=#{sysname}
@@ -122,7 +116,7 @@
 		update member
 		   set user_pw=#{userPw}
 	     where user_email=#{userEmail} and user_id=#{userPw}
-	</update>
+	</update> -->
 
 	
 	
