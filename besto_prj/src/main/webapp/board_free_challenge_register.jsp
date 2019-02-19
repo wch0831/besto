@@ -12,15 +12,15 @@
 
   <body>
     <div id="all">
-    
+
 <!-- Topbar Include CSS START-->
 <%@ include file="/include/topbar.jsp" %>
 <!-- Topbar Include CSS END-->
-      
+
 <!-- Navbar Include CSS START-->
 <%@ include file="/include/navbar.jsp" %>
 <!-- Navbar Include CSS END-->      
-      
+
       <div id="heading-breadcrumbs">
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
@@ -105,72 +105,72 @@
                         <tr>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                         </tr>
                         <tr>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                         </tr>
                         <tr>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                         </tr>
                         <tr>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                         </tr>
                         <tr>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                           <td bgcolor="#EEEEEE">--</td>
                           <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td>-- <input type="checkbox"></td>
                         </tr>
                       </tbody>
                     </table>

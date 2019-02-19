@@ -88,7 +88,7 @@
                   
                   <h4>◈ 순위정보</h4>
                   <table class="table">
-	                      <thead>
+	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">순위</th>
 	                          <th style = "text-align:center;">팀명</th>
@@ -103,7 +103,7 @@
 	                          <th style = "text-align:center;"><font color="red">실점<br>평균</font></th>
 	                          <th style = "text-align:center;">득실차</th>
 	                          <th style = "text-align:center;">연속</th>
-	                          <th style = "text-align:center;">최근10경기</th>
+	                          <th style = "text-align:center;">최근<br>10경기</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
