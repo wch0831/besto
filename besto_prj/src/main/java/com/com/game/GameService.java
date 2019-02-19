@@ -6,4 +6,6 @@ public interface GameService {
 	
 	public int svcGameInsert(GameVO vo);
 	
+	public ArrayList<MatchVO> svcGameSelect(GameVO vo);
+	
 }

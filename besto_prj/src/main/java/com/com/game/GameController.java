@@ -18,20 +18,10 @@ public class GameController {
 	@RequestMapping(value="/gameCreate.do") //get방식
 	public String gameinsert(GameVO vo) {
 		int res = gameService.svcGameInsert(vo);
-		return "member/index";
+		return "index";
 	}
 	
-	//
-	@RequestMapping(value="/gameSelect.do") //get방식
-	public ModelAndView ctlAdminBoardSelect(GameVO vo) {
-		ModelAndView mav = new ModelAndView();	
-		
-		
-//		ArrayList<BoardVO> brlist = boardService.svcAdminBoardList();
-//		mav.addObject("KEY_BRLIST", brlist);
-//		mav.setViewName("board/admin_board_list");
-		return mav;
-	}
+	
 	
 
 }

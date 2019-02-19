@@ -12,26 +12,28 @@ public class MatchVO {
 	private int usersSeq;
 	
 	
-	private int victoryrateWin;
-	private int victoryrateDraw;
-	private int victoryrateLose;
+	private double victoryrateWin;
+	private double victoryrateDraw;
+	private double victoryrateLose;
 	
-	public int getVictoryrateWin() {
+	
+	
+	public double getVictoryrateWin() {
 		return victoryrateWin;
 	}
-	public void setVictoryrateWin(int victoryrateWin) {
+	public void setVictoryrateWin(double victoryrateWin) {
 		this.victoryrateWin = victoryrateWin;
 	}
-	public int getVictoryrateDraw() {
+	public double getVictoryrateDraw() {
 		return victoryrateDraw;
 	}
-	public void setVictoryrateDraw(int victoryrateDraw) {
+	public void setVictoryrateDraw(double victoryrateDraw) {
 		this.victoryrateDraw = victoryrateDraw;
 	}
-	public int getVictoryrateLose() {
+	public double getVictoryrateLose() {
 		return victoryrateLose;
 	}
-	public void setVictoryrateLose(int victoryrateLose) {
+	public void setVictoryrateLose(double victoryrateLose) {
 		this.victoryrateLose = victoryrateLose;
 	}
 	public int getMatchSeq() {
