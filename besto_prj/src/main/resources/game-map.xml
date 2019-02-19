@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <mapper namespace="userNameSpace"> -->
-<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
 <mapper namespace="com.com.mapper.GameMapper">
 	<resultMap id="matchMap" type="com.com.game.MatchVO">
@@ -64,21 +62,8 @@
  		where game_status='p'
  	</select>
 	
-<<<<<<< HEAD
 <!-- 	
-	<insert id="logwrite">
-=======
 	
-	<!-- <insert id="logwrite">
->>>>>>> branch 'master' of https://github.com/wch0831/besto
-		insert into log values('loglogvisit')
-	</insert> -->
-	
-<<<<<<< HEAD
-<!-- 	
-=======
-	
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 	멤버 회원가입
 	<insert id="memberRegister" parameterType="com.biz.member.MemberVO">
 		insert into member(user_seq, user_id, user_name, user_pw, user_email, user_gubun, regdate, user_del, ppath, pname, sysname, join_path)

@@ -36,11 +36,7 @@
 	<!-- DBCP -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="kosmoDS"/>
-<<<<<<< HEAD
-		 <property name="configLocation" value="classpath:config-mybatis.xml"/>
-=======
 		<property name="configLocation" value="classpath:config-mybatis.xml"/>
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 		<property name="mapperLocations" value="classpath:*-map.xml"/>
 	</bean>
 	
