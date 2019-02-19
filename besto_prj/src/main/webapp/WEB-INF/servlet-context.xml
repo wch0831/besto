@@ -20,6 +20,7 @@
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<context:component-scan base-package="com.**" />
 	<mvc:resources mapping="/**" location="/" />  <!-- html 다이렉트 접근 위한 설정 추가 .. -->
+	
 	 
 
 

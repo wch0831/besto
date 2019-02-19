@@ -62,7 +62,7 @@ $(document).ready(function(){
                   <div class="table-responsive">
                   <h4>◈ 자유게시판</h4>
                     <table class="table">
-                      <thead>
+                      <thead bgcolor="#EEEEEE">
                         <tr>
                           <th style = "text-align:center;">글번호</th>
                           <th style = "text-align:center;">제목</th>

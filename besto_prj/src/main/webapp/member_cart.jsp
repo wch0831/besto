@@ -57,7 +57,7 @@
                   		<p class="text-muted lead"><font size="2">상세내용을 보시려면 <strong>게임종류, 구매일시, 상태</strong>를 클릭해 주세요.</font></p>
                     <div class="table-responsive">
                   <table class="table">
-                    <thead>
+                    <thead bgcolor="#EEEEEE">
                       <tr>
                         <th>/</th>
                         <th>게임종류</th>
