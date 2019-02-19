@@ -1,8 +1,8 @@
-package com.besto.boardfree;
+package com.com.boardfree;
 
 import java.util.ArrayList;
 
-public interface BoardService {
+public interface BoardFreeService {
 
 	public ArrayList<BoardFreeVO> BoardList();
 
