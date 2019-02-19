@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html>
-
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <head>  
 
 
@@ -13,7 +13,56 @@
 
 <script>
 
+$(document).ready(function() {
 
+  $("#selectVS").on("change", function(){
+	  		var jsonData = {"gameSeq":$('#selectVS').val()};
+	  		console.log(jsonData);
+	  		
+			  $.ajax({ 
+						//url:"/rinsert.do",
+						//type:"post",
+						//contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+						//data:strData,
+						
+						//url:"/rinsert_rest3x.do",
+						//type:"post",
+						//contentType: "application/json; charset=UTF-8",
+						//data:JSON.stringify(jsonData),
+						
+						url:"http://192.168.0.107:8085/alist.do",
+						type:"get",
+						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+						
+						success:function(jsonObj){
+							
+								console.log(jsonObj);		//[{"rseq":1 , "reply":"aa"} , {}]
+								var htmlStr = "";
+					 			$.map(jsonObj, function(vv, idx){
+					 			
+						  		htmlStr += "<tr>";
+						  		htmlStr += "<td style ='text-align:center;'>1</td>";
+		                        htmlStr += "<td style = 'text-align:center;'>"+vv.matchStarttime+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'>프리미어리그</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><span class='badge badge-info'>일반</span></td>";
+		                        htmlStr += "<td style = 'text-align:center;'>"+vv.matchHometeam+"<span class='badge badge-danger'>VS</span>"+vv.matchAwayteam+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><font color='red'>승</font>"+vv.victoryrateWin+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><font color='gray'>무</font>"+vv.victoryrateDraw+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><font color='blue'>패</font>"+vv.victoryrateLose+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'>"+vv.matchStadium+"</td>";
+		                        htmlStr += "<tr>";
+						  		
+						  	});
+						  	
+						  	//div는 남겨두고 기존 댓글 내용만 지우기
+						  	$("#gameList").empty();
+						  	$("#gameList").html(htmlStr);
+						}
+			}); //end of ajax 
+		});
+		
+		
+});
 
 
 
@@ -79,18 +128,22 @@ function openWindow_history(){
               
               <div id="basket" class="col-lg-13">
                 <form method="get" action="shop-checkout1.html">
+                
                 <div class="row pull-right">
                 <div class="btn-group bootstrap-select bs-select">
               	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
               	</div>
-						<select class="bs-select" tabindex="-98">
-                          <option value="match">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="match">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
+						<select class="bs-select" id="selectVS" tabindex="-98">
+						  <option value="" selected disabled hidden>게임을 선택하세요</option>
+						  <!-- value값을  -->
+                          <option value="1">12회차 [2월 4일 일요일 마감]</option>
+                          <option value="2">13회차 [2월 14일 일요일 마감]</option>
+                          <option value="3">14회차 [2월 24일 일요일 마감]</option>
                         </select>
+                        
                         </div>
                         </div>
+                        
                 <!-- 승부식 (관리자)-->
                   		<table id="game_match_view" class="table" >
                   		<h4>◈ 승부식(관리자)</h4>
@@ -98,7 +151,6 @@ function openWindow_history(){
 	                        <tr>
 	                          <th style = "text-align:center;">경기</th>
 	                          <th style = "text-align:center;">경기일</th>
-	                          <th style = "text-align:center;">경기시간</th>
 	                          <th style = "text-align:center;">대회명</th>
 	                          <th style = "text-align:center;">유형</th>
 	                          <th style = "text-align:center;">홈팀 <span class="badge badge-danger">VS</span> 원정팀</th>
@@ -108,37 +160,28 @@ function openWindow_history(){
 	                          <th style = "text-align:center;">경기장소</th>
 	                        </tr>
 	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">19.02.16</td>
-	                          <td style = "text-align:center;">19:00</td>
-	                          <td style = "text-align:center;">세리에A</td>
-	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
-	                          <td style = "text-align:center;">유벤투스 <span class="badge badge-danger">VS</span> 프로시노</td>
-	                          <td style = "text-align:center;"><font color="red">승</font> 33.33</td>
-	                          <td style = "text-align:center;">무 33.33</td>
-	                          <td style = "text-align:center;"><font color="blue">승</font> 33.33</td>
-	                          <td style = "text-align:center;">알리안츠스타디움</td>
-	                        </tr>
+	                      <tbody id="gameList">
+	                       
 	                      </tbody>
 	                    </table>
 	                    <hr>
-	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> ????</i></button>
+	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 취소하기</i></button>
 	                    <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 등록하기</i></button>
 	                    <br><br><br><br><hr><br>
 	                    
+	           </form>
 	                    
+	           <form method="get" action="shop-checkout1.html">  
 	               <!-- 기록식(관리자) -->
 	               <div class="row pull-right">
                 <div class="btn-group bootstrap-select bs-select">
               	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
               	</div>
 						<select class="bs-select" tabindex="-98">
-                          <option value="match">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="match">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
+						  <option value="" selected disabled hidden>게임을 선택하세요</option>
+                          <option value="match">5회차 [2월 6일 일요일 마감]</option>
+                          <option value="match">6회차 [2월 16일 일요일 마감]</option>
+                          <option value="history">7회차 [2월 26일 일요일 마감]</option>
                         </select>
                         </div>
                         </div>
@@ -170,7 +213,7 @@ function openWindow_history(){
 	                      </tbody>
 	                    </table>
 	                    <hr>
-	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> ????</i></button>
+	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 취소하기</i></button>
 	                    <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 등록하기</i></button>
                 </form>
             </div>

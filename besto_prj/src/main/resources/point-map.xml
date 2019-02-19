@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- <mapper namespace="userNameSpace"> -->
+
 <!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
 <mapper namespace="com.com.mapper.PointMapper">
@@ -14,7 +15,7 @@
 		<result property="usersSeq" column="users_seq" />
 		<result property="refundSeq" column="refund_seq" />
 	</resultMap>
-	
+
 	<!-- 특정회원에 대한 포인트 조회 -->
 	<select id="pointSelectOne" parameterType="int"	resultMap="pointMap">
 		select * from point where users_seq = #{usersSeq}
@@ -29,6 +30,7 @@
 		#{usersSeq})),charge,to_char(sysdate, 'mm/dd/yyyy
 		hh24:mi'),#{usersSeq})
 	</insert>
+	
 	<!-- 회원의 포인트 환급 -->
 	<insert id="pointRefund" parameterType="com.com.point.PointVO">
 	insert into point(point_seq, point_change, point_current, point_gubun,
@@ -38,9 +40,5 @@
 		#{usersSeq})),refund,to_char(sysdate, 'mm/dd/yyyy
 		hh24:mi'),#{usersSeq})
 	</insert>
-	
-	<!-- 회원이 게임에 사용한 비용처리 아직안됨 -->
-	
-
+ 	
 </mapper>	
-

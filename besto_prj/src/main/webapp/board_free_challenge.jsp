@@ -54,7 +54,7 @@
               
               
               <div id="basket" class="col-lg-12">
-                <form method="get" action="shop-checkout1.html">
+                <form method="get" action="/register">
                   <div class="table-responsive">
                   <h4>◈ 도전분석</h4>
                     <table class="table">
@@ -69,16 +69,20 @@
 	                          <th style = "text-align:center;">조회수</th>
 	                        </tr>
 	                      </thead>
+	                      
+	                      
 	                      <tbody>
+	                       <c:forEach var="a" items="${KEY_RESULT}">
 	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;"><a href="board_free_challenge_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-	                          <td style = "text-align:center;">이문경</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">30</td>
+	                          <td style = "text-align:center;">${a.postSeq}</td>
+	                          <td style = "text-align:center;">${a.challengeBoardGcode}</td>
+	                          <td style = "text-align:center;">${a.challengeBoadrRoundseq}</td>
+	                          <td style = "text-align:center;"><a href="board_free_challenge_detail.jsp"><font color="black">${a.challengeBoardTitle}</font></a></td>
+	                          <td style = "text-align:center;">${a.usersSeq}</td>
+	                          <td style = "text-align:center;">${a.challengeBoardRegdate}</td>
+	                          <td style = "text-align:center;">${a.challengeBoardHits}</td>
 	                        </tr>
+	                        </c:forEach>
 	                        
 	                      </tbody>
 	                    </table>

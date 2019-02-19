@@ -1,5 +1,7 @@
 package com.com.game;
 
+import java.util.ArrayList;
+
 public class GameVO {
 	private int gameSeq;
 	private String gameGubun;
@@ -8,6 +10,17 @@ public class GameVO {
 	private int gameRoundseq;
 	private String gameRegdate;
 	private int usersSeq;
+	
+	private ArrayList<MatchVO> matchlist;
+	
+	
+	
+	public ArrayList<MatchVO> getMatchlist() {
+		return matchlist;
+	}
+	public void setMatchlist(ArrayList<MatchVO> matchlist) {
+		this.matchlist = matchlist;
+	}
 	public int getGameSeq() {
 		return gameSeq;
 	}

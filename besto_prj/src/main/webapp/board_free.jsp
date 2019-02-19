@@ -5,6 +5,11 @@
 <html>
 
 <head>  
+<!-- <script>
+$(document).ready(function(){
+	
+});
+</script> -->
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
@@ -36,9 +41,6 @@
           </div>
         </div>
       </div>
-      
-      
-      
       <div id="content">
         <div class="container">
           <div class="row bar">
@@ -56,7 +58,7 @@
               
               
               <div id="basket" class="col-lg-12">
-                <form method="get" action="shop-checkout1.html">
+                <form method="get" action="/register">
                   <div class="table-responsive">
                   <h4>◈ 자유게시판</h4>
                     <table class="table">
@@ -69,16 +71,20 @@
                           <th style = "text-align:center;">조회수</th>
                         </tr>
                       </thead>
+                      
+                      
+                      
                       <tbody>
-                        <tr>
-                          <td style = "text-align:center;">1</td>
-                          <td style = "text-align:center;"><a href="board_free_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-                          <td style = "text-align:center;">이문경</td>
-                          <td style = "text-align:center;">2019.02.12</td>
-                          <td style = "text-align:center;">30</td>
+                      <c:forEach var="a" items="${KEY_RESULT}">
+                        <tr>    
+                          <td style = "text-align:center;">${a.postSeq}</td>
+                          <td style = "text-align:center;"><a href="board_free_detail.jsp"><font color="black">${a.freeBoardTitle}</font></a></td>
+                          <td style = "text-align:center;">${a.userSeq}</td>
+                          <td style = "text-align:center;">${a.freeBoardRegdate}</td>
+                          <td style = "text-align:center;">${a.freeBoardHits}</td>
                         </tr>
-                        
-                        
+                      </c:forEach>
+     
                       </tbody>
                     </table>
                     <br>

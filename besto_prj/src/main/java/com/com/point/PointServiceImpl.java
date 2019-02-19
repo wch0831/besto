@@ -9,23 +9,23 @@ import com.com.mapper.PointMapper;
 public class PointServiceImpl implements PointService{
 	
 	@Autowired
-	private PointMapper pointMapper;
+	private PointMapper mapper;
 
 	
 	public int pointRecharge(PointVO vo) {
-		return pointMapper.pointRecharge(vo);
+		return mapper.pointRecharge(vo);
 	}
 
 	
 	public int pointRefund(PointVO vo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.pointRefund(vo);
 	}
 
 	
 	public ArrayList<PointVO> pointSelect(int usersSeq) {
 		// TODO Auto-generated method stub
-		return pointMapper.pointSelectOne(usersSeq);
+		return mapper.pointSelectOne(usersSeq);
 	}
 	
 	
