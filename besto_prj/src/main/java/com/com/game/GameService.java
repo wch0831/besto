@@ -4,6 +4,6 @@ import java.util.ArrayList;
 
 public interface GameService {
 	
-	public ArrayList<GameVO> svcGameInsert();
+//	public int svcGameInsert();
 	
 }

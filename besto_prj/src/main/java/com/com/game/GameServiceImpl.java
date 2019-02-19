@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 import com.com.mapper.GameMapper;
 
 @Service
-public class GameServiceImpl {
+public class GameServiceImpl implements GameService {
 	
 	@Autowired
 	private GameMapper gameMapper;
 	
-	public int svcGameInsert() {
-		return gameMapper.GameInsert();
-	}
+//	public int svcGameInsert() {
+//		return gameMapper.GameInsert();
+//	}
 }
