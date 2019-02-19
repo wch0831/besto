@@ -25,7 +25,7 @@
             <div class="col-lg-12">
                   <h4>▶ 프로토 기록식</h4>
             </div>
-            <div id="basket" class="col-lg-8">
+            <div id="basket" class="col-lg-8"> 
                   <!-- <!--  -->
                 <div class="card">
                   <div id="headingOne" role="tab" class="card-header">
@@ -38,92 +38,92 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th bgcolor="#EEEEEE" >번호</th>
-                          <th bgcolor="#EEEEEE" >예상</th>
-                          <th bgcolor="#EEEEEE" >배당률</th>
-                          <th bgcolor="#EEEEEE" >번호</th>
-                          <th bgcolor="#EEEEEE" >예상</th>
-                          <th bgcolor="#EEEEEE" >배당률</th>
-                          <th bgcolor="#EEEEEE" >번호</th>
-                          <th bgcolor="#EEEEEE" >예상</th>
-                          <th bgcolor="#EEEEEE" >배당률</th>
-                          <th bgcolor="#EEEEEE" >번호</th>
-                          <th bgcolor="#EEEEEE" >예상</th>
-                          <th bgcolor="#EEEEEE" >배당률</th>
+                          <th style="text-align:center;" width=70 bgcolor="#EEEEEE" >번호</th>
+                          <th style="text-align:center;"width=70 bgcolor="#EEEEEE" >예상</th>
+                          <th style="text-align:center;"width=90 bgcolor="#EEEEEE" >배당률</th>
+                          <th style="text-align:center;"width=65 bgcolor="#EEEEEE" >번호</th>
+                          <th style="text-align:center;" width=70 bgcolor="#EEEEEE" >예상</th>
+                          <th style="text-align:center;" width=90 bgcolor="#EEEEEE" >배당률</th>  
+                          <th style="text-align:center;" width=65 bgcolor="#EEEEEE" >번호</th>
+                          <th style="text-align:center;" width=70 bgcolor="#EEEEEE" >예상</th>
+                          <th style="text-align:center;" width=90 bgcolor="#EEEEEE" >배당률</th>  
+                          <th style="text-align:center;" width=65 bgcolor="#EEEEEE" >번호</th>  
+                          <th style="text-align:center;" width=70 bgcolor="#EEEEEE" >예상</th>
+                          <th style="text-align:center;" width=90 bgcolor="#EEEEEE" >배당률</th>       
+                         
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">1번</td>
+                          <td style="font-size:10px; text-align:center;">1-0</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">6번</td>
+                          <td style="font-size:10px; text-align:center;">3-2</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">11번</td>
+                          <td style="font-size:10px; text-align:center;">3-3</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">16번</td>
+                          <td style="font-size:10px; text-align:center;">0-3</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
                         </tr>
                         <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">2번</td>
+                          <td style="font-size:10px; text-align:center;">2-0</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">7번</td>
+                          <td style="font-size:10px; text-align:center;">기타승</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">12번</td>
+                          <td style="font-size:10px; text-align:center;">기타무</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">17번</td>
+                          <td style="font-size:10px; text-align:center;">1-3</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
                         </tr>
                         <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">3번</td>
+                          <td style="font-size:10px; text-align:center;">2-1</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">8번</td>
+                          <td style="font-size:10px; text-align:center;">0-0</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">13번</td>
+                          <td style="font-size:10px; text-align:center;">0-1</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">18번</td>
+                          <td style="font-size:10px; text-align:center;">2-3</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
                         </tr>
                         <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                        </tr>
+                          <td style="font-size:10px; text-align:center;">4번</td>
+                          <td style="font-size:10px; text-align:center;">3-0</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">9번</td>
+                          <td style="font-size:10px; text-align:center;">1-1</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">14번</td>
+                          <td style="font-size:10px; text-align:center;">0-2</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td> 
+                          <td style="font-size:10px; text-align:center;">19번</td>
+                          <td style="font-size:10px; text-align:center;">기타패</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                        </tr>                       
                         <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                        </tr>
-                        
+                          <td style="font-size:10px; text-align:center;">5번</td>
+                          <td style="font-size:10px; text-align:center;">3-1</td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">10번</td>
+                          <td style="font-size:10px; text-align:center;">2-2</td>
+                          <td style="font-size:10px; text-align:center;">&nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;">15번</td>
+                          <td style="font-size:10px; text-align:center;">1-2</td>
+                          <td style="font-size:10px; text-align:center;">&nbsp&nbsp<input type="checkbox"></td> 
+                          <td style="font-size:10px; text-align:center;"></td>
+                          <td></td>
+                          <td></td>
+                        </tr>                        
                       </tbody>
                     </table>
                   </div>
