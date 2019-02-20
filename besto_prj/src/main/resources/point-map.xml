@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<<<<<<< HEAD
-
-<mapper namespace="userNameSpace">
-<!-- <mapper namespace="com.biz.mapper.MemberMap">
-=======
->>>>>>> branch 'master' of https://github.com/wch0831/besto
-
-<<<<<<< HEAD
- -->
-=======
->>>>>>> branch 'master' of https://github.com/wch0831/besto
-
+  
+ 
 <mapper namespace="com.com.mapper.PointMapper">
 	<resultMap id="pointMap" type="com.com.point.PointVO">
 		<id property="pointSeq" column="point_seq" />
@@ -22,46 +12,11 @@
 		<result property="usersSeq" column="users_seq" />
 		<result property="refundSeq" column="refund_seq" />
 	</resultMap>
-
-<<<<<<< HEAD
-		<id 	property="userSeq" 		column="user_seq" />
-		<result property="userId" 		column="user_id" />
-		<result property="userPw" 		column="user_pw" />
-		<result property="userName" 	column="user_name" />
-		<result property="userEmail" 	column="user_email" />
-		<result property="userGubun" 	column="user_gubun" />
-		<result property="regdate" 		column="regdate" />
-		<result property="userDel" 		column="user_del" />
-		<result property="ppath" 		column="ppath" />
-		<result property="pname" 		column="pname" />
-		<result property="sysname" 		column="sysname" />
-		<result property="joinPath" 	column="join_path" />
-	</resultMap>
-	
-=======
-	<!-- 특정회원에 대한 포인트 조회 -->
+ 
 	<select id="pointSelectOne" parameterType="int"	resultMap="pointMap">
 		select * from point where users_seq = #{usersSeq}
 	</select>
->>>>>>> branch 'master' of https://github.com/wch0831/besto
-	
-<<<<<<< HEAD
- 	
- 	
- 	
- 	
- <!-- 	멤버 로그인
- 	<select id="login" parameterType="com.biz.member.MemberVO" resultMap="memberMap">
- 		select user_seq, user_name, user_gubun, user_id, sysname
- 		from member
- 		where user_id=#{userId} and user_pw=#{userPw}
- 								and USER_DEL='n'
- 	</select>
-	
-	
-	<insert id="logwrite">
-		insert into log values('loglogvisit')
-=======
+ 
 	<!-- 회원의 포인트 충전 -->
 	<insert id="pointRecharge" parameterType="com.com.point.PointVO">
 		insert into point(point_seq, point_change, point_current, point_gubun,
@@ -70,72 +25,8 @@
 		(select max(point_regdate) from point where users_seq =
 		#{usersSeq})),charge,to_char(sysdate, 'mm/dd/yyyy
 		hh24:mi'),#{usersSeq})
->>>>>>> branch 'master' of https://github.com/wch0831/besto
-	</insert>
-<<<<<<< HEAD
-	
-	
-	멤버 회원가입
-	<insert id="memberRegister" parameterType="com.biz.member.MemberVO">
-		insert into member(user_seq, user_id, user_name, user_pw, user_email, user_gubun, regdate, user_del, ppath, pname, sysname, join_path)
-		values(users_seq.nextval, #{userId}, #{userName}, #{userPw}, #{userEmail}, 'u', sysdate, 'n', #{ppath}, #{pname}, #{sysname}, #{joinPath})
-	</insert>
-	
-	
-	
-	멤버 리스트(유저만)
-	<select id="memberList" parameterType="com.biz.member.MemberVO" resultMap="memberMap">
- 		select * 
- 		from member
- 	  <where>
- 		<if test="searchGubun != null"> 
- 			${searchGubun}=#{searchStr}
- 		</if>
- 	  </where>
- 		order by user_seq
- 	</select>
-	
-	
-	
-	멤버 디테일
-	<select id="memberDetail" parameterType="String" resultMap="memberMap">
- 		select user_id, user_name, user_email, user_gubun, ppath, pname, sysname
-		from member
-		where user_id=#{value} and USER_DEL='n'
- 	</select>
-	
-	
-	
-	유저 탈퇴
-	<update id="memberDelete" parameterType="String">
-		update member
-		 	   set user_gubun='0', user_del='y'
-		 	   where user_id=#{value} and USER_DEL='n'
-	</update>
-	
-	
-	
-유저 정보 수정	
-	<update id="memberUpdate" parameterType="com.biz.member.MemberVO">
-		update member
-		       set user_name=#{userName}, user_pw=#{userPw}, user_email=#{userEmail}, ppath=#{ppath}, pname=#{pname}, sysname=#{sysname}
-			   where user_id=#{userId} and USER_DEL='n'
-	</update>
-	
-
-	<update id="changePassword" parameterType="com.biz.member.MemberVO">
-		update member
-		   set user_pw=#{userPw}
-	     where user_email=#{userEmail} and user_id=#{userPw}
-	</update> -->
-
-
-	
-
-</mapper>	
-
-=======
-	
+ 	</insert>
+ 
 	<!-- 회원의 포인트 환급 -->
 	<insert id="pointRefund" parameterType="com.com.point.PointVO">
 	insert into point(point_seq, point_change, point_current, point_gubun,
@@ -147,4 +38,3 @@
 	</insert>
  	
 </mapper>	
->>>>>>> branch 'master' of https://github.com/wch0831/besto

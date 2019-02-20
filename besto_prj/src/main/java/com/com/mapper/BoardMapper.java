@@ -14,7 +14,11 @@ import com.com.board.BoardChallengeVO;
 public interface BoardMapper{
 	//public BoardFreeVO free_board_insert();
 	public ArrayList<BoardFreeVO> free_board_select();
+	
 	public ArrayList<BoardChallengeVO> challenge_board_select();
 	public ArrayList<BoardHithistoryVO> hithistory_board_select();
 	public ArrayList<BoardBuyhistoryVO> buyhistory_board_select();
+	
+	public BoardFreeVO free_board_detail(int postSeq);
+
 }

@@ -54,6 +54,14 @@
  	select post_seq,free_board_title,free_board_content,users_seq,board_code,free_board_regdate,free_board_hits
  	from free_board
  	</select>
+ 	
+ 	<select id="free_board_detail" resultMap="boardfree-map">
+ 	select post_seq,free_board_title,free_board_content,users_seq,board_code,free_board_regdate,free_board_hits
+ 	from free_board
+ 	where post_seq=#{postSeq}
+ 	</select>
+ 	
+ 	
 
 
 	<!-- 도전분석 -->

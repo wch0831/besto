@@ -78,7 +78,7 @@ $(document).ready(function(){
                       <c:forEach var="a" items="${KEY_RESULT}">
                         <tr>    
                           <td style = "text-align:center;">${a.postSeq}</td>
-                          <td style = "text-align:center;"><a href="board_free_detail.jsp"><font color="black">${a.freeBoardTitle}</font></a></td>
+                          <td style = "text-align:center;"><a href="board_free_detail?postseq=${a.postSeq}"><font color="black">${a.freeBoardTitle}</font></a></td>
                           <td style = "text-align:center;">${a.userSeq}</td>
                           <td style = "text-align:center;">${a.freeBoardRegdate}</td>
                           <td style = "text-align:center;">${a.freeBoardHits}</td>
@@ -118,6 +118,7 @@ $(document).ready(function(){
             </div>
             
 <!-- 검색바 -->
+
 <!-- 페이징하셈 -->
               <div class="pages" style="position:relative; left: 360px; top: 40px;">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
