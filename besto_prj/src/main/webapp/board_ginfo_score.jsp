@@ -37,35 +37,19 @@ $(document).ready(function() {
 	                  success:function(vv){
 	                     	console.log("hi");
 	                        console.log(vv);      //[{"rseq":1 , "reply":"aa"} , {}]
-	                        var htmlStr = "";
-	                        	 console.log("in the map, bye");	 
-	                            	 htmlStr += "<tr>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='h2'>"+vv.homeSeasonrecord+"</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;' id='s1'>시즌성적</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='a2'>"+vv.awaySeasonrecord+"</td>";
-	                            	 htmlStr += "</tr>";
-	                            	 htmlStr += "<tr>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='h3'>"+vv.homeMatchhistory+"</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;'>맞대결 전적/승점</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='a3'>"+vv.awayMatchhistory+"</td>";
-	                            	 htmlStr += "</tr>";
-	                            	 htmlStr += "<tr>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='h4'>"+vv.homeRecentrecord+"</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;'>최근 맞대결 전적</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='a4'>"+vv.awayRecentrecord+"</td>";
-	                            	 htmlStr += "</tr>";
-	                            	 htmlStr += "<tr>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='h5'>"+vv.homeGoalandloss+"</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;'>득점/실점</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='a5'>"+vv.awayGoalandloss+"</td>";
-	                            	 htmlStr += "</tr>";
-	                            	 htmlStr += "<tr>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='h6'>"+vv.homeGoalavg+"</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;'>평균득점/득실차</td>";
-	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='a6'>"+vv.awayGoalavg+"</td>";
-	                            	 htmlStr += "</tr>";
-	 	                        	$("#ranklist").empty();
-	 	                        	$("#ranklist").html(htmlStr);
+	                        $('#h1').text(vv.homeTeam);
+                       	 $('#h2').text(vv.homeSeasonrecord);
+                       	 $('#h3').text(vv.homeMatchhistory);
+                       	 $('#h4').text(vv.homeRecentrecord);
+                       	 $('#h5').text(vv.homeGoalandloss);
+                       	 $('#h6').text(vv.homeGoalavg);
+                       	 
+                       	 $('#a1').text(vv.awayTeam);
+                       	 $('#a2').text(vv.awaySeasonrecord);
+                       	 $('#a3').text(vv.awayMatchhistory);
+                       	 $('#a4').text(vv.awayRecentrecord);
+                       	 $('#a5').text(vv.awayGoalandloss);
+                       	 $('#a6').text(vv.awayGoalavg);
 	                        	 /* $('#h1').empty();
 	                        	 $('#h2').empty();
 	                        	 $('#h3').empty();
@@ -155,7 +139,7 @@ $(document).ready(function() {
 								<table class="table" id="vstable">
 									<thead>
 										<tr>
-											<th>HOME: <select style="width: 115px;" name="teamId1"
+											<th align="center">HOME: <select  style="width: 100%;" name="teamId1"
 												id="teamId1">
 													<option value="4087">뉴캐슬</option>
 													<option value="4693">레스터</option>
@@ -178,8 +162,8 @@ $(document).ready(function() {
 													<option value="102785">풀럼</option>
 													<option value="100092">허더즈필</option>
 											</select></th>
-											<th><input type="button" id="vsBtn" value="VS"></th>
-											<th>AWAY: <select style="width: 115px;" name="teamId2"
+											<th align="center"><input type="button" style="width: 100%;"  class="btn btn-outline-primary"id="vsBtn" value="VS"></th>
+											<th> AWAY: <select style="width: 100%;" name="teamId2"
 												id="teamId2">
 													<option value="4087">뉴캐슬</option>
 													<option value="4693">레스터</option>

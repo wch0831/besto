@@ -13,18 +13,8 @@ import com.com.mapper.MatchMapper;
 public class MatchServiceImpl implements MatchService {
 	@Autowired
 	private MatchMapper matchMapper;
-
-
 	@Override
-	public ArrayList<MatchVO> todayMatchList() {
-		
-		return matchMapper.todayMatchList();
-	}
-
-
-
-	
-//	public int svcGameInsert() {
-//		return gameMapper.GameInsert();
-//	}
+	public ArrayList<MatchVO> todayMatchList() {return matchMapper.todayMatchList();}
+	@Override
+	public ArrayList<MatchVO> matchList() {return matchMapper.matchList();}
 }

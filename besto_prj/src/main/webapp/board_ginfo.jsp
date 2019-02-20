@@ -26,8 +26,7 @@ $(document).ready(function() {
 	                        			htmlStr+="<td style = 'text-align:center;'>프리미어 리그</td>";
 	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.matchStarttime+"</td>";
 	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.matchHometeam+"<span class='badge badge-danger'>VS</span> "+vv.matchAwayteam+"</td>";
-	                        			htmlStr+="<td style = 'text-align:center;'>맞대결전적은 구할수가음슴</td>";
-	                        			htmlStr+="<td style = 'text-align:center;'>네이버스포츠링크</td>";
+	                        			
 	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.matchStadium+"</td>";
 	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.gameSeq+"</td>";
 	                        			htmlStr+="</tr>"	
@@ -55,11 +54,11 @@ $(document).ready(function() {
 	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.win+"</td>";
 	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.tie+"</td>";
 	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.loss+"</td>";
-	                        	 htmlStr+="<td style = 'text-align:center;'>"+vv.goalall+"</td>";
-	                        	 htmlStr+="<td style = 'text-align:center;'>"+vv.goalavg+"</td>";
-	                        	 htmlStr+="<td style = 'text-align:center;'>"+vv.lossall+"</td>";
-	                        	 htmlStr+="<td style = 'text-align:center;'>"+vv.lossavg+"</td>";
-	                        	 htmlStr+="<td style = 'text-align:center;'>"+vv.goaldifference+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='blue'>"+vv.goalall+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='blue'>"+vv.goalavg+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='red'>"+vv.lossall+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='red'>"+vv.lossavg+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='green'>"+vv.goaldifference+"</td>";
 	                        	 htmlStr+="<td style = 'text-align:center;'>"+vv.recent10games+"</td>";	
 		                        	htmlStr+="</tr>";
 	                        });
@@ -126,10 +125,8 @@ $(document).ready(function() {
                   	<thead bgcolor='#EEEEEE'>
                   		<tr>
                   			<th style = 'text-align:center;'>리그</th>
-                  			<th style = 'text-align:center;'>시간</th>
+                  			<th style = 'text-align:center;'>경기 시작시간</th>
          			         <th style = 'text-align:center;'>홈팀 <span class='badge badge-danger'>VS</span> 원정팀</th>
-           			       <th style = 'text-align:center;'>맞대결 전적</th>
-       			           <th style = 'text-align:center;'>중계일정</th>
        			           <th style = 'text-align:center;'>구장정보</th>
               		    <th style = 'text-align:center;'>대상게임</th>
               	    </tr>

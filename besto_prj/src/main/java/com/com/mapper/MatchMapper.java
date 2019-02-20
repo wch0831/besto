@@ -11,4 +11,5 @@ import com.com.member.MemberVO;
 @Mapper
 public interface MatchMapper {
 	public ArrayList<MatchVO> todayMatchList();
+	public ArrayList<MatchVO> matchList();
 }
