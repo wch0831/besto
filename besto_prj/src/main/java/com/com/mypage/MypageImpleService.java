@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.com.mapper.MypageMapper;
 
-
+@Service
 public class MypageImpleService implements MypageService {
 
 	@Autowired

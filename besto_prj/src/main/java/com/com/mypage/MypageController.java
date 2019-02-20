@@ -24,7 +24,7 @@ public class MypageController {
 			 ArrayList<MypageVO> mylist = mypageService.buyhitList();
 			
 			 mav.addObject("KEY_BUYLIST", mylist);
-			 mav.setViewName("board_game_hit_result");
+			 mav.setViewName("member_buy_score");
 			 
 			 return mav;
 			
@@ -41,25 +41,25 @@ public class MypageController {
 			 
 			 
 			 mav.addObject("KEY_BUYLIST", mylist);
-			 mav.setViewName("board_game_hit_result");
+			 mav.setViewName("member_buy_info");
 			 
 			
 			return mav;
 			
 		}
-//		
-//		@RequestMapping(value="/buycart")
-//		public ModelAndView viewbuyCart() {
-//			
-//			ModelAndView mav = new ModelAndView();
-//			
-//			 ArrayList<MypageVO> mylist = mypageService.buyCartList();
-//				
-//			 mav.addObject("KEY_BUYLIST", mylist);
-//			 mav.setViewName("board_game_hit_result");
-//			 
-//			
-//			return mav;
-//			
-//		}
+	
+		@RequestMapping(value="/buycart")
+		public ModelAndView viewbuyCart() {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			 ArrayList<MypageVO> mylist = mypageService.buyCartList();
+				
+			 mav.addObject("KEY_BUYLIST", mylist);
+			 mav.setViewName("member_cart");
+			 
+			
+			return mav;
+			
+		}
 }

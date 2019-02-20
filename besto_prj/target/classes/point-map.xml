@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<<<<<<< HEAD
+
 
 <!-- <mapper namespace="userNameSpace"> -->
 <!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
-<mapper namespace="com.biz.mapper.MemberMapper">
- 	
-	
-</mapper>	
-=======
 
 
 <mapper namespace="com.com.mapper.PointMapper">
@@ -52,4 +47,4 @@
  	 insert into point values(point_seq.nextval, 1000, 1000, 'charge',sysdate, #{usersSeq},null)
  	</insert>
 </mapper>	
->>>>>>> branch 'master' of https://github.com/wch0831/besto
+

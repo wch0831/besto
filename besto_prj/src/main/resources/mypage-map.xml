@@ -3,7 +3,7 @@
 
 <mapper namespace="com.com.mapper.MypageMapper">
 	
-	<resultMap id="buy_hit_list" type="com.biz.member.MemberVO">
+	<resultMap id="buy_hit_list" type="com.com.mypage.MypageVO">
 		<id 		property="bseq" 		column="betting_seq" />
 		<result property="groundseq" 		column="game_roundseq" />
 		<result property="ggubun" 		column="game_gubun" />
@@ -30,7 +30,7 @@
 		and g.game_seq = b.game_seq
 	</select>
 	
-	<select id="buycart" parameterType="int" resultMap="buy_hit_list">
+	<select id="buycartselect" parameterType="int" resultMap="buy_hit_list">
 		select g.game_gubun, g.game_roundseq, g.game_status
 		b.betting_regdate, b.betting_seq, b.betting_price
 		from users u, betting b, game g
@@ -68,5 +68,7 @@
       where betting_hityn='y' and #{value}
 	
 	</select>
+	
+	
 	
 </mapper>	
