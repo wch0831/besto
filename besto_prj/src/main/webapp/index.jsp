@@ -103,7 +103,7 @@
                         <li>공지사항 알려드립니다...</li>
                         <li>공지사항 알려드립니다...</li>
                         <li>공지사항 알려드립니다...</li>
-                      </ul><a href="#" class="btn btn-template-outlined">+더보기</a>
+                      </ul><a href="board_protice.jsp" class="btn btn-template-outlined">+더보기</a>
                     </div>
                   </div>
                 </div>
@@ -122,7 +122,7 @@
                         <li>어디다 걸까요...</li>
                         <li>어디다 걸까요...</li>
                         <li>어디다 걸까요...</li>
-                      </ul><a href="#" class="btn btn-template-outlined">+더보기</a>
+                      </ul><a href="board_free_betting.jsp" class="btn btn-template-outlined">+더보기</a>
                     </div>
                   </div>
                 </div>
@@ -141,7 +141,7 @@
                         <li>저 이렇게 갑니다...</li>
                         <li>저 이렇게 갑니다...</li>
                         <li>저 이렇게 갑니다...</li>
-                      </ul><a href="#" class="btn btn-template-outlined">+더보기</a>
+                      </ul><a href="board_free_betting.jsp" class="btn btn-template-outlined">+더보기</a>
                     </div>
                   </div>
                 </div>
@@ -160,7 +160,7 @@
                         <li>저 다 날렸어요...</li>
                         <li>저 다 날렸어요...</li>
                         <li>저 다 날렸어요...</li>
-                      </ul><a href="#" class="btn btn-template-outlined">+더보기</a>
+                      </ul><a href="board_free.jsp" class="btn btn-template-outlined">+더보기</a>
                     </div>
                   </div>
                 </div>

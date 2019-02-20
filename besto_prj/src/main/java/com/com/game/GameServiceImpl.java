@@ -8,14 +8,18 @@ import org.springframework.stereotype.Service;
 import com.com.mapper.GameMapper;
 
 @Service
+
 public class GameServiceImpl implements GameService{
-	
+
+
 	@Autowired
 	private GameMapper gameMapper;
-	
-	public int svcGameInsert() {
-		return gameMapper.GameInsert();
+
+	@Override
+	public int svcGameInsert(GameVO vo) {
+		return gameMapper.gameInsert(vo);
 	}
+
 
 	
 //	public ArrayList<RecordRateVO> svcBuyNoteRecordRate(MatchVO mvo) {		
@@ -24,4 +28,35 @@ public class GameServiceImpl implements GameService{
 	public ArrayList<GameVO> svcAvailableGame(){
 		return gameMapper.availableGame();
 	}
+
+	
+	@Override
+	public int svcMatchInsert(GameVO vo) {
+		int res = 0;
+		for(int i=0; i<vo.getMatchlist().size(); i++) {
+			res += gameMapper.matchInsert(vo.getMatchlist().get(i));
+		}
+		return res;
+	}
+	
+	@Override
+	public ArrayList<MatchVO> svcGameSelect(GameVO vo) {
+		ArrayList<MatchVO> list = gameMapper.gameInsertSelect(vo);
+		return list;
+	}
+
+
+
+	@Override
+	public int svcGameInsert() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	
+//	public int svcGameInsert() {
+//		return gameMapper.GameInsert();
+//	}
+
 }

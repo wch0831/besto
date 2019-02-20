@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- <mapper namespace="userNameSpace"> -->
-<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
 
 <mapper namespace="com.com.mapper.GameMapper">
 	<resultMap id="matchMap" type="com.com.game.MatchVO">
@@ -16,6 +14,9 @@
 		<result property="matchStatus" 		column="match_status" />
 		<result property="usersSeq" 		column="users_seq" />		
 		
+		<result property="victoryrateWin" 		column="victoryrate_win" />
+		<result property="victoryrateDraw" 		column="victoryrate_draw" />
+		<result property="victoryrateLose" 		column="victoryrate_lose" />
 	</resultMap>
 	
 	<resultMap id="gameMap" type="com.com.game.GameVO">
@@ -26,6 +27,10 @@
 		<result property="gameRoundseq" 	column="game_roundseq" />
 		<result property="gameRegdate" 	column="game_regdate" />
 		<result property="usersSeq" 		column="users_seq" />			
+	</resultMap>
+	
+	<resultMap id="gameMap_1n" type="com.com.game.GameVO" extends="gameMap">
+		<collection property="matchlist" resultMap="matchMap"/>
 	</resultMap>
 	
 	<resultMap id="recordRateMap" type="com.com.game.RecordRateVO">
@@ -49,6 +54,26 @@
 	
  	<sql id="commonSelect">user_name, user_gubun</sql>
  	
+ 	<!-- 게임 insert -->
+	<insert id="gameInsert" parameterType="com.com.game.GameVO">
+		insert into game(game_seq, game_gubun, game_finishdate, game_status, game_roundseq, game_regdate)
+		values(games_seq.nextval, #{gameGubun}, #{gameFinishdate}, 'p', game_roundseq.nextval, sysdate);
+	</insert>
+	
+	<!-- 매치 insert -->
+	<insert id="matchInsert" parameterType="com.com.game.MatchVO">
+		insert into match(match_seq, game_seq, match_starttime, match_hometeam, match_awayteam, match_vsrecord, match_stadium, match_status)
+		values(match_seq.nextval, #{gameSeq}, #{matchStarttime}, #{matchHometeam}, #{matchAwayteam}, #{matchVsrecord}, #{matchStadium}, 'p')
+	</insert>
+	
+	<!-- 경기 불러오기.  g.game_status = 'f' 수정해야한다. -->
+ 	<select id="gameInsertSelect" parameterType="com.com.game.GameVO" resultMap="matchMap">
+ 		select m.match_starttime, m.match_hometeam, m.match_awayteam, v.victoryrate_win, v.victoryrate_draw, v.victoryrate_lose, m.match_stadium
+		from game g, match m, victoryrate v
+		where g.game_seq = m.game_seq and m.match_seq = v.match_seq and g.game_seq = #{gameSeq} and g.game_status = 'f'
+ 	</select>
+ 	
+ 	
  	
  	
  	<!-- 멤버 로그인 -->
@@ -63,6 +88,7 @@
 		from match
 		where game_seq=#{gameSeq};
  	</select>
+<<<<<<< HEAD
 	-->
 	<!-- <select id="buyNoteRecordRate" parameterType="com.com.game.GameVO" resultMap="RecodeRateMap">
  		select *
@@ -71,6 +97,7 @@
 		and g.game_seq=m.game_seq
 		and rr.match_seq=m.match_seq;
  	</select> -->	 
+
 	
 </mapper>	
 

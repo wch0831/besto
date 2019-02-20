@@ -99,9 +99,9 @@
 	                          <td style = "text-align:center;">K-LEAGUE</td>
 	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
 	                          <td style = "text-align:center;">AT마드<span class="badge badge-danger">VS</span>비야레알</td>
-	                          <td><font color="red">승</font>1.34<input type="checkbox"></td>
-	                          <td>무1.34<input type="checkbox"></td>
-	                          <td><font color="blue">패</font>2.56<input type="checkbox"></td>
+	                          <td><font color="red">승</font>1.34</td>
+	                          <td>무1.34</td>
+	                          <td><font color="blue">패</font>2.56</td>
 	                          <td style = "text-align:center;">4:3</td>
 	                          <td style = "text-align:center;">승</td>
 	                        </tr>
@@ -112,18 +112,14 @@
             <hr>
             </div>
             
-                            <div class="col-md-12 pull-right">
-                <br>
+               <div class="col-md-12 pull-right"><br>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
 				  <button type="button" class="btn btn-sm btn-info pull-right"><i class="fa fa-home">목록가기</i></button>
                   <button type="button" class="btn btn-sm btn-primary pull-left"><i class="fa fa-chevron-left">이전회차</i></button>
                   <button type="button" class="btn btn-sm btn-primary pull-left">다음회차<i class="fa fa-chevron-right"></i></button>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
                   <br><br>
-                  </div>
-            
-            
-            
+              </div>
             </div>
           </div>
         </div>

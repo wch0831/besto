@@ -112,51 +112,9 @@
 	                          <td style = "text-align:center;">----</td> <!-- 득실차 -->
 	                          <td style = "text-align:center;">----</td> <!-- 연속 -->
 	                        </tr>
-	                        
 	                      </tbody>
 	                    </table>
-                  <hr>
 	              <br>
-	              
-	              <h4>◈ 맞대결 흐름</h4>
-	              <table class="table">
-	                      <thead bgcolor="#EEEEEE">
-	                        <tr>
-	                          <th style = "text-align:center;">팀명</th>
-	                          <th style = "text-align:center;">전적</th>
-	                          <th style = "text-align:center;">흐름<br><font size="2">(오른쪽으로 갈수록 최근경기입니다)</font></th>
-	                          <th style = "text-align:center;">연속</th>
-	                        </tr>
-	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">----</td> 
-	                          <td style = "text-align:center;">----</td> 
-	                          <td style = "text-align:center;">승-패-패-승-승</td> 
-	                          <td style = "text-align:center;">----</td> 
-	                        </tr>
-	                      </tbody>
-	                    </table>
-	                    <hr>
-	              		<br>
-	              
-	              <h4>◈ 맞대결 상대전적</h4>
-	              <table class="table">
-	                      <thead bgcolor="#EEEEEE">
-	                        <tr>
-	                          <th style = "text-align:center;">팀A</th>
-	                          <th style = "text-align:center;"><span class="badge badge-danger">VS</span></th>
-	                          <th style = "text-align:center;">팀B</th>
-	                        </tr>
-	                        <thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">----</td> 
-	                          <td style = "text-align:center;">----</td> 
-	                          <td style = "text-align:center;">-----</td> 
-	                        </tr>
-	                      </tbody>
-	                    </table>
 	          </form>
 	            </div>  
             </div>

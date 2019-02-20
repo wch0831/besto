@@ -72,7 +72,7 @@ function openWindow_history(){
             
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
-              <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
+              <p class="text-muted lead"><font size="2">베스토의 구매가능 게임을 볼 수 있습니다.</font></p>
               
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">

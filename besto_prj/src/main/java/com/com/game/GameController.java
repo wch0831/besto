@@ -14,11 +14,26 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 	
+	//game 생성 insert
 	@RequestMapping(value="/gameCreate.do") //get방식
+
 	public ModelAndView ctlAdminBoardSelect(GameVO vo) {
 		ModelAndView mav = new ModelAndView();	
 		return mav;
 	}
+	public String gameinsert(GameVO vo) {
+		if(vo.getGameSeq() != 0) {
+			int res = gameService.svcGameInsert(vo);
+			if(res != 0) {
+				
+			}
+		} else {
+			System.out.println("나중에 트랜잭션");
+		}
+		return "index";
+
+	}
+
 //	@RequestMapping(value="board_open_window_history.do")
 //	public ModelAndView ctlBuyNoteRecordRate(MatchVO vo) {		
 //		ModelAndView mav=new ModelAndView();		
@@ -35,4 +50,8 @@ public class GameController {
 		mav.setViewName("board_game_buy");		
 		return mav;
 	}
+	
+	
+
+
 }
