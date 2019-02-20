@@ -27,6 +27,7 @@
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item"><a href="board_free_betting.jsp" class="nav-link">베팅토론방</a></li>
+                    <li class="dropdown-item"><a href="board_free_hit.jsp" class="nav-link">적중토론방</a></li>
                     <li class="dropdown-item"><a href="board_free_challenge.jsp" class="nav-link">도전분석방</a></li>
                     <li class="dropdown-item"><a href="board_free.jsp" class="nav-link">자유게시판</a></li>
                   </ul>
@@ -45,7 +46,7 @@
                 
                 <li class="nav-item dropdown active"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">고객센터<b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="board_protice.jsp" class="nav-link">공지사항</a></li>
+                    <li class="dropdown-item"><a href="/board_protice.do" class="nav-link">공지사항</a></li>
                     <li class="dropdown-item"><a href="board_protice_faq.jsp" class="nav-link">FAQ</a></li>
                     <li class="dropdown-item"><a href="board_protice_use.jsp" class="nav-link">사이트이용안내</a></li>
                     <li class="dropdown-item"><a href="board_protice_find.jsp" class="nav-link">아이디/비밀번호 찾기</a></li>
