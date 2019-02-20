@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.com.mapper.BoardMapper">
+
+
+	<mapper namespace="com.com.mapper.BoardMapper">
+
+	<resultMap id="board_reply_1n" type="com.com.board.ReplyVO" extends="boardfree-map">
+		<!-- collection : 여러건 가져갈때 사용(댓글같은거...) -->
+		<collection property="boardReplyVOList" resultMap="boardReplyMap" > 
+		</collection>
+
+   </resultMap>
+	
+	<!-- 자유게시판 -->
 	<resultMap id="boardfree-map" type="com.com.board.BoardFreeVO">
-		<id 	property="postSeq" 		column="post_seq" />
+		<id 	property="postSeq" 			    column="post_seq" />
 		<result property="boardCode" 			column="board_code" />
 		<result property="userSeq" 				column="users_seq" />
 		<result property="freeBoardTitle" 		column="free_board_title" />
@@ -13,6 +24,19 @@
 		<result property="freeBoardDel" 		column="free_board_del" />	
 	</resultMap>
 	
+	
+	<!-- 댓글 -->
+   <resultMap id="replyMap" type="com.com.board.ReplyVO">
+      <id     property="replySeq"       	column="reply_seq" />
+      <result property="replyContent"       column="reply_content" />
+      <result property="replyWriter"        column="reply_writer" />
+      <result property="replyRegdate"     	column="reply_regdate" />
+      <result property="postSeq"     		column="post_seq" />
+      <result property="boardCode"   		column="board_code" />
+
+   </resultMap>
+	
+	<!-- 도전분석 -->
 	<resultMap id="boardchallenge-map" type="com.com.board.BoardChallengeVO">
 		<id 	property="postSeq" 		column="post_seq" />
 		<result property="boardCode" 					column="board_code" />
@@ -25,6 +49,8 @@
 		<result property="challengeBoardContent" 		column="challenge_board_content" />	
 	</resultMap>
 	
+	
+	<!-- 적중 -->
 	<resultMap id="boardhithistory-map" type="com.com.board.BoardHithistoryVO">
 		<id 	property="postSeq" 					column="post_seq" />
 		<result property="boardCode" 					column="board_code" />
@@ -37,6 +63,7 @@
 		<result property="hithistoryDiscussionContent" 		column="hithistory_discussion_content" />	
 	</resultMap>
 	
+	<!-- 구매내역 -->
 	<resultMap id="boardbuyhistory-map" type="com.com.board.BoardBuyhistoryVO">
 		<id 	property="postSeq" 		column="post_seq" />
 		<result property="boardCode" 					column="board_code" />
@@ -48,6 +75,18 @@
 		<result property="buyhistoryDiscussionHits" 		column="buyhistory_discussion_hits" />
 		<result property="buyhistoryDiscussionContent" 		column="buyhistory_discussion_content" />	
 	</resultMap>
+	
+	<!-- 공지사항 -->
+	<resultMap id="notice-map" type="com.com.board.NoticeVO">
+		<id 	property="noticeSeq" 		column="notice_seq" />
+		<result property="noticeTitle" 		column="notice_title" />
+		<result property="noticeContent" 	column="notice_content" />
+		<result property="noticeRegdate" 	column="notice_regdate" />
+		<result property="noticeHits" 		column="notice_hits" />
+		<result property="usersSeq" 		column="users_seq" />
+	</resultMap>
+	
+	
 
 	<!-- 자유게시판 -->
  	<select id="free_board_select" resultMap="boardfree-map">
@@ -82,6 +121,51 @@
  	from buyhistory_discussion
  	</select>
 
+
+
+    <!-- 게시글 삭제 -->
+    <update id="free_board_update">
+    	update free_board set free_board_del = 'y' where users_seq = #{usersSeq} 
+    </update>
+    
+    
+    <!-- 댓글 조회 -->
+   <!-- 	<select id="free_board_comment_all" resultMap="board_reply_1n">
+   		select r.reply_seq, r.reply_content, r.reply_writer, to_char(r.reply_regdate, 'yyyy-mm-dd hh24:mi')
+   		from free_board f, reply r
+   		where f.post_seq = r.post_seq AND f.post_seq = #{postSeq}
+        order by f.post_seq desc
+   	</select> -->
+       
+   	<!-- 댓글 입력 -->
+   	<insert id="free_board_comment_input" parameterType="com.com.board.ReplyVO">
+   		insert into reply 
+   		values (reply_seq.nextval, #{replyContent}, #{replyWriter}, sysdate, #{postSeq}, #{boardCode})
+   	</insert>
+   	
+   	<!-- 댓글 삭제 -->
+   	<delete id="free_board_comment_del">
+		delete *
+		from reply
+		where reply_seq = #{replySeq} AND board_code = #{boardCode}
+   	</delete>
+   	
+   	<!-- 댓글 수정 -->
+   	<update id="free_board_comment_update">
+   		update reply set reply_content = #{replyContent}, reply_regdate = sysdate 
+   		where reply_seq = #{replySeq} AND post_seq = #{postSeq} AND board_code = #{boardCode}
+   	</update>
+   	
+   	<!-- 공지사항 뽑기~ -->
+   	<select id="notice_all" resultMap="notice-map">
+   		select *
+        from notice
+        order by notice_seq desc
+   	</select>
+   	
+   	<update id="notice_count" parameterType="integer">
+   		update notice set notice_hits = notice_hits +1 where notice_seq = #{value}
+   	</update>
 
 </mapper>	
 

@@ -54,7 +54,37 @@
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
                   <h4>◈ 맞대결 전적</h4>
+                  <br>
             	  </div>
+            	  
+            	  <div class="col-lg-12">
+            	  <table class="table">
+	                 <thead>
+	                   <tr>
+	                   <th>
+								<select class="bs-select" tabindex="-98">
+		                          <option value="match">레알 마드리드</option>
+		                          <option value="match">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+                        		</select>
+                       </th>
+	                   <th> <button type="button" class="btn btn-outline-primary d-block mr-5 ml-auto">전적 조회</button> </th>
+	                   <th>
+	                   			<div class="pull-right">
+									<select class="bs-select" tabindex="-98" style="position:right;">
+			                          <option value="match">FC바르셀로나</option>
+			                          <option value="match">FC바르셀로나</option>
+			                          <option value="history">FC바르셀로나</option>
+			                          <option value="history">FC바르셀로나</option>
+	                        		</select>
+	                        		</div>
+	                   </th>
+	                   </tr>
+	                 </thead>
+	              </table>
+	              </div>
+            	  
                     <table class="table">
 	                      <thead>
 	                        <tr>

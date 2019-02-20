@@ -27,6 +27,13 @@ public class PointServiceImpl implements PointService{
 		// TODO Auto-generated method stub
 		return mapper.pointSelectOne(usersSeq);
 	}
+
+
+	@Override
+	public int point1000(int usersSeq) {
+		// TODO Auto-generated method stub
+		return mapper.point1000(usersSeq);
+	}
 	
 	
 	

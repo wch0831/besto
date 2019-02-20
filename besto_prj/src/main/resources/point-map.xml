@@ -36,5 +36,13 @@
 		#{usersSeq})),refund,to_char(sysdate, 'mm/dd/yyyy
 		hh24:mi'),#{usersSeq})
 	</insert>
+<<<<<<< HEAD
  	
 </mapper>	
+=======
+ 	
+ 	<insert id="point1000" parameterType="integer">
+ 	 insert into point values(point_seq.nextval, 1000, 1000, 'charge',sysdate, #{usersSeq},null)
+ 	</insert>
+</mapper>	
+>>>>>>> branch 'master' of https://github.com/wch0831/besto

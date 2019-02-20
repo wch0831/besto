@@ -4,6 +4,10 @@
 <!DOCTYPE html>
 <html>
 
+
+
+
+
 <head>  
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
@@ -56,7 +60,7 @@
               <div id="basket" class="col-lg-12">
                 <form method="get" action="/register">
                   <div class="table-responsive">
-                  <h4>◈ 도전분석</h4>
+                  <h4>◈ 도전분석방</h4>
                     <table class="table">
 	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
@@ -69,8 +73,6 @@
 	                          <th style = "text-align:center;">조회수</th>
 	                        </tr>
 	                      </thead>
-	                      
-	                      
 	                      <tbody>
 	                       <c:forEach var="a" items="${KEY_RESULT}">
 	                        <tr>
