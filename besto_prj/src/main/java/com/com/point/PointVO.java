@@ -53,5 +53,5 @@ public class PointVO {
 	public void setRefund_seq(int refund_seq) {
 		this.refund_seq = refund_seq;
 	}
-	
+	 
 }

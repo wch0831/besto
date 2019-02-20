@@ -53,7 +53,7 @@
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
-                  <h4>◈ 베팅토론방<font size="3"> - 구매내역토론방 작성하기</font> </h4>
+                  <h4>◈ 베팅토론방 작성하기</h4>
                   <br>
                   <div class="col-md-13">
                   <div class="box-simple box-white same-height">
