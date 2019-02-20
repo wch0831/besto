@@ -14,8 +14,8 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 	
-	//game 생성 insert
-	@RequestMapping(value="/gameCreate.do") //get방식
+	//game �깮�꽦 insert
+	@RequestMapping(value="/gameCreate.do") //get諛⑹떇
 	public String gameinsert(GameVO vo) {
 		if(vo.getGameSeq() != 0) {
 			int res = gameService.svcGameInsert(vo);
@@ -23,7 +23,7 @@ public class GameController {
 				
 			}
 		} else {
-			System.out.println("나중에 트랜잭션");
+			System.out.println("아핳");
 		}
 		return "index";
 	}

@@ -11,7 +11,7 @@
 <!-- Header Include CSS END-->
 <script>
 $(document).ready(function() {
-
+	
 		 $("#vsBtn").click(function(){         
 	           var team1 = $("#teamId1").val();
 	           var team2 = $("#teamId2").val();
@@ -29,7 +29,7 @@ $(document).ready(function() {
 	                  //contentType: "application/json; charset=UTF-8",
 	                  //data:JSON.stringify(jsonData),
 	                  
-	                  url:"http://localhost:8082/bestoapi/recordcrawling.do",
+	                  url:"http://localhost:8082/bestoapi/vs.do",
 	                  type:"get",
 	                  contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 	                  //data: { "team1" : team1, "team2" : team2 },
@@ -37,66 +37,8 @@ $(document).ready(function() {
 	                  success:function(vv){
 	                     	console.log("hi");
 	                        console.log(vv);      //[{"rseq":1 , "reply":"aa"} , {}]
-	                        
 	                        var htmlStr = "";
-	                        	 
 	                        	 console.log("in the map, bye");	 
-	                              
-	                            	 htmlStr += "<thead>";
-	                            	 htmlStr += "<tr>";
-	                            	 htmlStr += "<th>HOME: <select style='width:115px;' name='teamId1' id='teamId1'>";
-	                            	 htmlStr += "<option value='4087'>뉴캐슬</option>";
-	                            	 htmlStr += "<option value='4693'>레스터</option>";
-	                            	 htmlStr += "<option value='4075'>리버풀</option>";
-	                            	 htmlStr += "<option value='4222'>맨체스C</option>";
-	                            	 htmlStr += "<option value='4080'>맨체스U</option>";
-	                            	 htmlStr += "<option value='4486'>번리</option>";
-	                            	 htmlStr += "<option value='102706'>본머스</option>";
-	                            	 htmlStr += "<option value='100050'>브라이턴</option>";
-	                            	 htmlStr += "<option value='4874'>사우샘프</option>";
-	                            	 htmlStr += "<option value='4007'>아스널</option>";
-	                            	 htmlStr += "<option value='4047'>에버턴</option>";
-	                            	 htmlStr += "<option value='4970'>왓포드</option>";
-	                            	 htmlStr += "<option value='4211'>울버햄턴</option>";
-	                            	 htmlStr += "<option value='4144'>웨스트햄</option>";
-	                            	 htmlStr += "<option value='4034'>첼시</option>";
-	                            	 htmlStr += "<option value='4491'>카디프</option>";
-	                            	 htmlStr += "<option value='100094'>크리스탈</option>";
-	                            	 htmlStr += "<option value='4129'>토트넘</option>";
-	                            	 htmlStr += "<option value='102785'>풀럼</option>";
-	                            	 htmlStr += "<option value='100092'>허더즈필</option>";
-	                            	 htmlStr += "</select></th>";	
-	                            	 htmlStr += "<th><input type='button' id='vsBtn' value='VS'></th>";
-	                            	 htmlStr += "<th>AWAY: <select style='width:115px;' name='teamId2' id='teamId2'>";
-	                            	 htmlStr += "<option value='4087'>뉴캐슬</option>";
-	                            	 htmlStr += "<option value='4693'>레스터</option>";
-	                            	 htmlStr += "<option value='4075'>리버풀</option>";
-	                            	 htmlStr += "<option value='4222'>맨체스C</option>";
-	                            	 htmlStr += "<option value='4080'>맨체스U</option>";
-	                            	 htmlStr += "<option value='4486'>번리</option>";
-	                            	 htmlStr += "<option value='102706'>본머스</option>";
-	                            	 htmlStr += "<option value='100050'>브라이턴</option>";
-	                            	 htmlStr += "<option value='4874'>사우샘프</option>";
-	                            	 htmlStr += "<option value='4007'>아스널</option>";
-	                            	 htmlStr += "<option value='4047'>에버턴</option>";
-	                            	 htmlStr += "<option value='4970'>왓포드</option>";
-	                            	 htmlStr += "<option value='4211'>울버햄턴</option>";
-	                            	 htmlStr += "<option value='4144'>웨스트햄</option>";
-	                            	 htmlStr += "<option value='4034'>첼시</option>";
-	                            	 htmlStr += "<option value='4491'>카디프</option>";
-	                            	 htmlStr += "<option value='100094'>크리스탈</option>";
-	                            	 htmlStr += "<option value='4129'>토트넘</option>";
-	                            	 htmlStr += "<option value='102785'>풀럼</option>";
-	                            	 htmlStr += "<option value='100092'>허더즈필</option>";
-	                            	 htmlStr += "</select></th>";
-	                            	 htmlStr += "<tr/>";	
-	                            	 htmlStr += "<tr>";	
-	                            	 htmlStr += "<th style = 'text-align:center;''><div><img src='img/person-1.jpg' alt='' class='img-fluid rounded-circle'></div><p id='h1'>"+vv.homeTeam+"</p></th>";
-	                            	 htmlStr += "<th style = 'text-align:center;'>팀명[리그순위]</th>";
-	                            	 htmlStr += "<th style = 'text-align:center;''><div><img src='img/person-1.jpg' alt='' class='img-fluid rounded-circle'></div><p id='a1'>"+vv.awayTeam+"</p></th>";
-	                            	 htmlStr += "</tr>";
-	                            	 htmlStr += "</thead>";
-	                            	 htmlStr += "<tbody>";
 	                            	 htmlStr += "<tr>";
 	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='h2'>"+vv.homeSeasonrecord+"</td>";
 	                            	 htmlStr += "<td style = 'text-align:center;' id='s1'>시즌성적</td>";
@@ -122,11 +64,8 @@ $(document).ready(function() {
 	                            	 htmlStr += "<td style = 'text-align:center;'>평균득점/득실차</td>";
 	                            	 htmlStr += "<td style = 'text-align:center;' bgcolor='#EEEEEE' id='a6'>"+vv.awayGoalavg+"</td>";
 	                            	 htmlStr += "</tr>";
-	                            	 htmlStr += "</tbody>";
-	 	                          
-	 	                        	$("#vstable").empty();
-	 	                        	$("#vstable").html(htmlStr);
-	 	                        	
+	 	                        	$("#ranklist").empty();
+	 	                        	$("#ranklist").html(htmlStr);
 	                        	 /* $('#h1').empty();
 	                        	 $('#h2').empty();
 	                        	 $('#h3').empty();
@@ -278,7 +217,8 @@ $(document).ready(function() {
 												<p id="a1">서울FC</p></th>
 										</tr>
 									</thead>
-									<tbody>
+
+									<tbody id="ranklist">
 										<tr>
 											<td style="text-align: center;" bgcolor='#EEEEEE' id="h2">----</td>
 											<td style="text-align: center;" id="s1">시즌성적</td>
@@ -305,6 +245,8 @@ $(document).ready(function() {
 											<td style="text-align: center;" bgcolor='#EEEEEE' id="a6">----</td>
 										</tr>
 									</tbody>
+
+									
 								</table>
 								<hr>
 								<br>

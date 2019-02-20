@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <mapper namespace="userNameSpace"> -->
+<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
+
+<mapper namespace="com.com.mapper.MatchMapper">
+
+		<resultMap id="matchinfoMap" type="com.com.game.MatchVO">
+		<id 	property="matchSeq" 		column="match_seq" />
+		<result property="gameSeq" 		column="game_seq" />
+		<result property="matchStarttime" 		column="match_starttime" />
+		<result property="matchHometeam" 	column="match_hometeam" />
+		<result property="matchAwayteam" 	column="match_awayteam" />
+		<result property="matchStadium" 		column="match_stadium" />
+		<result property="matchStatus" 		column="match_status" />		
+	</resultMap>
+	
+ 	
+ 	
+ 	
+ 	<select id="todayMatchList"  resultMap="matchinfoMap">
+ 		select * 
+		from match 
+		where to_char(to_date(match_starttime,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD')=to_char(sysdate, 'YYYY-MM-DD')
+ 	</select>
+	
+	
+</mapper>	
+

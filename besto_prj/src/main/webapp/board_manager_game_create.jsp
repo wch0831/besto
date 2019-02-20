@@ -30,7 +30,7 @@ $(document).ready(function() {
 						//contentType: "application/json; charset=UTF-8",
 						//data:JSON.stringify(jsonData),
 						
-						url:"http://192.168.0.107:8085/alist.do",
+						url:"http://localhost:8082/bestoapi/alist.do",
 						type:"get",
 						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 						
@@ -46,9 +46,9 @@ $(document).ready(function() {
 		                        htmlStr += "<td style = 'text-align:center;'>프리미어리그</td>";
 		                        htmlStr += "<td style = 'text-align:center;'><span class='badge badge-info'>일반</span></td>";
 		                        htmlStr += "<td style = 'text-align:center;'>"+vv.matchHometeam+"<span class='badge badge-danger'>VS</span>"+vv.matchAwayteam+"</td>";
-		                        htmlStr += "<td style = 'text-align:center;'><font color='red'>승</font>"+vv.victoryrateWin+"</td>";
-		                        htmlStr += "<td style = 'text-align:center;'><font color='gray'>무</font>"+vv.victoryrateDraw+"</td>";
-		                        htmlStr += "<td style = 'text-align:center;'><font color='blue'>패</font>"+vv.victoryrateLose+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><font color='red'>승</font>"+vv.vicVO.victoryrateWin+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><font color='gray'>무</font>"+vv.vicVO.victoryrateDraw+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><font color='blue'>패</font>"+vv.vicVO.victoryrateLose+"</td>";
 		                        htmlStr += "<td style = 'text-align:center;'>"+vv.matchStadium+"</td>";
 		                        htmlStr += "<tr>";
 						  		
