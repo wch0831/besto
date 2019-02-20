@@ -2,9 +2,9 @@ package com.com.game;
 
 public class VictoryRateVO {
 	private int matchSeq;
-	private int victoryrateWin;
-	private int victoryrateDraw;
-	private int victoryrateLose;
+	private float victoryrateWin;
+	private float victoryrateDraw;
+	private float victoryrateLose;
 	
 	public int getMatchSeq() {
 		return matchSeq;
@@ -12,24 +12,25 @@ public class VictoryRateVO {
 	public void setMatchSeq(int matchSeq) {
 		this.matchSeq = matchSeq;
 	}
-	public int getVictoryrateWin() {
+	public float getVictoryrateWin() {
 		return victoryrateWin;
 	}
-	public void setVictoryrateWin(int victoryrateWin) {
+	public void setVictoryrateWin(float victoryrateWin) {
 		this.victoryrateWin = victoryrateWin;
 	}
-	public int getVictoryrateDraw() {
+	public float getVictoryrateDraw() {
 		return victoryrateDraw;
 	}
-	public void setVictoryrateDraw(int victoryrateDraw) {
+	public void setVictoryrateDraw(float victoryrateDraw) {
 		this.victoryrateDraw = victoryrateDraw;
 	}
-	public int getVictoryrateLose() {
+	public float getVictoryrateLose() {
 		return victoryrateLose;
 	}
-	public void setVictoryrateLose(int victoryrateLose) {
+	public void setVictoryrateLose(float victoryrateLose) {
 		this.victoryrateLose = victoryrateLose;
 	}
+	
 	
 	
 }
