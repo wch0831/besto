@@ -14,11 +14,24 @@
                   <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
                   <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
                 </ul>
-                <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal_top" class="login-btn">
-                <i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">로그인</span></a>
-                
-                <a href="member_register.jsp" class="signup-btn"><i class="fa fa-user"></i>
-                <span class="d-none d-md-inline-block">회원가입</span></a></div>
+                <div class="login">
+                <c:choose>
+				    <c:when test="${SESS_NAME ne null}">
+				        ${SESS_NAME}님 환영합니다.&nbsp 
+				        
+				        <a href="/logout.do" class="login-btn">
+	                	<i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">로그아웃</span></a>
+				    </c:when>
+				 
+				    <c:otherwise>
+					    <a href="#" data-toggle="modal" data-target="#login-modal_top" class="login-btn">
+	                	<i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">로그인</span></a>
+	                
+	                	<a href="member_register.jsp" class="signup-btn"><i class="fa fa-user"></i>
+	                	<span class="d-none d-md-inline-block">회원가입</span></a>
+					</c:otherwise>
+				</c:choose>
+                </div>
                 
               </div>
             </div>
@@ -35,12 +48,12 @@
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <form action="customer-orders.jsp" method="get">
+              <form action="/login.do" method="post">
                 <div class="form-group">
-                  <input id="id_modal" type="text" placeholder="ID" class="form-control">
+                  <input id="usersId" name="usersId" type="text" placeholder="ID" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="Password" class="form-control">
+                  <input id="usersPw" name="usersPw" type="password" placeholder="Password" class="form-control">
                 </div>
                 <p class="text-center">
                   <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> 로그인</button>
