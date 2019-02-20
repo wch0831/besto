@@ -96,7 +96,6 @@ function member_find_pw(){
               </div>
             </div>
           </div>
-            <hr>
             </div>
           </div>
         </div>

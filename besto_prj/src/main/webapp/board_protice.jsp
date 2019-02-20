@@ -4,10 +4,21 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>  
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+<script>
+/* <tr>
+	<td style = "text-align:center;">${noti.noticeSeq}</td>
+	<td style = "text-align:center;"><a href="#"><font color="black">${noti.noticeTitle}</font></a></td>
+	<td style = "text-align:center;">관리자</td>
+	<td style = "text-align:center;">${noti.noticeRegdate}</td>
+	<td style = "text-align:center;">${noti.noticeHits}</td>
+</tr> */
+
+</script>
 </head>
 
 <body>
@@ -66,14 +77,17 @@
                           <th style = "text-align:center;">조회수</th>
                         </tr>
                       </thead>
+                      
                       <tbody>
-                        <tr>
-                          <td style = "text-align:center;">1</td>
-                          <td style = "text-align:center;"><a href="#"><font color="black">19.04.01 업데이트 예정사항</font></a></td>
-                          <td style = "text-align:center;">관리자</td>
-                          <td style = "text-align:center;">2019.02.12</td>
-                          <td style = "text-align:center;">30</td>
-                        </tr>
+                      	<c:forEach var="noti" items="${KEY_NOTICE}">
+                        	<tr>
+                          		<td style = "text-align:center;">${noti.noticeSeq}</td>
+                          		<td style = "text-align:center;"><a href="#"><font color="black">${noti.noticeTitle}</font></a></td>
+                          		<td style = "text-align:center;">관리자</td>
+                          		<td style = "text-align:center;">${noti.noticeRegdate}</td>
+                          		<td style = "text-align:center;">${noti.noticeHits}</td>
+                        	</tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                   </div>
