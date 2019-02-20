@@ -19,7 +19,7 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 	
-<<<<<<< HEAD
+
 	//game 생성 insert
 	@RequestMapping(value="/gameCreate.do") //get방식
 
@@ -29,7 +29,6 @@ public class GameController {
 	}
 	public String gameinsert(GameVO vo) {
 		if(vo.getGameSeq() != 0) {
-=======
 //	//game 생성 insert
 //	@RequestMapping(value="/gameCreate.do") //get방식
 //	public String gameinsert(GameVO vo) {
@@ -41,9 +40,10 @@ public class GameController {
 //		} else {
 //			System.out.println("나중에 트랜잭션");
 //		}
-//		return "index";
+//		
 //	}
-	
+	}return "index";
+	}
 	
 	@RequestMapping(value="/game_insert_rest.do", method = RequestMethod.POST)
 	public String gameInsert(@RequestParam(value="matchlist") String mjson,
@@ -62,7 +62,6 @@ public class GameController {
 		System.out.println(vo.getGameGubun());
 		
 		if(vo.getGameGubun() != null) { //session으로
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 			int res = gameService.svcGameInsert(vo);
 			System.out.println(res+"건 게임 등록");
 			
