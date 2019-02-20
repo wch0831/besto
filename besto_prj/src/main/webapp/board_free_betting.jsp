@@ -41,7 +41,7 @@ $(document).ready(function(){
           </div>
         </div>
       </div>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD
       
       
       
@@ -74,7 +74,7 @@ $(document).ready(function(){
 
       
 =======
->>>>>>> branch 'master' of https://github.com/wch0831/besto
+>>>>>>> branch 'master' of https://github.com/wch0831/besto -->
       <div id="content">
         <div class="container">
           <div class="row bar">
@@ -91,7 +91,7 @@ $(document).ready(function(){
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
-<<<<<<< HEAD
+
               
               <div class=" col-lg-12">
               <h4>◈ 베팅토론</h4>
@@ -133,7 +133,7 @@ $(document).ready(function(){
 	                      </tbody>
 	                    </table>
 	                    <br>
-=======
+ 
               <div id="basket" class="col-lg-12">
                 <form method="get" action="/register">
                   <div class="table-responsive">
@@ -164,11 +164,10 @@ $(document).ready(function(){
                         </tr>
                       </tbody>
                     </table>
-                    <br>
->>>>>>> branch 'master' of https://github.com/wch0831/besto
+                    <br> 
                   <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_betting_buy_register.jsp'">글쓰기</button>
                   </div>
-<<<<<<< HEAD
+ 
                 
                 
 <!-- 두번째 탭 영역  -->
@@ -204,13 +203,13 @@ $(document).ready(function(){
 	                    </table>
 	                    <br>
 	                    <button type="button" class="btn btn-primary pull-right" onclick="location.href='board_free_hit_register.jsp'">글쓰기</button>
-=======
+ 
                 </form>
             </div>
             <hr>
             
 <!-- style = "vertical-align:right;" -->
->>>>>>> branch 'master' of https://github.com/wch0831/besto
+ 
 <!-- 검색바 -->
 			<div class="col-md-10 pull-right">
               <div class="row pull-right">

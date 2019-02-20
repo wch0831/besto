@@ -25,7 +25,7 @@ public class BoardFreeController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/board_free_detail?postseq={postSeq}", method = RequestMethod.GET)
+	@RequestMapping(value="/free_board_detail?postseq={postSeq}", method = RequestMethod.GET)
 	public ModelAndView ctlBoardDetail(
 
 			@PathVariable(value="postSeq") int postSeq

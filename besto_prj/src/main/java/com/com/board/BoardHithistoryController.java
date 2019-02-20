@@ -14,7 +14,7 @@ public class BoardHithistoryController {
 	
 	@Autowired BoardChallengeService bs;
 	
-	@RequestMapping(value="/board_hithistory" , method = RequestMethod.GET)
+	@RequestMapping(value="/board_free_betting" , method = RequestMethod.GET)
 	public ModelAndView ctlAdminBoardSelect() {
 		ModelAndView mav = new ModelAndView();
 		ArrayList<BoardChallengeVO> brlist =bs.BoardChallengeList();

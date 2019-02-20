@@ -73,6 +73,7 @@ $(document).ready(function(){
                         </tr>
                       </thead>
                       <tbody>
+                       <c:forEach var="a" items="${KEY_RESULT}"> 
                         <tr>    
                           <td style = "text-align:center;">1</td>
 	                       <td style = "text-align:center;">승부식</td>
@@ -83,6 +84,7 @@ $(document).ready(function(){
                            <td style = "text-align:center;">30</td>
                            <td style = "text-align:center;">4.5</td>
                         </tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                     <br>
