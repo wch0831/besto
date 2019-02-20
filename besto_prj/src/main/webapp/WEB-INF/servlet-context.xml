@@ -32,7 +32,7 @@
 	</tx:advice>
 	<aop:config>
 		<!-- where -->
-		<aop:pointcut id="cut" expression="execution(* com.**..*Impl.*(..))"/>
+		<aop:pointcut id="cut" expression="execution(* com.com..*Impl.*(..))"/>
 		<!-- when + what -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="cut" />
 	</aop:config>

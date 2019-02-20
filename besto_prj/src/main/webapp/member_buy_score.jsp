@@ -25,7 +25,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">도전분석방</h1>
+              <h1 class="h2">마이페이지 > 구매/적중내역</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
