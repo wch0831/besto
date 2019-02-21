@@ -8,6 +8,32 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+<script>
+$(document).ready(function() {
+					//오늘의 경기 ajax
+
+	            $.ajax({ 
+	                  url:"http://localhost:8082/matchRest.do",
+	                  type:"get",
+	                  success:function(jsonObj){
+	                	  var arraystra=JSON.stringify (jsonObj);
+	                     	console.log("hi");
+	                        console.log(arraystra);    
+	                        var htmlStr = "";
+	                        	$.each(jsonObj, function(index, vv){
+	                        		htmlStr+="<tr>"
+	                        			htmlStr+="<td style = 'text-align:center;'>프리미어 리그</td>";
+	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.matchStarttime+"</td>";
+	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.matchHometeam+"<span class='badge badge-danger'>VS</span> "+vv.matchAwayteam+"</td>";
+	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.matchStadium+"</td>";
+	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.gameSeq+"</td>";
+	                        			htmlStr+="</tr>"	
+	        				 });	
+	                        	$("#matchPlane").html(htmlStr);
+	                  }
+	         }); //end of ajax       
+});
+</script>
 </head>
 
   <body>
@@ -61,27 +87,16 @@
                     <table class="table">
 	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
-	                          <th style = "text-align:center;">날짜</th>
-	                          <th style = "text-align:center;">시간</th>
+	                          <th style = "text-align:center;">리그</th>
+	                          <th style = "text-align:center;">경기 시작시간</th>
 	                          <th style = "text-align:center;">홈팀 <span class="badge badge-danger">VS</span> 원정팀</th>
-	                          <th style = "text-align:center;">맞대결 전적</th>
-	                          <th style = "text-align:center;">중계일정</th>
 	                          <th style = "text-align:center;">구장정보</th>
 	                          <th style = "text-align:center;">대상게임</th>
 	                          <th style = "text-align:center;">비고</th>
 	                        </tr>
 	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">19.02.02</td>
-	                          <td style = "text-align:center;">19:00</td>
-	                          <td style = "text-align:center;">A팀 <span class="badge badge-danger">VS</span> B팀</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">코스모 스타디움</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                        </tr>
+	                      <tbody id="matchPlane">
+	                       
 	                      </tbody>
 	                    </table>
                   </div>
@@ -91,23 +106,6 @@
             
             
             <br>
-            
-            
-<!-- 페이징하셈 -->
-              <div class="pages">
-                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                  <ul class="pagination">
-                    <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </nav>
-              </div>
-<!-- 페이징하셈 --> 
               
             </div>
           </div>

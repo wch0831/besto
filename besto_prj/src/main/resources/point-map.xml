@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 
 
 <!-- <mapper namespace="userNameSpace"> -->
@@ -7,6 +8,11 @@
 
 
 
+=======
+<!-- <mapper namespace="userNameSpace"> -->
+<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
+
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 <mapper namespace="com.com.mapper.PointMapper">
 	<resultMap id="pointMap" type="com.com.point.PointVO">
 		<id property="pointSeq" column="point_seq" />
@@ -33,6 +39,8 @@
 		hh24:mi'),#{usersSeq})
 	</insert>
 	
+
+	
 	<!-- 회원의 포인트 환급 -->
 	<insert id="pointRefund" parameterType="com.com.point.PointVO">
 	insert into point(point_seq, point_change, point_current, point_gubun,
@@ -48,3 +56,8 @@
  	</insert>
 </mapper>	
 
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> branch 'master' of https://github.com/wch0831/besto

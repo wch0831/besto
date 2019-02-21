@@ -19,6 +19,7 @@ var jsonData;
   $("#matchviewBtn").click("change", function(){
 	  			console.log("경기목록 보기 버튼 클릭");
 			  $.ajax({ 
+
 						url:"http://localhost:8087/bestoapi/alist.do",
 						type:"get",
 						contentType: "application/json; charset=UTF-8", 
