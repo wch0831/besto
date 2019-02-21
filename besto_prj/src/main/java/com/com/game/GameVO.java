@@ -11,6 +11,7 @@ public class GameVO {
 	private String gameRegdate;
 	private int usersSeq;
 	
+
 	private ArrayList<MatchVO> matchlist;
 	
 	

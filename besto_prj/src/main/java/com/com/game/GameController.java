@@ -2,8 +2,11 @@ package com.com.game;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +22,21 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 	
-
+	//---------------------------------------------------------------
+	//board_open_window_history.jsp 기록식 게임 체크박스 체크 시 구매내역확인 자동완성 처리
+	//RecordRateVO 클래스 :: get**List() 프로퍼티 사용
+	//---------------------------------------------------------------
+	@RequestMapping(value="/buyCtl.do", method = RequestMethod.POST)
+	public void gameInsert(@RequestBody ArrayList<RecordRateVO> list) {  
+		for(RecordRateVO rateVO : list) {
+			System.out.print(rateVO.getMatchSeqList() + " ");
+			System.out.print(rateVO.getScoreList() + " ");
+			System.out.print(rateVO.getRecoderateList() + " ");
+			System.out.println(rateVO.getInputCashList());
+		}		
+	}
+	
+	
 	//game 생성 insert
 	@RequestMapping(value="/gameCreate.do") //get방식
 
