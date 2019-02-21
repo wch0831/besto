@@ -18,4 +18,5 @@ public class NoticeServiceImpl implements NoticeService{
 		return boardMapper.notice_all();
 	}
 	
+	
 }

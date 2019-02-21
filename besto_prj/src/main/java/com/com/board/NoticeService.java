@@ -6,4 +6,8 @@ public interface NoticeService {
 
 	public ArrayList<NoticeVO> NoticeList();
 
+
+	
+	
+
 }

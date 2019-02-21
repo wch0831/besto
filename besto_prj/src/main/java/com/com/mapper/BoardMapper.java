@@ -15,5 +15,7 @@ public interface BoardMapper{
 	public ArrayList<BoardFreeVO> free_board_select();
 	public ArrayList<BoardChallengeVO> challenge_board_select();
 	public ArrayList<NoticeVO> notice_all();
+	public int notice_count();
+	
 	
 }

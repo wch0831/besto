@@ -10,13 +10,13 @@
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
 <script>
-/* <tr>
-	<td style = "text-align:center;">${noti.noticeSeq}</td>
-	<td style = "text-align:center;"><a href="#"><font color="black">${noti.noticeTitle}</font></a></td>
-	<td style = "text-align:center;">관리자</td>
-	<td style = "text-align:center;">${noti.noticeRegdate}</td>
-	<td style = "text-align:center;">${noti.noticeHits}</td>
-</tr> */
+
+$(document).ready(function(){
+    $("#button1").click(function(){   
+    
+    });
+});    
+
 
 </script>
 </head>
@@ -82,7 +82,7 @@
                       	<c:forEach var="noti" items="${KEY_NOTICE}">
                         	<tr>
                           		<td style = "text-align:center;">${noti.noticeSeq}</td>
-                          		<td style = "text-align:center;"><a href="#"><font color="black">${noti.noticeTitle}</font></a></td>
+                          		<td style = "text-align:center;"><a href="#" id="button1"><font color="black">${noti.noticeTitle}</font></a></td>
                           		<td style = "text-align:center;">관리자</td>
                           		<td style = "text-align:center;">${noti.noticeRegdate}</td>
                           		<td style = "text-align:center;">${noti.noticeHits}</td>

@@ -28,6 +28,17 @@ public class NoticeController {
 		return mav;
 	}
 	
+/*	@RequestMapping(value="/notice_insert.do")
+	public String ctlBoardInsert(int point) {
+		notis.(point);
+		//return "admin_board_list";
+		//수행이 끝난 후에 alist로 다시 가라.....
+		return "redirect:/alist.do";
+			// "forward:/alist"; 도 사용가능
+		
+	}*/
+
+	
 	
 /*	@RequestMapping(value="/board_protice" , method = RequestMethod.GET)
 	public ModelAndView ctlNoticeCountUpdate() {
@@ -39,5 +50,6 @@ public class NoticeController {
 		mav.setViewName("board_protice");
 		return mav;
 	}*/
+	
 
 }
