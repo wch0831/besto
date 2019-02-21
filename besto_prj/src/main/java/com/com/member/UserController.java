@@ -1,5 +1,7 @@
 package com.com.member;
 
+import java.io.PrintWriter;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -54,6 +56,38 @@ public class UserController {
 		session.invalidate();
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/jbcheck.do", method = RequestMethod.GET)
+	@ResponseBody
+	public void idCheck(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String uid = request.getParameter("uid");
+			uid = userService.checkId(uid);
+			PrintWriter out = response.getWriter();
+			out.println(uid);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = "/regid.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView login(MemberVO mvo) {
+		ModelAndView mav = new ModelAndView();
+		try {
+			int res = userService.memberRegister(mvo);
+			if(res > 0) {
+				mav.setViewName("index");
+			} else {
+				mav.setViewName("member_register");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return mav;
 	}
 }
