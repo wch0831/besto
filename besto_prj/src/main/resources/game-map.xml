@@ -33,6 +33,14 @@
 		<collection property="matchlist" resultMap="matchMap"/>
 	</resultMap>
 	
+	<resultMap id="victory_11" type="com.com.game.MatchVO" extends="matchMap">
+		<association property="vicVO" resultMap="victoryRateMap"/>
+	</resultMap>
+	
+	<resultMap id="record_11" type="com.com.game.MatchVO" extends="matchMap">
+		<association property="recVO" resultMap="recordRateMap"/>
+	</resultMap>
+	
 	<resultMap id="recordRateMap" type="com.com.game.RecordRateVO">
 		<id 	property="matchSeq" 		column="match_seq" />
 		<result property="recoderate00" 		column="recoderate_00" />
@@ -57,14 +65,31 @@
  	<!-- 게임 insert -->
 	<insert id="gameInsert" parameterType="com.com.game.GameVO">
 		insert into game(game_seq, game_gubun, game_finishdate, game_status, game_roundseq, game_regdate)
-		values(games_seq.nextval, #{gameGubun}, #{gameFinishdate}, 'p', game_roundseq.nextval, sysdate);
+		values(game_seq.nextval, #{gameGubun}, #{gameFinishdate}, 'p', gameround_seq.nextval, sysdate)
 	</insert>
 	
 	<!-- 매치 insert -->
 	<insert id="matchInsert" parameterType="com.com.game.MatchVO">
-		insert into match(match_seq, game_seq, match_starttime, match_hometeam, match_awayteam, match_vsrecord, match_stadium, match_status)
-		values(match_seq.nextval, #{gameSeq}, #{matchStarttime}, #{matchHometeam}, #{matchAwayteam}, #{matchVsrecord}, #{matchStadium}, 'p')
+		insert into match(match_seq, game_seq, match_starttime, match_hometeam, match_awayteam, match_stadium, match_status)
+		values(#{matchSeq}, #{gameSeq}, #{matchStarttime}, #{matchHometeam}, #{matchAwayteam}, #{matchStadium}, 'p')
 	</insert>
+	
+	
+	
+	<!-- 승부식 배당률 insert -->
+	<insert id="victoryRateInsert" parameterType="com.com.game.VictoryRateVO">
+		insert into victoryrate(match_seq, victoryrate_win, victoryrate_draw, victoryrate_lose)
+		values(#{matchSeq}, #{victoryrateWin}, #{victoryrateDraw}, #{victoryrateLose})
+	</insert>
+	
+	<!-- 기록식 배당률 insert -->
+	<insert id="recordRateInsert" parameterType="com.com.game.RecordRateVO">
+		insert into recordrate(match_seq, recoderate_00, recoderate_10, recoderate_20, recoderate_11, recoderate_22, recoderate_01, recoderate_02)
+		values(#{matchSeq}, #{recoderate00}, #{recoderate10}, #{recoderate20}, #{recoderate11}, #{recoderate22}, #{recoderate01}, #{recoderate02})
+	</insert>
+	
+	
+	
 	
 	<!-- 경기 불러오기.  g.game_status = 'f' 수정해야한다. -->
  	<select id="gameInsertSelect" parameterType="com.com.game.GameVO" resultMap="matchMap">
@@ -73,22 +98,36 @@
 		where g.game_seq = m.game_seq and m.match_seq = v.match_seq and g.game_seq = #{gameSeq} and g.game_status = 'f'
  	</select>
  	
+ 	<select id="SelectSeq" resultType="int">
+ 		select max(game_seq) as game_seq
+    	from game
+ 	</select>
+ 	
  	
  	
  	
  	<!-- 멤버 로그인 -->
- 	<select id="availableGame" parameterType="com.com.game.GameVO" resultMap="gameMap">
- 		select game_gubun,game_roundseq,game_finishdate
+ 	<select id="availableGame" resultMap="gameMap">
+ 		select *
  		from game
  		where game_status='p'
  	</select>
  	
- 	<select id="objectGame" parameterType="com.com.game.GameVO" resultMap="matchMap">
- 		select game_gubun,game_roundseq,game_finishdate
- 		from game
- 		where game_status='p'
+ <!-- 	<select id="objectGame" parameterType="com.com.game.GameVO" resultMap="matchMap">
+ 		select match_starttime,match_hometeam,match_awayteam,match_stadium
+		from match
+		where game_seq=#{gameSeq};
  	</select>
-	
+<<<<<<< HEAD
+	-->
+	<!-- <select id="buyNoteRecordRate" parameterType="com.com.game.GameVO" resultMap="RecodeRateMap">
+ 		select *
+		from game g, match m, recoderate rr
+		where g.game_seq=1;
+		and g.game_seq=m.game_seq
+		and rr.match_seq=m.match_seq;
+ 	</select> -->	 
+
 	
 </mapper>	
 

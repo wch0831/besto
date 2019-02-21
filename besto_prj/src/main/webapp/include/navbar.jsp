@@ -8,9 +8,9 @@
             <div id="navigation" class="navbar-collapse collapse">
               <ul class="nav navbar-nav ml-auto">
                 
-                <li class="nav-item dropdown"><a href="board_game_buy.jsp" data-toggle="dropdown" class="dropdown-toggle">게임구매 <b class="caret"></b></a>
+                <li class="nav-item dropdown"><a href="board_game_buy.do" data-toggle="dropdown" class="dropdown-toggle">게임구매 <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="board_game_buy.jsp" class="nav-link">구매가능 게임</a></li>
+                    <li class="dropdown-item"><a href="board_game_buy.do" class="nav-link">구매가능 게임</a></li>
                     <li class="dropdown-item"><a href="board_game_schedule.jsp" class="nav-link">게임 일정</a></li>
                     <li class="dropdown-item"><a href="board_game_hit_result.jsp" class="nav-link">적중 결과</a></li>
                   </ul>
@@ -46,7 +46,7 @@
                 
                 <li class="nav-item dropdown active"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">고객센터<b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="board_protice.jsp" class="nav-link">공지사항</a></li>
+                    <li class="dropdown-item"><a href="/board_protice.do" class="nav-link">공지사항</a></li>
                     <li class="dropdown-item"><a href="board_protice_faq.jsp" class="nav-link">FAQ</a></li>
                     <li class="dropdown-item"><a href="board_protice_use.jsp" class="nav-link">사이트이용안내</a></li>
                     <li class="dropdown-item"><a href="board_protice_find.jsp" class="nav-link">아이디/비밀번호 찾기</a></li>

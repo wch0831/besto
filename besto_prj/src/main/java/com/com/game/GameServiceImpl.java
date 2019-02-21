@@ -8,21 +8,47 @@ import org.springframework.stereotype.Service;
 import com.com.mapper.GameMapper;
 
 @Service
-public class GameServiceImpl implements GameService {
+
+public class GameServiceImpl implements GameService{
+
+
 	@Autowired
 	private GameMapper gameMapper;
 
+	//game 추가 먼저
 	@Override
 	public int svcGameInsert(GameVO vo) {
 		return gameMapper.gameInsert(vo);
 	}
+
+
 	
+//	public ArrayList<RecordRateVO> svcBuyNoteRecordRate(MatchVO mvo) {		
+//		return gameMapper.buyNoteRecordRate(mvo);
+//	}
+	public ArrayList<GameVO> svcAvailableGame(){
+		return gameMapper.availableGame();
+	}
+
+	
+	//match 및 배당률 추가
 	@Override
-	public int svcMatchInsert(GameVO vo) {
+	public int svcMatchInsert(ArrayList<MatchVO> list) {
 		int res = 0;
-		for(int i=0; i<vo.getMatchlist().size(); i++) {
-			res += gameMapper.matchInsert(vo.getMatchlist().get(i));
+		int mres = 0;
+		
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getMatchSeq()+"===============================");
+			res += gameMapper.matchInsert(list.get(i));
+			if(list.get(i).getVicVO() != null) {
+				System.out.println(list.get(i).getVicVO().getMatchSeq()+"===============================");
+				mres += gameMapper.victoryRateInsert(list.get(i).getVicVO());
+			} else if(list.get(i).getRecVO() != null) {
+				mres += gameMapper.recordRateInsert(list.get(i).getRecVO());
+			}
 		}
+		System.out.println(res+"건 매치가 등록");
+		System.out.println(mres+"건 배당률 등록");
 		return res;
 	}
 	
@@ -32,9 +58,23 @@ public class GameServiceImpl implements GameService {
 		return list;
 	}
 
+	@Override
+	public int svcSelectSeq() {
+		return gameMapper.SelectSeq();
+	}
+
+
+
+	@Override
+	public int svcGameInsert() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 	
 //	public int svcGameInsert() {
 //		return gameMapper.GameInsert();
 //	}
+
 }

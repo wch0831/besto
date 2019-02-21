@@ -5,64 +5,37 @@
         <div class="container">
           <div class="row">
           <div class="col-md-4">
-                <div class="heading">
-                  <h4>공지사항</h4>
-                </div>
-                <ul class="ul-icons list-unstyled">
-                  <li>
-                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_protice.jsp"><font color="white" size="3">공지사항</font></a>
-                  </li>
-                  <li>
-                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_protice_faq.jsp"><font color="white" size="3">FAQ</font></a>
-                  </li>
-                  <li>
-                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_protice_use.jsp"><font color="white" size="3">이용안내</font></a>
-                  </li>
-                </ul>
+          		<b>베스토 고객센터</b><br>
+          		<font size="2">
+	          		&emsp;서울시 금천구 가산동 426-5<br>
+	          		&emsp;월드메르디앙 2차 1412호<br>
+	          		&emsp;대표전화 : 1588-1234
+          		</font>
               </div>
-            
-            <div class="col-md-4">
-                <div class="heading">
-                  <h4>커뮤니티</h4>
-                </div>
-                <ul class="ul-icons list-unstyled">
-                  <li>
-                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_free_betting.jsp"><font color="white" size="3">베팅토론방</font></a>
-                  </li>
-                  <li>
-                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_free_challenge.jsp"><font color="white" size="3">도전분석방</font></a>
-                  </li>
-                  <li>
-                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_free.jsp"><font color="white" size="3">자유게시판</font></a>
-                  </li>
-                </ul>
-              </div>
-              
               <div class="col-md-4">
-                <div class="heading">
-                  <h4>빠른이동</h4>
-                </div>
-                <ul class="ul-icons list-unstyled">
-                  <li>
-                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="member_register.jsp"><font color="white" size="3">회원가입</font></a>
-                  </li>
-                  <li>
-                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="board_protice_find.jsp"><font color="white" size="3">정보찾기</font></a>
-                  </li>
-                  <li>
-                    <div class="icon-filled"><i class="fa fa-check"></i></div><a href="member_drop.jsp"><font color="white" size="3">회원탈퇴</font></a>
-                  </li>
-                </ul>
+              	<b>㈜BESTO</b><br>
+          		<font size="2">
+          			&emsp;대표이사 : 김도윤, 송은규, 이문경<br>
+          			&emsp;사업자 등록번호 : 217-88-1234<br>
+          			&emsp;대표전화 : 1588-1234
+          		</font>
               </div>
-              
-              
-              
-            
+              <div class="col-md-4">
+              	<b>㈜BESTO Mobile APP</b>
+              	<ul class="list-unstyled footer-blog-list">
+              	<li class="d-flex align-items-center">
+              	<div class="image"><img src="img/bestoQrcode.gif" class="img-fluid"></div>
+              	<div class="text">
+                  <font size="2">
+                    &emsp;BESTO Mobile APP<br>
+                    &emsp;QR-CODE
+                  </font>
+                  </div>
+                  </li>
+                  </ul>
+              </div>
           </div>
         </div>
-        
-        
-        
         
         <div class="copyrights">
           <div class="container">
