@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 import com.com.mapper.GameMapper;
 
 @Service
-public class GameServiceImpl implements GameService {
+
+public class GameServiceImpl implements GameService{
+
+
 	@Autowired
 	private GameMapper gameMapper;
 
@@ -17,6 +20,16 @@ public class GameServiceImpl implements GameService {
 	public int svcGameInsert(GameVO vo) {
 		return gameMapper.gameInsert(vo);
 	}
+
+
+	
+//	public ArrayList<RecordRateVO> svcBuyNoteRecordRate(MatchVO mvo) {		
+//		return gameMapper.buyNoteRecordRate(mvo);
+//	}
+	public ArrayList<GameVO> svcAvailableGame(){
+		return gameMapper.availableGame();
+	}
+
 	
 	//match 및 배당률 추가
 	@Override
@@ -62,8 +75,17 @@ public class GameServiceImpl implements GameService {
 	}
 
 
+
+	@Override
+	public int svcGameInsert() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 	
 //	public int svcGameInsert() {
 //		return gameMapper.GameInsert();
 //	}
+
 }

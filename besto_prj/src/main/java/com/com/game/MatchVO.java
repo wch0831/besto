@@ -1,5 +1,8 @@
 package com.com.game;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MatchVO {
 	private int matchSeq;
 	private int gameSeq;
@@ -19,6 +22,19 @@ public class MatchVO {
 	public void setGameGubun(String gameGubun) {
 		this.gameGubun = gameGubun;
 	}
+	
+	//---------------------------------------------------------------
+	//board_open_window_history.jsp 기록식 게임 체크박스 체크 시 구매내역확인 자동완성을 위한 프로퍼티
+	//@RestController gameInsert(MatchVO matchVO) { matchVO.getRecordRateVOList() }에 사용
+	private ArrayList<RecordRateVO> recordRateVOList;
+	public ArrayList<RecordRateVO> getRecordRateVOList() {
+		return recordRateVOList;
+	}
+	public void setRecordRateVOList(ArrayList<RecordRateVO> recordRateVOList) {
+		this.recordRateVOList = recordRateVOList;
+	}
+	//---------------------------------------------------------------
+	
 	
 	private VictoryRateVO vicVO;
 	private RecordRateVO recVO;

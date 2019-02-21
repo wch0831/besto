@@ -1,6 +1,47 @@
 package com.com.game;
 
+import java.util.ArrayList;
+
+import org.springframework.web.bind.annotation.RequestBody;
+
 public class RecordRateVO {
+	
+	//---------------------------------------------------------------
+	//board_open_window_history.jsp 기록식 게임 체크박스 체크 시 구매내역확인 자동완성을 위한 프로퍼티
+	//@Controller gameInsert(@RequestBody ArrayList<RecordRateVO> list)에 사용
+	private String matchSeqList;
+	private String scoreList;
+	private String recoderateList;
+	private String inputCashList;
+	
+	public String getMatchSeqList() {
+		return matchSeqList;
+	}
+	public void setMatchSeqList(String matchSeqList) {
+		this.matchSeqList = matchSeqList;
+	}
+	public String getScoreList() {
+		return scoreList;
+	}
+	public void setScoreList(String scoreList) {
+		this.scoreList = scoreList;
+	}
+	public String getRecoderateList() {
+		return recoderateList;
+	}
+	public void setRecoderateList(String recoderateList) {
+		this.recoderateList = recoderateList;
+	}
+	public String getInputCashList() {
+		return inputCashList;
+	}
+	public void setInputCashList(String inputCashList) {
+		this.inputCashList = inputCashList;
+	}
+	//---------------------------------------------------------------
+	
+	
+	
 	private int matchSeq;
 	private float recoderate00;
 	private float recoderate10;

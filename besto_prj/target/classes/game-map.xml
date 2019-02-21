@@ -123,18 +123,26 @@
  	
  	
  	<!-- 멤버 로그인 -->
- 	<select id="availableGame" parameterType="com.com.game.GameVO" resultMap="gameMap">
- 		select game_gubun,game_roundseq,game_finishdate
+ 	<select id="availableGame" resultMap="gameMap">
+ 		select *
  		from game
  		where game_status='p'
  	</select>
  	
- 	<select id="objectGame" parameterType="com.com.game.GameVO" resultMap="matchMap">
- 		select game_gubun,game_roundseq,game_finishdate
- 		from game
- 		where game_status='p'
+ <!-- 	<select id="objectGame" parameterType="com.com.game.GameVO" resultMap="matchMap">
+ 		select match_starttime,match_hometeam,match_awayteam,match_stadium
+		from match
+		where game_seq=#{gameSeq};
  	</select>
-	
+	-->
+	<!-- <select id="buyNoteRecordRate" parameterType="com.com.game.GameVO" resultMap="RecodeRateMap">
+ 		select *
+		from game g, match m, recoderate rr
+		where g.game_seq=1;
+		and g.game_seq=m.game_seq
+		and rr.match_seq=m.match_seq;
+ 	</select> -->	 
+
 	
 </mapper>	
 
