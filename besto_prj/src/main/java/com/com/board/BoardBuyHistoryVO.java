@@ -1,6 +1,6 @@
 package com.com.board;
 
-public class BoardBuyhistoryVO {
+public class BoardBuyHistoryVO {
 	private int postSeq;
 	private String boardCode;
 	private int usersSeq;

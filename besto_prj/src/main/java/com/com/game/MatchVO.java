@@ -14,6 +14,14 @@ public class MatchVO {
 	private String matchStatus;
 	private int usersSeq;
 	
+	public String gameGubun;
+	
+	public String getGameGubun() {
+		return gameGubun;
+	}
+	public void setGameGubun(String gameGubun) {
+		this.gameGubun = gameGubun;
+	}
 	
 	//---------------------------------------------------------------
 	//board_open_window_history.jsp 기록식 게임 체크박스 체크 시 구매내역확인 자동완성을 위한 프로퍼티
@@ -26,7 +34,6 @@ public class MatchVO {
 		this.recordRateVOList = recordRateVOList;
 	}
 	//---------------------------------------------------------------
-	
 	
 	
 	private VictoryRateVO vicVO;

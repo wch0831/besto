@@ -52,17 +52,19 @@
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
                 <form method="get" action="shop-checkout1.html">
-                  <h4>◈ 자유게시판</h4>
+                  <h4>◈ 공지사항</h4>
                   <br>
-                  <h5>${KEY_BVO.freeBoardTitle}</h5><hr>
-                  <font size="2"><strong>작성자</strong> : ${KEY_BVO.usersName} </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                  						    <font size="2"> <strong>등록일</strong> : ${KEY_BVO.freeBoardRegdate}</font><br><br>
+                  <h5>공지사항 제목1111111</h5><hr>
+                  <font size="2"><strong>작성자</strong> : 관리자 </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  						    <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
                     	<br>
                     <div class="form-group col-sm-10">
-                    	${KEY_BVO.freeBoardContent}
+                    	글쓰기에서 입력한 내용 가져오기
                     </div>
                     <br>
                   <hr>
+                
+                
                 <div class="col-md-12 pull-right">
                 <br>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
@@ -75,49 +77,6 @@
                   <div class="col-lg-12">
                   <br>
                   </div>
-<!-- 댓글  영역-->                 
-                <h4><i class="fa fa-quote-left"></i> 댓글(3)</h4>
-                <br>
-             	
-             <div class="col-sm-12">
-             	
-             	
-   <!-- 댓글 루프돌릴 div영역 -->
-             	<div class="col-sm-12">
-             	<i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
-             		<a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
-             		<a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
-             	<hr>
-             	</div>
-   <!-- 댓글 루프돌릴 div영역 -->
-             	<div class="col-sm-12">
-             	<i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
-             		<a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
-             		<a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
-             	<hr>
-             	</div>
-   <!-- 댓글 루프돌릴 div영역 -->
-             	<div class="col-sm-12">
-             	<i class="fa fa-quote-left"></i> 송은규(sek****) &emsp;<b>:</b>&emsp; 댓글1입니다.&emsp;&emsp;2019.02.17 17:34&emsp;&emsp;
-             		<a href="#"><i class="fa fa-check"></i></a>&emsp; <!-- 수정 아이콘 -->
-             		<a href="#"><i class="fa fa-times"></i></a> <!-- 삭제 아이콘 -->
-             	<hr>
-             	</div>
-   <!-- 댓글 루프돌릴 div영역 -->
-             	
-           <br>
-           <!-- 댓글입력폼-->
-                 <div class="row">
-                    <div class="col-md-8">
-                    <textarea id="message" class="form-control" placeholder="댓글을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 48px; width: 775px;"> </textarea>
-                    </div>
-                    <div class="col-md-4">
-                    <button type="button" class="btn btn-lg btn-primary pull-right"><font size="3">입력</font></button>
-                    </div>
-                    <br>
-                 </div>
-              </div>
-<!-- 댓글영역 -->
                 </form>
             </div>
             </div>

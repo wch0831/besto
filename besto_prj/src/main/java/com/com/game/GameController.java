@@ -58,11 +58,13 @@ public class GameController {
 			int res = gameService.svcGameInsert(vo);
 			System.out.println(res+"건 게임 등록");
 			
+			
+			
 			if(res != 0) {
-				int gseq = gameService.svcSelectSeq();
-				System.out.println(gseq);
+				int seq = gameService.svcSelectSeq(); ///
 				for(int i=0; i<list.size(); i++) {
-					list.get(i).setGameSeq(gseq);
+					list.get(i).setGameSeq(seq);  //32
+					list.get(i).setGameGubun(gameGubun);
 				}
 				int mes = gameService.svcMatchInsert(list);
 				System.out.println(mes+"건 매치게임 수 등록");

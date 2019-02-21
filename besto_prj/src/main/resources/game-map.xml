@@ -12,8 +12,8 @@
 		<result property="matchVsrecord" 	column="match_vsrecord" />
 		<result property="matchStadium" 		column="match_stadium" />
 		<result property="matchStatus" 		column="match_status" />
-		<result property="usersSeq" 		column="users_seq" />		
-		
+		<result property="usersSeq" 		column="users_seq" />
+		<result property="gameGubun" 		column="game_gubun" />
 		<result property="victoryrateWin" 		column="victoryrate_win" />
 		<result property="victoryrateDraw" 		column="victoryrate_draw" />
 		<result property="victoryrateLose" 		column="victoryrate_lose" />
@@ -65,7 +65,14 @@
  	<!-- 게임 insert -->
 	<insert id="gameInsert" parameterType="com.com.game.GameVO">
 		insert into game(game_seq, game_gubun, game_finishdate, game_status, game_roundseq, game_regdate)
-		values(game_seq.nextval, #{gameGubun}, #{gameFinishdate}, 'p', gameround_seq.nextval, sysdate)
+		values(game_seq.nextval, #{gameGubun}, #{gameFinishdate}, 'p', 
+			<if test='gameGubun.equals("v")'>
+	      		victory_seq.nextval 
+	      	</if>
+	      	<if test='gameGubun.equals("r")'>
+	      		record_seq.nextval 
+	      	</if>
+		, sysdate)
 	</insert>
 	
 	<!-- 매치 insert -->
@@ -84,7 +91,7 @@
 	
 	<!-- 기록식 배당률 insert -->
 	<insert id="recordRateInsert" parameterType="com.com.game.RecordRateVO">
-		insert into recordrate(match_seq, recoderate_00, recoderate_10, recoderate_20, recoderate_11, recoderate_22, recoderate_01, recoderate_02)
+		insert into recoderate(match_seq, recoderate_00, recoderate_10, recoderate_20, recoderate_11, recoderate_22, recoderate_01, recoderate_02)
 		values(#{matchSeq}, #{recoderate00}, #{recoderate10}, #{recoderate20}, #{recoderate11}, #{recoderate22}, #{recoderate01}, #{recoderate02})
 	</insert>
 	
@@ -103,6 +110,13 @@
     	from game
  	</select>
  	
+ 	<select id="selectMseqList" resultMap="matchMap">
+    	select m.match_seq, m.game_seq, g.game_gubun
+    	from match m , game g
+    	where m.game_seq = g.game_seq
+ 	</select>
+ 	
+ 	
  	
  	
  	
@@ -118,7 +132,6 @@
 		from match
 		where game_seq=#{gameSeq};
  	</select>
-<<<<<<< HEAD
 	-->
 	<!-- <select id="buyNoteRecordRate" parameterType="com.com.game.GameVO" resultMap="RecodeRateMap">
  		select *

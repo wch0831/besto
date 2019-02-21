@@ -10,6 +10,16 @@ public class BoardFreeVO {
 	private String freeBoardRegdate;
 	private int freeBoardHits;
 	private String freeBoardDel;
+	private String usersName;
+	
+	
+	
+	public String getUsersName() {
+		return usersName;
+	}
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
 	public int getPostSeq() {
 		return postSeq;
 	}
