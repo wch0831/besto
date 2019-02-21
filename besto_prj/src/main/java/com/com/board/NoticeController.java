@@ -14,6 +14,8 @@ public class NoticeController {
 	
 	@Autowired NoticeService notis;
 	
+	
+	//
 	@RequestMapping(value="/board_protice.do")
 	public ModelAndView ctlNoticeSelect() {
 		ModelAndView mav = new ModelAndView();

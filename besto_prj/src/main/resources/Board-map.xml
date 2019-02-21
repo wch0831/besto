@@ -90,43 +90,52 @@
 
 	<!-- 자유게시판 -->
  	<select id="free_board_select" resultMap="boardfree-map">
- 	 select post_seq,free_board_title,free_board_content,users_seq,board_code,free_board_regdate,free_board_hits
- 	from FREE_BOARD
+ 	 	select post_seq,free_board_title,free_board_content,users_seq,board_code,free_board_regdate,free_board_hits
+ 		from FREE_BOARD
  	</select>
 
-
-	<!-- 도전분석 -->
-	<select id="challenge_board_select" resultMap="boardchallenge-map">	
-	select post_seq, board_code, users_seq, challenge_board_gcode, challenge_boadr_roundseq, challenge_board_title, challenge_board_regdate, challenge_board_hits, challenge_board_content
- 	from challenge_board
-	</select>
-
-
-
-    <!-- 게시글 삭제 -->
-    <update id="free_board_update">
+ 	<!-- 게시글 삭제 -->
+    <update id="free_board_delete">
     	update free_board set free_board_del = 'y' where users_seq = #{usersSeq} 
     </update>
     
     
+    <!-- 게시글 수정 -->
+   	<update id="free_board_update">
+   		update free_board set free_board_title = #{freeBoardTitle}, free_board_content = #{freeBoardContent}, free_board_regdate = sysdate
+   		where users_seq = #{userSeq}
+   	</update>
+
+
+
+
+	<!-- 도전분석 -->
+	<select id="challenge_board_select" resultMap="boardchallenge-map">	
+		select post_seq, board_code, users_seq, challenge_board_gcode, challenge_boadr_roundseq, challenge_board_title, challenge_board_regdate, challenge_board_hits, challenge_board_content
+ 		from challenge_board
+	</select>
+
+
+   	
+    
+    
     <!-- 댓글 조회 -->
-   <!-- 	<select id="free_board_comment_all" resultMap="board_reply_1n">
+   <select id="free_board_comment_all" resultMap="board_reply_1n">
    		select r.reply_seq, r.reply_content, r.reply_writer, to_char(r.reply_regdate, 'yyyy-mm-dd hh24:mi')
    		from free_board f, reply r
    		where f.post_seq = r.post_seq AND f.post_seq = #{postSeq}
         order by f.post_seq desc
-   	</select> -->
+   	</select>
        
    	<!-- 댓글 입력 -->
-   	<insert id="free_board_comment_input" parameterType="com.com.board.ReplyVO">
+   	<insert id="free_board_comment_insert" parameterType="com.com.board.ReplyVO">
    		insert into reply 
    		values (reply_seq.nextval, #{replyContent}, #{replyWriter}, sysdate, #{postSeq}, #{boardCode})
    	</insert>
    	
    	<!-- 댓글 삭제 -->
    	<delete id="free_board_comment_del">
-		delete *
-		from reply
+		delete from reply
 		where reply_seq = #{replySeq} AND board_code = #{boardCode}
    	</delete>
    	
@@ -136,6 +145,10 @@
    		where reply_seq = #{replySeq} AND post_seq = #{postSeq} AND board_code = #{boardCode}
    	</update>
    	
+   	
+   	
+   	
+   	
    	<!-- 공지사항 뽑기~ -->
    	<select id="notice_all" resultMap="notice-map">
    		select *
@@ -143,9 +156,29 @@
         order by notice_seq desc
    	</select>
    	
+   	<!-- 공지사항 hit수 올리기 -->
    	<update id="notice_count" parameterType="integer">
    		update notice set notice_hits = notice_hits +1 where notice_seq = #{value}
    	</update>
+   	
+   	<!-- 공지사항 입력 -->
+   	<insert id="notice_insert" parameterType="com.com.board.NoticeVO">
+   		insert into notice
+   		values (notice_seq.nextval, notice_title = #{noticeTitle}, notice_content= #{noticeContent}, notice_regdate = #{noticeRegdate}, notice_hits = 0, users_seq = #{usersSeq})
+   	</insert>	
+   	
+   	<!-- 공지사항 수정 -->
+   	<update id="notice_update" parameterType="integer">
+   		update notice set notice_title = #{noticeTitle}, notice_content = #{noticeContent}, notice_regdate = sysdate
+   		where notice_seq = #{value}   	
+   	</update>
+   	
+   	<!-- 공지사항 삭제 -->
+   	<delete id="notice_delete" parameterType="integer">
+   		delete from notice
+   		where notice_seq = #{noticeSeq}
+   	</delete>
+   	
 
 </mapper>	
 
