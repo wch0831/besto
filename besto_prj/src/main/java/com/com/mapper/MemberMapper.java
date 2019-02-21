@@ -15,7 +15,7 @@ public interface MemberMapper {
 	public MemberVO memberDetail(MemberVO vo);
 	public int memberUpdate(MemberVO vo);
 	public int memberDelete(MemberVO vo);
-	public String findId(String uemail);
+	public String findId(MemberVO vo);
 	public int changePassword(MemberVO vo);
 	
 }

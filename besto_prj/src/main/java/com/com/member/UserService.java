@@ -10,5 +10,5 @@ public interface UserService {
 	public int memberDelete(MemberVO vo) throws Exception;
 	public int memberUpdate(MemberVO vo) throws Exception;
 	public int changePassword(MemberVO vo) throws Exception;
-	public String findId(String uemail) throws Exception;
+	public String findId(MemberVO vo) throws Exception;
 }

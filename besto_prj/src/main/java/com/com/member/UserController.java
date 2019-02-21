@@ -59,16 +59,35 @@ public class UserController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/jbcheck.do", method = RequestMethod.GET)
 	@ResponseBody
-	public void idCheck(HttpServletResponse response, MemberVO mvo) {
+	public void idCheck(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			String uid = userService.checkId(mvo.getUsersId());
+			String uid = request.getParameter("uid");
+			uid = userService.checkId(uid);
 			PrintWriter out = response.getWriter();
 			out.println(uid);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping(value = "/regid.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView login(MemberVO mvo) {
+		ModelAndView mav = new ModelAndView();
+		try {
+			int res = userService.memberRegister(mvo);
+			if(res > 0) {
+				mav.setViewName("index");
+			} else {
+				mav.setViewName("member_register");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mav;
 	}
 }

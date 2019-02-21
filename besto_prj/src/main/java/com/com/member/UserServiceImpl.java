@@ -51,8 +51,8 @@ public class UserServiceImpl implements UserService {
 		return mMapper.changePassword(vo);
 	}
 
-	public String findId(String uemail) throws Exception {
-		return mMapper.findId(uemail);
+	public String findId(MemberVO vo) throws Exception {
+		return mMapper.findId(vo);
 	}
 
 
