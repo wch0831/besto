@@ -129,9 +129,9 @@ public class BoardController {
 		//System.out.println(noticeSeq + " ::: ctlBoardDetail");
 		
 //		ModelAndView mav = new ModelAndView();	
-		
-//		int noticnt= bs.noticeCount(noticeSeq);
-//		NoticeVO notivo = bs.noticeDetail();
+//		
+		int noticnt= bs.noticeCount(noticeSeq);
+		NoticeVO notivo = bs.noticeDetail();
 		
 		
 		System.out.println(notivo.getNoticeTitle());
