@@ -12,7 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class NoticeController {
 	
-	@Autowired NoticeService notis;
+	@Autowired
+	NoticeService notis;
 	
 	@RequestMapping(value="/board_protice.do")
 	public ModelAndView ctlNoticeSelect() {

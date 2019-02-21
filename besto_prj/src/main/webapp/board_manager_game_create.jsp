@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -14,52 +15,112 @@
 <script>
 
 $(document).ready(function() {
-
-  $("#selectVS").on("change", function(){
-	  		var jsonData = {"gameSeq":$('#selectVS').val()};
-	  		console.log(jsonData);
-	  		
+var jsonData;
+/* selectVS matchviewBtn data:jsonData,*/
+  $("#matchviewBtnV").click("change", function(){
+	  			console.log("경기목록 보기 버튼 클릭");
 			  $.ajax({ 
-						//url:"/rinsert.do",
-						//type:"post",
-						//contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-						//data:strData,
-						
-						//url:"/rinsert_rest3x.do",
-						//type:"post",
-						//contentType: "application/json; charset=UTF-8",
-						//data:JSON.stringify(jsonData),
-						
-						url:"http://192.168.0.107:8085/alist.do",
+						url:"http://localhost:8087/bestoapi/alist.do",
 						type:"get",
-						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-						
+						contentType: "application/json; charset=UTF-8", 
+						resultType: "json",
 						success:function(jsonObj){
-							
-								console.log(jsonObj);		//[{"rseq":1 , "reply":"aa"} , {}]
+								//console.log(jsonObj);		//[{"rseq":1 , "reply":"aa"} , {}]
 								var htmlStr = "";
+								jsonData = jsonObj;
+								console.log(jsonData);
 					 			$.map(jsonObj, function(vv, idx){
-					 			
-						  		htmlStr += "<tr>";
-						  		htmlStr += "<td style ='text-align:center;'>1</td>";
+					 				
+		                        htmlStr += "<tr>";
+		                        htmlStr += "<td style = 'text-align:center;'>"+vv.matchSeq+"</td>";
 		                        htmlStr += "<td style = 'text-align:center;'>"+vv.matchStarttime+"</td>";
-		                        htmlStr += "<td style = 'text-align:center;'>프리미어리그</td>";
+		                        htmlStr += "<td style = 'text-align:center;'>챔피언스리그</td>";
 		                        htmlStr += "<td style = 'text-align:center;'><span class='badge badge-info'>일반</span></td>";
 		                        htmlStr += "<td style = 'text-align:center;'>"+vv.matchHometeam+"<span class='badge badge-danger'>VS</span>"+vv.matchAwayteam+"</td>";
-		                        htmlStr += "<td style = 'text-align:center;'><font color='red'>승</font>"+vv.victoryrateWin+"</td>";
-		                        htmlStr += "<td style = 'text-align:center;'><font color='gray'>무</font>"+vv.victoryrateDraw+"</td>";
-		                        htmlStr += "<td style = 'text-align:center;'><font color='blue'>패</font>"+vv.victoryrateLose+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><font color='red'>승</font>"+vv.vicVO.victoryrateWin+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><font color='gray'>무</font>"+vv.vicVO.victoryrateDraw+"</td>";
+		                        htmlStr += "<td style = 'text-align:center;'><font color='blue'>패</font>"+vv.vicVO.victoryrateLose+"</td>";
 		                        htmlStr += "<td style = 'text-align:center;'>"+vv.matchStadium+"</td>";
-		                        htmlStr += "<tr>";
+		                        htmlStr += "</tr>";
 						  		
 						  	});
 						  	
 						  	//div는 남겨두고 기존 댓글 내용만 지우기
-						  	$("#gameList").empty();
-						  	$("#gameList").html(htmlStr);
+						  	$("#gameListV").empty();
+						  	$("#gameListV").html(htmlStr);
 						}
 			}); //end of ajax 
 		});
+		
+		
+  $("#matchviewBtnR").click("change", function(){
+		console.log("경기목록 보기 버튼 클릭");
+	  $.ajax({ 
+				url:"http://localhost:8087/bestoapi/alist.do",
+				type:"get",
+				contentType: "application/json; charset=UTF-8", 
+				resultType: "json",
+				success:function(jsonObj){
+						//console.log(jsonObj);		//[{"rseq":1 , "reply":"aa"} , {}]
+						var htmlStr = "";
+						jsonData = jsonObj;
+						console.log(jsonData);
+			 			$.map(jsonObj, function(vv, idx){
+			 				
+                      htmlStr += "<tr>";
+                      htmlStr += "<td style = 'text-align:center;'>"+vv.matchSeq+"</td>";
+                      htmlStr += "<td style = 'text-align:center;'>"+vv.matchStarttime+"</td>";
+                      htmlStr += "<td style = 'text-align:center;'>챔피언스리그</td>";
+                      htmlStr += "<td style = 'text-align:center;'><span class='badge badge-info'>일반</span></td>";
+                      htmlStr += "<td style = 'text-align:center;'>"+vv.matchHometeam+"<span class='badge badge-danger'>VS</span>"+vv.matchAwayteam+"</td>";
+                      htmlStr += "<td style = 'text-align:center;'>"+vv.matchStadium+"</td>";
+                      htmlStr += "</tr>";
+				  		
+				  	});
+				  	
+				  	//div는 남겨두고 기존 댓글 내용만 지우기
+				  	$("#gameListR").empty();
+				  	$("#gameListR").html(htmlStr);
+				}
+	}); //end of ajax 
+});
+		
+   $("#registerBtnV").click("change", function(){
+		var name = $(this).attr("name");
+		console.log(name);
+		console.log(jsonData);
+		
+	  $.ajax({ 
+				url:"/game_insert_rest.do",
+				type:"post",
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+				resultType: "json",
+				data:"matchlist="+JSON.stringify(jsonData)+"&gameGubun="+name+"&gamefinishdate="+$("#finishTimeV").val(),
+				success:function(jsonObj){
+					
+				}
+	}); //end of ajax 
+	
+});
+   
+   
+   $("#registerBtnR").click("change", function(){
+		console.log("등록하기 버튼 클릭");
+		var name = $(this).attr("name");
+		console.log(name);
+	  $.ajax({ 
+				url:"/game_insert_rest.do",
+				type:"post",
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				resultType: "json",
+				data:"matchlist="+JSON.stringify(jsonData)+"&gameGubun="+name+"&gamefinishdate="+$("#finishTimeR").val(),
+				success:function(jsonObj){
+					
+				}
+	}); //end of ajax 
+	
+});
+  
 		
 		
 });
@@ -70,13 +131,13 @@ $(document).ready(function() {
 
 
 /* 새창띄우기 Script */
-function openWindow_match(){  
+/* function openWindow_match(){  
     window.open("board_open_window_match.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
 }
 
 function openWindow_history(){  
     window.open("board_open_window_history.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
-}
+} */
 </script>
 
 </head>
@@ -127,19 +188,22 @@ function openWindow_history(){
               
               
               <div id="basket" class="col-lg-13">
-                <form method="get" action="shop-checkout1.html">
+                <form method="get" action="/game_insert_rest.do">
                 
                 <div class="row pull-right">
                 <div class="btn-group bootstrap-select bs-select">
               	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
               	</div>
-						<select class="bs-select" id="selectVS" tabindex="-98">
-						  <option value="" selected disabled hidden>게임을 선택하세요</option>
-						  <!-- value값을  -->
-                          <option value="1">12회차 [2월 4일 일요일 마감]</option>
-                          <option value="2">13회차 [2월 14일 일요일 마감]</option>
-                          <option value="3">14회차 [2월 24일 일요일 마감]</option>
+              	
+              	<button id="matchviewBtnV" name="matchviewBtnV" type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 경기목록 보기</i></button>
+              	
+						<select class="bs-select" id="finishTimeV" tabindex="-98">
+						  <option value="" selected disabled hidden>시간을 선택하세요</option>
+                          <option value="02/15/2019 10:00">02/15/2019 10:00</option>
+                          <option value="02/15/2019 09:00">02/15/2019 09:00</option>
+                          <option value="02/15/2019 08:00">02/15/2019 08:00</option>
                         </select>
+                        
                         
                         </div>
                         </div>
@@ -158,30 +222,35 @@ function openWindow_history(){
 	                          <th style = "text-align:center;">배당률</th>
 	                          <th style = "text-align:center;"></th>
 	                          <th style = "text-align:center;">경기장소</th>
+	                          <th style = "text-align:center;">체크</th>
 	                        </tr>
 	                      </thead>
-	                      <tbody id="gameList">
+	                      
+<!--  ************************************************************************************  -->
+	                      <tbody id="gameListV">
 	                       
 	                      </tbody>
 	                    </table>
 	                    <hr>
 	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 취소하기</i></button>
-	                    <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 등록하기</i></button>
+	                    <button type="button" id="registerBtnV" name="v" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 등록하기</i></button>
 	                    <br><br><br><br><hr><br>
 	                    
 	           </form>
 	                    
-	           <form method="get" action="shop-checkout1.html">  
+	           <form method="get" action="/game_insert_rest.do">  
 	               <!-- 기록식(관리자) -->
 	               <div class="row pull-right">
                 <div class="btn-group bootstrap-select bs-select">
               	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
               	</div>
-						<select class="bs-select" tabindex="-98">
-						  <option value="" selected disabled hidden>게임을 선택하세요</option>
-                          <option value="match">5회차 [2월 6일 일요일 마감]</option>
-                          <option value="match">6회차 [2월 16일 일요일 마감]</option>
-                          <option value="history">7회차 [2월 26일 일요일 마감]</option>
+						<button id="matchviewBtnR" name="matchviewBtnR" type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 경기목록 보기</i></button>
+              	
+						<select class="bs-select" id="finishTimeR" tabindex="-98">
+						  <option value="" selected disabled hidden>시간을 선택하세요</option>
+                          <option value="02/15/2019 10:00">02/15/2019 10:00</option>
+                          <option value="02/15/2019 09:00">02/15/2019 09:00</option>
+                          <option value="02/15/2019 08:00">02/15/2019 08:00</option>
                         </select>
                         </div>
                         </div>
@@ -193,28 +262,19 @@ function openWindow_history(){
 	                        <tr>
 	                          <th style = "text-align:center;">경기</th>
 	                          <th style = "text-align:center;">경기일</th>
-	                          <th style = "text-align:center;">경기시간</th>
 	                          <th style = "text-align:center;">대회명</th>
 	                          <th style = "text-align:center;">유형</th>
 	                          <th style = "text-align:center;">홈팀 <span class="badge badge-danger">VS</span> 원정팀</th>
 	                          <th style = "text-align:center;">경기장소</th>
 	                        </tr>
 	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">19.02.16</td>
-	                          <td style = "text-align:center;">19:00</td>
-	                          <td style = "text-align:center;">세리에A</td>
-	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
-	                          <td style = "text-align:center;">유벤투스 <span class="badge badge-danger">VS</span> 프로시노</td>
-	                          <td style = "text-align:center;">알리안츠스타디움</td>
-	                        </tr>
+	                      <tbody id="gameListR">
+	                        
 	                      </tbody>
 	                    </table>
 	                    <hr>
 	                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 취소하기</i></button>
-	                    <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 등록하기</i></button>
+	                    <button type="button" id="registerBtnR" name="r" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 등록하기</i></button>
                 </form>
             </div>
             </div>

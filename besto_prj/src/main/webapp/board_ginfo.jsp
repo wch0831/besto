@@ -8,6 +8,69 @@
 <!-- Header Include CSS START--> 
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+<%@ include file="/include/header.jsp"%>
+<!-- Header Include CSS END-->
+<script>
+$(document).ready(function() {
+	
+					//오늘의 경기 ajax
+	            $.ajax({ 
+	                  url:"http://localhost:8082/todayMatchRest.do",
+	                  type:"get",
+	                  success:function(jsonObj){
+	                     	console.log("hi");
+	                        console.log(jsonObj);    
+	                        var htmlStr = "";
+	                        	$.each(jsonObj, function(index, vv){
+	                        		htmlStr+="<tr>"
+	                        			htmlStr+="<td style = 'text-align:center;'>프리미어 리그</td>";
+	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.matchStarttime+"</td>";
+	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.matchHometeam+"<span class='badge badge-danger'>VS</span> "+vv.matchAwayteam+"</td>";
+	                        			
+	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.matchStadium+"</td>";
+	                        			htmlStr+="<td style = 'text-align:center;'>"+vv.gameSeq+"</td>";
+	                        			htmlStr+="</tr>"	
+	        				 });	
+	                        	$("#todaymatch").html(htmlStr);
+	                  }
+	         }); //end of ajax 
+	         
+	         
+	         	//순위 정보 ajax
+	            $.ajax({ 
+	                  url:"http://localhost:8082/bestoapi/rankinfo.do",
+	                  type:"get",
+	                  success:function(jsonObj){
+	                     	console.log("hi");
+	                        console.log(jsonObj);     
+	                        var htmlStr = "";
+
+	                        $.each(jsonObj, function(index, vv){
+	                        	htmlStr+="<tr>";
+	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.rank+"</td>";
+	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.team+"</td>";
+	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.matchcount+"</td>";
+	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.winpoint+"</td>";
+	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.win+"</td>";
+	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.tie+"</td>";
+	                        	htmlStr+="<td style = 'text-align:center;'>"+vv.loss+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='blue'>"+vv.goalall+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='blue'>"+vv.goalavg+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='red'>"+vv.lossall+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='red'>"+vv.lossavg+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'><font color='green'>"+vv.goaldifference+"</td>";
+	                        	 htmlStr+="<td style = 'text-align:center;'>"+vv.recent10games+"</td>";	
+		                        	htmlStr+="</tr>";
+	                        });
+
+	                        $("#rankinfo").html(htmlStr);
+	                  }
+	         }); //end of ajax 
+	     
+	      
+	      
+});
+</script>
 </head>
 
   <body>
@@ -58,89 +121,47 @@
                   <div class="table-responsive">
                   <h4>◈ 오늘의 경기</h4>
                   <br>
-                    <table class="table">
-	                      <thead bgcolor="#EEEEEE">
-	                        <tr>
-	                          <th style = "text-align:center;">리그</th>
-	                          <th style = "text-align:center;">시간</th>
-	                          <th style = "text-align:center;">홈팀 <span class="badge badge-danger">VS</span> 원정팀</th>
-	                          <th style = "text-align:center;">맞대결 전적</th>
-	                          <th style = "text-align:center;">중계일정</th>
-	                          <th style = "text-align:center;">구장정보</th>
-	                          <th style = "text-align:center;">대상게임</th>
-	                        </tr>
-	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">K리그 2부</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">A팀 <span class="badge badge-danger">VS</span> B팀</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">코스모 스타디움</td>
-	                          <td style = "text-align:center;">----</td>
-	                        </tr>
-	                      </tbody>
-	                    </table>
+                  <table class='table'>
+                  	<thead bgcolor='#EEEEEE'>
+                  		<tr>
+                  			<th style = 'text-align:center;'>리그</th>
+                  			<th style = 'text-align:center;'>경기 시작시간</th>
+         			         <th style = 'text-align:center;'>홈팀 <span class='badge badge-danger'>VS</span> 원정팀</th>
+       			           <th style = 'text-align:center;'>구장정보</th>
+              		    <th style = 'text-align:center;'>대상게임</th>
+              	    </tr>
+                  </thead >
+                  <tbody id="todaymatch"></tbody>
+                 </table>
+                  
+
 	                    <hr>
 	                    <br>
                   </div>
-                  
+
                   <h4>◈ 순위정보</h4>
-                  <table class="table">
-	                      <thead bgcolor="#EEEEEE">
-	                        <tr>
-	                          <th style = "text-align:center;">순위</th>
-	                          <th style = "text-align:center;">팀명</th>
-	                          <th style = "text-align:center;">경기수 </th>
-	                          <th style = "text-align:center;">승점</th>
-	                          <th style = "text-align:center;">승</th>
-	                          <th style = "text-align:center;">무</th>
-	                          <th style = "text-align:center;">패</th>
-	                          <th style = "text-align:center;"><font color="blue">득점<br>전체</font></th>
-	                          <th style = "text-align:center;"><font color="blue">득점<br>평균</font></th>
-	                          <th style = "text-align:center;"><font color="red">실점<br>전체</font></th>
-	                          <th style = "text-align:center;"><font color="red">실점<br>평균</font></th>
-	                          <th style = "text-align:center;">득실차</th>
-	                          <th style = "text-align:center;">연속</th>
-	                          <th style = "text-align:center;">최근<br>10경기</th>
-	                        </tr>
-	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">1</td> <!-- 순위 -->
-	                          <td style = "text-align:center;">----</td> <!-- 팀명 -->
-	                          <td style = "text-align:center;">----</td> <!-- 경기수 -->
-	                          <td style = "text-align:center;">----</td> <!-- 승점 -->
-	                          <td style = "text-align:center;">----</td> <!-- 승 -->
-	                          <td style = "text-align:center;">----</td> <!-- 무 -->
-	                          <td style = "text-align:center;">----</td> <!-- 패 -->
-	                          <td style = "text-align:center;">----</td> <!-- 득점 전체 -->
-	                          <td style = "text-align:center;">----</td> <!-- 득점 평균 -->
-	                          <td style = "text-align:center;">----</td> <!-- 실점 전체 -->
-	                          <td style = "text-align:center;">----</td> <!-- 실점 평균 -->
-	                          <td style = "text-align:center;">----</td> <!-- 득실차 -->
-	                          <td style = "text-align:center;">----</td> <!-- 연속 -->
-	                          <td style = "text-align:center;">----</td> <!-- 최근10경기 -->
-	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">2</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                          <td style = "text-align:center;">----</td>
-	                        </tr>
-	                      </tbody>
-	                    </table>
+                  <table class='table'>
+                 	 <thead bgcolor='#EEEEEE'>
+              		    <tr>
+              			    <th style = 'text-align:center;'>순위</th>
+             			     <th style = 'text-align:center;'>팀명</th>
+         			         <th style = 'text-align:center;'>경기수 </th>
+       			           <th style = 'text-align:center;'>승점</th>
+       			           <th style = 'text-align:center;'>승</th>
+      			            <th style = 'text-align:center;'>무</th>
+       			           <th style = 'text-align:center;'>패</th>
+      			            <th style = 'text-align:center;'><font color='blue'>득점<br>전체</font></th>
+        			          <th style = 'text-align:center;'><font color='blue'>득점<br>평균</font></th>
+      			            <th style = 'text-align:center;'><font color='red'>실점<br>전체</font></th>
+          			        <th style = 'text-align:center;'><font color='red'>실점<br>평균</font></th>
+          			        <th style = 'text-align:center;'>득실차</th>
+          			        <th style = 'text-align:center;'>최근<br>10경기</th>
+            		      </tr>
+            	      </thead>
+            	      
+              		    <tbody id="rankinfo"></tbody>
+                  </table>
+                  
                 </form>
             </div>
             <hr>

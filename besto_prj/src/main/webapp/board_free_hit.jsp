@@ -73,16 +73,18 @@ $(document).ready(function(){
                         </tr>
                       </thead>
                       <tbody>
+                       <c:forEach var="a" items="${KEY_RESULT}"> 
                         <tr>    
-                          <td style = "text-align:center;">1</td>
-	                       <td style = "text-align:center;">승부식</td>
-	                       <td style = "text-align:center;">19.3회차</td>
-                           <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-                           <td style = "text-align:center;">이문경</td>
-                           <td style = "text-align:center;">2019.02.12</td>
-                           <td style = "text-align:center;">30</td>
-                           <td style = "text-align:center;">4.5</td>
+                          <td style = "text-align:center;">${a.postSeq}</td>
+	                       <td style = "text-align:center;">${a.hithistoryDiscussionGcode}</td>
+	                       <td style = "text-align:center;">${a.hithistoryDiscussionRoundseq}</td>
+                           <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">${a.hithistoryDiscussionTitle}</font></a></td>
+                           <td style = "text-align:center;">${a.usersSeq}</td>
+                           <td style = "text-align:center;">${a.hithistoryDiscussionRegdate}</td>
+                           <td style = "text-align:center;">${a.hithistoryDiscussionHits}</td>
+                           <td style = "text-align:center;">${a.hithistoryDiscussionContent}</td>
                         </tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                     <br>
