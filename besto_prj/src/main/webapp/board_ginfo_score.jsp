@@ -56,20 +56,29 @@
                   <h4>◈ 맞대결 전적</h4>
                   <br>
             	  </div>
-            	  
             	  <div class="col-lg-12">
             	  <table class="table">
 	                 <thead>
 	                   <tr>
 	                   <th>
-								<select class="bs-select" tabindex="-98">
+								<select class="bs-select" >
 		                          <option value="match">레알 마드리드</option>
 		                          <option value="match">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
+		                          <option value="history">레알 마드리드</option>
 		                          <option value="history">레알 마드리드</option>
 		                          <option value="history">레알 마드리드</option>
                         		</select>
+                        		<br>
                        </th>
-	                   <th> <button type="button" class="btn btn-outline-primary d-block mr-5 ml-auto">전적 조회</button> </th>
+	                   <th> <button type="button" class="btn btn-outline-primary d-block mr-5 ml-auto" style="center: 5;">전적 조회</button> </th>
 	                   <th>
 	                   			<div class="pull-right">
 									<select class="bs-select" tabindex="-98" style="position:right;">

@@ -56,10 +56,10 @@
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                   	<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
+                  	<li class="dropdown-item"><a href="board_protice_register.jsp" class="nav-link">공지사항 등록</a></li>
                   </ul>
                 </li>
               </ul>
-              
             </div>
             
             <div id="search" class="collapse clearfix">
