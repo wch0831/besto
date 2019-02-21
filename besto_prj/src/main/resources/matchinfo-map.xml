@@ -5,7 +5,7 @@
 
 
 
-		<resultMap id="matchinfoMap" type="com.com.game.MatchVO">
+	<resultMap id="matchinfoMap" type="com.com.game.MatchVO">
 		<id 	property="matchSeq" 		column="match_seq" />
 		<result property="gameSeq" 		column="game_seq" />
 		<result property="matchStarttime" 		column="match_starttime" />
@@ -23,7 +23,12 @@
 		where to_char(to_date(match_starttime,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD')=to_char(sysdate, 'YYYY-MM-DD')
  	</select>
  	
- 	
+ 	<select id="kaeruList"  parameterType="com.com.game.MatchVO" resultMap="matchinfoMap">
+		select m.game_seq , g.game_gubun, g.game_roundseq, t1.t_name as match_hometeam, t2.t_name as match_awayteam, m.match_starttime 
+		from match m, team t1, team t2, game g 
+		where match_status = 'p' and m.match_hometeam = t1.t_code and m.match_awayteam = t2.t_code
+		and m.match_hometeam = #{tcode1} and m.match_awayteam = #{tcode2} and m.game_seq = g.game_seq
+	</select>
  	
  	<select id="matchList"  resultMap="matchinfoMap">select * from match</select>
  	

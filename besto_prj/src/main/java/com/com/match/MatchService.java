@@ -6,4 +6,5 @@ import com.com.game.MatchVO;
 public interface MatchService {
 	public ArrayList<MatchVO> todayMatchList();
 	public ArrayList<MatchVO> matchList();
+	public ArrayList<MatchVO> kaeruList(MatchVO mvo);
 }

@@ -12,4 +12,5 @@ import com.com.member.MemberVO;
 public interface MatchMapper {
 	public ArrayList<MatchVO> todayMatchList();
 	public ArrayList<MatchVO> matchList();
+	public ArrayList<MatchVO> kaeruList(MatchVO mvo);
 }

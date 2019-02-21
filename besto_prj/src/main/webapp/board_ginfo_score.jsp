@@ -11,13 +11,13 @@
 <!-- Header Include CSS END-->
 <script>
 $(document).ready(function() {
-	
+		
 		 $("#vsBtn").click(function(){         
 	           var team1 = $("#teamId1").val();
 	           var team2 = $("#teamId2").val();
 	           console.log(team1);
 	           console.log(team2);
-	           
+	           if(team1 != team2){
 	            $.ajax({ 
 	                  //url:"/rinsert.do",
 	                  //type:"post",
@@ -29,14 +29,12 @@ $(document).ready(function() {
 	                  //contentType: "application/json; charset=UTF-8",
 	                  //data:JSON.stringify(jsonData),
 	                  
-	                  url:"http://localhost:8082/bestoapi/vs.do",
+	                  url:"http://localhost:80/bestoapi/vs.do",
 	                  type:"get",
 	                  contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 	                  //data: { "team1" : team1, "team2" : team2 },
 	                  data: "team1="+team1+"&team2="+team2,
 	                  success:function(vv){
-	                     	console.log("hi");
-	                        console.log(vv);      //[{"rseq":1 , "reply":"aa"} , {}]
 	                        $('#h1').text(vv.homeTeam);
                        	 $('#h2').text(vv.homeSeasonrecord);
                        	 $('#h3').text(vv.homeMatchhistory);
@@ -51,11 +49,49 @@ $(document).ready(function() {
                        	 $('#a5').text(vv.awayGoalandloss);
                        	 $('#a6').text(vv.awayGoalavg);
 	                  }
-	         }); //end of ajax 
+	                  
+	         }); //end of ajax 	
+	         
+	         $.ajax({ 
+                 
+                 url:"/kaeru.do",
+                 type:"get",
+                 contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                 //data: { "team1" : team1, "team2" : team2 },
+                 data: "team1="+team1+"&team2="+team2,
+                 success:function(jsonObj){
+                	 
+                 			htmlStr = "";
+                	 $.map(jsonObj, function(vv, idx){
+			 				console.log(vv.gameSeq);
+	                        htmlStr += "<td style='text-align: center;'>"+vv.gameSeq+"</td>";
+	                        htmlStr += "<td style='text-align: center;'>"+vv.matchHometeam+" : "+vv.matchAwayteam+"</td>";
+	                        htmlStr += "<td style='text-align: center;'>"+vv.matchStarttime+"</td>";
+	                        htmlStr += "<td><button type='button' class='btn btn-sm btn-danger' style='display: block; margin: 0 auto;' onclick='javascript:openWindow_match();'> 구매하기> </button></td>";
+	                        
+                	 });
+                	 	
+                	 		$("#kaeru").empty();
+                	 		$("#kaeru").html(htmlStr);
+                	 		
+                	 }
+	                  
+    	         }); //end of ajax 
+	           }  else {
+	        	  alert("서로 다른팀을 골라주세요."); 
+	           }//if문 끝
+	           
 	      });
 	      
 	      
 	});
+function openWindow_match(){  
+    window.open("board_open_window_match.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
+}
+
+function openWindow_history(){  
+    window.open("board_open_window_history.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
+}
 </script>
 </head>
 
@@ -221,7 +257,7 @@ $(document).ready(function() {
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
+										<tr id="kaeru">
 											<td style="text-align: center;">----</td>
 											<!-- 실점 전체 -->
 											<td style="text-align: center;">----</td>

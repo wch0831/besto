@@ -6,6 +6,8 @@ public class MatchVO {
 	private String matchStarttime;
 	private String matchHometeam;
 	private String matchAwayteam;
+	private int tcode1;
+	private int tcode2;
 	private String matchVsrecord;
 	private String matchStadium;
 	private String matchStatus;
@@ -81,6 +83,18 @@ public class MatchVO {
 	}
 	public void setUsersSeq(int usersSeq) {
 		this.usersSeq = usersSeq;
+	}
+	public int getTcode1() {
+		return tcode1;
+	}
+	public void setTcode1(int tcode1) {
+		this.tcode1 = tcode1;
+	}
+	public int getTcode2() {
+		return tcode2;
+	}
+	public void setTcode2(int tcode2) {
+		this.tcode2 = tcode2;
 	}
 	
 		
