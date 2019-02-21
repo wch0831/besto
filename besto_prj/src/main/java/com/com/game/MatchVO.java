@@ -7,12 +7,55 @@ public class MatchVO {
 	private int matchSeq;
 	private int gameSeq;
 	private String matchStarttime;
-	private String matchHometeam;
-	private String matchAwayteam;
+	private int matchHometeam;
+	private int matchAwayteam;
 	private String matchVsrecord;
 	private String matchStadium;
 	private String matchStatus;
 	private int usersSeq;
+	private int gameMno;
+	
+	
+	private TeamVO teamVO;
+	private GameVO gameVO;
+	private RecordRateVO recordRateVO;
+	
+	private String homeTeamName;
+	private String awayTeamName;
+	
+	
+	
+	public String getHomeTeamName() {
+		return homeTeamName;
+	}
+	public void setHomeTeamName(String homeTeamName) {
+		this.homeTeamName = homeTeamName;
+	}
+	public String getAwayTeamName() {
+		return awayTeamName;
+	}
+	public void setAwayTeamName(String awayTeamName) {
+		this.awayTeamName = awayTeamName;
+	}
+	public TeamVO getTeamVO() {
+		return teamVO;
+	}
+	public void setTeamVO(TeamVO teamVO) {
+		this.teamVO = teamVO;
+	}
+	public GameVO getGameVO() {
+		return gameVO;
+	}
+	public void setGameVO(GameVO gameVO) {
+		this.gameVO = gameVO;
+	}
+	public RecordRateVO getRecordRateVO() {
+		return recordRateVO;
+	}
+	public void setRecordRateVO(RecordRateVO recordRateVO) {
+		this.recordRateVO = recordRateVO;
+	}
+
 	
 	public String gameGubun;
 	
@@ -70,16 +113,16 @@ public class MatchVO {
 	public void setMatchStarttime(String matchStarttime) {
 		this.matchStarttime = matchStarttime;
 	}
-	public String getMatchHometeam() {
+	public int getMatchHometeam() {
 		return matchHometeam;
 	}
-	public void setMatchHometeam(String matchHometeam) {
+	public void setMatchHometeam(int matchHometeam) {
 		this.matchHometeam = matchHometeam;
 	}
-	public String getMatchAwayteam() {
+	public int getMatchAwayteam() {
 		return matchAwayteam;
 	}
-	public void setMatchAwayteam(String matchAwayteam) {
+	public void setMatchAwayteam(int matchAwayteam) {
 		this.matchAwayteam = matchAwayteam;
 	}
 	public String getMatchVsrecord() {
@@ -106,6 +149,14 @@ public class MatchVO {
 	public void setUsersSeq(int usersSeq) {
 		this.usersSeq = usersSeq;
 	}
+	public int getGameMno() {
+		return gameMno;
+	}
+	public void setGameMno(int gameMno) {
+		this.gameMno = gameMno;
+	}
+
+	
 	
 		
 }

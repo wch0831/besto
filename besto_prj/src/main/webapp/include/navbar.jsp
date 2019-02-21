@@ -62,9 +62,6 @@
 				    </c:when>
 				</c:choose>
                 
-<<<<<<< HEAD
-                
-=======
 			    <c:if test="${SESS_GRANT eq 'a'}">
 				    <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
                   	<ul class="dropdown-menu">
@@ -73,7 +70,6 @@
                 	</li>				    
 			    </c:if>
 			    	
->>>>>>> branch 'master' of https://github.com/wch0831/besto
               </ul>
               
             </div>

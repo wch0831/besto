@@ -26,5 +26,5 @@ public interface GameMapper {
 	public int recordRateInsert(RecordRateVO vo);
 	public int SelectSeq();
 	public ArrayList<MatchVO> selectMseqList();
-
+	public GameVO selectRecordSelect(int gseq);
 }
