@@ -33,6 +33,7 @@
                   </ul>
                 </li>
 
+				<c:if test="${SESS_GRANT ne NULL}">
                 <li class="nav-item dropdown active"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">마이페이지<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item"><a href="member_info.jsp" class="nav-link">개인정보</a></li>
@@ -43,6 +44,7 @@
                     <li class="dropdown-item"><a href="member_drop.jsp" class="nav-link">회원탈퇴</a></li>
                   </ul>
                 </li>
+                </c:if>
                 
                 <li class="nav-item dropdown active"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">고객센터<b class="caret"></b></a>
                   <ul class="dropdown-menu">

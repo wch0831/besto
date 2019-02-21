@@ -15,8 +15,47 @@ var openWin
 function member_idCheck(){  
     openWin = window.open("member_open_window_id_check.jsp", "아이디 중복체크", "width=630, height=350, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
 }
+ 
+function autoHypenPhone(str){
+   
+     str = str.replace(/[^0-9]/g, '');
+     var tmp = '';
+     if( str.length < 4){
+       return str;
+     }else if(str.length < 7){
+       tmp += str.substr(0, 3);
+       tmp += '-';
+       tmp += str.substr(3);
+       return tmp;
+     }else if(str.length < 11){
+       tmp += str.substr(0, 3);
+       tmp += '-';
+       tmp += str.substr(3, 3);
+       tmp += '-';
+       tmp += str.substr(6);
+       return tmp;
+     }else{        
+       tmp += str.substr(0, 3);
+       tmp += '-';
+       tmp += str.substr(3, 4);
+       tmp += '-';
+       tmp += str.substr(7);
+       return tmp;
+     }
+     return str;
+}
+
 
 $(document).ready(function(){
+	
+	$("#usersPhone").keyup(function() {
+	    event = event || window.event;
+	      var _val = this.value.trim();
+	      this.value = autoHypenPhone(_val) ;
+	    
+	 });
+	
+	
 	$("#regBtn").click(function(){
         var id = regform.usersId.value;
         var pw = regform.usersPw.value;
@@ -24,7 +63,7 @@ $(document).ready(function(){
         var name = regform.usersName.value;
         var phone = regform.usersPhone.value;
         var email = regform.usersEmail.value;
-        var agree = regform.agree.value;/* $("[id='agree']:checked").val(); */
+        var agree = $("[id='agree']:checked").val(); /* regform.agree.value; */
         console.log(agree);
         
         if(id == ""){
@@ -54,17 +93,40 @@ $(document).ready(function(){
             $("#usersEmail").focus();
             return false;
         } 
-        if(agree != 'y'){
+        if(agree != "on"){
            alert("약관 동의를 해주세요");
            $("#agree").focus();
            return false;        
         }
         $("#regform").submit();
     });
+
+	$(function() { 
+		$("#postcodify").postcodify({
+	        insertPostcode5 : "",
+			insertAddress : "#userAddress",
+			insertDetails : "#usersDetailAddress",
+	        insertExtraInfo : "",
+	        insertJibeonAddress : "",
+	        insertEnglishAddress : "",
+			hideOldAddresses : false,
+			forceDisplayPostcode5 : true,
+			focusKeyword : false,
+			afterSelect : function() {
+				$("#postcodify").find(".postcodify_search_result,.postcodify_search_status").remove();
+			}, 
+			onReady: function() {
+				$("#guide_content div.section input.keyword").each(function() {
+					$(this).width($(this).parents("div.section").width() - 130);
+				});
+			}
+		}); 
+	});
+	
 });
 
-</script>
 
+</script>
 </head>
 
   <body>
@@ -105,7 +167,7 @@ $(document).ready(function(){
 			<p><h3>이용약관</h3></p>
                     <p><h4>여러분을 환영합니다.</h4>베스토(BESTO) 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 베스토(BESTO) 서비스의 이용과 관련하여 베스토(BESTO) 서비스를 제공하는 베스토(BESTO) 주식회사(이하 ‘베토디’)와 이를 이용하는 베스토(BESTO) 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 베스토(BESTO) 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.</p>
             </blockquote>
-                <form name="regform" id="regform" action="/regid.do">
+                <form name="regform" id="regform" action="/regid.do" method="post">
               <div class="checkbox">
                 <label>
                    <input id="agree" name="agree" type="checkbox"><span class="colour white"></span> 베토디 이용약관 동의 <font size="2" color="green">(필수)</font>
@@ -170,7 +232,7 @@ $(document).ready(function(){
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="email_account">주소</label>
-                        <input id="usersAddress" name="usersAddress" type="text" class="form-control"><button type="button" class="btn btn-template-main pull-right">주소검색</button>
+                        <input id="usersAddress" name="usersAddress" type="text" class="form-control"><button type="button" id="postcodify" class="btn btn-template-main pull-right">주소검색</button>
                       </div>
                     </div>
                     <div class="col-md-6">
