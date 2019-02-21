@@ -37,30 +37,6 @@ public class GameController {
 	}
 	
 	
-	//game 생성 insert
-	@RequestMapping(value="/gameCreate.do") //get방식
-
-	public ModelAndView ctlAdminBoardSelect(GameVO vo) {
-		ModelAndView mav = new ModelAndView();	
-		return mav;
-	}
-	public String gameinsert(GameVO vo) {
-		if(vo.getGameSeq() != 0) {
-//	//game 생성 insert
-//	@RequestMapping(value="/gameCreate.do") //get방식
-//	public String gameinsert(GameVO vo) {
-//		if(vo.getGameSeq() != 0) {
-//			int res = gameService.svcGameInsert(vo);
-//			if(res != 0) {
-//				
-//			}
-//		} else {
-//			System.out.println("나중에 트랜잭션");
-//		}
-//		
-//	}
-	}return "index";
-	}
 	
 	@RequestMapping(value="/game_insert_rest.do", method = RequestMethod.POST)
 	public String gameInsert(@RequestParam(value="matchlist") String mjson,
@@ -92,7 +68,7 @@ public class GameController {
 				System.out.println(mes+"건 매치게임 수 등록");
 			}
 		} else {
-			System.out.println("나중에 트랜잭션");
+			System.out.println("아핳");
 		}
 		return "index";
 
