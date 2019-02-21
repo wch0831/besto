@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
   
  
+=======
+<!-- <mapper namespace="userNameSpace"> -->
+<!-- <mapper namespace="com.biz.mapper.MemberMap"> -->
+
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 <mapper namespace="com.com.mapper.PointMapper">
 	<resultMap id="pointMap" type="com.com.point.PointVO">
 		<id property="pointSeq" column="point_seq" />
@@ -11,8 +17,14 @@
 		<result property="pointRegdate" column="point_regdate" />
 		<result property="usersSeq" column="users_seq" />
 		<result property="refundSeq" column="refund_seq" />
+<<<<<<< HEAD
 	</resultMap>
  
+=======
+	</resultMap>
+
+	<!-- 특정회원에 대한 포인트 조회 -->
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	<select id="pointSelectOne" parameterType="int"	resultMap="pointMap">
 		select * from point where users_seq = #{usersSeq}
 	</select>
@@ -25,8 +37,15 @@
 		(select max(point_regdate) from point where users_seq =
 		#{usersSeq})),charge,to_char(sysdate, 'mm/dd/yyyy
 		hh24:mi'),#{usersSeq})
+<<<<<<< HEAD
  	</insert>
  
+=======
+	</insert>
+	
+
+	
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 	<!-- 회원의 포인트 환급 -->
 	<insert id="pointRefund" parameterType="com.com.point.PointVO">
 	insert into point(point_seq, point_change, point_current, point_gubun,
@@ -35,11 +54,24 @@
 		max(point_regdate) from point where users_seq =
 		#{usersSeq})),refund,to_char(sysdate, 'mm/dd/yyyy
 		hh24:mi'),#{usersSeq})
+<<<<<<< HEAD
 	</insert>
 
  
+=======
+	</insert>
+ 	
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
  	<insert id="point1000" parameterType="integer">
  	 insert into point values(point_seq.nextval, 1000, 1000, 'charge',sysdate, #{usersSeq},null)
+<<<<<<< HEAD
  	</insert>
 </mapper>	
 
+=======
+ 	</insert>
+</mapper>	
+
+	
+	
+>>>>>>> branch 'master' of https://github.com/wch0831/besto

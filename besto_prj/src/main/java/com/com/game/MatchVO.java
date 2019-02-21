@@ -1,5 +1,8 @@
 package com.com.game;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MatchVO {
 	private int matchSeq;
 	private int gameSeq;
@@ -11,31 +14,44 @@ public class MatchVO {
 	private String matchStatus;
 	private int usersSeq;
 	
+	public String gameGubun;
 	
-	private double victoryrateWin;
-	private double victoryrateDraw;
-	private double victoryrateLose;
+	public String getGameGubun() {
+		return gameGubun;
+	}
+	public void setGameGubun(String gameGubun) {
+		this.gameGubun = gameGubun;
+	}
+	
+	//---------------------------------------------------------------
+	//board_open_window_history.jsp 기록식 게임 체크박스 체크 시 구매내역확인 자동완성을 위한 프로퍼티
+	//@RestController gameInsert(MatchVO matchVO) { matchVO.getRecordRateVOList() }에 사용
+	private ArrayList<RecordRateVO> recordRateVOList;
+	public ArrayList<RecordRateVO> getRecordRateVOList() {
+		return recordRateVOList;
+	}
+	public void setRecordRateVOList(ArrayList<RecordRateVO> recordRateVOList) {
+		this.recordRateVOList = recordRateVOList;
+	}
+	//---------------------------------------------------------------
 	
 	
+	private VictoryRateVO vicVO;
+	private RecordRateVO recVO;
 	
-	public double getVictoryrateWin() {
-		return victoryrateWin;
+	public VictoryRateVO getVicVO() {
+		return vicVO;
 	}
-	public void setVictoryrateWin(double victoryrateWin) {
-		this.victoryrateWin = victoryrateWin;
+	public void setVicVO(VictoryRateVO vicVO) {
+		this.vicVO = vicVO;
 	}
-	public double getVictoryrateDraw() {
-		return victoryrateDraw;
+	public RecordRateVO getRecVO() {
+		return recVO;
 	}
-	public void setVictoryrateDraw(double victoryrateDraw) {
-		this.victoryrateDraw = victoryrateDraw;
+	public void setRecVO(RecordRateVO recVO) {
+		this.recVO = recVO;
 	}
-	public double getVictoryrateLose() {
-		return victoryrateLose;
-	}
-	public void setVictoryrateLose(double victoryrateLose) {
-		this.victoryrateLose = victoryrateLose;
-	}
+	
 	public int getMatchSeq() {
 		return matchSeq;
 	}
