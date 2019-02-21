@@ -54,17 +54,15 @@
                 <form method="get" action="shop-checkout1.html">
                   <h4>◈ 자유게시판</h4>
                   <br>
-                  <h5>자유게시판 제목1111111</h5><hr>
-                  <font size="2"><strong>작성자</strong> : 송은규(sek2***) </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                  						    <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
+                  <h5>${KEY_BVO.freeBoardTitle}</h5><hr>
+                  <font size="2"><strong>작성자</strong> : ${KEY_BVO.usersName} </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  						    <font size="2"> <strong>등록일</strong> : ${KEY_BVO.freeBoardRegdate}</font><br><br>
                     	<br>
                     <div class="form-group col-sm-10">
-                    	글쓰기에서 입력한 내용 가져오기
+                    	${KEY_BVO.freeBoardContent}
                     </div>
                     <br>
                   <hr>
-                
-                
                 <div class="col-md-12 pull-right">
                 <br>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
@@ -120,8 +118,6 @@
                  </div>
               </div>
 <!-- 댓글영역 -->
-
-
                 </form>
             </div>
             </div>

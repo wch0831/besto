@@ -9,7 +9,6 @@
 	<!--  ***************************** C O N T E X T *****************************  -->
 	<context:component-scan base-package="com.com.**" />
 
-
 	<context:property-placeholder location="classpath:*.properties" />
 
 	<!--  ***************************** O R M (DBCP & MYBATIS) *****************************  -->
@@ -32,7 +31,6 @@
         </property>
     </bean>
 
-	
 	<!-- DBCP -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="kosmoDS"/>
