@@ -23,14 +23,25 @@ public class GameServiceImpl implements GameService {
 	public int svcMatchInsert(ArrayList<MatchVO> list) {
 		int res = 0;
 		int mres = 0;
+		int count = 0;
+		ArrayList<MatchVO> mlist = gameMapper.selectMseqList();
+		
+		System.out.println(list.size()+ " " +mlist.size()+ " ==================================================== ");
 		
 		for(int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i).getMatchSeq()+"===============================");
-			res += gameMapper.matchInsert(list.get(i));
-			if(list.get(i).getVicVO() != null) {
-				System.out.println(list.get(i).getVicVO().getMatchSeq()+"===============================");
+			// match게임 insert에서 게임이 등록 되어있는지 아닌지 확인 seq로 확인
+			for(int j=0; j<mlist.size(); j++) {
+				if(list.get(i).getMatchSeq() == mlist.get(i).getMatchSeq()) { //비교문 xx
+					count += 1;
+				}
+			}
+			if(count == 0) {
+				res += gameMapper.matchInsert(list.get(i));
+			}
+			if(list.get(i).getGameGubun().equals("v")) {
 				mres += gameMapper.victoryRateInsert(list.get(i).getVicVO());
-			} else if(list.get(i).getRecVO() != null) {
+			} 
+			else if(list.get(i).getGameGubun().equals("r")) {
 				mres += gameMapper.recordRateInsert(list.get(i).getRecVO());
 			}
 		}

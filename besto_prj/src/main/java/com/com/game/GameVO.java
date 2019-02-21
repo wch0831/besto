@@ -13,8 +13,6 @@ public class GameVO {
 	
 	private ArrayList<MatchVO> matchlist;
 	
-	
-	
 	public ArrayList<MatchVO> getMatchlist() {
 		return matchlist;
 	}

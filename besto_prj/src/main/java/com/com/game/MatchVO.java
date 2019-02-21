@@ -11,6 +11,14 @@ public class MatchVO {
 	private String matchStatus;
 	private int usersSeq;
 	
+	public String gameGubun;
+	
+	public String getGameGubun() {
+		return gameGubun;
+	}
+	public void setGameGubun(String gameGubun) {
+		this.gameGubun = gameGubun;
+	}
 	
 	private VictoryRateVO vicVO;
 	private RecordRateVO recVO;
