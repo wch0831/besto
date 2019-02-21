@@ -9,7 +9,7 @@ public interface MypageService {
 
 	
 	// 구매적중 내역 
-	public ArrayList<MypageVO> buyhitList();
+	public ArrayList<MypageVO> buyhitList(int users_seq);
 	
 	//구매현황
 	

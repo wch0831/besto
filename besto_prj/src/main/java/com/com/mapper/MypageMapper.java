@@ -9,7 +9,7 @@ import com.com.mypage.MypageVO;
 @Mapper
 public interface MypageMapper {
 
-		public ArrayList<MypageVO> buyhitselect();
+		public ArrayList<MypageVO> buyhitselect(int users_seq);
 		
 		public int buyanalselect1(int users_seq);
 		public int buyanalselect2(int users_seq);

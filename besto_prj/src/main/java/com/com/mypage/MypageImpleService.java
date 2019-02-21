@@ -14,9 +14,9 @@ public class MypageImpleService implements MypageService {
 	private MypageMapper mypageMapper;
 	
 	
-	public ArrayList<MypageVO> buyhitList() {
+	public ArrayList<MypageVO> buyhitList(int users_seq) {
 		// TODO Auto-generated method stub
-		return mypageMapper.buyhitselect() ;
+		return mypageMapper.buyhitselect(users_seq) ;
 	}
 
 	public ArrayList<Object> buyAnalSysList(int users_seq) {

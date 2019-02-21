@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
+
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +10,41 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+
+<script>
+
+
+$(document).ready(function(){
+$.ajax({                        
+		url:"/buyhitlist.do",
+		type:"post",
+		success:function(res){
+			 console.log("야아아")
+			var reshtml ="<table class='table'>";
+			reshtml+="<thead bgcolor='#EEEEEE'>";
+			reshtml+="<tr><th>게임종류</th><th>회차</th><th>구매일시</th><th>투표권 고유번호</th><th>구매금액</th><th>상태</th></tr>";
+			reshtml+="</thead>";
+			reshtml+="<tbody>";
+			 $.map(res, function(vv, idx){
+					reshtml+="<tr>";
+					reshtml+="<td>"+vv.ggubun+"</td>";
+					reshtml+="<td>"+vv.groundseq+"</td>";
+					reshtml+="<td>"+vv.bregdate+"</td>";
+				    reshtml +="<td>"+vv.bseq+"</td>";
+				    reshtml+="<td>>"+vv.bprice+"</td>";
+				    reshtml+="<td>>"+vv.gstatus+"</td>";
+					reshtml+="</tr>";
+		  });
+			reshtml+="</tbody>"; 
+			reshtml+="</table>";
+		 	$(".buyhittable").html(reshtml); 
+		}
+	})
+});
+
+</script>
+
+
 </head>
 
   <body>
@@ -58,8 +95,8 @@
                     <h4>◈ 구매/적중내역</h4>
                   		<p class="text-muted lead"><font size="2">상세내용을 보시려면 <strong>게임종류, 구매일시, 상태</strong>를 클릭해 주세요.</font></p>
                   
-    
-                    <table class="table">
+    <div class="buyhittable" id="buyhittable"></div>
+                   <!--  <table class="table">
 	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">/</th>
@@ -72,6 +109,7 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
+	                      
 	                        <tr>
 	                          <td style = "text-align:center;">
                 					<label>
@@ -99,7 +137,7 @@
 	                          <td style = "text-align:center;">적중안됨</td>
 	                        </tr>
 	                      </tbody>
-	                    </table>
+	                    </table> -->
                   </div>
                 </form>
             </div>
