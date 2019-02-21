@@ -1,28 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-	<header class="nav-holder make-sticky">
-		<div id="navbar" role="navigation" class="navbar navbar-expand-lg">
+   <header class="nav-holder make-sticky">
+      <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
           <div class="container"><a href="index.jsp" class="navbar-brand home"><img src="img/logo13.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none"><span class="sr-only">Universal - go to homepage</span></a>
             <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
             <div id="navigation" class="navbar-collapse collapse">
               <ul class="nav navbar-nav ml-auto">
-                
-<<<<<<< HEAD
-                <li class="nav-item dropdown"><a href="/board_game_buy.jsp" data-toggle="dropdown" class="dropdown-toggle">게임구매 <b class="caret"></b></a>
-=======
                 <li class="nav-item dropdown"><a href="board_game_buy.do" data-toggle="dropdown" class="dropdown-toggle">게임구매 <b class="caret"></b></a>
->>>>>>> branch 'master' of https://github.com/wch0831/besto
+
                   <ul class="dropdown-menu">
-<<<<<<< HEAD
-                    <li class="dropdown-item"><a href="/board_game_buy.jsp" class="nav-link">구매가능 게임</a></li>
-                    <li class="dropdown-item"><a href="/board_game_schedule.jsp" class="nav-link">게임 일정</a></li>
-                    <li class="dropdown-item"><a href="/board_game_hit_result.jsp" class="nav-link">적중 결과</a></li>
-=======
                     <li class="dropdown-item"><a href="board_game_buy.do" class="nav-link">구매가능 게임</a></li>
                     <li class="dropdown-item"><a href="board_game_schedule.jsp" class="nav-link">게임 일정</a></li>
                     <li class="dropdown-item"><a href="board_game_hit_result.jsp" class="nav-link">적중 결과</a></li>
->>>>>>> branch 'master' of https://github.com/wch0831/besto
                   </ul>
                 </li>
                 
@@ -36,10 +26,10 @@
                 
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="/board_free_betting.jsp" class="nav-link">베팅토론방</a></li>
-                    <li class="dropdown-item"><a href="/board_free_hit.jsp" class="nav-link">적중토론방</a></li>
-                    <li class="dropdown-item"><a href="/board_free_challenge.jsp" class="nav-link">도전분석방</a></li>
-                    <li class="dropdown-item"><a href="/board_free.jsp" class="nav-link">자유게시판</a></li>
+                    <li class="dropdown-item"><a href="/board_free_betting.do" class="nav-link">베팅토론방</a></li>
+                    <li class="dropdown-item"><a href="/board_free_hit.do" class="nav-link">적중토론방</a></li>
+                    <li class="dropdown-item"><a href="/board_free_challenge.do" class="nav-link">도전분석방</a></li>
+                    <li class="dropdown-item"><a href="/board_free.do" class="nav-link">자유게시판</a></li>
                   </ul>
                 </li>
 
@@ -62,41 +52,27 @@
                     <li class="dropdown-item"><a href="/board_protice_find.jsp" class="nav-link">아이디/비밀번호 찾기</a></li>
                   </ul>
                 </li>
-                 <c:choose>
-				    <c:when test="${SESS_NAME ne admin}">
-				       <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
-		                  <ul class="dropdown-menu">
-		                  	<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
-		                  </ul>
-		                </li>
-				    </c:when>
-				</c:choose>
-                
-<<<<<<< HEAD
+                 
+                        <c:if test="${SESS_GRANT eq 'a'}">
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-<<<<<<< HEAD
-                  	<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
-                  	<li class="dropdown-item"><a href="board_protice_register.jsp" class="nav-link">공지사항 등록</a></li>
-=======
-                  	<li class="dropdown-item"><a href="/board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
->>>>>>> branch 'master' of https://github.com/wch0831/besto
-                  </ul>
-                </li>
-=======
-<<<<<<< HEAD
-                
-=======
-			    <c:if test="${SESS_GRANT eq 'a'}">
-				    <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
-                  	<ul class="dropdown-menu">
-                  		<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
-                  	</ul>
-                	</li>				    
-			    </c:if>
-			    	
->>>>>>> branch 'master' of https://github.com/wch0831/besto
->>>>>>> branch 'master' of https://github.com/wch0831/besto
+                     <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
+                        <li class="dropdown-item"><a href="board_protice_register.jsp" class="nav-link">공지사항 등록</a></li>
+                     </ul>
+                   </li>                
+             </c:if>
+            <%-- 
+            <c:choose>
+                <c:when test="${SESS_NAME ne admin}">
+                   <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                           <li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
+                        </ul>
+                      </li>
+                      </c:choose>
+                </c:when> --%>
+            
+      
               </ul>
             </div>
             
