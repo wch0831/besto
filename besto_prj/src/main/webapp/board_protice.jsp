@@ -10,13 +10,14 @@
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
 <script>
-
+ 
 $(document).ready(function(){
-    $("#button1").click(function(){   
-    
-    });
+/*     $("#button1").on("click",function(){   
+    	var a = $("#seq11").text();
+    	console.log(a);
+    }); */
 });    
-
+ 
 
 </script>
 </head>
@@ -79,10 +80,10 @@ $(document).ready(function(){
                       </thead>
                       
                       <tbody>
-                      	<c:forEach var="noti" items="${KEY_NOTICE}">
+                      	<c:forEach var="noti" items="${KEY_NOTICE}" varStatus="status">
                         	<tr>
                           		<td style = "text-align:center;">${noti.noticeSeq}</td>
-                          		<td style = "text-align:center;"><a href="#" id="button1"><font color="black">${noti.noticeTitle}</font></a></td>
+                          		<td style = "text-align:center;"><a href="/Pritice_detail/${noti.noticeSeq}.do"><font color="black">${noti.noticeTitle}</font></a></td>
                           		<td style = "text-align:center;">관리자</td>
                           		<td style = "text-align:center;">${noti.noticeRegdate}</td>
                           		<td style = "text-align:center;">${noti.noticeHits}</td>
