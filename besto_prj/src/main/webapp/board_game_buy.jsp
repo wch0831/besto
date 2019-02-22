@@ -22,11 +22,12 @@
 
 /* 새창띄우기 Script */
 function openWindow_match(){  
-    window.open("board_open_window_match.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
+    window.open("board_open_window_match.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=yes" );  
 }
 
-function openWindow_history(){  
-    window.open("board_open_window_history.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=no" );  
+function openWindow_history(seq){  
+	console.log(seq);
+    window.open("/board_game_record/"+seq+".do", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=yes" );  
 }
 </script>
 
@@ -89,21 +90,31 @@ function openWindow_history(){
 	                        </tr>
 	                      </thead>
 	                      <tbody>
+	                      	<c:forEach var="vv" items="${ALIST}">
 	                        <tr>
+	                        <c:choose>
+	                        <c:when test="${vv.gameGubun=='v'}">
 	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">19.3회차</td>
+	                        </c:when>
+	                         <c:when test="${vv.gameGubun=='r'}">
+	                          <td style = "text-align:center;">기록식</td> 
+	                        </c:when>
+	                        </c:choose>
+	                          <td style = "text-align:center;">19년 ${vv.gameRoundseq}회차</td>
 	                          <td><button id="match_open" type="button" class="btn btn-sm btn-success" style="display: block; margin: 0 auto;">대상경기+</button></td>
-	                          <td style = "text-align:center;">2019.02.12 09:20</td>
-	                          <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_match();"> 구매하기> </button></td>
-	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">기록식</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td><button id="histroy_open" type="button" class="btn btn-sm btn-success" style="display: block; margin: 0 auto;">대상경기+</button></td>
-	                          <td style = "text-align:center;">2019.02.12 09:20</td>
-	                          <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_history();">구매하기></button></td>
-	                        </tr>
-	                      </tbody>
+	                          <td style = "text-align:center;">${vv.gameFinishdate}</td>
+	                         <c:choose>
+	                         <c:when test="${vv.gameGubun=='v'}">
+	                         <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_match();"> 구매하기> </button></td>
+							</c:when>
+							<c:when test="${vv.gameGubun=='r'}">
+	                         <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_history(${vv.gameSeq});"> 구매하기> </button></td>
+							</c:when>
+	                        </c:choose> 
+	                         
+	                        </tr>	    
+	                        </c:forEach>                    
+	                      </tbody>  
 	                    </table>
                   </div>
 
@@ -113,7 +124,7 @@ function openWindow_history(){
                 
                 <div class="table-responsive col-md-12">
                 <hr>
-                <p>↓ ↓ ↓ ↓ ↓ 대상경기 버튼이 눌러졌을때 보여줘야할 테이블 ↓ ↓ ↓ ↓ ↓ 화이팅^^</p>
+             
 <!-- c:if 기록식게임버튼클릭 -> 아래의 테이블 보이기 -->
                     <table id="game_history_view" class="table" >
 	                      <thead bgcolor="#EEEEEE">

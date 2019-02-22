@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 
-<head>  
+<head> 
+
 <!-- <script>
 $(document).ready(function(){
 	
@@ -71,15 +72,19 @@ $(document).ready(function(){
                           <th style = "text-align:center;">조회수</th>
                         </tr>
                       </thead>
-                      
-                      
-                      
                       <tbody>
                       <c:forEach var="a" items="${KEY_RESULT}">
                         <tr>    
                           <td style = "text-align:center;">${a.postSeq}</td>
-                          <td style = "text-align:center;"><a href="board_free_detail.jsp"><font color="black">${a.freeBoardTitle}</font></a></td>
-                          <td style = "text-align:center;">${a.userSeq}</td>
+                          <td style = "text-align:center;">
+                          
+                         <%--  <a href="/board_free_detail.do?postSeq=${a.postSeq}"><font color="black">${a.freeBoardTitle}</font></a> --%>
+                          <a href="/board_free_detail/${a.postSeq}.do"><font color="black">${a.freeBoardTitle}</font></a>
+                          
+                          </td>
+                          
+                          
+                          <td style = "text-align:center;">${a.usersName}</td>
                           <td style = "text-align:center;">${a.freeBoardRegdate}</td>
                           <td style = "text-align:center;">${a.freeBoardHits}</td>
                         </tr>
@@ -118,6 +123,7 @@ $(document).ready(function(){
             </div>
             
 <!-- 검색바 -->
+
 <!-- 페이징하셈 -->
               <div class="pages" style="position:relative; left: 360px; top: 40px;">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
@@ -133,12 +139,6 @@ $(document).ready(function(){
                 </nav>
               </div>
 <!-- 페이징하셈 --> 
-              
-              
-              
-              
-              
-              
               
             </div>
           </div>

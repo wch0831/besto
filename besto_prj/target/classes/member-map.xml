@@ -14,7 +14,6 @@
 		<result property="usersAddress" 	column="users_address" />
 		<result property="usersDetailAddress" 		column="users_detail_address" />
 		<result property="usersPhone" 		column="users_phone" />
-		<result property="usersBirth" 		column="users_birth" />
 		<result property="usersBank" 		column="users_bank" />
 		<result property="usersAccount" 		column="users_account" />
 		<result property="usersDel" 	column="users_del" />
@@ -33,11 +32,22 @@
 	
 	<!-- 멤버 회원가입 -->
 	<insert id="memberRegister" parameterType="com.com.member.MemberVO">
-		insert into member(users_seq, users_id, users_pw, users_name, users_email, users_address, 
-		users_detail_address, users_phone, users_birth, users_del, users_grant)
+		insert into users(users_seq, users_id, users_pw, users_name, users_email, users_address, 
+		users_detail_address, users_phone, users_del, users_grant)
 		values(users_seq.nextval, #{usersId}, #{usersPw}, #{usersName}, #{usersEmail}, #{usersAddress},
-		#{usersDetailAddress}, #{usersPhone}, #{usersBirth}, 'n', 'u')
+		#{usersDetailAddress}, #{usersPhone}, 'n', 'u')
 	</insert>
+	
+	<select id="checkId" parameterType="String" resultType="Integer">
+ 		select count(*) from users
+      	where users_id = #{value}
+ 	</select>
+	
+	<select id="findSeq" parameterType="String" resultType="Integer">
+ 		select users_seq
+		from users
+		where users_id=#{value} and users_del='n'
+ 	</select>
 	
 	<!-- 멤버 리스트(유저만)
 	<select id="memberList" parameterType="com.com.member.MemberVO" resultMap="memberMap">
@@ -53,8 +63,8 @@
 	
 	
 	<!-- 멤버 디테일 -->
-	<select id="memberDetail" parameterType="String" resultMap="memberMap">
- 		select users_id, users_name, users_email, users_address, users_detail_address, users_phone, users_birth
+	<select id="memberDetail" parameterType="com.com.member.MemberVO" resultMap="memberMap">
+ 		select *
 		from users
 		where users_id=#{usersId} and users_pw=#{usersPw} and users_del='n'
  	</select>
@@ -75,7 +85,7 @@
 		update users
 		       set users_name=#{usersName}, users_pw=#{usersPw}, users_email=#{usersEmail},
 		       users_address=#{usersAddress}, users_detail_address=#{usersDetailAddress}, 
-		       users_phone=#{usersPhone}, users_birth=#{usersBirth}
+		       users_phone=#{usersPhone}
 			   where users_id=#{usersId} and users_del='n'
 	</update>
 	
@@ -86,7 +96,7 @@
 	     where users_email=#{usersEmail} and users_id=#{usersId} and users_del='n'
 	</update>
 
-	<select id="findId" parameterType="String" resultType="String">
+	<select id="findId" parameterType="com.com.member.MemberVO" resultType="String">
  		select users_id
 		from users
 		where users_email=#{usersEmail} and users_name=#{usersName} and users_del='n'

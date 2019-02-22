@@ -11,7 +11,7 @@ import com.com.mapper.BoardMapper;
 public class BoardChallengeServiceImpl implements BoardChallengeService{
 
 	@Autowired
-	private BoardMapper boardMapper ;
+	private BoardMapper boardMapper;
 
 	public ArrayList<BoardChallengeVO> BoardChallengeList() {
 		return boardMapper.challenge_board_select();

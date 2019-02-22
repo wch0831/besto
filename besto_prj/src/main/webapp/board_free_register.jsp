@@ -8,6 +8,32 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+
+  <script>
+  	$(document).ready(function(){
+  		$("#freeClick").click(function(){
+  			var freeBoardTitle = $("#freeBoardTitle").val();
+  			var freeBoardContent = $("#freeBoardContent").val();
+  			if(freeBoardTitle == ""){
+  				alert("제목을 입력하세용");
+  				document.board.freeBoardTitle.focus();
+  				return;
+  			}
+  			if(freeBoardContent == ""){
+  				alert("내용을 입력하세용");
+  				document.board.freeBoardContent.focus();
+  				return;
+  			}
+  			document.board.submit();
+  			
+  		});
+  		
+  	});
+  	
+  	
+  </script>
+
+
 </head>
 
   <body>
@@ -54,15 +80,18 @@
                   <div class="table-responsive">
                   <h4>◈ 자유게시판<font size="3"> - 작성하기</font> </h4><br>
                 </div>
-                <form method="get" action="shop-checkout1.html">
+ 
+                <form name = "board" method="post" action="/board_free_register.do">
                   <div class="col-sm-10">
                     <div class="form-group">
-                    <input id="firstname" class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;"><br>
-                    <textarea id="message" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
+                    
+                    <input name = "freeBoardTitle" id="freeBoardTitle" class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;"><br>
+                    
+                    <textarea name = "freeBoardContent"  id="freeBoardContent" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
                     </div>
                     </div>
                   <button type="button" class="btn btn-danger pull-right">취소</button>
-                  <button type="button" class="btn btn-primary pull-right">작성</button>
+                  <button name="freeClick" id="freeClick" type="button" class="btn btn-primary pull-right">작성</button>
                 </form>
                   </div>
 
@@ -83,4 +112,7 @@
     
     
   </body>
+  
+  
+
 </html>

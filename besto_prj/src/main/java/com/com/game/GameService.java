@@ -9,5 +9,8 @@ public interface GameService {
 	public int svcSelectSeq();
 	
 	public ArrayList<MatchVO> svcGameSelect(GameVO vo);
+	public GameVO svcGameRecordSelect(int gseq);
 	
+	//public ArrayList<RecordRateVO> svcBuyNoteRecordRate(MatchVO mvo);//
+	public ArrayList<GameVO> svcAvailableGame();
 }
