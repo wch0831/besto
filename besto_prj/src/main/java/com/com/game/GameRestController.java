@@ -18,12 +18,19 @@ public class GameRestController {
 		//---------------------------------------------------------------
 		@RequestMapping(value="/buyRestCtl.do", method = RequestMethod.POST)
 		public void gameInsert(MatchVO matchVO) {
+			
 			for(RecordRateVO rateVO : matchVO.getRecordRateVOList()) {
-				System.out.print(rateVO.getMatchSeqList() + " ");
-				System.out.print(rateVO.getScoreList() + " ");
-				System.out.print(rateVO.getRecoderateList() + " ");
-				System.out.println(rateVO.getInputCashList());
-			}		
+				if(rateVO.getMatchSeqList() != null) { 
+					System.out.print(rateVO.getMatchSeqList() + " ");
+					System.out.print(rateVO.getScoreList() + " ");
+					System.out.print(rateVO.getRecoderateList() + " ");
+					System.out.print(rateVO.getInputCashList() + " ");
+					System.out.println(rateVO.getGseq());
+					
+//					int res = gameService.
+				}
+			}
+			
 		}
 		
 		

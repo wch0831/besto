@@ -13,13 +13,12 @@
 		<result property="matchStadium" 		column="match_stadium" />
 		<result property="matchStatus" 		column="match_status" />
 		<result property="usersSeq" 		column="users_seq" />
-<<<<<<< HEAD
+
 		<result property="gameCount" 		column="game_count" />
 		<result property="homeTeamName" 		column="homeTeamName" />
 		<result property="awayTeamName" 		column="awayTeamName" />
 				
-=======
->>>>>>> branch 'master' of https://github.com/wch0831/besto
+
 		<result property="gameGubun" 		column="game_gubun" />
 		<result property="victoryrateWin" 		column="victoryrate_win" />
 		<result property="victoryrateDraw" 		column="victoryrate_draw" />
@@ -73,6 +72,17 @@
 		<result property="victoryrateWin" 		column="victoryrate_win" />
 		<result property="victoryrateDraw" 		column="victoryrate_draw" />
 		<result property="victoryrateLose" 	column="victoryrate_lose" />			
+	</resultMap>
+	
+	<resultMap id="bettingBuyMap" type="com.com.game.BettingVO">
+		<id 	property="bettingSeq" 		column="betting_seq" />
+		<result property="bettingContent" 		column="betting_content" />
+		<result property="bettingPrice" 		column="betting_price" />
+		<result property="bettingRegdate" 	column="betting_regdate" />			
+		<result property="bettingHityn" 	column="betting_hityn" />	
+		<result property="bettingHitrate" 	column="betting_hitrate" />	
+		<result property="gameSeq" 	column="game_seq" />	
+		<result property="usersSeq" 	column="users_seq" />	
 	</resultMap>		
 
 	
@@ -111,6 +121,11 @@
 		values(#{matchSeq}, #{recoderate00}, #{recoderate10}, #{recoderate20}, #{recoderate11}, #{recoderate22}, #{recoderate01}, #{recoderate02})
 	</insert>
 	
+	<!-- 기록식 게임 구매사항 insert -->
+	<insert id="recordBuyInsert" parameterType="com.com.game.RecordRateVO">
+		insert into betting(betting_seq, betting_content, betting_price, betting_hityn, betting_hitrate, game_seq, users_seq)
+    	values(#{bettingSeq}, #{bettingContent}, #{bettingPrice}, #{bettingHityn}, #{bettingHitrate}, #{gameSeq}, #{usersSeq})
+	</insert>
 	
 	
 	
@@ -146,8 +161,8 @@
  	</select>
  	
  	
- 	
- 	
+ 
+ 
  	
  	<!-- 멤버 로그인 -->
  	<select id="availableGame" resultMap="gameMap">
