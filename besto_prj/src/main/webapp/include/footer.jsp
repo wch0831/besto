@@ -5,11 +5,11 @@
         <div class="container">
           <div class="row">
           <div class="col-md-4">
-          		<b>베스토 고객센터</b><br>
+          		<b>㈜BESTO 고객센터</b><br>
           		<font size="2">
 	          		&emsp;서울시 금천구 가산동 426-5<br>
 	          		&emsp;월드메르디앙 2차 1412호<br>
-	          		&emsp;대표전화 : 1588-1234
+	          		&emsp;고객센터 대표전화 : 1588-1234
           		</font>
               </div>
               <div class="col-md-4">
@@ -17,7 +17,7 @@
           		<font size="2">
           			&emsp;대표이사 : 김도윤, 송은규, 이문경<br>
           			&emsp;사업자 등록번호 : 217-88-1234<br>
-          			&emsp;대표전화 : 1588-1234
+          			&emsp;본사 대표전화 : 1588-4321
           		</font>
               </div>
               <div class="col-md-4">
@@ -36,7 +36,6 @@
               </div>
           </div>
         </div>
-        
         <div class="copyrights">
           <div class="container">
             <div class="row">
@@ -45,7 +44,6 @@
               </div>
               <div class="col-lg-8 text-right text-center-md">
                 <p>Design by <font color="white">BESTO</font> Design Team</p>
-               
               </div>
             </div>
           </div>

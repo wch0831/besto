@@ -15,20 +15,15 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
-	<mvc:default-servlet-handler/>
 	
-	
-	 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
-	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/vender/**" location="/vender/" />
 	<mvc:resources mapping="/include/**" location="/include/" />
-	<mvc:resources mapping="/vendor/**" location="/vendor/" />
-	<!--  <mvc:resources mapping="/**" location="/" />  html 다이렉트 접근 위한 설정 추가 .. -->
-	
 	<context:component-scan base-package="com.com.**" />
+	<!-- <mvc:resources mapping="/**" location="/" />  html 다이렉트 접근 위한 설정 추가 .. -->
 	
 	 
 
@@ -60,6 +55,10 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-
+	
+	
+	
+	
+	
 		
 </beans>

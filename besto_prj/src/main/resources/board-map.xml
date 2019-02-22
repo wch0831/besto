@@ -43,6 +43,7 @@
 		<result property="challengeBoardRegdate" 		column="challenge_board_regdate" />
 		<result property="challengeBoardHits" 		column="challenge_board_hits" />
 		<result property="challengeBoardContent" 		column="challenge_board_content" />	
+<<<<<<< HEAD
 		<result property="usersName" 			column="users_name" />
 	</resultMap>
 	
@@ -184,6 +185,88 @@
  	
  	
  	
+=======
+	</resultMap>
+	
+	<!-- 적중 -->
+	<resultMap id="boardhithistory-map" type="com.com.board.BoardHitHistoryVO">
+		<id 	property="postSeq" 					column="post_seq" />
+		<result property="boardCode" 					column="board_code" />
+		<result property="usersSeq" 					column="users_seq" />
+		<result property="hithistoryDiscussionGcode" 		column="hithistory_discussion_gcode" />
+		<result property="hithistoryDiscussionRoundseq" 	column="hithistory_discussion_roundseq" />
+		<result property="hithistoryDiscussionTitle" 		column="hithistory_discussion_title" />
+		<result property="hithistoryDiscussionRegdate" 		column="hithistory_discussion_regdate" />
+		<result property="hithistoryDiscussionHits" 		column="hithistory_discussion_hits" />
+		<result property="hithistoryDiscussionContent" 		column="hithistory_discussion_content" />	
+	</resultMap>
+	
+	<!-- 구매내역 -->
+	<resultMap id="boardbuyhistory-map" type="com.com.board.BoardBuyHistoryVO">
+		<id 	property="postSeq" 		column="post_seq" />
+		<result property="boardCode" 					column="board_code" />
+		<result property="usersSeq" 					column="users_seq" />
+		<result property="buyhistoryDiscussionGcode" 		column="buyhistory_discussion_gcode" />
+		<result property="buyhistoryDiscussionRoundseq" 	column="buyhistory_discussion_roundseq" />
+		<result property="buyhistoryDiscussionTitle" 		column="buyhistory_discussion_title" />
+		<result property="buyhistoryDiscussionRegdate" 		column="buyhistory_discussion_regdate" />
+		<result property="buyhistoryDiscussionHits" 		column="buyhistory_discussion_hits" />
+		<result property="buyhistoryDiscussionContent" 		column="buyhistory_discussion_content" />	
+	</resultMap>
+	
+	<!-- 공지사항 -->
+	<resultMap id="notice-map" type="com.com.board.NoticeVO">
+		<id 	property="noticeSeq" 		column="notice_seq" />
+		<result property="noticeTitle" 		column="notice_title" />
+		<result property="noticeContent" 	column="notice_content" />
+		<result property="noticeRegdate" 	column="notice_regdate" />
+		<result property="noticeHits" 		column="notice_hits" />
+		<result property="usersSeq" 		column="users_seq" />
+	</resultMap>
+	
+	<!-- 자유게시판 -->
+ 	<select id="free_board_select" resultMap="boardfree-map">
+ 		select f.post_seq, f.free_board_title, f.free_board_content, u.users_name, f.board_code, f.free_board_regdate,f.free_board_hits
+ 		from FREE_BOARD f, USERS u
+ 		where f.users_seq = u.users_seq
+ 	</select>
+ 	
+ 	<select id="free_board_detail" parameterType="int" resultMap="boardfree-map">
+ 	 	select f.post_seq, f.free_board_title, f.free_board_content, u.users_name, f.board_code, f.free_board_regdate
+ 		from FREE_BOARD f, USERS u
+ 		where f.users_seq = u.users_seq
+ 		and f.post_seq=#{value}
+ 	</select>
+ 	
+ 	<insert id="free_board_insert" parameterType="com.com.board.BoardFreeVO">
+ 		insert into FREE_BOARD(post_seq, free_board_title, free_board_content,users_seq ,board_code,  FREE_BOARD_REGDATE,FREE_BOARD_HITS,FREE_BOARD_DEL)
+		values(post_seq.nextval,#{freeBoardTitle},#{freeBoardContent},3, 'free',sysdate,0,'n')
+ 	</insert>
+ 	
+	<!-- 도전분석 -->
+	<select id="challenge_board_select" resultMap="boardchallenge-map">	
+		select post_seq, board_code, users_seq, challenge_board_gcode, challenge_boadr_roundseq, challenge_board_title, challenge_board_regdate, challenge_board_hits, challenge_board_content
+	 	from challenge_board
+	</select>
+	
+	<select id="challenge_board_detail"  parameterType="int" resultMap="boardchallenge-map">	
+		select post_seq, board_code, users_seq, challenge_board_gcode, challenge_boadr_roundseq, challenge_board_title, challenge_board_regdate, challenge_board_hits, challenge_board_content
+	 	from challenge_board
+	 	where post_seq=#{value}
+	</select>
+	
+	<!-- 적중분석 -->
+	<select id = "hit_history_board_select" resultMap="boardhithistory-map">
+		select POST_SEQ,BOARD_CODE,USERS_SEQ,HITHISTORY_DISCUSSION_GCODE,HITHISTORY_DISCUSSION_ROUNDSEQ,HITHISTORY_DISCUSSION_TITLE,HITHISTORY_DISCUSSION_REGDATE,HITHISTORY_DISCUSSION_HITS,HITHISTORY_DISCUSSION_CONTENT
+		 from hithistory_discussion
+	</select>
+	
+	<!-- 구매분석  -->
+	<select id = "buy_history_board_select" resultMap="boardbuyhistory-map">
+		select POST_SEQ, BOARD_CODE, BUYHISTORY_DISCUSSION_GCODE, BUYHISTORY_DISCUSSION_ROUNDSEQ, BUYHISTORY_DISCUSSION_TITLE, BUYHISTORY_DISCUSSION_REGDATE, BUYHISTORY_DISCUSSION_HITS, USERS_SEQ, BUYHISTORY_DISCUSSION_CONTENT
+	 	from buyhistory_discussion
+ 	</select>
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 
     <!-- 자유게시판 삭제 -->
     <!-- <update id="free_board_update">

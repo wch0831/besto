@@ -13,7 +13,14 @@ public class RecordRateVO {
 	private String scoreList;
 	private String recoderateList;
 	private String inputCashList;
+	private int gseq;
 	
+	public int getGseq() {
+		return gseq;
+	}
+	public void setGseq(int gseq) {
+		this.gseq = gseq;
+	}
 	public String getMatchSeqList() {
 		return matchSeqList;
 	}

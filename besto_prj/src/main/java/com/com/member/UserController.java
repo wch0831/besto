@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,7 +34,7 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		try {
 			mvo = userService.login(mvo);
-			if(!mvo.getUsersName().equals("")) {
+			if(mvo != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("SESS_SEQ", mvo.getUsersSeq());
 				session.setAttribute("SESS_ID", mvo.getUsersId());
@@ -75,14 +76,67 @@ public class UserController {
 	
 	@RequestMapping(value = "/regid.do", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView login(MemberVO mvo) {
+	public ModelAndView registUser(MemberVO mvo) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println(mvo.getUsersName());
 		try {
 			int res = userService.memberRegister(mvo);
 			if(res > 0) {
 				mav.setViewName("index");
 			} else {
 				mav.setViewName("member_register");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/Passwordhg.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView checkPw(HttpServletRequest request, MemberVO mvo, @RequestParam(value="checkm")String mode) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println(mvo.getUsersPw() + mode);
+		HttpSession session = request.getSession();
+		mvo.setUsersId(session.getAttribute("SESS_ID").toString());
+		try {
+			if(mode.equals("1")) {
+				mvo = userService.memberDetail(mvo);
+				if(mvo != null) {
+					mav.addObject("MDETAIL" , mvo);
+					mav.setViewName("member_update");
+				}else {
+					mav.setViewName("member_info");
+				}
+			}else if(mode.equals("2")) {
+				int res = userService.memberDelete(mvo);
+				if(res>0) {
+					session.invalidate();
+					mav.setViewName("index");
+				}else {
+					mav.setViewName("member_drop");
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/updateuinfo.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView updateUser(MemberVO mvo) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println(mvo.getUsersName());
+		try {
+			int res = userService.memberUpdate(mvo);
+			if(res > 0) {
+				mav.setViewName("index");
+			} else {
+				mav.addObject("MDETAIL" , mvo);
+				mav.setViewName("member_update");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
