@@ -10,6 +10,13 @@ public class BoardBuyHistoryVO {
 	private String buyhistoryDiscussionRegdate;
 	private int buyhistoryDiscussionHits;
 	private String buyhistoryDiscussionContent;
+	private String usersName;
+	public String getUsersName() {
+		return usersName;
+	}
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
 	public int getPostSeq() {
 		return postSeq;
 	}

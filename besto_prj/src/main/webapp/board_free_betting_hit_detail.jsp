@@ -55,9 +55,9 @@
                   <div class="table-responsive">
                   <h4>◈ 베팅토론방<font size="3"> - 적중내역토론방</font> </h4>
                   <br>
-                  <h5>적중내역토론방 11111</h5><hr>
-                  <font size="2"><strong>작성자</strong> : 송은규(sek2***) </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                  						    <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
+                  <h5>${KEY_BVO.hithistoryDiscussionTitle}</h5><hr>
+                  <font size="2"><strong>작성자</strong> :  ${KEY_BVO.usersName} </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  						    <font size="2"> <strong>등록일</strong> : ${KEY_BVO.hithistoryDiscussionRegdate} </font><br><br>
                   <div class="col-md-13">
                   <div class="box-simple box-white same-height">
                     <div class="row">
@@ -262,7 +262,7 @@
                     	<br>
                   <div class="col-sm-10">
                     <div class="form-group">
-                    	글쓰기에서 입력한 내용 가져오기
+                    	${KEY_BVO.hithistoryDiscussionContent}
                     </div>
                     <br>
                     </div>

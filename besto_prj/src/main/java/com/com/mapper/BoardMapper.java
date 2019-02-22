@@ -21,13 +21,24 @@ public interface BoardMapper{
 	public ArrayList<BoardFreeVO> free_board_select();
 	public BoardFreeVO free_board_detail(int postSeq);
 	public int free_board_insert(BoardFreeVO fvo);
+	public int free_board_update(BoardFreeVO vo);
+	
 	
 	public ArrayList<BoardChallengeVO> challenge_board_select();
-	public ArrayList<BoardChallengeVO> challenge_board_detail(int postSeq);
+	public BoardChallengeVO challenge_board_detail(int postSeq);
+	public int challenge_board_insert(BoardChallengeVO fvo);
 	
 	public ArrayList<BoardHitHistoryVO> hit_history_board_select();
-
+	public BoardHitHistoryVO hit_history_board_detail(int postSeq);
+	public int hit_history_board_insert(BoardHitHistoryVO fvo);
+	
+	
+	
+	
 	public ArrayList<BoardBuyHistoryVO> buy_history_board_select();
+	public BoardBuyHistoryVO buy_history_board_detail(int postSeq);
+	public int buy_history_board_insert(BoardBuyHistoryVO fvo);
+	
 	
 	
 	public ArrayList<NoticeVO> notice_all();

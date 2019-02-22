@@ -55,9 +55,9 @@
                   <div class="table-responsive">
                   <h4>◈ 도전분석방</h4>
                   <br>
-                  <h5>이렇게 투표했어요...</h5><hr>
-                  <font size="2"><strong>작성자</strong> : 송은규(sek2***) </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                  						    <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
+                  <h5>${KEY_BVO.challengeBoardTitle}</h5><hr>
+                  <font size="2"><strong>작성자</strong> : ${KEY_BVO.usersName} </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  						    <font size="2"> <strong>등록일</strong> : ${KEY_BVO.challengeBoardRegdate}</font><br><br>
                   <div class="col-md-13">
                   <div class="box-simple box-white same-height">
                     <div class="row">
@@ -209,7 +209,7 @@
                     	<br>
                   <div class="col-sm-10">
                     <div class="form-group">
-                    	글쓰기에서 입력한 내용 가져오기
+                    	${KEY_BVO.challengeBoardContent}
                     </div>
                     <br>
                     </div>

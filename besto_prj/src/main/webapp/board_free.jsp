@@ -5,12 +5,7 @@
 <html>
 
 <head> 
-
-<!-- <script>
-$(document).ready(function(){
-	
-});
-</script> -->
+ 
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->

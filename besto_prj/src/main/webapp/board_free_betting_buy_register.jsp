@@ -10,6 +10,33 @@
 <!-- Header Include CSS END-->
 </head>
 
+
+<script>
+  	$(document).ready(function(){
+  		$("#freeClick").click(function(){
+  			var buyhistoryDiscussionTitle = $("#buyhistoryDiscussionTitle").val();
+  			var buyhistoryDiscussionContent = $("#buyhistoryDiscussionContent").val();
+  			if(buyhistoryDiscussionTitle == ""){
+  				alert("제목을 입력하세용");
+  				document.board.buyhistoryDiscussionTitle.focus();
+  				return;
+  			}
+  			if(buyhistoryDiscussionContent == ""){
+  				alert("내용을 입력하세용");
+  				document.board.buyhistoryDiscussionContent.focus();
+  				return;
+  			}
+  			document.board.submit();
+  			
+  		});
+  		
+  	});
+  	
+  	
+  </script>
+  
+  
+
   <body>
     <div id="all">
     
@@ -51,7 +78,7 @@
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
-                <form method="get" action="shop-checkout1.html">
+                <form name="board"  method="post" action="shop-checkout1.html">
                   <div class="table-responsive">
                   <h4>◈ 베팅토론방 작성하기</h4>
                   <br>
@@ -278,12 +305,12 @@
                     	<br>
                   <div class="col-sm-10">
                     <div class="form-group">
-                    <input id="firstname" class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;"><br>
-                    <textarea id="message" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
+                    <input name = "buyhistoryDiscussionTitle" id="buyhistoryDiscussionTitle" class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;"><br>
+                    <textarea name = "buyhistoryDiscussionContent" id="buyhistoryDiscussionContent" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
                     </div>
                     </div>
                   <button type="button" class="btn btn-danger pull-right">취소</button>
-                  <button type="button" class="btn btn-primary pull-right">작성</button>
+                  <button name="freeClick" id="freeClick"  type="button" class="btn btn-primary pull-right">작성</button>
                 </form>
                   </div>
 

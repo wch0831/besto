@@ -43,6 +43,7 @@
 		<result property="challengeBoardRegdate" 		column="challenge_board_regdate" />
 		<result property="challengeBoardHits" 		column="challenge_board_hits" />
 		<result property="challengeBoardContent" 		column="challenge_board_content" />	
+		<result property="usersName" 			column="users_name" />
 	</resultMap>
 	
 	<!-- 적중 -->
@@ -56,6 +57,7 @@
 		<result property="hithistoryDiscussionRegdate" 		column="hithistory_discussion_regdate" />
 		<result property="hithistoryDiscussionHits" 		column="hithistory_discussion_hits" />
 		<result property="hithistoryDiscussionContent" 		column="hithistory_discussion_content" />	
+		<result property="usersName" 			column="users_name" />
 	</resultMap>
 	
 	<!-- 구매내역 -->
@@ -69,6 +71,7 @@
 		<result property="buyhistoryDiscussionRegdate" 		column="buyhistory_discussion_regdate" />
 		<result property="buyhistoryDiscussionHits" 		column="buyhistory_discussion_hits" />
 		<result property="buyhistoryDiscussionContent" 		column="buyhistory_discussion_content" />	
+		<result property="usersName" 			column="users_name" />
 	</resultMap>
 	
 	<!-- 공지사항 -->
@@ -83,13 +86,15 @@
 	
 	<!-- 자유게시판 -->
  	<select id="free_board_select" resultMap="boardfree-map">
- 		select f.post_seq, f.free_board_title, f.free_board_content, u.users_name, f.board_code, f.free_board_regdate,f.free_board_hits
+ 		select f.post_seq, f.free_board_title, f.free_board_content, f.board_code, 
+ 				f.free_board_regdate,f.free_board_hits ,u.users_name
  		from FREE_BOARD f, USERS u
- 		where f.users_seq = u.users_seq
+ 		where f.users_seq = u.users_seq order by f.post_seq desc
  	</select>
  	
  	<select id="free_board_detail" parameterType="int" resultMap="boardfree-map">
- 	 	select f.post_seq, f.free_board_title, f.free_board_content, u.users_name, f.board_code, f.free_board_regdate
+ 	 	select f.post_seq, f.free_board_title, f.free_board_content, u.users_name, 
+ 	 			f.board_code, f.free_board_regdate
  		from FREE_BOARD f, USERS u
  		where f.users_seq = u.users_seq
  		and f.post_seq=#{value}
@@ -100,29 +105,85 @@
 		values(post_seq.nextval,#{freeBoardTitle},#{freeBoardContent},3, 'free',sysdate,0,'n')
  	</insert>
  	
+	<update id="free_board_update" parameterType="com.com.board.BoardFreeVO">
+		update free_board set free_board_title=#{freeBoardTitle}, free_board_content=#{freeBoardContent} where post_seq=#{postSeq}
+	</update>
+
+ 	
+ 	
+ 	
 	<!-- 도전분석 -->
 	<select id="challenge_board_select" resultMap="boardchallenge-map">	
-		select post_seq, board_code, users_seq, challenge_board_gcode, challenge_boadr_roundseq, challenge_board_title, challenge_board_regdate, challenge_board_hits, challenge_board_content
-	 	from challenge_board
+		select c.post_seq, c.board_code, c.users_seq, c.challenge_board_gcode, c.challenge_boadr_roundseq, c.challenge_board_title, c.challenge_board_regdate, c.challenge_board_hits, c.challenge_board_content,u.users_name
+	 	from challenge_board c, USERS u
+   		where c.users_seq = u.users_seq order by c.post_seq desc
 	</select>
 	
 	<select id="challenge_board_detail"  parameterType="int" resultMap="boardchallenge-map">	
-		select post_seq, board_code, users_seq, challenge_board_gcode, challenge_boadr_roundseq, challenge_board_title, challenge_board_regdate, challenge_board_hits, challenge_board_content
-	 	from challenge_board
-	 	where post_seq=#{value}
+		select c.post_seq, c.board_code, c.users_seq, c.challenge_board_gcode, c.challenge_boadr_roundseq, c.challenge_board_title, c.challenge_board_regdate, c.challenge_board_hits, c.challenge_board_content,u.users_name
+	 	from challenge_board c,USERS u
+   		where c.users_seq = u.users_seq
+	 	and post_seq=#{value}
 	</select>
+	
+	
+	<insert id="challenge_board_insert" parameterType="com.com.board.BoardChallengeVO">
+		insert into challenge_board(post_seq, board_code, users_seq, challenge_board_gcode, 
+		challenge_boadr_roundseq, challenge_board_title, 
+    	 challenge_board_regdate, challenge_board_hits, challenge_board_content)
+    	 values(post_seq.nextval, 'challenge', 3, 'v' , 6, #{challengeBoardTitle}, sysdate, 36, #{challengeBoardContent})
+	</insert>
 	
 	<!-- 적중분석 -->
 	<select id = "hit_history_board_select" resultMap="boardhithistory-map">
-		select POST_SEQ,BOARD_CODE,USERS_SEQ,HITHISTORY_DISCUSSION_GCODE,HITHISTORY_DISCUSSION_ROUNDSEQ,HITHISTORY_DISCUSSION_TITLE,HITHISTORY_DISCUSSION_REGDATE,HITHISTORY_DISCUSSION_HITS,HITHISTORY_DISCUSSION_CONTENT
-		 from hithistory_discussion
+		select h.POST_SEQ,h.BOARD_CODE,h.USERS_SEQ,h.HITHISTORY_DISCUSSION_GCODE,h.HITHISTORY_DISCUSSION_ROUNDSEQ,h.HITHISTORY_DISCUSSION_TITLE,h.HITHISTORY_DISCUSSION_REGDATE,h.HITHISTORY_DISCUSSION_HITS,h.HITHISTORY_DISCUSSION_CONTENT, u.users_name
+		from hithistory_discussion h,users u
+    	where h.users_seq = u.users_seq order by h.post_seq desc
 	</select>
 	
+	<select id = "hit_history_board_detail" resultMap="boardhithistory-map">
+		select h.POST_SEQ,h.BOARD_CODE,h.USERS_SEQ,h.HITHISTORY_DISCUSSION_GCODE,h.HITHISTORY_DISCUSSION_ROUNDSEQ,h.HITHISTORY_DISCUSSION_TITLE,h.HITHISTORY_DISCUSSION_REGDATE,h.HITHISTORY_DISCUSSION_HITS,h.HITHISTORY_DISCUSSION_CONTENT, u.users_name
+		from hithistory_discussion h,users u
+    	where h.users_seq = u.users_seq
+    	and post_seq=#{value}
+	</select>
+	
+	<insert id="hit_history_board_insert" parameterType="com.com.board.BoardChallengeVO">
+	   insert into hithistory_discussion(POST_SEQ, BOARD_CODE, USERS_SEQ,HITHISTORY_DISCUSSION_GCODE, HITHISTORY_DISCUSSION_ROUNDSEQ, 
+         HITHISTORY_DISCUSSION_TITLE, HITHISTORY_DISCUSSION_REGDATE,HITHISTORY_DISCUSSION_HITS, HITHISTORY_DISCUSSION_CONTENT)
+         values(post_seq.nextval,'hit',3,'v',13,#{hithistoryDiscussionTitle},sysdate,30,#{hithistoryDiscussionContent})
+	</insert>
+
+
 	<!-- 구매분석  -->
 	<select id = "buy_history_board_select" resultMap="boardbuyhistory-map">
-		select POST_SEQ, BOARD_CODE, BUYHISTORY_DISCUSSION_GCODE, BUYHISTORY_DISCUSSION_ROUNDSEQ, BUYHISTORY_DISCUSSION_TITLE, BUYHISTORY_DISCUSSION_REGDATE, BUYHISTORY_DISCUSSION_HITS, USERS_SEQ, BUYHISTORY_DISCUSSION_CONTENT
-	 	from buyhistory_discussion
+		select b.POST_SEQ, b.BOARD_CODE, b.BUYHISTORY_DISCUSSION_GCODE, 
+			   b.BUYHISTORY_DISCUSSION_ROUNDSEQ, b.BUYHISTORY_DISCUSSION_TITLE, 
+			   b.BUYHISTORY_DISCUSSION_REGDATE, b.BUYHISTORY_DISCUSSION_HITS, 
+			   b.USERS_SEQ, b.BUYHISTORY_DISCUSSION_CONTENT,u.users_name, u.users_seq
+	 	from buyhistory_discussion b, users u
+   		where b.users_seq = u.users_seq 
+   		order by b.post_seq desc
  	</select>
+ 	
+ 	<select id = "buy_history_board_detail" resultMap="boardbuyhistory-map">
+ 		select b.POST_SEQ, b.BOARD_CODE, b.BUYHISTORY_DISCUSSION_GCODE, 
+ 			   b.BUYHISTORY_DISCUSSION_ROUNDSEQ, b.BUYHISTORY_DISCUSSION_TITLE, 
+ 			   b.BUYHISTORY_DISCUSSION_REGDATE, b.BUYHISTORY_DISCUSSION_HITS, 
+ 			   b.USERS_SEQ, b.BUYHISTORY_DISCUSSION_CONTENT,u.users_name
+	 	from buyhistory_discussion b, users u
+   		where b.users_seq = u.users_seq
+    	and post_seq=#{value}
+ 	</select>
+ 	
+ 	<insert id="buy_history_board_insert" parameterType="com.com.board.BoardBuyHistoryVO">
+ 	 insert into buyhistory_discussion(  POST_SEQ, BOARD_CODE, BUYHISTORY_DISCUSSION_GCODE, BUYHISTORY_DISCUSSION_ROUNDSEQ,
+    BUYHISTORY_DISCUSSION_TITLE, BUYHISTORY_DISCUSSION_REGDATE, BUYHISTORY_DISCUSSION_HITS, USERS_SEQ, BUYHISTORY_DISCUSSION_CONTENT)
+     values(post_seq.nextval,'buy','v',44,#{buyhistoryDiscussionTitle},sysdate, 33,11,#{buyhistoryDiscussionContent})
+     </insert>
+ 	
+ 	
+ 	
 
     <!-- 자유게시판 삭제 -->
     <!-- <update id="free_board_update">
