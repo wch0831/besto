@@ -54,6 +54,26 @@
                     <li class="dropdown-item"><a href="/board_protice_find.jsp" class="nav-link">아이디/비밀번호 찾기</a></li>
                   </ul>
                 </li>
+<<<<<<< HEAD
+                 <c:choose>
+				    <c:when test="${SESS_NAME ne admin}">
+				       <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
+		                  <ul class="dropdown-menu">
+		                  	<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
+		                  </ul>
+		                </li>
+				    </c:when>
+				</c:choose>
+                
+			    <c:if test="${SESS_GRANT eq 'a'}">
+				    <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
+                  	<ul class="dropdown-menu">
+                  		<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
+                  	</ul>
+                	</li>				    
+			    </c:if>
+			    	
+=======
                  
                         <c:if test="${SESS_GRANT eq 'a'}">
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
@@ -75,6 +95,7 @@
                 </c:when> --%>
             
       
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
               </ul>
             </div>
             

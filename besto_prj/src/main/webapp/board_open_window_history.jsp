@@ -115,10 +115,12 @@ $(document).ready(function() {
                   <h4>▶ 프로토 기록식</h4>
             </div>
             <div id="basket" class="col-lg-8"> 
-                  <!-- <!--  -->
+            
+        <c:forEach var="gvolist" items="${KEY_GVO.matchlist}"> 
+         
                 <div class="card">
                   <div id="headingOne" role="tab" class="card-header">
-                    <h5 class="mb-0"><a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">맨유 vs 맨시티</a></h5>
+                    <h5 class="mb-0"><a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">${gvolist.homeTeamName} vs ${gvolist.awayTeamName}</a></h5>
                   </div>
                   <div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" class="collapse show" style="">
                     <div class="card-body">
@@ -146,7 +148,7 @@ $(document).ready(function() {
                         <tr>
                           <td style="font-size:10px; text-align:center;">1번</td>
                           <td style="font-size:10px; text-align:center;">1-0</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="1번|1-0|10.5"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate10} &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="1번|1-0|${gvolist.recVO.recoderate10}"></td>
                           <td style="font-size:10px; text-align:center;">6번</td>
                           <td style="font-size:10px; text-align:center;">3-2</td>
                           <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="6번|3-2|20.4"></td>
@@ -160,55 +162,55 @@ $(document).ready(function() {
                         <tr>
                           <td style="font-size:10px; text-align:center;">2번</td>
                           <td style="font-size:10px; text-align:center;">2-0</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate20} &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="2번|2-0|${gvolist.recVO.recoderate20}"></td>
                           <td style="font-size:10px; text-align:center;">7번</td>
                           <td style="font-size:10px; text-align:center;">기타승</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="7번|기타승|999"></td>
                           <td style="font-size:10px; text-align:center;">12번</td>
                           <td style="font-size:10px; text-align:center;">기타무</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="12번|기타무|999"></td>
                           <td style="font-size:10px; text-align:center;">17번</td>
                           <td style="font-size:10px; text-align:center;">1-3</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="17번|1-3|20.4"></td>
                         </tr>
                         <tr>
                           <td style="font-size:10px; text-align:center;">3번</td>
                           <td style="font-size:10px; text-align:center;">2-1</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="3번|2-1|12.4"></td>
                           <td style="font-size:10px; text-align:center;">8번</td>
                           <td style="font-size:10px; text-align:center;">0-0</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate00} &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="8번|0-0|${gvolist.recVO.recoderate00}"></td>
                           <td style="font-size:10px; text-align:center;">13번</td>
                           <td style="font-size:10px; text-align:center;">0-1</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate01} &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="13번|0-1|${gvolist.recVO.recoderate01}"></td>
                           <td style="font-size:10px; text-align:center;">18번</td>
                           <td style="font-size:10px; text-align:center;">2-3</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="18번|2-3|30"></td>
                         </tr>
                         <tr>
                           <td style="font-size:10px; text-align:center;">4번</td>
                           <td style="font-size:10px; text-align:center;">3-0</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="4번|3-0|17.4"></td>
                           <td style="font-size:10px; text-align:center;">9번</td>
                           <td style="font-size:10px; text-align:center;">1-1</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate11} &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="9번|1-1|${gvolist.recVO.recoderate11}"></td>
                           <td style="font-size:10px; text-align:center;">14번</td>
                           <td style="font-size:10px; text-align:center;">0-2</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td> 
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate02} &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="14번|0-2|${gvolist.recVO.recoderate02}"></td> 
                           <td style="font-size:10px; text-align:center;">19번</td>
                           <td style="font-size:10px; text-align:center;">기타패</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="19번|기타패|999"></td>
                         </tr>                       
                         <tr>
                           <td style="font-size:10px; text-align:center;">5번</td>
                           <td style="font-size:10px; text-align:center;">3-1</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="5번|3-1|25.4"></td>
                           <td style="font-size:10px; text-align:center;">10번</td>
                           <td style="font-size:10px; text-align:center;">2-2</td>
-                          <td style="font-size:10px; text-align:center;">&nbsp&nbsp<input type="checkbox"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate22} &nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="10번|2-2|${gvolist.recVO.recoderate22}"></td>
                           <td style="font-size:10px; text-align:center;">15번</td>
                           <td style="font-size:10px; text-align:center;">1-2</td>
-                          <td style="font-size:10px; text-align:center;">&nbsp&nbsp<input type="checkbox"></td> 
+                          <td style="font-size:10px; text-align:center;">&nbsp&nbsp<input type="checkbox" class="rateCheckBox" value="15번|1-2|7.4"></td> 
                           <td style="font-size:10px; text-align:center;"></td>
                           <td></td>
                           <td></td>
@@ -221,7 +223,12 @@ $(document).ready(function() {
                   </div>
                 </div>
                 
-                <div class="card">
+         </c:forEach>
+                
+                
+                
+                
+                <!-- <div class="card">
                   <div id="headingTwo" role="tab" class="card-header">
                     <h5 class="mb-0"><a data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" class="">맨유2 vs 맨시티2</a></h5>
                   </div>
@@ -324,7 +331,7 @@ $(document).ready(function() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 
                 
                 

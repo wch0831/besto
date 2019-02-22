@@ -13,6 +13,13 @@
 		<result property="matchStadium" 		column="match_stadium" />
 		<result property="matchStatus" 		column="match_status" />
 		<result property="usersSeq" 		column="users_seq" />
+<<<<<<< HEAD
+		<result property="gameCount" 		column="game_count" />
+		<result property="homeTeamName" 		column="homeTeamName" />
+		<result property="awayTeamName" 		column="awayTeamName" />
+				
+=======
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 		<result property="gameGubun" 		column="game_gubun" />
 		<result property="victoryrateWin" 		column="victoryrate_win" />
 		<result property="victoryrateDraw" 		column="victoryrate_draw" />
@@ -29,8 +36,17 @@
 		<result property="usersSeq" 		column="users_seq" />			
 	</resultMap>
 	
+	<resultMap id="teamMap" type="com.com.game.TeamVO">
+		<id 	property="tCode" 		column="t_code" />
+		<result property="tName" 		column="t_name" />
+	</resultMap>		
+	
 	<resultMap id="gameMap_1n" type="com.com.game.GameVO" extends="gameMap">
 		<collection property="matchlist" resultMap="matchMap"/>
+	</resultMap>
+	
+	<resultMap id="gameTeamMap_11n" type="com.com.game.GameVO" extends="gameMap">
+		<collection property="matchlist" resultMap="record_11"/>
 	</resultMap>
 	
 	<resultMap id="victory_11" type="com.com.game.MatchVO" extends="matchMap">
@@ -77,8 +93,8 @@
 	
 	<!-- 매치 insert -->
 	<insert id="matchInsert" parameterType="com.com.game.MatchVO">
-		insert into match(match_seq, game_seq, match_starttime, match_hometeam, match_awayteam, match_stadium, match_status)
-		values(#{matchSeq}, #{gameSeq}, #{matchStarttime}, #{matchHometeam}, #{matchAwayteam}, #{matchStadium}, 'p')
+		insert into match(match_seq, game_seq, match_starttime, match_hometeam, match_awayteam, match_stadium, match_status, game_mno)
+		values(#{matchSeq}, #{gameSeq}, #{matchStarttime}, #{matchHometeam}, #{matchAwayteam}, #{matchStadium}, 'p', #{gameMno})
 	</insert>
 	
 	
@@ -105,15 +121,28 @@
 		where g.game_seq = m.game_seq and m.match_seq = v.match_seq and g.game_seq = #{gameSeq} and g.game_status = 'f'
  	</select>
  	
+ 	<!-- game_seq를 list에 강제로 넣어주기 위한 seq select -->
  	<select id="SelectSeq" resultType="int">
  		select max(game_seq) as game_seq
     	from game
  	</select>
  	
+ 	<!-- insert시 match가 있는지 없는지 비교하기 위한 list selct -->
  	<select id="selectMseqList" resultMap="matchMap">
     	select m.match_seq, m.game_seq, g.game_gubun
     	from match m , game g
     	where m.game_seq = g.game_seq
+ 	</select>
+ 	
+ 	<!-- 기록식 구매하기를 클릭시 정보를 보여주기 위한 list select -->
+ 	<select id="selectRecordSelect" parameterType="int" resultMap="gameTeamMap_11n">
+    	select m.match_seq, m.game_seq, m.match_stadium,
+   		(select t.t_name from team t where t.t_code = m.match_hometeam) as homeTeamName,
+    	(select t.t_name from team t where t.t_code = m.match_awayteam) as awayTeamName,
+    	r.recoderate_00, r.recoderate_01, r.recoderate_02, r.recoderate_10, r.recoderate_11, r.recoderate_20, r.recoderate_22
+    	from game g, match m, recoderate r
+    	where m.game_seq = g.game_seq(+) and r.match_seq = m.match_seq(+)
+    	and m.game_seq = #{value}
  	</select>
  	
  	
