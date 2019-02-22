@@ -20,23 +20,12 @@
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
-<<<<<<< HEAD
 	<mvc:resources mapping="/js/**" location="/js/" />
 	<mvc:resources mapping="/include/**" location="/include/" />
 	<mvc:resources mapping="/vendor/**" location="/vendor/" />
 	
 	<!--  <mvc:resources mapping="/**" location="/" />  html 다이렉트 접근 위한 설정 추가 .. -->
-	
-=======
-	<mvc:resources mapping="/vender/**" location="/vender/" />
-	<mvc:resources mapping="/include/**" location="/include/" />
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 	<context:component-scan base-package="com.com.**" />
-<<<<<<< HEAD
-=======
-	<!-- <mvc:resources mapping="/**" location="/" />  html 다이렉트 접근 위한 설정 추가 .. -->
->>>>>>> branch 'master' of https://github.com/wch0831/besto
-	
 	 
 
 
