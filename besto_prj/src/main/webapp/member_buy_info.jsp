@@ -67,11 +67,18 @@
                       </tr>
                     </thead>
                     <tbody>
+                  
+                   <c:forEach var="vv"  items="${KEY_BUYLIST}">
+                   <script>
+                    console.log("으아아아아앙")
+                   </script>
+                  
                       <tr>
-                        <td>140,000 <strong>원</strong></td>
-                        <td>95,000 <strong>원</strong></td>
+                        <td>${vv.bprice} <strong>원</strong></td>
+                        <td> <strong>원</strong></td>
                         <td>63%</td>
                       </tr>
+                    </c:forEach>
                     </tbody>
                     <tfoot>
                       <tr>

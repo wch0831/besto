@@ -17,6 +17,6 @@ public interface MypageMapper {
 		
 		
 
-		public ArrayList<MypageVO> buycartselect();
+		public ArrayList<MypageVO> buycartselect(int users_seq);
 		
 }

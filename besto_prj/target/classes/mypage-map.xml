@@ -13,7 +13,9 @@
 		<result property="bhityn" 	column="betting_hityn" />
 		<result property="bhitrate" 		column="betting_hitrate" />
 		<result property="cregdate" 		column="cart_regdate" />
-		<result property="cprice" 			column="cart_price" />
+		<result property="cprice" 			column="cart_battingprice" />
+		<result property="bcontent"         column="betting_content"/>
+		<result property="cbattingcontent" 			column="cart_battingcontent" />
 	
 	</resultMap>
 	
@@ -22,28 +24,33 @@
 	
 	
 	<select id="buyhitselect" parameterType="int" resultMap="buy_hit_list">
-		select g.game_gubun, g.game_roundseq, g.game_status
-		b.betting_regdate, b.betting_seq, b.betting_price
-		from users u, betting b, game g
-		where #{users_seq}
-		and u.users_seq = b.betting_seq
+		select g.game_gubun, g.game_roundseq, g.game_status,
+		b.betting_regdate, b.betting_seq, b.betting_price,  b.betting_hityn
+		from betting b, game g
+		where b.users_seq = #{users_seq}
 		and g.game_seq = b.game_seq
 	</select>
 	
+	
+	
 	<select id="buycartselect" parameterType="int" resultMap="buy_hit_list">
-		select g.game_gubun, g.game_roundseq, g.game_status
-		b.betting_regdate, b.betting_seq, b.betting_price
-		from users u, betting b, game g
-		where #{value}
-		and u.users_seq = b.betting_seq
-		and g.game_seq = b.game_seq
+	select g.game_gubun, g.game_roundseq, i.cart_regdate, 
+	i.cart_battingprice, i.cart_battingcontent
+        from cart i, game g
+        where i.game_seq = g.game_seq
+        and i.users_seq = #{users_seq}
 	</select>
+	
+	
+	
+	
+	
 	
 	
 	<select id="buyanalselect1" parameterType="int" resultType="int">
 	
-	  select sum(betting_price) as betting_price from betting 
-		where #{value}
+	  select sum(betting_price) as bprice from betting 
+		where users_seq = #{users_seq}
 	
 	</select>
 	
@@ -51,10 +58,10 @@
 	
 	<select id="buyanalselect2" parameterType="int" resultType="int">
 	
-	  select sum(betting_price*betting_hitrate)as betting_content 
+	  select sum(betting_price*betting_hitrate)
 	  from betting
 	  where betting_hityn='y' 
-	  and #{value}
+	  and users_seq = #{users_seq}
 	  
 	
 	</select>
@@ -63,9 +70,9 @@
 	
 	<select id="buyanalselect3" parameterType="int" resultType="int">
 	
-	  select max(betting_price*betting_hitrate)as betting_content 
+	  select max(betting_price*betting_hitrate)as allbetting_content 
 	  from betting
-      where betting_hityn='y' and #{value}
+      where betting_hityn='y' and users_seq = #{users_seq}
 	
 	</select>
 	

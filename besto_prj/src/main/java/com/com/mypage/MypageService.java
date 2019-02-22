@@ -17,5 +17,5 @@ public interface MypageService {
 //	
 //	//¼îÇÎÄ«Æ®
 //	
-	public ArrayList<MypageVO> buyCartList();
+	public ArrayList<MypageVO> buyCartList(int users_seq);
 }

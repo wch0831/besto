@@ -37,6 +37,8 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="cut" />
 	</aop:config>
 
+<!-- 제이슨뷰 사용하기위한 코드  -->
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
 	
 	<!-- MultipartResolver -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -50,6 +52,7 @@
 		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
 	
 	
 	

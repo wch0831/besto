@@ -20,7 +20,7 @@ public class MypageImpleService implements MypageService {
 	}
 
 	public ArrayList<Object> buyAnalSysList(int users_seq) {
-		ArrayList<Object> list = new ArrayList();
+		ArrayList<Object> list = new ArrayList<Object>();
 		list.add(mypageMapper.buyanalselect1(users_seq));
 		list.add(mypageMapper.buyanalselect2(users_seq));
 		
@@ -33,9 +33,9 @@ public class MypageImpleService implements MypageService {
 	}
 //
 	
-	public ArrayList<MypageVO> buyCartList() {
+	public ArrayList<MypageVO> buyCartList(int users_seq) {
 		// TODO Auto-generated method stub
-		return mypageMapper.buycartselect();
+		return mypageMapper.buycartselect(users_seq);
 	}
 	
 	

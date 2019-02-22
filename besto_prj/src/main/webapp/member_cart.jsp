@@ -8,6 +8,16 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+
+<script>
+$(function () {
+    $('#btn-empty').click( function() {
+        $( '#cart > tbody:last').empty();
+    });
+});
+</script>
+
+
 </head>
 
   <body>
@@ -56,7 +66,7 @@
                     <h4>◈ 쇼핑카트</h4>
                   		<p class="text-muted lead"><font size="2">상세내용을 보시려면 <strong>게임종류, 구매일시, 상태</strong>를 클릭해 주세요.</font></p>
                     <div class="table-responsive">
-                  <table class="table">
+                  <table class="table" id ="cart">
                     <thead bgcolor="#EEEEEE">
                       <tr>
                         <th>/</th>
@@ -69,7 +79,26 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <c:forEach var="vv" items="${KEY_CART}">
                       <tr>
+                        <td><input type="checkbox"></td>
+                        <c:set var="v">${vv.ggubun}</c:set>
+							  <c:choose>
+							  <c:when test="${vv.ggubun == v}">
+	                          <td style = "text-align:center;">승부식</td>
+	                          </c:when>
+	                          <c:otherwise>
+	                           <td style = "text-align:center;">기록식</td>
+	                          </c:otherwise>
+	                          </c:choose>
+                          <td style = "text-align:center;">${vv.groundseq}</td>
+	                          <td style = "text-align:center;">${vv.cregdate}	</td>
+	                          <td style = "text-align:center;">${vv.cprice}<strong>원</strong></td>
+	                          <td style = "text-align:center;">${vv.cbattingcontent}</td>
+                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                      </tr>
+                    </c:forEach>
+                     <!--  <tr>
                         <td><input type="checkbox"></td>
                         <td>승부식</td>
                         <td>19.2회차</td>
@@ -77,22 +106,13 @@
                         <td>95,000 <strong>원</strong></td>
                         <td>대기중</td>
                         <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td><input type="checkbox"></td>
-                        <td>승부식</td>
-                        <td>19.2회차</td>
-                        <td>19.02.12 18:30</td>
-                        <td>95,000 <strong>원</strong></td>
-                        <td>대기중</td>
-                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>
                 </div>
                 <hr>
                </div>
-                <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-trash-o"></i>카트 비우기</button>
+                <button type="button" id="btn-empty"  class="btn btn-sm btn-danger pull-right"><i class="fa fa-trash-o"></i>카트 비우기</button>
                   <button type="button" class="btn btn-outline-primary" style="display:block; margin:0 auto;">결제하기</button>
                 </form>
             </div>

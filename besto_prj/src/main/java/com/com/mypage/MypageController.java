@@ -21,15 +21,15 @@ public class MypageController {
 		@Autowired
 		private MypageService mypageService;
 		
-		@RequestMapping(value="/buyhitlist.do", method = RequestMethod.POST)
+		@RequestMapping(value="/buyhitlist.do", method = RequestMethod.GET)
 		@ResponseBody	
 		public ModelAndView viewBuyHitList(HttpServletRequest request) {
-			
+			System.out.println("============================ddd=====");
 			HttpSession session = request.getSession();
 			int seq = (Integer)session.getAttribute("SESS_SEQ");
 			
 			 ModelAndView mav = new ModelAndView();
-			 
+
 			 ArrayList<MypageVO> mylist = mypageService.buyhitList(seq);
 			
 			 mav.addObject("KEY_BUYLIST", mylist);
@@ -43,7 +43,7 @@ public class MypageController {
 		
 		
 		
-		@RequestMapping(value="/buyanalsys", method = RequestMethod.POST)
+		@RequestMapping(value="/buyanalsys.do", method = RequestMethod.POST)
 		
 		public ModelAndView viewbuyAnalsys(HttpServletRequest request) {
 			
@@ -62,15 +62,20 @@ public class MypageController {
 			
 		}
 	
-		@RequestMapping(value="/buycart", method = RequestMethod.POST)
+		
+		
+		
+		@RequestMapping(value="/buycart.do", method = RequestMethod.GET)
 		@ResponseBody
-		public ModelAndView viewbuyCart() {
+		public ModelAndView viewbuyCart(HttpServletRequest request) {
 			
 			ModelAndView mav = new ModelAndView();
-			
-			 ArrayList<MypageVO> mylist = mypageService.buyCartList();
+			HttpSession session = request.getSession();
+			int seq = (Integer)session.getAttribute("SESS_SEQ");
+
+			 ArrayList<MypageVO> mylist = mypageService.buyCartList(seq);
 				
-			 mav.addObject("KEY_BUYLIST", mylist);
+			 mav.addObject("KEY_CART", mylist);
 			 mav.setViewName("member_cart");
 			 
 			

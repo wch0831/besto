@@ -12,10 +12,22 @@ public class MypageVO {
 	private String bhitrate;
 	private String cregdate;
 	private int cprice;
+	private int bcontent;
+	private String cbattingcontent;
 	
 	
-	
-	
+	public String getCbattingcontent() {
+		return cbattingcontent;
+	}
+	public void setCbattingcontent(String cbattingcontent) {
+		this.cbattingcontent = cbattingcontent;
+	}
+	public int getBcontent() {
+		return bcontent;
+	}
+	public void setBcontent(int bcontent) {
+		this.bcontent = bcontent;
+	}
 	public int getGroundseq() {
 		return groundseq;
 	}
