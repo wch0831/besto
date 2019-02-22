@@ -8,6 +8,15 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+<script>
+/* $(document).ready(function(){
+	$("#button").click(function(){
+		submit();
+	});
+}); */
+
+</script>
+
 </head>
 
   <body>
@@ -25,7 +34,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">회원탈퇴</h1>
+              <h1 class="h2">공지사항 > 등록하기(관리자)</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
@@ -36,54 +45,44 @@
           </div>
         </div>
       </div>
-      
       <div id="content">
         <div class="container">
           <div class="row bar">
             <div class="col-md-2">
 
 <!-- Sidebar_Main Include CSS START-->
-<%@ include file="/include/sidebar_member.jsp" %>
+<%@ include file="/include/sidebar_board_main.jsp" %>
 <!-- Sidebar_Main Include CSS END-->
               
             </div>
             
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
+              <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
-                <form method="post" action="/Passwordhg.do">
                   <div class="table-responsive">
-                    <h4>◈ 회원탈퇴</h4>
-                  		<p class="text-muted lead"><font size="2" color="red">※ 비밀번호 확인이 이루어지면 즉시 탈퇴되며, 예치금은 소멸됩니다.</font></p>
-                    <div class="table-responsive">
-                    <h5>▶ 본인확인</h5>
-                  
-                  <div class="col-md-4 pull-center">
-                  <br>
-                    <h5>※ 비밀번호 확인</h5>
-                    <input id="usersPw" name="usersPw" type="password" class="form-control">
-                    <br>
-                    <button type="submit" class="btn btn-template-outlined" style="display: block; margin: 0 auto;">탈퇴하기</button>
-                    <input id="checkm" name="checkm" type="hidden" value="2">
-                    <br>
-                    
+                  <h4>◈ 공지사항<font size="3"> - 작성하기</font> </h4><br>
                 </div>
-                </div>
-               </div>
+                <form method="post" action="/board_protice_register.do">
+                  <div class="col-sm-10">
+                    <div class="form-group">
+                    <input class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;" id="noticeTitle" name="noticeTitle"><br>
+                    <textarea class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;" id="noticeContent" name="noticeContent"></textarea>
+                    </div>
+                    </div><!-- onclick="location.href='/board_protice_register.do'" -->
+                  <button type="button" class="btn btn-danger pull-right"><a href="/board_protice.do">취소</a></button>
+                  <button type="submit" class="btn btn-primary pull-right">작성</button>
                 </form>
+                  </div>
             </div>
-            <br>
-              
             </div>
           </div>
         </div>
       </div>
       
-      
 <!-- Footer Include CSS START-->
 <%@ include file="/include/footer.jsp" %>
 <!-- Footer Include CSS END-->
-    </div>
     
 <!-- Script Include CSS START-->
 <%@ include file="/include/script.jsp" %>

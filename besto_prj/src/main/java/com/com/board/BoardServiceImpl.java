@@ -61,13 +61,33 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public NoticeVO noticeDetail() {
-		return boardMapper.notice_detail();
+	public NoticeVO noticeDetail(int a) {
+		return boardMapper.notice_detail(a);
 	}
 	
 	@Override
 	public int noticeCount(int a) {
 		return boardMapper.notice_count(a);
+	}
+	
+	@Override
+	public int notice_insert(NoticeVO nvo) {
+		return boardMapper.notice_insert(nvo);
+	}
+	
+	@Override
+	public int noticeUpdate(NoticeVO nvo) {
+		return boardMapper.notice_update(nvo);
+	}
+	
+	@Override
+	public int noticeDelete(int a) {
+		return boardMapper.notice_delete(a);
+	}
+	
+	@Override
+	public ArrayList<NoticeVO> noticeSearch(String b) {
+		return boardMapper.notice_search(b);
 	}
 	
 	

@@ -9,7 +9,6 @@ public class MemberVO {
 	private String usersAddress;
 	private String usersDetailAddress;
 	private String usersPhone;
-	private String usersBirth;
 	private String usersBank;
 	private String usersAccount;
 	private String usersDel;
@@ -62,12 +61,6 @@ public class MemberVO {
 	}
 	public void setUsersPhone(String usersPhone) {
 		this.usersPhone = usersPhone;
-	}
-	public String getUsersBirth() {
-		return usersBirth;
-	}
-	public void setUsersBirth(String usersBirth) {
-		this.usersBirth = usersBirth;
 	}
 	public String getUsersBank() {
 		return usersBank;

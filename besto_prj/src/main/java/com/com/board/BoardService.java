@@ -22,8 +22,13 @@ public interface BoardService {
 	
 	//공지사항
 	public ArrayList<NoticeVO> noticeList();
-	public NoticeVO noticeDetail();
+	public NoticeVO noticeDetail(int a);
 	public int noticeCount(int a);
+	public int notice_insert(NoticeVO nvo);
+	public int noticeUpdate(NoticeVO nvo);
+	public int noticeDelete(int a);
+	public ArrayList<NoticeVO> noticeSearch(String b);
+	
 	
 
 	

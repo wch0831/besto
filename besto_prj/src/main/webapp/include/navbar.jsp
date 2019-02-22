@@ -1,19 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-	<header class="nav-holder make-sticky">
-		<div id="navbar" role="navigation" class="navbar navbar-expand-lg">
+   <header class="nav-holder make-sticky">
+      <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
           <div class="container"><a href="index.jsp" class="navbar-brand home"><img src="img/logo13.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none"><span class="sr-only">Universal - go to homepage</span></a>
             <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
             <div id="navigation" class="navbar-collapse collapse">
               <ul class="nav navbar-nav ml-auto">
-                
                 <li class="nav-item dropdown"><a href="/board_game_buy.jsp" data-toggle="dropdown" class="dropdown-toggle">게임구매 <b class="caret"></b></a>
                 <li class="nav-item dropdown"><a href="board_game_buy.do" data-toggle="dropdown" class="dropdown-toggle">게임구매 <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item"><a href="/board_game_buy.jsp" class="nav-link">구매가능 게임</a></li>
                     <li class="dropdown-item"><a href="/board_game_schedule.jsp" class="nav-link">게임 일정</a></li>
-                    <li class="dropdown-item"><a href="/board_game_hit_result.jsp" class="nav-link">적중 결과</a></li>
                     <li class="dropdown-item"><a href="board_game_buy.do" class="nav-link">구매가능 게임</a></li>
                     <li class="dropdown-item"><a href="board_game_schedule.jsp" class="nav-link">게임 일정</a></li>
                     <li class="dropdown-item"><a href="board_game_hit_result.jsp" class="nav-link">적중 결과</a></li>
@@ -37,6 +35,7 @@
                   </ul>
                 </li>
 
+				<c:if test="${SESS_GRANT ne NULL}">
                 <li class="nav-item dropdown active"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">마이페이지<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item"><a href="/member_info.jsp" class="nav-link">개인정보</a></li>
@@ -47,6 +46,7 @@
                     <li class="dropdown-item"><a href="/member_drop.jsp" class="nav-link">회원탈퇴</a></li>
                   </ul>
                 </li>
+                </c:if>
                 
                 <li class="nav-item dropdown active"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">고객센터<b class="caret"></b></a>
                   <ul class="dropdown-menu">
@@ -56,32 +56,27 @@
                     <li class="dropdown-item"><a href="/board_protice_find.jsp" class="nav-link">아이디/비밀번호 찾기</a></li>
                   </ul>
                 </li>
-                 <c:choose>
-				    <c:when test="${SESS_NAME ne admin}">
-				       <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
-		                  <ul class="dropdown-menu">
-		                  	<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
-		                  </ul>
-		                </li>
-				    </c:when>
-				</c:choose>
-                
+                        <c:if test="${SESS_GRANT eq 'a'}">
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                  	<li class="dropdown-item"><a href="/board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
-                  </ul>
-                </li>
-                
-			    <c:if test="${SESS_GRANT eq 'a'}">
-				    <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
-                  	<ul class="dropdown-menu">
-                  		<li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
-                  	</ul>
-                	</li>				    
-			    </c:if>
-			    	
+                     <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
+                        <li class="dropdown-item"><a href="board_protice_register.jsp" class="nav-link">공지사항 등록</a></li>
+                     </ul>
+                   </li>                
+             </c:if>
+            <%-- 
+            <c:choose>
+                <c:when test="${SESS_NAME ne admin}">
+                   <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">관리자 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                           <li class="dropdown-item"><a href="board_manager_game_create.jsp" class="nav-link">게임등록</a></li>
+                        </ul>
+                      </li>
+                      </c:choose>
+                </c:when> --%>
+            
+      
               </ul>
-              
             </div>
             
             <div id="search" class="collapse clearfix">

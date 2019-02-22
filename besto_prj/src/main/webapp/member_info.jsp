@@ -51,7 +51,7 @@
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
               <div id="basket" class="col-lg-12">
-                <form method="get" action="member_update.jsp">
+                <form method="post" action="/Passwordhg.do">
                   <div class="table-responsive">
                     <h4>◈ 개인정보</h4>
                   		<p class="text-muted lead"><font size="2">개인정보를 <strong>확인, 수정</strong>하기 위해서는 비밀번호를 입력해주세요.</font></p>
@@ -60,9 +60,10 @@
                   <div class="col-md-4 pull-center">
                   <br>
                     <h5>※ 비밀번호 확인</h5>
-                    <input id="confirm_password" type="password" class="form-control">
+                    <input id="usersPw" name="usersPw" type="password" class="form-control">
                     <br>
                     <button type="submit" class="btn btn-template-outlined"  onclick="location.href='member_update.jsp'" style="display: block; margin: 0 auto;">비밀번호 확인</button>
+                    <input id="checkm" name="checkm" type="hidden" value="1">
                 </div>
                 </div>
                </div>

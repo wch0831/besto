@@ -87,10 +87,6 @@
  		from FREE_BOARD f, USERS u
  		where f.users_seq = u.users_seq
  	</select>
-
-
- 	<!-- 게시글 삭제 -->
-
  	
  	<select id="free_board_detail" parameterType="int" resultMap="boardfree-map">
  	 	select f.post_seq, f.free_board_title, f.free_board_content, u.users_name, f.board_code, f.free_board_regdate
@@ -133,16 +129,8 @@
     	update free_board set free_board_del = 'y' where users_seq = #{usersSeq} 
     </update> -->
     
-    <!-- 게시글 수정 -->
-   	<update id="free_board_update">
-   		update free_board set free_board_title = #{freeBoardTitle}, free_board_content = #{freeBoardContent}, free_board_regdate = sysdate
-   		where users_seq = #{userSeq}
-   	</update>
-
-    
-    
     <!-- 댓글 조회 -->
-   <!-- <select id="free_board_comment_all" resultMap="board_reply_1n">
+   <!-- 	<select id="free_board_comment_all" resultMap="board_reply_1n">
    		select r.reply_seq, r.reply_content, r.reply_writer, to_char(r.reply_regdate, 'yyyy-mm-dd hh24:mi')
    		from free_board f, reply r
    		where f.post_seq = r.post_seq AND f.post_seq = #{postSeq}
@@ -150,7 +138,6 @@
    	</select> -->
        
    	<!-- 댓글 입력 -->
-
    	<!-- <insert id="free_board_comment_input" parameterType="com.com.board.ReplyVO">
    		insert into reply 
    		values (reply_seq.nextval, #{replyContent}, #{replyWriter}, sysdate, #{postSeq}, #{boardCode})
@@ -158,7 +145,8 @@
    	
    	댓글 삭제
    	<delete id="free_board_comment_del">
-		delete from reply
+		delete *
+		from reply
 		where reply_seq = #{replySeq} AND board_code = #{boardCode}
    	</delete>
    	
@@ -167,10 +155,6 @@
    		update reply set reply_content = #{replyContent}, reply_regdate = sysdate 
    		where reply_seq = #{replySeq} AND post_seq = #{postSeq} AND board_code = #{boardCode}
    	</update> -->
-   	
-   	
-   	
-   	
    	
    	<!-- 공지사항 뽑기~ -->
    	<select id="notice_all" resultMap="notice-map">
@@ -182,7 +166,7 @@
    	<select id="notice_detail" parameterType="int" resultMap="notice-map">
    		select *
    		from notice
-   		where notice_seq = #{noticeSeq}
+   		where notice_seq = #{value}
    	</select>
    	
 
@@ -194,13 +178,13 @@
    	<!-- 공지사항 입력 -->
    	<insert id="notice_insert" parameterType="com.com.board.NoticeVO">
    		insert into notice
-   		values (notice_seq.nextval, notice_title = #{noticeTitle}, notice_content= #{noticeContent}, notice_regdate = #{noticeRegdate}, notice_hits = 0, users_seq = #{usersSeq})
+   		values(notice_seq.nextval, #{noticeTitle}, #{noticeContent}, sysdate, 0, 5)
    	</insert>	
    	
    	<!-- 공지사항 수정 -->
-   	<update id="notice_update" parameterType="integer">
+   	<update id="notice_update" parameterType="com.com.board.NoticeVO">
    		update notice set notice_title = #{noticeTitle}, notice_content = #{noticeContent}, notice_regdate = sysdate
-   		where notice_seq = #{value}   	
+   		where notice_seq = #{noticeSeq}   	
    	</update>
    	
    	<!-- 공지사항 삭제 -->
@@ -209,7 +193,12 @@
    		where notice_seq = #{noticeSeq}
    	</delete>
    	
-
+   	<!-- 공지사항 검색 -->
+   	<select id="notice_search" parameterType="String" resultMap="notice-map">
+   		select * 
+   		from notice 
+   		where notice_title like '%'||#{value}||'%'
+   	</select>
 
 
 </mapper>

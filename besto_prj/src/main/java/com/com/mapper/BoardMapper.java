@@ -26,7 +26,11 @@ public interface BoardMapper{
 
 	public ArrayList<NoticeVO> notice_all();
 	public int notice_count(int a);
-	public NoticeVO notice_detail();
+	public NoticeVO notice_detail(int a);
+	public int notice_insert(NoticeVO nvo);
+	public int notice_update(NoticeVO nvo);
+	public int notice_delete(int a);
+	public ArrayList<NoticeVO> notice_search(String b);
 	
 
 	public ArrayList<BoardChallengeVO> challenge_board_detail(int postSeq);

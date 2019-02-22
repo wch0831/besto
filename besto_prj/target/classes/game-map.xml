@@ -13,9 +13,7 @@
 		<result property="matchStadium" 		column="match_stadium" />
 		<result property="matchStatus" 		column="match_status" />
 		<result property="usersSeq" 		column="users_seq" />
-				
 		<result property="gameGubun" 		column="game_gubun" />
-		
 		<result property="victoryrateWin" 		column="victoryrate_win" />
 		<result property="victoryrateDraw" 		column="victoryrate_draw" />
 		<result property="victoryrateLose" 		column="victoryrate_lose" />
