@@ -7,7 +7,7 @@
 <head>  
 <!-- <script>
 $(document).ready(function(){
-	
+   
 });
 </script> -->
 <!-- Header Include CSS START-->
@@ -73,16 +73,18 @@ $(document).ready(function(){
                         </tr>
                       </thead>
                       <tbody>
+                      <c:forEach var="a" items="${KEY_RESULT}"> 
                         <tr>    
-                          <td style = "text-align:center;">1</td>
-	                       <td style = "text-align:center;">승부식</td>
-	                       <td style = "text-align:center;">19.3회차</td>
-                           <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">다 날려먹었어요..</font></a></td>
-                           <td style = "text-align:center;">이문경</td>
-                           <td style = "text-align:center;">2019.02.12</td>
-                           <td style = "text-align:center;">30</td>
-                           <td style = "text-align:center;"><font color="red">발매중</font></td>
+                          <td style = "text-align:center;">${a.postSeq}</td>
+                          <td style = "text-align:center;">${a.challengeBoardGcode}</td>
+                          <td style = "text-align:center;">${a.challengeBoadrRoundseq}</td>
+                           <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">${a.challengeBoardTitle}</font></a></td>
+                           <td style = "text-align:center;">${a.usersSeq}</td>
+                           <td style = "text-align:center;">${a.challengeBoardRegdate}</td>
+                           <td style = "text-align:center;">${a.challengeBoardHits}</td>
+                           <td style = "text-align:center;"><font color="red">${a.boardCode}</font></td>
                         </tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                     <br>
@@ -94,17 +96,17 @@ $(document).ready(function(){
             
 <!-- style = "vertical-align:right;" -->
 <!-- 검색바 -->
-			<div class="col-md-10 pull-right">
+         <div class="col-md-10 pull-right">
               <div class="row pull-right">
               <div class="btn-group bootstrap-select bs-select ">
-              	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position:absolute; align:right; will-change: transform; top:0px; left:50px;">
-              	 </div>
-					<select class="bs-select" tabindex="-98" style="width:50px;">
+                  <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position:absolute; align:right; will-change: transform; top:0px; left:50px;">
+                  </div>
+               <select class="bs-select" tabindex="-98" style="width:50px;">
                       <option value="title">제목</option>
                       <option value="user">작성자</option>
                      </select>
                  </div>
-            	<div class="panel-body" >
+               <div class="panel-body" >
                   <form role="search">
                     <div class="input-group">
                       <input type="text" placeholder="검색" class="form-control"><span class="input-group-btn">

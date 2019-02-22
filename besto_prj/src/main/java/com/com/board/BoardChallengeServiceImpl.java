@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.com.mapper.BoardMapper;
 
 @Service
-public class BoardChallengeServiceImpl implements BoardChallengeService{
+public class BoardChallengeServiceImpl {
 
 	@Autowired
-	private BoardMapper boardMapper ;
+	private BoardMapper boardMapper;
 
 	public ArrayList<BoardChallengeVO> BoardChallengeList() {
 		return boardMapper.challenge_board_select();

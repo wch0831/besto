@@ -25,8 +25,9 @@ function openWindow_match(){
     window.open("board_open_window_match.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=yes" );  
 }
 
-function openWindow_history(){  
-    window.open("board_open_window_history.jsp", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=yes" );  
+function openWindow_history(seq){  
+	console.log(seq);
+    window.open("/board_game_record/"+seq+".do", "승부식보기", "width=1310, height=750, location=no, toolbar=no, menubar=no, scrollbars=yes, resizable=yes" );  
 }
 </script>
 
@@ -107,7 +108,7 @@ function openWindow_history(){
 	                         <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_match();"> 구매하기> </button></td>
 							</c:when>
 							<c:when test="${vv.gameGubun=='r'}">
-	                         <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_history();"> 구매하기> </button></td>
+	                         <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_history(${vv.gameSeq});"> 구매하기> </button></td>
 							</c:when>
 	                        </c:choose> 
 	                         

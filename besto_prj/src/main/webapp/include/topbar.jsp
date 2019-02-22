@@ -60,7 +60,7 @@
                 </p>
               </form>
               <p class="text-center text-muted">아직 회원이 아니세요?</p>
-              <p class="text-center text-muted"><a href="member_register.jsp"><strong>회원가입 하기</strong></a></p>
+              <p class="text-center text-muted"><a href="/member_register.jsp"><strong>회원가입 하기</strong></a></p>
             </div>
           </div>
         </div>
