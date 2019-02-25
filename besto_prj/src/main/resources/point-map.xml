@@ -43,6 +43,3 @@
  	 insert into point values(point_seq.nextval, 1000, 1000, 'charge',sysdate, #{usersSeq},null)
  	</insert>
 </mapper>	
-
-	
-	

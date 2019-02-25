@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
+
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +10,10 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+
+
+
+
 </head>
 
   <body>
@@ -59,33 +65,66 @@
                   		<p class="text-muted lead"><font size="2">상세내용을 보시려면 <strong>게임종류, 구매일시, 상태</strong>를 클릭해 주세요.</font></p>
                   
     
-                    <table class="table">
+                     <table class="table">
 	                      <thead bgcolor="#EEEEEE">
 	                        <tr>
 	                          <th style = "text-align:center;">/</th>
 	                          <th style = "text-align:center;">게임종류</th>
-	                          <th style = "text-align:center;">회차</th>
 	                          <th style = "text-align:center;">구매일시</th>
+	                          <th style = "text-align:center;">회차</th>
 	                          <th style = "text-align:center;">투표권 고유번호</th>
 	                          <th style = "text-align:center;">구매금액</th>
 	                          <th style = "text-align:center;">상태</th>
+	                          <th style = "text-align:center;">적중</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
+	                      
+	                      <c:forEach var="vv" items="${KEY_BUYLIST}">
 	                        <tr>
 	                          <td style = "text-align:center;">
                 					<label>
                    						<input type="checkbox"><span class="colour white"></span>
                 					</label>
 							  </td>
-	                          <td style = "text-align:center;">승부식</td>
-	                          <td style = "text-align:center;">2019.02.12</td>
-	                          <td style = "text-align:center;">19.3회차</td>
-	                          <td style = "text-align:center;">C0D1-38BB-C570-FA30</td>
-	                          <td style = "text-align:center;">2,000   <strong>원</strong>	</td>
-	                          <td style = "text-align:center;">발매중</td>
+							  <c:set var="gubun" value="${vv.ggubun}"/>
+							  <c:choose>
+							     <c:when test="${gubun eq 'v'}">
+	                                 <td style = "text-align:center;">승부식</td>
+	                              </c:when>
+	                                  <c:otherwise>
+	                                      <td style = "text-align:center;">기록식</td>
+	                                  </c:otherwise>
+	                          </c:choose>
+	                          
+	                          <td style = "text-align:center;">${vv.bregdate}</td>
+	                          <td style = "text-align:center;">${vv.bseq}	</td>
+	                          <td style = "text-align:center;">${vv.groundseq}</td>
+	                          <td style = "text-align:center;">${vv.bprice}<strong>원</strong></td>
+	                          
+	                          <c:set var="gstatus" value="${vv.gstatus}"/>
+							  <c:choose>
+							  <c:when test="${vv.gstatus eq 'f'}">
+	                           <td style = "text-align:center;">매치끝</td>
+	                          </c:when>
+	                          <c:otherwise>
+	                           <td style = "text-align:center;">진행중</td>
+	                          </c:otherwise>
+	                          </c:choose>
+	                         
+	                        
+							  <c:choose>
+							  <c:when test="${vv.bhityn eq 'y'}">
+	                          <td style = "text-align:center;">적중</td>
+	                          </c:when>
+	                            <c:otherwise>
+	                           <td style = "text-align:center;">적중실패</td>
+	                          </c:otherwise>
+	                          </c:choose>
+	                          
 	                        </tr>
-	                        <tr>
+	                        </c:forEach>
+	                       <!--   <tr>
 	                          <td style = "text-align:center;">
                 					<label>
                    						<input type="checkbox"><span class="colour white"></span>
@@ -97,9 +136,9 @@
 	                          <td style = "text-align:center;">C0D1-38BB-C570-FA31</td>
 	                          <td style = "text-align:center;">5,000   <strong>원</strong>	</td>
 	                          <td style = "text-align:center;">적중안됨</td>
-	                        </tr>
+	                        </tr> -->
 	                      </tbody>
-	                    </table>
+	                    </table> 
                   </div>
                 </form>
             </div>
@@ -107,14 +146,14 @@
             
             <!-- 검색바 -->
               <div class="col-md-3 pull-right">
-            <div class="panel-body">
+           <!--  <div class="panel-body">
                   <form role="search">
                     <div class="input-group">
                       <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
                         <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
                     </div>
                   </form>
-                </div>
+                </div> -->
             </div>
             <br>
 <!-- 검색바 -->

@@ -24,7 +24,11 @@
     <link rel="stylesheet" href="/css/custom.css">
     <!-- Favicon and apple touch icons-->
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+<<<<<<< HEAD
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+=======
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
     <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76x76.png">

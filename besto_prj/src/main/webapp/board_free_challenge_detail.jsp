@@ -9,6 +9,7 @@
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
 
+<<<<<<< HEAD
 <script>
 
 
@@ -40,6 +41,8 @@ $(document).ready(function(){
 
 </script>
 
+=======
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 
 </head>
 

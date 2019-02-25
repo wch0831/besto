@@ -20,7 +20,7 @@
     <servlet-name>appServlet</servlet-name>
      <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  
+ 
   <!--  post 한글처리    -->
 <filter>
   <filter-name>encodingFilter</filter-name>
