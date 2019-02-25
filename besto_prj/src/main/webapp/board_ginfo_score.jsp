@@ -141,6 +141,7 @@ function openWindow_history(){
 						<!-- Sidebar_Main Include CSS START-->
 						<%@ include file="/include/sidebar_board_main.jsp"%>
 						<!-- Sidebar_Main Include CSS END-->
+						
 					</div>
 
 					<!-- 게시판 메인부분 -->

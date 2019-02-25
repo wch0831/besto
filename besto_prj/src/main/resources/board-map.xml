@@ -241,9 +241,43 @@
         order by notice_seq desc
    	</select>
    	
-   	<!-- <update id="notice_count" parameterType="integer">
+   	<select id="notice_detail" parameterType="int" resultMap="notice-map">
+   		select *
+   		from notice
+   		where notice_seq = #{value}
+   	</select>
+   	
+
+   	<!-- 공지사항 hit수 올리기 -->
+	<update id="notice_count" parameterType="integer">
    		update notice set notice_hits = notice_hits +1 where notice_seq = #{value}
-   	</update> -->
+   	</update>
+   	
+   	<!-- 공지사항 입력 -->
+   	<insert id="notice_insert" parameterType="com.com.board.NoticeVO">
+   		insert into notice
+   		values(notice_seq.nextval, #{noticeTitle}, #{noticeContent}, sysdate, 0, 5)
+   	</insert>	
+   	
+   	<!-- 공지사항 수정 -->
+   	<update id="notice_update" parameterType="com.com.board.NoticeVO">
+   		update notice set notice_title = #{noticeTitle}, notice_content = #{noticeContent}, notice_regdate = sysdate
+   		where notice_seq = #{noticeSeq}   	
+   	</update>
+   	
+   	<!-- 공지사항 삭제 -->
+   	<delete id="notice_delete" parameterType="integer">
+   		delete from notice
+   		where notice_seq = #{noticeSeq}
+   	</delete>
+   	
+   	<!-- 공지사항 검색 -->
+   	<select id="notice_search" parameterType="String" resultMap="notice-map">
+   		select * 
+   		from notice 
+   		where notice_title like '%'||#{value}||'%'
+   	</select>
+
 
 </mapper>
 

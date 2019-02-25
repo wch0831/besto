@@ -1,45 +1,56 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.com.mapper.PointMapper">
-	<resultMap id="pointMap" type="com.com.point.PointVO">
-		<id property="pointSeq" column="point_seq" />
-		<result property="pointChange" column="point_change" />
-		<result property="pointCurrent" column="point_current" />
-		<result property="pointGubun" column="point_gubun" />
-		<result property="pointRegdate" column="point_regdate" />
-		<result property="usersSeq" column="users_seq" />
-		<result property="refundSeq" column="refund_seq" />
+
+
+	
+	<resultMap type="com.com.point.PointVO" id="pointMap">
+		<id column="point_seq" property="pointSeq" />
+		<result column="point_change" property="pointChange" />
+		<result column="point_current" property="pointCurrent" />
+		<result column="point_gubun" property="pointGubun" />
+		<result column="point_regdate" property="pointRegdate" />
+		<result column="users_seq" property="usersSeq" />
+		<result column="refund_seq" property="refundSeq" />
 	</resultMap>
 
 	<!-- 특정회원에 대한 포인트 조회 -->
-	<select id="pointSelectOne" parameterType="int"	resultMap="pointMap">
-		select * from point where users_seq = #{usersSeq}
-	</select>
- 
-	<!-- 회원의 포인트 충전 -->
-	<insert id="pointRecharge" parameterType="com.com.point.PointVO">
-		insert into point(point_seq, point_change, point_current, point_gubun,
-		point_regdate, users_seq)
-		values(point_seq.nextval,#{pointChange},(select point_current+#{pointChange} from point where point_regdate =
-		(select max(point_regdate) from point where users_seq =
-		#{usersSeq})),charge,to_char(sysdate, 'mm/dd/yyyy
-		hh24:mi'),#{usersSeq})
- 	</insert>
- 
+
+
+
 	
+	<select id="pointSelectOne" resultType="hashmap"
+		parameterType="hashmap">
+		<![CDATA[select rownum as ss, se.* 
+			from (select rownum as rw, n.* from (select p.* from (select * from point where users_seq = #{usersSeq}) p order by p.point_regdate desc) n) se 
+			where se.rw between (#{pageStart}+1) and (#{pageStart}+5)]]>
+	</select>
+
+	<!-- 회원의 포인트 충전 -->
+
+
+	<insert id="pointRecharge" parameterType="com.com.point.PointVO">
+	insert into point values(point_seq.nextval,#{pointChange}, (select point_current + #{pointChange} from point where point_regdate =(select max(point_regdate) from point where users_seq =#{usersSeq})),'charge',to_char(sysdate, 'mm/dd/yyyy hh24:mi:ss'),#{usersSeq},null) </insert>
+
 	<!-- 회원의 포인트 환급 -->
+
+
 	<insert id="pointRefund" parameterType="com.com.point.PointVO">
-	insert into point(point_seq, point_change, point_current, point_gubun,
-		point_regdate, users_seq)
-		values(point_seq.nextval,#{pointChange},(select point_current-#{pointChange} from point where point_regdate = (select
-		max(point_regdate) from point where users_seq =
-		#{usersSeq})),refund,to_char(sysdate, 'mm/dd/yyyy
-		hh24:mi'),#{usersSeq})
+	insert into point values(point_seq.nextval,#{pointChange},(select point_current - #{pointChange} from point where point_regdate =(select max(point_regdate) from point where users_seq=#{usersSeq})),'refund',to_char(sysdate, 'mm/dd/yyyy hh24:mi:ss'),#{usersSeq},null) 
 	</insert>
 
- 	
- 	<insert id="point1000" parameterType="integer">
- 	 insert into point values(point_seq.nextval, 1000, 1000, 'charge',sysdate, #{usersSeq},null)
- 	</insert>
-</mapper>	
+	<insert id="point1000" parameterType="integer">
+	insert into point values(point_seq.nextval, 1000, 1000, 'charge',sysdate, #{usersSeq},null) 
+	</insert>
+
+	<select id="pointCheck" parameterType="integer" resultMap="pointMap">
+		select point_current from point where point_regdate = (select max(point_regdate) from point where users_seq = #{value})
+	</select>
+
+	<select id="searchRownum" resultType="integer" parameterType="integer">
+	select count(rownum) from (select * from point where users_seq = #{value})
+	</select>
+
+</mapper>

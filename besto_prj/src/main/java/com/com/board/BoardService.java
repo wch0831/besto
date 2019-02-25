@@ -29,4 +29,18 @@ public interface BoardService {
 	public int boardBuyInsert(BoardBuyHistoryVO fvo);
 	public int boardBuyUpdate(BoardBuyHistoryVO fvo);
 	
+	
+	//공지사항
+	public ArrayList<NoticeVO> noticeList();
+	public NoticeVO noticeDetail(int a);
+	public int noticeCount(int a);
+	public int notice_insert(NoticeVO nvo);
+	public int noticeUpdate(NoticeVO nvo);
+	public int noticeDelete(int a);
+	public ArrayList<NoticeVO> noticeSearch(String b);
+	
+	
+
+	
+	
 }

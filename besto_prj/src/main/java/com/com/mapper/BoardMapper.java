@@ -17,6 +17,17 @@ import com.com.board.BoardChallengeVO;
 @Mapper
 public interface BoardMapper{
 	
+
+	//공지사항
+	public ArrayList<NoticeVO> notice_all();
+	public int notice_count(int a);
+	public NoticeVO notice_detail(int a);
+	public int notice_insert(NoticeVO nvo);
+	public int notice_update(NoticeVO nvo);
+	public int notice_delete(int a);
+	public ArrayList<NoticeVO> notice_search(String b);
+	
+
 	//자유게시판
 	public ArrayList<BoardFreeVO> free_board_select(); //목록
 	public BoardFreeVO free_board_detail(int postSeq); //상세
@@ -42,6 +53,7 @@ public interface BoardMapper{
 	public int buy_history_board_update(BoardBuyHistoryVO vo); //수정
 	
 	
-	public ArrayList<NoticeVO> notice_all();
+	
+	
 
 }
