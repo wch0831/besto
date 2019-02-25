@@ -32,12 +32,15 @@ public class BoardController {
 
 	/*상세보기*/
 	@RequestMapping(value="/board_free_detail/{postSeq}.do", method = RequestMethod.GET)
-	public ModelAndView freeDetail(HttpServletRequest request, @PathVariable(value="postSeq") int postSeq) {
-		System.out.println(postSeq + " ::: ctlBoardDetail" + request.getServletContext().getContextPath());
+	public ModelAndView freeDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		ModelAndView mav = new ModelAndView();
 		BoardFreeVO bvo = bs.boardFreeDetail(postSeq);
 		mav.addObject("KEY_BVO", bvo);
-		mav.setViewName("board_free_detail");
+		if(gubun.equals("a")) {
+			mav.setViewName("board_free_detail");
+		}else if(gubun.equals("b")){
+			mav.setViewName("board_free_update");
+		}
 		return mav;
 	}
 
@@ -48,16 +51,20 @@ public class BoardController {
 		return "redirect:/board_free.do";   //포워드로 사용해도 ㄱㅊ음 
 	}
 
+	
 	/*게시물 수정*/
-	@RequestMapping(value="/board_free_update/{postSeq}.do", method=RequestMethod.POST)
+	@RequestMapping(value="/board_free_update.do", method=RequestMethod.POST)
 	public String freeUpdate(BoardFreeVO vo) {
 		System.out.println("===================================================================================");
 		bs.boardFreeUpdate(vo);
-		return "redirect:/board_free_update.jsp"; 
+		return "redirect:/board_free.do"; 
 	}
 	
 	
 
+	
+	
+	
 	/** 도전분석방 */
 	/*리스트*/
 	@RequestMapping(value="/board_free_challenge.do" , method = RequestMethod.GET)
@@ -72,12 +79,15 @@ public class BoardController {
 
 	/*상세보기*/
 	@RequestMapping(value="/board_free_challenge_detail/{postSeq}.do", method = RequestMethod.GET)
-	public ModelAndView challengeDetail(@PathVariable(value="postSeq") int postSeq) {
-		System.out.println(postSeq + " ::: ctlBoardDetail");
+	public ModelAndView challengeDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		ModelAndView mav = new ModelAndView();
 		BoardChallengeVO bvo = bs.BoardChallengeDetail(postSeq);
 		mav.addObject("KEY_BVO", bvo);
-		mav.setViewName("board_free_challenge_detail");
+		if(gubun.equals("a")) {
+			mav.setViewName("board_free_challenge_detail");
+		}else if(gubun.equals("b")){
+			mav.setViewName("board_free_challenge_update");
+		}
 		return mav;
 	}
 	
@@ -89,9 +99,17 @@ public class BoardController {
 	}
 	
 	
+	/*게시물수정*/
+	@RequestMapping(value="/board_free_challenge_update.do", method=RequestMethod.POST)
+	public String challengeUpdate(BoardChallengeVO vo) {
+		System.out.println("===================================================================================");
+		bs.boardChallengeUpdate(vo);
+		return "redirect:/board_free_challenge.do"; 
+	}
+	
+	
 	
 	/** 적중토론방 */
-	
 	/*리스트*/
 	@RequestMapping(value="/board_free_hit.do" , method = RequestMethod.GET)
 	public ModelAndView hitList() {
@@ -104,47 +122,56 @@ public class BoardController {
 	}
 	
 	/*상세보기*/
-	@RequestMapping(value="/board_free_betting_hit_detail/{postSeq}.do", method = RequestMethod.GET)
-	public ModelAndView hitDetail(@PathVariable(value="postSeq") int postSeq) {
+	@RequestMapping(value="/board_free_hit_detail/{postSeq}.do", method = RequestMethod.GET)
+	public ModelAndView hitDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		System.out.println(postSeq + " ::: hitDetail");
 		ModelAndView mav = new ModelAndView();
 		BoardHitHistoryVO bvo = bs.BoardFreeHitDetail(postSeq);
 		mav.addObject("KEY_BVO", bvo);
-		mav.setViewName("board_free_betting_hit_detail");
+		if(gubun.equals("a")) {
+			mav.setViewName("board_free_hit_detail");
+		}else if(gubun.equals("b")){
+			mav.setViewName("board_free_hit_update");
+		}
 		return mav;
 	}
 	
 	/*게시물등록*/
 	@RequestMapping(value="/board_free_hit_register.do", method = RequestMethod.POST)
-	public String boardHitInsert(BoardHitHistoryVO bvo) {
-		bs.boardHitInsert(bvo);
+	public String boardHitInsert(BoardHitHistoryVO vo) {
+		bs.boardHitInsert(vo);
 		return "redirect:/board_free_hit.do";   //포워드로 사용해도 ㄱㅊ음 
 	}
 	
-	
-	
-	
+	/*게시물 수정*/
+	@RequestMapping(value="/board_free_hit_update.do", method=RequestMethod.POST)
+	public String hitUpdate(BoardHitHistoryVO vo) {
+		bs.boardHitUpdate(vo);
+		return "redirect:/board_free_hit.do"; 
+	}
 	
 	/** 베팅토론방 */
 	/*리스트*/
 	@RequestMapping(value="/board_free_betting.do" , method = RequestMethod.GET)
 	public ModelAndView buyList() {
 		ModelAndView mav = new ModelAndView();
-		ArrayList<BoardBuyHistoryVO> brlist =bs.BoardBuyHistoryList();
-		System.out.println(brlist.get(0).getPostSeq());
+		ArrayList<BoardBuyHistoryVO> brlist =bs.boardBuyHistoryList();
 		mav.addObject("KEY_RESULT", brlist);
 		mav.setViewName("board_free_betting");
 		return mav;
 	}
 	/*상세보기*/
-	
 	@RequestMapping(value="/board_free_betting_buy_detail/{postSeq}.do", method = RequestMethod.GET)
-	public ModelAndView bettingDetail(@PathVariable(value="postSeq") int postSeq) {
+	public ModelAndView bettingDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		System.out.println(postSeq + " ::: buyDetail");
 		ModelAndView mav = new ModelAndView();
 		BoardBuyHistoryVO bvo = bs.BoardBuyHistoryDetail(postSeq);
 		mav.addObject("KEY_BVO", bvo);
-		mav.setViewName("board_free_betting_buy_detail");
+		if(gubun.equals("a")) {
+			mav.setViewName("board_free_betting_buy_detail");
+		}else if(gubun.equals("b")){
+			mav.setViewName("board_free_betting_buy_update");
+		}
 		return mav;
 	}
 	
@@ -155,5 +182,20 @@ public class BoardController {
 		return "redirect:/board_free_betting.do";   //포워드로 사용해도 ㄱㅊ음 
 	}
 	
-
+	/*게시물수정*/
+	@RequestMapping(value="/board_free_betting_buy_update.do", method=RequestMethod.POST)
+	public String buyUpdate(BoardBuyHistoryVO vo) {
+		bs.boardBuyUpdate(vo);
+		return "redirect:/board_free_betting.do"; 
+	}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

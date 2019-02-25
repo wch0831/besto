@@ -75,7 +75,7 @@
 	                          <td style = "text-align:center;">${a.postSeq}</td>
 	                          <td style = "text-align:center;">${a.challengeBoardGcode}</td>
 	                          <td style = "text-align:center;">${a.challengeBoadrRoundseq}</td>
-	                          <td style = "text-align:center;"><a href="board_free_challenge_detail/${a.postSeq}.do"><font color="black">${a.challengeBoardTitle}</font></a></td>
+	                          <td style = "text-align:center;"><a href="board_free_challenge_detail/${a.postSeq}.do?gubun=a"><font color="black">${a.challengeBoardTitle}</font></a></td>
 	                          <td style = "text-align:center;">${a.usersName}</td>
 	                          <td style = "text-align:center;">${a.challengeBoardRegdate}</td>
 	                          <td style = "text-align:center;">${a.challengeBoardHits}</td>

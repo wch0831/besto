@@ -78,7 +78,7 @@ $(document).ready(function(){
                           <td style = "text-align:center;">${a.postSeq}</td>
 	                       <td style = "text-align:center;">${a.hithistoryDiscussionGcode}</td>
 	                       <td style = "text-align:center;">${a.hithistoryDiscussionRoundseq}</td>
-                           <td style = "text-align:center;"><a href="/board_free_betting_hit_detail/${a.postSeq}.do"><font color="black">${a.hithistoryDiscussionTitle}</font></a></td>
+                           <td style = "text-align:center;"><a href="/board_free_hit_detail/${a.postSeq}.do?gubun=a"><font color="black">${a.hithistoryDiscussionTitle}</font></a></td>
                            <td style = "text-align:center;">${a.usersName}</td>
                            <td style = "text-align:center;">${a.hithistoryDiscussionRegdate}</td>
                            <td style = "text-align:center;">${a.hithistoryDiscussionHits}</td>

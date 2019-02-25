@@ -29,7 +29,8 @@ $(document).ready(function(){
 	
 	$("#board_update").on("click", function(){
 		if (confirm("게시글을 수정하시겠습니까?") == true){
-			location = "/board_free_update.jsp";
+			/* location = "/boardUpdate"; */
+			$("#boardUpdate").submit();
 		} else{   //취소
 		     alert("게시글 수정이 취소되었습니다.");
 		 }
@@ -84,10 +85,9 @@ $(document).ready(function(){
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
-                <form method="get">
+                <form method="get" id="boardUpdate" action="/board_free_detail/${KEY_BVO.postSeq}.do">
                 <input type="hidden" name="postSeq" value="${KEY_BVO.postSeq}"/>
-                <input type="hidden" name="freeBoardTitle" value="${KEY_BVO.freeBoardTitle}"/>
-                <input type="hidden" name="freeBoardContent" value="${KEY_BVO.freeBoardContent}"/>
+                <input type="hidden" value="b" name="gubun">
                   <h4>◈ 자유게시판</h4>
                   <br>
                   <h5>${KEY_BVO.freeBoardTitle}</h5><hr>

@@ -10,7 +10,7 @@
 <!-- Header Include CSS END-->
 
   <script>
-  	$(document).ready(function(){
+  	/* $(document).ready(function(){
   		$("#freeClick").click(function(){
   			var freeBoardTitle = $("#freeBoardTitle").val();
   			var freeBoardContent = $("#freeBoardContent").val();
@@ -28,8 +28,9 @@
   			
   		});
   		
-  	});
+  	}); */
   	
+  
   	
   </script>
 
@@ -81,17 +82,18 @@
                   <h4>◈ 자유게시판<font size="3"> - 수정하기</font> </h4><br>
                 </div>
  
-                <form name = "board" method="post" action="/board_free_register.do">
+                <form name = "board_update" id="board_update" method="post" action="/board_free_update.do">
+                <input type="hidden" value="${KEY_BVO.postSeq}" name="postSeq">
                   <div class="col-sm-10">
                     <div class="form-group">
                     
-                    <input name = "freeBoardTitle" id="freeBoardTitle" class="form-control" type="text" placeholder="${param.freeBoardContent}" style="width:875px;"><br>
+                    <input name = "freeBoardTitle" id="freeBoardTitle" class="form-control" type="text" placeholder="${KEY_BVO.freeBoardTitle}" style="width:875px;"><br>
                     
-                    <textarea name = "freeBoardContent"  id="freeBoardContent" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
+                    <textarea name = "freeBoardContent"  id="freeBoardContent" class="form-control" placeholder="${KEY_BVO.freeBoardContent}" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
                     </div>
                     </div>
                   <button type="button" class="btn btn-danger pull-right">취소</button>
-                  <button name="freeClick" id="freeClick" type="button" class="btn btn-primary pull-right">작성</button>
+                  <button type="submit" class="btn btn-primary pull-right">수정완료</button>
                 </form>
                   </div>
 

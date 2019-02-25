@@ -12,7 +12,7 @@
 
 
 <script>
-  	$(document).ready(function(){
+  	/* $(document).ready(function(){
   		$("#freeClick").click(function(){
   			var buyhistoryDiscussionTitle = $("#buyhistoryDiscussionTitle").val();
   			var buyhistoryDiscussionContent = $("#buyhistoryDiscussionContent").val();
@@ -30,7 +30,7 @@
   			
   		});
   		
-  	});
+  	}); */
   	
   	
   </script>
@@ -52,7 +52,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">도전분석방 > 상세보기</h1>
+              <h1 class="h2">베팅토론방 > 수정하기</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
@@ -78,9 +78,9 @@
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
-                <form name="board"  method="post" action="/board_free_betting_buy_register.do">
+                <form name="board"  id="board_update" method="post" action="/board_free_betting_buy_update.do">
                   <div class="table-responsive">
-                  <h4>◈ 베팅토론방 작성하기</h4>
+                  <h4>◈ 베팅토론방 수정하기</h4>
                   <br>
                   <div class="col-md-13">
                   <div class="box-simple box-white same-height">
@@ -305,15 +305,14 @@
                     	<br>
                   <div class="col-sm-10">
                     <div class="form-group">
-                    <input name = "buyhistoryDiscussionTitle" id="buyhistoryDiscussionTitle" class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;"><br>
-                    <textarea name = "buyhistoryDiscussionContent" id="buyhistoryDiscussionContent" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
+                    <input name = "buyhistoryDiscussionTitle" id="buyhistoryDiscussionTitle" class="form-control" type="text" placeholder="${KEY_BVO.buyhistoryDiscussionTitle}" value="${KEY_BVO.buyhistoryDiscussionTitle}" style="width:875px;"><br>
+                    <textarea name = "buyhistoryDiscussionContent" id="buyhistoryDiscussionContent" class="form-control" placeholder="${KEY_BVO.buyhistoryDiscussionContent}" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;">${KEY_BVO.buyhistoryDiscussionContent}</textarea>
                     </div>
                     </div>
                   <button type="button" class="btn btn-danger pull-right">취소</button>
-                  <button name="freeClick" id="freeClick"  type="button" class="btn btn-primary pull-right">작성</button>
+                  <button name="bettingClick" id="bettingClick"  type="submit" class="btn btn-primary pull-right">수정완료</button>
                 </form>
                   </div>
-
             </div>
             </div>
           </div>

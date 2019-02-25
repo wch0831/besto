@@ -12,29 +12,28 @@
 
 
 <script>
-  	$(document).ready(function(){
+  	/* $(document).ready(function(){
   		$("#freeClick").click(function(){
-  			var buyhistoryDiscussionTitle = $("#buyhistoryDiscussionTitle").val();
-  			var buyhistoryDiscussionContent = $("#buyhistoryDiscussionContent").val();
-  			if(buyhistoryDiscussionTitle == ""){
+  			var hithistoryDiscussionTitle = $("#hithistoryDiscussionTitle").val();
+  			var hithistoryDiscussionContent = $("#hithistoryDiscussionContent").val();
+  			if(hithistoryDiscussionTitle == ""){
   				alert("제목을 입력하세용");
-  				document.board.buyhistoryDiscussionTitle.focus();
+  				document.board.hithistoryDiscussionTitle.focus();
   				return;
   			}
-  			if(buyhistoryDiscussionContent == ""){
+  			if(hithistoryDiscussionContent == ""){
   				alert("내용을 입력하세용");
-  				document.board.buyhistoryDiscussionContent.focus();
+  				document.board.hithistoryDiscussionContent.focus();
   				return;
   			}
   			document.board.submit();
   			
   		});
   		
-  	});
+  	}); */
   	
   	
   </script>
-  
   
 
   <body>
@@ -78,9 +77,10 @@
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
-                <form name="board"  method="post" action="/board_free_betting_buy_register.do">
+                <form name = "board" id="board_update" method="post" action="/board_free_hit_update.do">
+                <input type="hidden" value="${KEY_BVO.postSeq}" name="postSeq">
                   <div class="table-responsive">
-                  <h4>◈ 베팅토론방 작성하기</h4>
+                  <h4>◈ 적중토론방 <font size="3"> - 수정하기</font></h4>
                   <br>
                   <div class="col-md-13">
                   <div class="box-simple box-white same-height">
@@ -90,18 +90,15 @@
                 <div class="btn-group bootstrap-select bs-select">
               	 <div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
               		</div>
-              	   		<h4>◈ 나의 구매내역</h4>
+              	   		<h4>◈ 나의 적중내역</h4>
 						<select class="bs-select" tabindex="-98">
-                          <option value="match">구매내역이 없습니다</option>
-                          <option value="match">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
-                          <option value="history">8회차 [2월 24일 일요일 마감]</option>
+                          <option value="match">적중내역이 없습니다</option>
+                          <option value="match">8회차 [2월 17일 적중]</option>
                         </select>
                  </div>
                           
                   <div class="table-responsive col-md-12">
-                  <p>현재 발매 중인 게임을 구매한 내역이 없습니다.<br>게임 구매 후 작성해주세요.</p>
-                  <button type="button" class="btn btn-info">게임가능 게임 보러가기</button>
+                  <p>최근 한달 이내 적중한 내역이 없습니다.</p>
                   </div>        
                  
                          <br>
@@ -301,16 +298,22 @@
                 <br>
                 <hr>
                 <br>  
-                  <h4>◈ 나의 분석</h4>
+                  <h4>◈ 적중 후기</h4>
                     	<br>
                   <div class="col-sm-10">
                     <div class="form-group">
-                    <input name = "buyhistoryDiscussionTitle" id="buyhistoryDiscussionTitle" class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;"><br>
-                    <textarea name = "buyhistoryDiscussionContent" id="buyhistoryDiscussionContent" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
+                    	글쓰기에서 입력한 내용 가져오기
+                    </div>
+                    <br>
+                    </div>
+                  <div class="col-sm-10">
+                    <div class="form-group">
+                    <input name = "hithistoryDiscussionTitle"  id="hithistoryDiscussionTitle" value="${KEY_BVO.hithistoryDiscussionTitle}" class="form-control" type="text" placeholder="${KEY_BVO.hithistoryDiscussionTitle}" style="width:875px;"><br>
+                    <textarea name = "hithistoryDiscussionContent"  id="hithistoryDiscussionContent" class="form-control" placeholder="${KEY_BVO.hithistoryDiscussionContent}" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;">${KEY_BVO.hithistoryDiscussionContent}</textarea>
                     </div>
                     </div>
                   <button type="button" class="btn btn-danger pull-right">취소</button>
-                  <button name="freeClick" id="freeClick"  type="button" class="btn btn-primary pull-right">작성</button>
+                  <button type="submit" class="btn btn-primary pull-right">수정완료</button>
                 </form>
                   </div>
 
@@ -323,7 +326,6 @@
 <!-- Footer Include CSS START-->
 <%@ include file="/include/footer.jsp" %>
 <!-- Footer Include CSS END-->
-    </div>
     
 <!-- Script Include CSS START-->
 <%@ include file="/include/script.jsp" %>
