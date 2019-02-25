@@ -26,7 +26,6 @@
 	
 	<!--  <mvc:resources mapping="/**" location="/" />  html 다이렉트 접근 위한 설정 추가 .. -->
 	<context:component-scan base-package="com.com.**" />
-	 
 
 
 	<!-- <tx:annotation-driven transaction-manager="txManager"/> -->
