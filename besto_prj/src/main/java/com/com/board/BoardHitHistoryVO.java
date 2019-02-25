@@ -2,6 +2,14 @@ package com.com.board;
 
 public class BoardHitHistoryVO {
 	
+	private String usersName;
+	
+	public String getUsersName() {
+		return usersName;
+	}
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
 	private int postSeq;
 	public int getPostSeq() {
 		return postSeq;

@@ -8,6 +8,42 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+
+<<<<<<< HEAD
+<script>
+
+
+$(document).ready(function(){
+	console.log("여기는 오니?");
+	var dd = "${BVO.code}";
+
+	console.log(dd);
+	
+	$("#board_del").on("click", function(){
+		if (confirm("정말 게시글을 삭제하시겠습니까?") == true){
+			location = "/board_delete?boardSeq=${BVO.boardSeq}&code=${BVO.code}";
+		} else{   //취소
+		     alert("게시글 삭제가 취소되었습니다.");
+		 }
+	});
+	
+	
+	$("#board_update").on("click", function(){
+		if (confirm("게시글을 수정하시겠습니까?") == true){
+			/* location = "/boardUpdate"; */
+			$("#boardUpdate").submit();
+		} else{   //취소
+		     alert("게시글 수정이 취소되었습니다.");
+		 }
+	});
+	
+});
+
+</script>
+
+=======
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
+
 </head>
 
   <body>
@@ -51,13 +87,15 @@
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
-                <form method="get" action="shop-checkout1.html">
+                <form method="get" id="boardUpdate" action="/board_free_challenge_detail/${KEY_BVO.postSeq}.do">
+                 <input type="hidden" name="postSeq" value="${KEY_BVO.postSeq}"/>
+                <input type="hidden" value="b" name="gubun">
                   <div class="table-responsive">
                   <h4>◈ 도전분석방</h4>
                   <br>
-                  <h5>이렇게 투표했어요...</h5><hr>
-                  <font size="2"><strong>작성자</strong> : 송은규(sek2***) </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                  						    <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
+                  <h5>${KEY_BVO.challengeBoardTitle}</h5><hr>
+                  <font size="2"><strong>작성자</strong> : ${KEY_BVO.usersName} </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  						    <font size="2"> <strong>등록일</strong> : ${KEY_BVO.challengeBoardRegdate}</font><br><br>
                   <div class="col-md-13">
                   <div class="box-simple box-white same-height">
                     <div class="row">
@@ -209,7 +247,7 @@
                     	<br>
                   <div class="col-sm-10">
                     <div class="form-group">
-                    	글쓰기에서 입력한 내용 가져오기
+                    	${KEY_BVO.challengeBoardContent}
                     </div>
                     <br>
                     </div>
@@ -219,8 +257,8 @@
                 <div class="col-md-12 pull-right">
                 <br>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
-                  <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 삭제</i></button>
-                  <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 수정</i></button>
+                  <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle">삭제</i></button>
+                  <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save" id="board_update">수정</i></button>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
                   <br><br>
                   </div>

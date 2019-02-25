@@ -138,7 +138,7 @@
             	<div class="panel-body" >
                   <form role="search">
                     <div class="input-group">
-                      <input type="text" placeholder="검색" class="form-control" id="search" name="search"><span class="input-group-btn">
+                      <input type="text" placeholder="검색" class="form-control" id="search" name="search"> <span class="input-group-btn">
                         <button type="button" class="btn btn-template-main" id="searchButton" name="searchButton"><i class="fa fa-search"></i></button></span>
                     </div>
                   </form>

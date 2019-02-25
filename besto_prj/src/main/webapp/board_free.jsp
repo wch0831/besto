@@ -5,12 +5,7 @@
 <html>
 
 <head> 
-
-<!-- <script>
-$(document).ready(function(){
-	
-});
-</script> -->
+ 
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
@@ -79,11 +74,9 @@ $(document).ready(function(){
                           <td style = "text-align:center;">
                           
                          <%--  <a href="/board_free_detail.do?postSeq=${a.postSeq}"><font color="black">${a.freeBoardTitle}</font></a> --%>
-                          <a href="/board_free_detail/${a.postSeq}.do"><font color="black">${a.freeBoardTitle}</font></a>
+                          <a href="/board_free_detail/${a.postSeq}.do?gubun=a"><font color="black">${a.freeBoardTitle}</font></a>
                           
                           </td>
-                          
-                          
                           <td style = "text-align:center;">${a.usersName}</td>
                           <td style = "text-align:center;">${a.freeBoardRegdate}</td>
                           <td style = "text-align:center;">${a.freeBoardHits}</td>

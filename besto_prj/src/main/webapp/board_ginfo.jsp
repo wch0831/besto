@@ -123,7 +123,7 @@ $(document).ready(function() {
                   <br>
                   <table class='table'>
                   	<thead bgcolor='#EEEEEE'>
-                  		<tr>
+                  	<tr>
                   			<th style = 'text-align:center;'>리그</th>
                   			<th style = 'text-align:center;'>경기 시작시간</th>
          			         <th style = 'text-align:center;'>홈팀 <span class='badge badge-danger'>VS</span> 원정팀</th>

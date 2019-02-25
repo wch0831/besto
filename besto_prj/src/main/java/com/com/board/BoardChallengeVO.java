@@ -12,6 +12,14 @@ public class BoardChallengeVO {
 	private String challengeBoardRegdate;
 	private int challengeBoardHits;
 	private String challengeBoardContent;
+	private String usersName;
+	
+	public String getUsersName() {
+		return usersName;
+	}
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
 	public int getPostSeq() {
 		return postSeq;
 	}

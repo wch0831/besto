@@ -4,6 +4,41 @@
 <!DOCTYPE html>
 <html>
 
+
+<head>  
+<!-- Header Include CSS START-->
+<%@ include file="/include/header.jsp" %>
+<!-- Header Include CSS END-->
+
+  <script>
+  	$(document).ready(function(){
+  		$("#freeClick").click(function(){
+  			var challengeBoardTitle = $("#challengeBoardTitle").val();
+  			var challengeBoardContent = $("#challengeBoardContent").val();
+  			if(challengeBoardTitle == ""){
+  				alert("제목을 입력하세용");
+  				document.board.challengeBoardTitle.focus();
+  				return;
+  			}
+  			if(challengeBoardContent == ""){
+  				alert("내용을 입력하세용");
+  				document.board.challengeBoardContent.focus();
+  				return;
+  			}
+  			document.board.submit();
+  			
+  		});
+  		
+  	});
+  	
+  	
+  </script>
+
+
+</head>
+
+
+
 <head>  
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
@@ -57,7 +92,7 @@
               <br>
               
               <div id="basket" class="col-lg-12">
-                <form method="get" action="shop-checkout1.html">
+                <form name="board" method="post" action="/board_free_challenge_register.do">
               	 <p>▶ 승부선택</p>
               	 
 <!-- 승부선택 영역 -->
@@ -227,13 +262,13 @@
                     <h4>◈ 나의 경기분석</h4>
                     <div class="col-sm-10">
                     <div class="form-group">
-                    <input id="firstname" class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;"><br>
-                    <textarea id="message" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
+                    <input name = "challengeBoardTitle" id="challengeBoardTitle" class="form-control" type="text" placeholder="제목을 입력하세요" style="width:875px;"><br>
+                    <textarea name = "challengeBoardContent"  id="challengeBoardContent" class="form-control" placeholder="내용을 입력하세요" style="margin-top: 0px; margin-bottom: 0px; height: 240px; width: 875px;"></textarea>
                     </div>
                     <br>
                     </div>
                   <button type="button" class="btn btn-danger pull-right">취소</button>
-                  <button type="button" class="btn btn-primary pull-right">작성</button>
+                  <button name="freeClick" id="freeClick" type="button" class="btn btn-primary pull-right">작성</button>
                   
                 </form>
             </div>

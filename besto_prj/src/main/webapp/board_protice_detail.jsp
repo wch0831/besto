@@ -81,8 +81,12 @@ $(document).ready(function(){
                 <div class="col-md-12 pull-right">
                 <br>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
+				  
+				  <c:if test="${SESS_GRANT eq 'a' }">
                   <button type="button" class="btn btn-sm btn-danger pull-right" onclick="location.href='/protice_delete/${KEY_DETAIL.noticeSeq}.do'"><i class="fa fa-times-circle"> 삭제</i></button>
                   <button type="butoon" class="btn btn-sm btn-primary pull-right" ><i class="fa fa-save"> 수정</i></button>
+				  </c:if>
+				  
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
                   <br><br>
                   </div>
