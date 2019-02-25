@@ -1,17 +1,11 @@
 package com.com.game;
 
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-<<<<<<< HEAD
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
-=======
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 
 @RestController
 public class GameRestController {
@@ -19,8 +13,8 @@ public class GameRestController {
 	private GameService gameService;
 		
 		//---------------------------------------------------------------
-		//board_open_window_history.jsp 기록식 게임 체크박스 체크 시 구매내역확인 자동완성 처리
-		//MatchVO 클래스 :: ArrayList<RecordRateVO> recordRateVOList 프로퍼티 사용
+		//board_open_window_history.jsp 湲곕줉�떇 寃뚯엫 泥댄겕諛뺤뒪 泥댄겕 �떆 援щℓ�궡�뿭�솗�씤 �옄�룞�셿�꽦 泥섎━
+		//MatchVO �겢�옒�뒪 :: ArrayList<RecordRateVO> recordRateVOList �봽濡쒗띁�떚 �궗�슜
 		//---------------------------------------------------------------
 		@RequestMapping(value="/buyRestCtl.do", method = RequestMethod.POST)
 		public void gameInsert(MatchVO matchVO) {

@@ -12,10 +12,20 @@
 		<result property="matchHometeam" 	column="match_hometeam" />
 		<result property="matchAwayteam" 	column="match_awayteam" />
 		<result property="matchStadium" 		column="match_stadium" />
-		<result property="matchStatus" 		column="match_status" />		
+		<result property="matchStatus" 		column="match_status" />
+		<result property="homeTeamName" 		column="match_homename" />
+		<result property="awayTeamName" 		column="match_awayname" />			
 	</resultMap>
 	
+		<resultMap id="gameMap" type="com.com.game.GameVO">
+		<id 	property="gameSeq" 		column="game_seq" />
+		<result property="gameGubun" 		column="game_gubun" />
+		<result property="gameRoundseq" 	column="game_roundseq" />
+	</resultMap>
 	
+	<resultMap id="victory_11" type="com.com.game.MatchVO" extends="matchinfoMap">
+		<association property="gameVO" resultMap="gameMap"/>
+	</resultMap>
 	
  	<select id="todayMatchList"  resultMap="matchinfoMap">
  		select * 
@@ -23,11 +33,11 @@
 		where to_char(to_date(match_starttime,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD')=to_char(sysdate, 'YYYY-MM-DD')
  	</select>
  	
- 	<select id="kaeruList"  parameterType="com.com.game.MatchVO" resultMap="matchinfoMap">
-		select m.game_seq , g.game_gubun, g.game_roundseq, t1.t_name as match_hometeam, t2.t_name as match_awayteam, m.match_starttime 
+ 	<select id="kaeruList"  parameterType="com.com.game.MatchVO" resultMap="victory_11">
+		select m.game_seq , g.game_gubun, g.game_roundseq, t1.t_name as match_homename, t2.t_name as match_awayname, m.match_starttime 
 		from match m, team t1, team t2, game g 
 		where match_status = 'p' and m.match_hometeam = t1.t_code and m.match_awayteam = t2.t_code
-		and m.match_hometeam = #{tcode1} and m.match_awayteam = #{tcode2} and m.game_seq = g.game_seq
+		and m.match_hometeam = #{matchHometeam} and m.match_awayteam = #{matchAwayteam} and m.game_seq = g.game_seq
 	</select>
  	
  	<select id="matchList"  resultMap="matchinfoMap">select * from match</select>

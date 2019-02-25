@@ -17,8 +17,8 @@ public class MatchRestController {
 		MatchVO mvo = new MatchVO();
 		System.out.println(team1);
 		System.out.println(team2);
-		mvo.setTcode1(Integer.parseInt(team1));
-		mvo.setTcode2(Integer.parseInt(team2));
+		mvo.setMatchHometeam(Integer.parseInt(team1));
+		mvo.setMatchAwayteam(Integer.parseInt(team2));
 		return matchService.kaeruList(mvo);
 		}
 }

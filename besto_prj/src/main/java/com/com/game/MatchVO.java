@@ -7,15 +7,8 @@ public class MatchVO {
 	private int matchSeq;
 	private int gameSeq;
 	private String matchStarttime;
-<<<<<<< HEAD
-	private String matchHometeam;
-	private String matchAwayteam;
-	private int tcode1;
-	private int tcode2;
-=======
 	private int matchHometeam;
 	private int matchAwayteam;
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 	private String matchVsrecord;
 	private String matchStadium;
 	private String matchStatus;
@@ -74,8 +67,8 @@ public class MatchVO {
 	}
 	
 	//---------------------------------------------------------------
-	//board_open_window_history.jsp 기록식 게임 체크박스 체크 시 구매내역확인 자동완성을 위한 프로퍼티
-	//@RestController gameInsert(MatchVO matchVO) { matchVO.getRecordRateVOList() }에 사용
+	//board_open_window_history.jsp 湲곕줉�떇 寃뚯엫 泥댄겕諛뺤뒪 泥댄겕 �떆 援щℓ�궡�뿭�솗�씤 �옄�룞�셿�꽦�쓣 �쐞�븳 �봽濡쒗띁�떚
+	//@RestController gameInsert(MatchVO matchVO) { matchVO.getRecordRateVOList() }�뿉 �궗�슜
 	private ArrayList<RecordRateVO> recordRateVOList;
 	public ArrayList<RecordRateVO> getRecordRateVOList() {
 		return recordRateVOList;
@@ -156,20 +149,6 @@ public class MatchVO {
 	public void setUsersSeq(int usersSeq) {
 		this.usersSeq = usersSeq;
 	}
-<<<<<<< HEAD
-	public int getTcode1() {
-		return tcode1;
-	}
-	public void setTcode1(int tcode1) {
-		this.tcode1 = tcode1;
-	}
-	public int getTcode2() {
-		return tcode2;
-	}
-	public void setTcode2(int tcode2) {
-		this.tcode2 = tcode2;
-	}
-=======
 	public int getGameMno() {
 		return gameMno;
 	}
@@ -178,7 +157,6 @@ public class MatchVO {
 	}
 
 	
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 	
 		
 }
