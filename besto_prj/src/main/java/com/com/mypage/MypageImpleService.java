@@ -1,6 +1,7 @@
 package com.com.mypage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,23 +20,28 @@ public class MypageImpleService implements MypageService {
 		return mypageMapper.buyhitselect(users_seq) ;
 	}
 
-	public ArrayList<Object> buyAnalSysList(int users_seq) {
-		ArrayList<Object> list = new ArrayList<Object>();
-		list.add(mypageMapper.buyanalselect1(users_seq));
-		list.add(mypageMapper.buyanalselect2(users_seq));
+	public HashMap buyAnalSysList(int users_seq) {
+		HashMap map = new HashMap();
+		map.put("KEY_N1", mypageMapper.buyanalselect1(users_seq));
+		map.put("KEY_N2", mypageMapper.buyanalselect2(users_seq));
 		
-		double rate = ((Integer)list.get(1))/((Integer)list.get(0))*100;
-		list.add(rate);
+		double rate = ((Integer)map.get("KEY_N2"))/((Integer)map.get("KEY_N1"))*100;
+		map.put("KEY_N3", rate);
+		map.put("KEY_N4", mypageMapper.buyanalselect3(users_seq));
 		
-		list.add(mypageMapper.buyanalselect3(users_seq));
-		
-		return list;
+		return map;
 	}
 //
 	
 	public ArrayList<MypageVO> buyCartList(int users_seq) {
 		// TODO Auto-generated method stub
 		return mypageMapper.buycartselect(users_seq);
+	}
+
+	@Override
+	public int buyCartdel(int cart_seq) {
+		// TODO Auto-generated method stub
+		return mypageMapper.buycartdel(cart_seq);
 	}
 	
 	

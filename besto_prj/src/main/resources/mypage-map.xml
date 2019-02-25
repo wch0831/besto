@@ -6,6 +6,7 @@
 	<resultMap id="buy_hit_list" type="com.com.mypage.MypageVO">
 		<id 		property="bseq" 		column="betting_seq" />
 		<result property="groundseq" 		column="game_roundseq" />
+		<result property="cartSeq" 		column="cart_seq" />
 		<result property="ggubun" 		column="game_gubun" />
 		<result property="bregdate" 	column="betting_regdate" />
 		<result property="bprice" 		column="betting_price" />
@@ -34,7 +35,7 @@
 	
 	
 	<select id="buycartselect" parameterType="int" resultMap="buy_hit_list">
-	select g.game_gubun, g.game_roundseq, i.cart_regdate, 
+	select i.cart_seq, g.game_gubun, g.game_roundseq, i.cart_regdate, 
 	i.cart_battingprice, i.cart_battingcontent
         from cart i, game g
         where i.game_seq = g.game_seq
@@ -42,6 +43,9 @@
 	</select>
 	
 	
+	<delete id="buycartdel" parameterType="int" >
+	delete from cart where cart_seq = #{value}
+	</delete>
 	
 	
 	
@@ -49,7 +53,7 @@
 	
 	<select id="buyanalselect1" parameterType="int" resultType="int">
 	
-	  select sum(betting_price) as bprice from betting 
+	  select sum(betting_price) from betting 
 		where users_seq = #{users_seq}
 	
 	</select>
@@ -70,7 +74,7 @@
 	
 	<select id="buyanalselect3" parameterType="int" resultType="int">
 	
-	  select max(betting_price*betting_hitrate)as allbetting_content 
+	  select max(betting_price*betting_hitrate) 
 	  from betting
       where betting_hityn='y' and users_seq = #{users_seq}
 	

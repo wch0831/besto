@@ -68,22 +68,22 @@
                     </thead>
                     <tbody>
                   
-                   <c:forEach var="vv"  items="${KEY_BUYLIST}">
-                   <script>
-                    console.log("으아아아아앙")
-                   </script>
                   
+                   
+                  <script>
+                  colsole.log("ㅅㅂ....ㅅㅂ!!!!!")
+                  </script>
                       <tr>
-                        <td>${vv.bprice} <strong>원</strong></td>
-                        <td> <strong>원</strong></td>
-                        <td>63%</td>
+                        <td>${KEY_YLIST.KEY_N1} <strong>원</strong></td>
+                        <td>${KEY_YLIST.KEY_N2 } <strong>원</strong></td>
+                        <td>${KEY_YLIST.KEY_N3 }%</td>
                       </tr>
-                    </c:forEach>
+                   
                     </tbody>
                     <tfoot>
                       <tr>
                         <th colspan="5" class="text-right"><h5>▶ 최고 적중금액</h5>
-                        									   45,000 <strong>원</strong>	</th>
+                        									   ${KEY_YLIST.KEY_N4}<strong>원</strong>	</th>
                       </tr>
                     </tfoot>
                   </table>

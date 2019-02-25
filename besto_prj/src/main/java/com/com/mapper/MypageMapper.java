@@ -18,5 +18,6 @@ public interface MypageMapper {
 		
 
 		public ArrayList<MypageVO> buycartselect(int users_seq);
+		public int buycartdel(int cart_seq);
 		
 }

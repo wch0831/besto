@@ -1,6 +1,7 @@
 package com.com.mypage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -43,18 +45,20 @@ public class MypageController {
 		
 		
 		
-		@RequestMapping(value="/buyanalsys.do", method = RequestMethod.POST)
+		@RequestMapping(value="/buyanalsys.do", method = RequestMethod.GET)
 		
 		public ModelAndView viewbuyAnalsys(HttpServletRequest request) {
 			
 			ModelAndView mav = new ModelAndView();
 			HttpSession session = request.getSession();
 			int seq = (Integer)session.getAttribute("SESS_SEQ");
-			 ArrayList<Object> mylist = mypageService.buyAnalSysList(seq);
+			 HashMap map = mypageService.buyAnalSysList(seq);
 			 
 			 
+			 System.out.println(map.get("KEY_N1"));
 			 
-			 mav.addObject("KEY_BUYLIST", mylist);
+			 
+			 mav.addObject("KEY_YLIST", map);
 			 mav.setViewName("member_buy_info");
 			 
 			
@@ -77,9 +81,24 @@ public class MypageController {
 				
 			 mav.addObject("KEY_CART", mylist);
 			 mav.setViewName("member_cart");
-			 
 			
 			return mav;
+			
+		}
+		
+		@RequestMapping(value="/cartdel.do", method = RequestMethod.GET)
+		@ResponseBody
+		public ArrayList<MypageVO> viewbuyCartDel(HttpServletRequest request, @RequestParam(value="cartseq") String cart_seq) {
+			
+			//삭제하기
+			mypageService.buyCartdel(Integer.parseInt(cart_seq));
+			//다시뽑기
+			HttpSession session = request.getSession();
+			int seq = (Integer)session.getAttribute("SESS_SEQ");
+
+			 ArrayList<MypageVO> mylist = mypageService.buyCartList(seq);
+			
+			return mylist;
 			
 		}
 }

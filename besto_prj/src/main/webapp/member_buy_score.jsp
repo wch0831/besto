@@ -70,8 +70,8 @@
 	                        <tr>
 	                          <th style = "text-align:center;">/</th>
 	                          <th style = "text-align:center;">게임종류</th>
-	                          <th style = "text-align:center;">회차</th>
 	                          <th style = "text-align:center;">구매일시</th>
+	                          <th style = "text-align:center;">회차</th>
 	                          <th style = "text-align:center;">투표권 고유번호</th>
 	                          <th style = "text-align:center;">구매금액</th>
 	                          <th style = "text-align:center;">상태</th>
@@ -87,23 +87,24 @@
                    						<input type="checkbox"><span class="colour white"></span>
                 					</label>
 							  </td>
-							  <c:set var="v">${vv.ggubun}</c:set>
+							  <c:set var="gubun" value="${vv.ggubun}"/>
 							  <c:choose>
-							  <c:when test="${vv.ggubun == v}">
-	                          <td style = "text-align:center;">승부식</td>
-	                          </c:when>
-	                          <c:otherwise>
-	                           <td style = "text-align:center;">기록식</td>
-	                          </c:otherwise>
+							     <c:when test="${gubun eq 'v'}">
+	                                 <td style = "text-align:center;">승부식</td>
+	                              </c:when>
+	                                  <c:otherwise>
+	                                      <td style = "text-align:center;">기록식</td>
+	                                  </c:otherwise>
 	                          </c:choose>
+	                          
 	                          <td style = "text-align:center;">${vv.bregdate}</td>
 	                          <td style = "text-align:center;">${vv.bseq}	</td>
 	                          <td style = "text-align:center;">${vv.groundseq}</td>
 	                          <td style = "text-align:center;">${vv.bprice}<strong>원</strong></td>
 	                          
-	                           <c:set var="f">${vv.gstatus}</c:set>
+	                          <c:set var="gstatus" value="${vv.gstatus}"/>
 							  <c:choose>
-							  <c:when test="${vv.gstatus == f}">
+							  <c:when test="${vv.gstatus eq 'f'}">
 	                           <td style = "text-align:center;">매치끝</td>
 	                          </c:when>
 	                          <c:otherwise>
@@ -111,9 +112,9 @@
 	                          </c:otherwise>
 	                          </c:choose>
 	                         
-	                          <c:set var="y">${vv.bhityn}</c:set>
+	                        
 							  <c:choose>
-							  <c:when test="${vv.bhityn == y}">
+							  <c:when test="${vv.bhityn eq 'y'}">
 	                          <td style = "text-align:center;">적중</td>
 	                          </c:when>
 	                            <c:otherwise>

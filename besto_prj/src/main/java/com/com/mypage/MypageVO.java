@@ -1,7 +1,8 @@
 package com.com.mypage;
 
 public class MypageVO {
-
+	
+	private int cartSeq;
 	private int groundseq;
 	private int bseq;
 	private String ggubun;
@@ -16,6 +17,12 @@ public class MypageVO {
 	private String cbattingcontent;
 	
 	
+	public int getCartSeq() {
+		return cartSeq;
+	}
+	public void setCartSeq(int cartSeq) {
+		this.cartSeq = cartSeq;
+	}
 	public String getCbattingcontent() {
 		return cbattingcontent;
 	}

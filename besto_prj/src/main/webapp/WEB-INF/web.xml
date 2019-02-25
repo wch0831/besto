@@ -20,10 +20,7 @@
     <servlet-name>appServlet</servlet-name>
      <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  
-<<<<<<< HEAD
  
-=======
   <!--  post 한글처리    -->
 <filter>
   <filter-name>encodingFilter</filter-name>
@@ -38,6 +35,5 @@
   <url-pattern>*.do</url-pattern>
  </filter-mapping>
 
->>>>>>> branch 'master' of https://github.com/wch0831/besto
   
 </web-app>
