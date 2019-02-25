@@ -172,13 +172,17 @@ $(document).ready(function(){
                    
                     
                     <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-2">
+                    	<div id="postcodify" name="postcodify" class="form-group">
+                    	</div>
+                    </div>
+                    <div class="col-md-5">
                       <div class="form-group">
                         <label for="email_account">주소</label>
-                        <input id="usersAddress" name="usersAddress" type="text" class="form-control" value="${MDETAIL.usersAddress}"><button type="button" class="btn btn-template-main pull-right">주소검색</button>
+                        <input id="usersAddress" name="usersAddress" type="text" class="form-control" value="${MDETAIL.usersAddress}">
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                       <div class="form-group">
                         <label for="account_addres">상세주소</label>
                         <input id="usersDetailAddress" name="usersDetailAddress" type="text" class="form-control" value="${MDETAIL.usersDetailAddress}">
@@ -215,5 +219,30 @@ $(document).ready(function(){
 	<%@ include file="/include/script.jsp" %>
 	<!-- Script Include CSS END-->
 	
+<script src="https://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script>
+$(function() {
+	$("#postcodify").postcodify({
+	    insertPostcode5 : "",
+	    insertAddress : "#usersAddress",
+	    insertDetails : "#usersDetailAddress",
+	    insertExtraInfo : "",
+	    insertJibeonAddress : "",
+	    insertEnglishAddress : "",
+	    hideOldAddresses : false,
+	    forceDisplayPostcode5 : true,
+	    focusKeyword : false,
+	    afterSelect : function() {
+	        $("#postcodify").find(".postcodify_search_result,.postcodify_search_status").remove();
+	    },
+	    onReady: function() {
+	        $("#guide_content div.section input.keyword").each(function() {
+	            $(this).width($(this).parents("div.section").width() - 130);
+	        });
+	    }
+	});
+});
+</script>
+
   </body>
 </html>

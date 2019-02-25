@@ -144,4 +144,32 @@ public class UserController {
 		}
 		return mav;
 	}
+	
+	@RequestMapping(value = "/finduinfo.do", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView findUser(MemberVO mvo, @RequestParam(value="checkm")String mode) {
+		ModelAndView mav = new ModelAndView();
+		try {
+			if(mode.equals("1")) {
+				String uid = userService.findId(mvo);
+				if(uid != null) {
+					
+				}else {
+					
+				}
+			}else if(mode.endsWith("2")) {
+				int res = userService.changePassword(mvo);				
+				if(res > 0) {
+					mav.setViewName("index");
+				} else {
+					mav.addObject("MDETAIL" , mvo);
+					mav.setViewName("member_update");
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mav;
+	}
 }
