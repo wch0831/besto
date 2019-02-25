@@ -21,8 +21,7 @@
 
 
 	
-	<select id="pointSelectOne" resultType="hashmap"
-		parameterType="hashmap">
+	<select id="pointSelectOne" resultType="hashmap" parameterType="hashmap">
 		<![CDATA[select rownum as ss, se.* 
 			from (select rownum as rw, n.* from (select p.* from (select * from point where users_seq = #{usersSeq}) p order by p.point_regdate desc) n) se 
 			where se.rw between (#{pageStart}+1) and (#{pageStart}+5)]]>
@@ -42,7 +41,7 @@
 	</insert>
 
 	<insert id="point1000" parameterType="integer">
-	insert into point values(point_seq.nextval, 1000, 1000, 'charge',sysdate, #{usersSeq},null) 
+	insert into point values(point_seq.nextval, 1000, 1000, 'charge',to_char(sysdate, 'mm/dd/yyyy hh24:mi:ss'), #{usersSeq},null) 
 	</insert>
 
 	<select id="pointCheck" parameterType="integer" resultMap="pointMap">
