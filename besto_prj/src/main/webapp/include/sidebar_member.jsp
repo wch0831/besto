@@ -20,7 +20,7 @@
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="member_cash_detail.jsp" class="nav-link"><span><font color="black">내역보기</font></span></a></li>
+                    <li class="nav-item"><a href="/selectSearch.do" class="nav-link"><span><font color="black">내역보기</font></span></a></li>
                     <li class="nav-item"><a href="member_cash_charge.jsp" class="nav-link"><span><font color="black">충전하기</font></span></a></li>
                     <li class="nav-item"><a href="member_cash_output.jsp" class="nav-link"><span><font color="black">출금</font></span></a></li>
                   </ul>

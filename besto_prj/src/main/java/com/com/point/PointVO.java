@@ -3,55 +3,55 @@ package com.com.point;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PointVO {
-	private int point_seq;
-	private int point_change;
-	private int point_current;	
-	private String point_gubun;
-	private String point_regdate;
-	private int users_seq;
-	private int refund_seq;
+	private int pointSeq;
+	private int pointChange;
+	private int pointCurrent;	
+	private String pointGubun;
+	private String pointRegdate;
+	private int usersSeq;
+	private int refundSeq;
+	public int getPointSeq() {
+		return pointSeq;
+	}
+	public void setPointSeq(int pointSeq) {
+		this.pointSeq = pointSeq;
+	}
+	public int getPointChange() {
+		return pointChange;
+	}
+	public void setPointChange(int pointChange) {
+		this.pointChange = pointChange;
+	}
+	public int getPointCurrent() {
+		return pointCurrent;
+	}
+	public void setPointCurrent(int pointCurrent) {
+		this.pointCurrent = pointCurrent;
+	}
+	public String getPointGubun() {
+		return pointGubun;
+	}
+	public void setPointGubun(String pointGubun) {
+		this.pointGubun = pointGubun;
+	}
+	public String getPointRegdate() {
+		return pointRegdate;
+	}
+	public void setPointRegdate(String pointRegdate) {
+		this.pointRegdate = pointRegdate;
+	}
+	public int getUsersSeq() {
+		return usersSeq;
+	}
+	public void setUsersSeq(int usersSeq) {
+		this.usersSeq = usersSeq;
+	}
+	public int getRefundSeq() {
+		return refundSeq;
+	}
+	public void setRefundSeq(int refundSeq) {
+		this.refundSeq = refundSeq;
+	}
 	
-	public int getPoint_seq() {
-		return point_seq;
-	}
-	public void setPoint_seq(int point_seq) {
-		this.point_seq = point_seq;
-	}
-	public int getPoint_change() {
-		return point_change;
-	}
-	public void setPoint_change(int point_change) {
-		this.point_change = point_change;
-	}
-	public int getPoint_current() {
-		return point_current;
-	}
-	public void setPoint_current(int point_current) {
-		this.point_current = point_current;
-	}
-	public String getPoint_gubun() {
-		return point_gubun;
-	}
-	public void setPoint_gubun(String point_gubun) {
-		this.point_gubun = point_gubun;
-	}
-	public String getPoint_regdate() {
-		return point_regdate;
-	}
-	public void setPoint_regdate(String point_regdate) {
-		this.point_regdate = point_regdate;
-	}
-	public int getUsers_seq() {
-		return users_seq;
-	}
-	public void setUsers_seq(int users_seq) {
-		this.users_seq = users_seq;
-	}
-	public int getRefund_seq() {
-		return refund_seq;
-	}
-	public void setRefund_seq(int refund_seq) {
-		this.refund_seq = refund_seq;
-	}
 	 
 }
