@@ -16,10 +16,6 @@
 		<result property="gameCount" 		column="game_count" />
 		<result property="homeTeamName" 		column="homeTeamName" />
 		<result property="awayTeamName" 		column="awayTeamName" />
-<<<<<<< HEAD
-=======
-				
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 		<result property="gameGubun" 		column="game_gubun" />
 		<result property="victoryrateWin" 		column="victoryrate_win" />
 		<result property="victoryrateDraw" 		column="victoryrate_draw" />

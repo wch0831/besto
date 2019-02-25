@@ -25,15 +25,7 @@
 	<mvc:resources mapping="/vendor/**" location="/vendor/" />
 	
 	<!--  <mvc:resources mapping="/**" location="/" />  html 다이렉트 접근 위한 설정 추가 .. -->
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 	<context:component-scan base-package="com.com.**" />
-<<<<<<< HEAD
-=======
-	 
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 
 
 	<!-- <tx:annotation-driven transaction-manager="txManager"/> -->
