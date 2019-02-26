@@ -351,7 +351,7 @@ $(document).ready(function() {
                   <p>※ 구매가능 금액은 <font color="red">50,000 </font><strong>원</strong> 입니다.</p>
                   <p>※ 비밀번호를 입력하세요 <input class="input_cash pull-right" id="pass" name="pass" type="password" size="10.5%"> </p>
                   	<button type="button" id="cartButton" class="btn btn-sm btn-default">카트담기</button>
-                  	<button type="button" onclick="location.href='/member_cart.jsp'" class="btn btn-sm btn-info">카트가기</button>
+                  	<button type="button" onclick="location.href='/buycart.do'" class="btn btn-sm btn-info">카트가기</button>
                   	<button type="button" id="buyButton" class="btn btn-sm btn-danger pull-right">바로구매</button>
                 </form>
                 </div>
