@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.com.mapper.GameMapper;
+import com.mypage.com.MypageVO;
 
 @Service
 
@@ -78,12 +79,47 @@ public class GameServiceImpl implements GameService{
 
 	@Override
 	public int svcSelectSeq() {
-		return gameMapper.SelectSeq();
+		return gameMapper.selectSeq();
 	}
 
 	@Override
 	public GameVO svcGameRecordSelect(int gseq) {
 		return gameMapper.selectRecordSelect(gseq);
+	}
+
+
+
+	@Override
+	public int svcRecordInsert(RecordRateVO vo) {
+		return gameMapper.recordBuyInsert(vo);
+	}
+
+
+
+	@Override
+	public String svcUserPw(int seq) {
+		return gameMapper.userPw(seq);
+	}
+
+
+
+	@Override
+	public int svcCartInsert(MypageVO mvo) {
+		return gameMapper.recordCartInsert(mvo);
+	}
+
+
+
+	@Override
+	public ArrayList<MatchVO> svcGameAvailableSchedule(int seq) {
+		return gameMapper.gameAvailableSchedule(seq);
+	}
+
+
+
+	@Override
+	public ArrayList<GameVO> svcGameSchedule() {
+		return gameMapper.gameSchedule();
 	}
 
 
