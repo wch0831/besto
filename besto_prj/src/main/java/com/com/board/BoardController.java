@@ -1,6 +1,7 @@
 package com.com.board;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -26,19 +27,26 @@ public class BoardController {
 	@Autowired
 	BoardService bs;
 
-	/** ÀÚÀ¯°Ô½ÃÆÇ */
-	/*¸®½ºÆ®*/
-	@RequestMapping(value="/board_free.do" , method = RequestMethod.GET)
-	public ModelAndView freeList() {
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ */
+	/*ï¿½ï¿½ï¿½ï¿½Æ®*/
+	@RequestMapping(value="/board_free.do")
+	public ModelAndView freeList(Criteria cri) {
 		ModelAndView mav = new ModelAndView();
-		ArrayList<BoardFreeVO> brlist = bs.BoardList();
-		System.out.println(brlist.get(0).getPostSeq());
-		mav.addObject("KEY_RESULT", brlist);
+		ArrayList<Map<String, Object>> list = bs.free_board_select(cri);
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(bs.free_board_total());
+		
+		mav.addObject("list", list);
+		mav.addObject("pageMaker", pageMaker);
 		mav.setViewName("board_free");
+		System.out.println(pageMaker.getStartPage());
+		System.out.println(pageMaker.getEndPage());
+		System.out.println(list);
 		return mav;
 	}
 
-	/*»ó¼¼º¸±â*/
+	/*ï¿½ó¼¼ºï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_detail/{postSeq}.do", method = RequestMethod.GET)
 	public ModelAndView freeDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		ModelAndView mav = new ModelAndView();
@@ -52,15 +60,15 @@ public class BoardController {
 		return mav;
 	}
 
-	/*°Ô½Ã¹°µî·Ï*/
+	/*ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_register.do", method = RequestMethod.POST)
 	public String freeInsert(BoardFreeVO bvo) {
 		bs.boardFreeInsert(bvo);
-		return "redirect:/board_free.do";   //Æ÷¿öµå·Î »ç¿ëÇØµµ ¤¡¤ºÀ½ 
+		return "redirect:/board_free.do";   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	}
 
 	
-	/*°Ô½Ã¹° ¼öÁ¤*/
+	/*ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_update.do", method=RequestMethod.POST)
 	public String freeUpdate(BoardFreeVO vo) {
 		System.out.println("===================================================================================");
@@ -73,8 +81,8 @@ public class BoardController {
 	
 	
 	
-	/** µµÀüºÐ¼®¹æ */
-	/*¸®½ºÆ®*/
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ */
+	/*ï¿½ï¿½ï¿½ï¿½Æ®*/
 	@RequestMapping(value="/board_free_challenge.do" , method = RequestMethod.GET)
 	public ModelAndView challengeList() {
 		ModelAndView mav = new ModelAndView();
@@ -85,7 +93,7 @@ public class BoardController {
 		return mav;
 	}
 
-	/*»ó¼¼º¸±â*/
+	/*ï¿½ó¼¼ºï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_challenge_detail/{postSeq}.do", method = RequestMethod.GET)
 	public ModelAndView challengeDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		ModelAndView mav = new ModelAndView();
@@ -99,15 +107,15 @@ public class BoardController {
 		return mav;
 	}
 	
-	/*°Ô½Ã¹°µî·Ï*/
+	/*ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_challenge_register.do", method = RequestMethod.POST)
 	public String chalengeInsert(BoardChallengeVO bvo) {
 		bs.boardChallengeInsert(bvo);
-		return "redirect:/board_free_challenge.do";   //Æ÷¿öµå·Î »ç¿ëÇØµµ ¤¡¤ºÀ½ 
+		return "redirect:/board_free_challenge.do";   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	}
 	
 	
-	/*°Ô½Ã¹°¼öÁ¤*/
+	/*ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_challenge_update.do", method=RequestMethod.POST)
 	public String challengeUpdate(BoardChallengeVO vo) {
 		System.out.println("===================================================================================");
@@ -117,8 +125,8 @@ public class BoardController {
 	
 	
 	
-	/** ÀûÁßÅä·Ð¹æ */
-	/*¸®½ºÆ®*/
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ */
+	/*ï¿½ï¿½ï¿½ï¿½Æ®*/
 	@RequestMapping(value="/board_free_hit.do" , method = RequestMethod.GET)
 	public ModelAndView hitList() {
 		ModelAndView mav = new ModelAndView();
@@ -129,7 +137,7 @@ public class BoardController {
 		return mav;
 	}
 	
-	/*»ó¼¼º¸±â*/
+	/*ï¿½ó¼¼ºï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_hit_detail/{postSeq}.do", method = RequestMethod.GET)
 	public ModelAndView hitDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		System.out.println(postSeq + " ::: hitDetail");
@@ -144,22 +152,22 @@ public class BoardController {
 		return mav;
 	}
 	
-	/*°Ô½Ã¹°µî·Ï*/
+	/*ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_hit_register.do", method = RequestMethod.POST)
 	public String boardHitInsert(BoardHitHistoryVO vo) {
 		bs.boardHitInsert(vo);
-		return "redirect:/board_free_hit.do";   //Æ÷¿öµå·Î »ç¿ëÇØµµ ¤¡¤ºÀ½ 
+		return "redirect:/board_free_hit.do";   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	}
 	
-	/*°Ô½Ã¹° ¼öÁ¤*/
+	/*ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_hit_update.do", method=RequestMethod.POST)
 	public String hitUpdate(BoardHitHistoryVO vo) {
 		bs.boardHitUpdate(vo);
 		return "redirect:/board_free_hit.do"; 
 	}
 	
-	/** º£ÆÃÅä·Ð¹æ */
-	/*¸®½ºÆ®*/
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ */
+	/*ï¿½ï¿½ï¿½ï¿½Æ®*/
 	@RequestMapping(value="/board_free_betting.do" , method = RequestMethod.GET)
 	public ModelAndView buyList() {
 		ModelAndView mav = new ModelAndView();
@@ -168,7 +176,7 @@ public class BoardController {
 		mav.setViewName("board_free_betting");
 		return mav;
 	}
-	/*»ó¼¼º¸±â*/
+	/*ï¿½ó¼¼ºï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_betting_buy_detail/{postSeq}.do", method = RequestMethod.GET)
 	public ModelAndView bettingDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		System.out.println(postSeq + " ::: buyDetail");
@@ -183,14 +191,14 @@ public class BoardController {
 		return mav;
 	}
 	
-	/*°Ô½Ã¹°µî·Ï*/
+	/*ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_betting_buy_register.do", method = RequestMethod.POST)
 	public String boardBuyInsert(BoardBuyHistoryVO bvo) {
 		bs.boardBuyInsert(bvo);
-		return "redirect:/board_free_betting.do";   //Æ÷¿öµå·Î »ç¿ëÇØµµ ¤¡¤ºÀ½ 
+		return "redirect:/board_free_betting.do";   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	}
 	
-	/*°Ô½Ã¹°¼öÁ¤*/
+	/*ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_free_betting_buy_update.do", method=RequestMethod.POST)
 	public String buyUpdate(BoardBuyHistoryVO vo) {
 		bs.boardBuyUpdate(vo);
@@ -202,8 +210,8 @@ public class BoardController {
 	
 	
 	
-	/** °øÁö»çÇ× */
-	/*¸®½ºÆ®*/
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+	/*ï¿½ï¿½ï¿½ï¿½Æ®*/
 	@RequestMapping(value="/board_protice.do")
 	public ModelAndView ctlNoticeSelect(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -218,10 +226,10 @@ public class BoardController {
 	}
 	
 	
-	/*»ó¼¼º¸±â*/
+	/*ï¿½ó¼¼ºï¿½ï¿½ï¿½*/
 	@RequestMapping(value="/board_protice/{noticeSeq}.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView noticeDetail(HttpServletRequest request, @PathVariable(value="noticeSeq") int noticeSeq) {
-		System.out.println("OK, Google »ó¼¼º¸±â ÇØÁà ===========");
+		System.out.println("OK, Google ï¿½ó¼¼ºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ===========");
 		String useq = "";
 		try {
 			useq = request.getSession().getAttribute("SESS_SEQ").toString();
@@ -243,10 +251,10 @@ public class BoardController {
 	}
 
 	
-	/*±ÛÀÔ·Â*/	
+	/*ï¿½ï¿½ï¿½Ô·ï¿½*/	
 	@RequestMapping(value="/board_protice_register.do", method = RequestMethod.POST)
 	public String notice_insert(HttpServletRequest request, NoticeVO vo) {
-		System.out.println("±ÛÀÔ·Â");
+		System.out.println("ï¿½ï¿½ï¿½Ô·ï¿½");
 
 		bs.notice_insert(vo);
 		
@@ -255,7 +263,7 @@ public class BoardController {
 	}
 	
 	
-	//¾÷µ¥ÀÌÆ® Àü °Ë»öÇØ¼­ »Ñ·ÁÁÖ±â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ø¼ï¿½ ï¿½Ñ·ï¿½ï¿½Ö±ï¿½
 	@RequestMapping(value="/protice_select/{noticeSeq}.do", method = RequestMethod.POST)
 	public ModelAndView noticeUpdate(HttpServletRequest request, @PathVariable(value="noticeSeq") int noticeSeq) {
 		System.out.println("===select===");
@@ -272,7 +280,7 @@ public class BoardController {
 	}
 	
 		
-	//¾÷µ¥ÀÌÆ®============================
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®============================
 	@RequestMapping(value="/protice_update/{noticeSeq}.do", method = RequestMethod.POST)
 	public String notiUpdate(HttpServletRequest request, @PathVariable(value="noticeSeq") int noticeSeq, NoticeVO nvo) {
 		System.out.println("===update===");
@@ -286,7 +294,7 @@ public class BoardController {
 		
 	}
 	
-	//»èÁ¦ÇÏ±â========================
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½========================
 	@RequestMapping(value="/protice_delete/{noticeSeq}.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String notiDel(HttpServletRequest request, @PathVariable(value="noticeSeq") int noticeSeq) {
 		System.out.println("===delete===");
@@ -301,12 +309,12 @@ public class BoardController {
 		
 	}
 	
-	//°Ë»ö==========================
+	//ï¿½Ë»ï¿½==========================
 	@RequestMapping(value="/notice_serach.do", method = RequestMethod.GET)
 	@ResponseBody
 	public ArrayList<NoticeVO> noticeSearch(@RequestParam (value="b") String b) {
 		
-		System.out.println("siri! µµÀ±Â» È¥³»Áà>>>>>>>>>>>>>>>>>" + b);
+		System.out.println("siri! ï¿½ï¿½ï¿½ï¿½Â» È¥ï¿½ï¿½ï¿½ï¿½>>>>>>>>>>>>>>>>>" + b);
 		
 		ArrayList<NoticeVO> sclist = bs.noticeSearch(b);
 //		

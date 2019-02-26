@@ -4,7 +4,17 @@
 <!DOCTYPE html>
 <html>
 
+
+
 <head>  
+<script>
+$(document).ready(function() {
+
+
+});
+
+
+</script>
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
@@ -81,12 +91,37 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
+	                      
+	                      <c:forEach var="vv" items="${GLIST}">
 	                        <tr>
 	                          <td style = "text-align:center;">축구</td>
-	                          <td style = "text-align:center;"><a href="board_game_schedule_detail.jsp"><font color="green">프로토 승부식 14회차</font></a></td>
-	                          <td style = "text-align:center;">19.02.15 ~ 경기별 10분전 발매마감</td>
-	                          <td style = "text-align:center;">발매예정</td>
+	                          <!-- <td style = "text-align:center;"> -->
+	                          
+	            			<c:choose>
+	                        <c:when test="${vv.gameGubun=='v'}">
+	                          <td style = "text-align:center;"><a href="game_schedule_detail.do?gameSeq=${vv.gameSeq}"><font color="green">프로토 승부식  ${vv.gameRoundseq}회차</font></a></td>
+	                        </c:when>
+	                        <c:when test="${vv.gameGubun=='r'}">
+	                          <td style = "text-align:center;"><a href="game_schedule_detail.do?gameSeq=${vv.gameSeq}"><font color="green">프로토 기록식  ${vv.gameRoundseq}회차</font></a></td>
+	                        </c:when>
+	                        </c:choose>
+	                                      
+	                          <td style = "text-align:center;">${vv.gameFinishdate} ~ 경기별 10분전 발매마감</td>
+	                          
+	                         <c:choose>
+	                         <c:when test="${vv.gameStatus=='b'}">
+	                         <td style = "text-align:center;">발매예정</td>
+							</c:when>
+							<c:when test="${vv.gameStatus=='f'}">
+	                        <td style = "text-align:center;">발매마감</td>
+							</c:when>
+							<c:when test="${vv.gameStatus=='p'}">
+	                        <td style = "text-align:center;">발매중</td>
+							</c:when>
+	                        </c:choose>
 	                        </tr>
+	                        </c:forEach> 
+	                        
 	                      </tbody>
 	                    </table>
                   </div>

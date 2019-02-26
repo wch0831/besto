@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: kosmo-18
+=======
+Built-By: User
+>>>>>>> branch 'master' of https://github.com/wch0831/besto
 Build-Jdk: 1.8.0_172
 Created-By: Maven Integration for Eclipse
 

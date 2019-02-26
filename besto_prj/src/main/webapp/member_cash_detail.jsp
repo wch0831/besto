@@ -76,8 +76,6 @@ $(document).ready(function(){
                     </thead>
                     <!-- 뿌려주는 곳  -->
                     <tbody id = "selectAll">
-                    <c:choose>
-                    	<c:when test="${fn:length(list) > 0}">
                     		<c:forEach items="${list}" var="point">
                       			<tr>
                       				<td><font color="pink"><strong>${point.POINT_GUBUN}</strong></font></td>
@@ -85,23 +83,18 @@ $(document).ready(function(){
                       				<td>${point.POINT_CHANGE}<strong>원</strong></td>
                       				<td>-</td>
                      	 		</tr>
-                     		</c:forEach>
-                     </c:when>
-                     	<c:otherwise>
-                     		<td colspan="4">조회된 결과가 없습니다.</td>
-                     	</c:otherwise>
-                    </c:choose>
-                     
+                     		</c:forEach>              
                     </tbody>
                   </table>
                 </div>
                 <hr>
                </div>
                 </form>
-            </div>
-            <br>
 <!-- 페이징하셈 -->
-              <div class="pages">
+             
+<!-- 페이징하셈 --> 
+            </div>
+                 <div class="pages" style="position:relative; left: 0px;">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                   <ul class="pagination">
                   
@@ -126,9 +119,8 @@ $(document).ready(function(){
                   </ul>
                 </nav>
               </div>
-<!-- 페이징하셈 --> 
-              
             </div>
+          
           </div>
         </div>
       </div>

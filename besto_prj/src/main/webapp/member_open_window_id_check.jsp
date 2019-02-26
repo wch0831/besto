@@ -10,7 +10,9 @@
 <!-- Header Include CSS END-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+var check = 0;
 $(document).ready(function(){
+	
 	$("#idCheckBtn").click(function (){
 		var uid = $("#cusersId").val();
 		
@@ -29,6 +31,7 @@ $(document).ready(function(){
 	                     htmlStr = "<p><font color='red' style='text-align: center'>※ 이미 <b>사용중</b>이거나 <b>탈퇴</b>한 아이디입니다.</font></p>"                    	 
                      }
 				   $(".row").html(htmlStr);
+				   check = 1;
                }
             });
 	   });
@@ -36,7 +39,10 @@ $(document).ready(function(){
 
 function setParentText(){
 	var uid = $("#cusersId").val();
-	if(uid != ""){
+	if(check != 1){
+		alert("아이디 중복체크를 해주세요");
+		return false;
+	}else if(uid != ""){
 		opener.regform.usersId.value = checkid.cusersId.value;
 		window.close();		
 	}

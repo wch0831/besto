@@ -12,8 +12,58 @@
 <!-- Header Include CSS END-->
 
 <script>
+$(document).ready(function() {
+	var cnt
+	$(document).on("click", ".btn.btn-sm.btn-success", function() {
+	seq = $(this).attr("name");
+	console.log(seq);
+	
+	var jsonData = {"gameSeq":seq};
+	console.log(jsonData);
+	
+	$.ajax({
+			type:"post",
+	        url:"/board_game_schedule.do",
+	        contentType : "application/x-www-form-urlencoded; charset=UTF-8", 
+	        data : jsonData, 
+			success:function(jsonObj){
+					console.log(jsonObj);
+					var htmlStr = "";
+		 			htmlStr += "<table class='table' >";
+		 			htmlStr += "<thead bgcolor='#EEEEEE'>";
+		 			htmlStr += "<tr>";
+		 			htmlStr += "<th style = 'text-align:center;'>경기</th>";
+		 			htmlStr += "<th style = 'text-align:center;'>경기일</th>";
+		 			htmlStr += "<th style = 'text-align:center;'>대회명</th>";
+		 			htmlStr += "<th style = 'text-align:center;'>유형</th>";
+		 			htmlStr += "<th style = 'text-align:center;'>홈팀 <span class='badge badge-danger'>VS</span> 원정팀</th>";
+		 			htmlStr += "<th style = 'text-align:center;'>경기장소</th>";
+		 			htmlStr += "</tr>";
+		 			htmlStr += "</thead>";
+		 			
+		 			$.map(jsonObj, function(vv, idx){
+		 			htmlStr += "<tbody>";
+			  		htmlStr += "<tr>";
+			  		htmlStr += "<td style = 'text-align:center;'>"+vv.gameMno+"</td>";
+			  		htmlStr += "<td style = 'text-align:center;'>"+vv.matchStarttime+"</td>";
+			  		htmlStr += "<td style = 'text-align:center;'>프리미어리그</td>";
+			  		htmlStr += "<td style = 'text-align:center;'><span class='badge badge-info'>일반</span></td>";
+			  		htmlStr += "<td style = 'text-align:center;'>"+vv.homeTeamName+"<span class='badge badge-danger'>VS</span>"+vv.awayTeamName+"</td>";
+			  		htmlStr += "<td style = 'text-align:center;'>"+vv.matchStadium+"</td>";
+			  		htmlStr += "</tr>"
+		 			htmlStr += "</tbody>";
+			  	});
+		 			htmlStr += "</table>"; 
+		 			$("#match_schedule").empty();
+				  	$("#match_schedule").html(htmlStr);
+					
+			}
+		});
+	});
+	
 
 
+});
 
 
 
@@ -100,9 +150,10 @@ function openWindow_history(seq){
 	                          <td style = "text-align:center;">기록식</td> 
 	                        </c:when>
 	                        </c:choose>
-	                          <td style = "text-align:center;">19년 ${vv.gameRoundseq}회차</td>
-	                          <td><button id="match_open" type="button" class="btn btn-sm btn-success" style="display: block; margin: 0 auto;">대상경기+</button></td>
+	                          <td style = "text-align:center;">19년 ${vv.gameRoundseq}회차</td>  <!-- "/board_game_record/"+seq+".do" -->
+	                          <td><button id="match_open" type="button" class="btn btn-sm btn-success" name="${vv.gameSeq}" style="display: block; margin: 0 auto;">대상경기+</button></td>
 	                          <td style = "text-align:center;">${vv.gameFinishdate}</td>
+	                          
 	                         <c:choose>
 	                         <c:when test="${vv.gameGubun=='v'}">
 	                         <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_match();"> 구매하기> </button></td>
@@ -110,9 +161,15 @@ function openWindow_history(seq){
 							<c:when test="${vv.gameGubun=='r'}">
 	                         <td><button type="button" class="btn btn-sm btn-danger" style="display: block; margin: 0 auto;" onclick="javascript:openWindow_history(${vv.gameSeq});"> 구매하기> </button></td>
 							</c:when>
-	                        </c:choose> 
-	                         
-	                        </tr>	    
+	                        </c:choose>
+	                        </tr>
+	                        
+	                        <tr>
+	                        <div id="match_schedule">
+	                        
+	                        </div>
+	                        </tr>
+	                        
 	                        </c:forEach>                    
 	                      </tbody>  
 	                    </table>
@@ -124,86 +181,9 @@ function openWindow_history(seq){
                 
                 <div class="table-responsive col-md-12">
                 <hr>
-             
-<!-- c:if 기록식게임버튼클릭 -> 아래의 테이블 보이기 -->
-                    <table id="game_history_view" class="table" >
-	                      <thead bgcolor="#EEEEEE">
-	                        <tr>
-	                          <th style = "text-align:center;">게임</th>
-	                          <th style = "text-align:center;">경기일</th>
-	                          <th style = "text-align:center;">경기시간</th>
-	                          <th style = "text-align:center;">게임주제</th>
-	                          <th style = "text-align:center;">경기장소</th>
-	                        </tr>
-	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">A</td>
-	                          <td style = "text-align:center;">19.02.16</td>
-	                          <td style = "text-align:center;">19:00</td>
-	                          <td style = "text-align:center;">EPL 울버햄틴-뉴캐슬 점수</td>
-	                          <td style = "text-align:center;">몰리뉴스타디움</td>
-	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">B</td>
-	                          <td style = "text-align:center;">19.02.16</td>
-	                          <td style = "text-align:center;">19:00</td>
-	                          <td style = "text-align:center;">EPL 울버햄틴-뉴캐슬 점수</td>
-	                          <td style = "text-align:center;">몰리뉴스타디움</td>
-	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">C</td>
-	                          <td style = "text-align:center;">19.02.16</td>
-	                          <td style = "text-align:center;">19:00</td>
-	                          <td style = "text-align:center;">EPL 울버햄틴-뉴캐슬 점수</td>
-	                          <td style = "text-align:center;">몰리뉴스타디움</td>
-	                        </tr>
-	                      </tbody>
-	                    </table>
 	                    
 <!-- c:if 승부식게임버튼클릭 -> 아래의 테이블 보이기 -->
-	                    <table id="game_match_view" class="table" >
-	                      <thead bgcolor="#EEEEEE">
-	                        <tr>
-	                          <th style = "text-align:center;">경기</th>
-	                          <th style = "text-align:center;">경기일</th>
-	                          <th style = "text-align:center;">경기시간</th>
-	                          <th style = "text-align:center;">대회명</th>
-	                          <th style = "text-align:center;">유형</th>
-	                          <th style = "text-align:center;">홈팀 <span class="badge badge-danger">VS</span> 원정팀</th>
-	                          <th style = "text-align:center;">경기장소</th>
-	                        </tr>
-	                      </thead>
-	                      <tbody>
-	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">19.02.16</td>
-	                          <td style = "text-align:center;">19:00</td>
-	                          <td style = "text-align:center;">세리에A</td>
-	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
-	                          <td style = "text-align:center;">유벤투스 <span class="badge badge-danger">VS</span> 프로시노</td>
-	                          <td style = "text-align:center;">알리안츠스타디움</td>
-	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">19.02.16</td>
-	                          <td style = "text-align:center;">19:00</td>
-	                          <td style = "text-align:center;">세리에A</td>
-	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
-	                          <td style = "text-align:center;">유벤투스 <span class="badge badge-danger">VS</span> 프로시노</td>
-	                          <td style = "text-align:center;">알리안츠스타디움</td>
-	                        </tr>
-	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">19.02.16</td>
-	                          <td style = "text-align:center;">19:00</td>
-	                          <td style = "text-align:center;">세리에A</td>
-	                          <td style = "text-align:center;"><span class="badge badge-info">일반</span></td>
-	                          <td style = "text-align:center;">유벤투스 <span class="badge badge-danger">VS</span> 프로시노</td>
-	                          <td style = "text-align:center;">알리안츠스타디움</td>
-	                        </tr>
-	                      </tbody>
-	                    </table>
+	                    
 	                    
 	                    
 	                    

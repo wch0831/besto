@@ -2,12 +2,14 @@
 package com.com.mapper;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import com.com.board.BoardFreeVO;
 
 import com.com.board.BoardHitHistoryVO;
+import com.com.board.Criteria;
 import com.com.board.BoardBuyHistoryVO;
 
 import com.com.board.NoticeVO;
@@ -18,7 +20,7 @@ import com.com.board.BoardChallengeVO;
 public interface BoardMapper{
 	
 
-	//°øÁö»çÇ×
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public ArrayList<NoticeVO> notice_all();
 	public int notice_count(int a);
 	public NoticeVO notice_detail(int a);
@@ -28,29 +30,30 @@ public interface BoardMapper{
 	public ArrayList<NoticeVO> notice_search(String b);
 	
 
-	//ÀÚÀ¯°Ô½ÃÆÇ
-	public ArrayList<BoardFreeVO> free_board_select(); //¸ñ·Ï
-	public BoardFreeVO free_board_detail(int postSeq); //»ó¼¼
-	public int free_board_insert(BoardFreeVO fvo); //µî·Ï
-	public int free_board_update(BoardFreeVO vo); //¼öÁ¤
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½
+	public int free_board_total();
+	public ArrayList<Map<String, Object>> free_board_select(Criteria cri); //ï¿½ï¿½ï¿½
+	public BoardFreeVO free_board_detail(int postSeq); //ï¿½ï¿½
+	public int free_board_insert(BoardFreeVO fvo); //ï¿½ï¿½ï¿½
+	public int free_board_update(BoardFreeVO vo); //ï¿½ï¿½ï¿½ï¿½
 	
-	//µµÀüºÐ¼®¹æ
-	public ArrayList<BoardChallengeVO> challenge_board_select(); //¸ñ·Ï
-	public BoardChallengeVO challenge_board_detail(int postSeq); //»ó¼¼
-	public int challenge_board_insert(BoardChallengeVO fvo); //µî·Ï
-	public int challenge_board_update(BoardChallengeVO vo); //¼öÁ¤
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
+	public ArrayList<BoardChallengeVO> challenge_board_select(); //ï¿½ï¿½ï¿½
+	public BoardChallengeVO challenge_board_detail(int postSeq); //ï¿½ï¿½
+	public int challenge_board_insert(BoardChallengeVO fvo); //ï¿½ï¿½ï¿½
+	public int challenge_board_update(BoardChallengeVO vo); //ï¿½ï¿½ï¿½ï¿½
 	
-	//ÀûÁßÅä·Ð¹æ
-	public ArrayList<BoardHitHistoryVO> hit_history_board_select(); //¸ñ·Ï
-	public BoardHitHistoryVO hit_history_board_detail(int postSeq); //»ó¼¼
-	public int hit_history_board_insert(BoardHitHistoryVO fvo); //µî·Ï
-	public int hit_history_board_update(BoardHitHistoryVO vo); //¼öÁ¤
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½
+	public ArrayList<BoardHitHistoryVO> hit_history_board_select(); //ï¿½ï¿½ï¿½
+	public BoardHitHistoryVO hit_history_board_detail(int postSeq); //ï¿½ï¿½
+	public int hit_history_board_insert(BoardHitHistoryVO fvo); //ï¿½ï¿½ï¿½
+	public int hit_history_board_update(BoardHitHistoryVO vo); //ï¿½ï¿½ï¿½ï¿½
 	
-	//º£ÆÃÅä·Ð¹æ
-	public ArrayList<BoardBuyHistoryVO> buy_history_board_select(); //¸ñ·Ï
-	public BoardBuyHistoryVO buy_history_board_detail(int postSeq); //»ó¼¼
-	public int buy_history_board_insert(BoardBuyHistoryVO fvo); //µî·Ï
-	public int buy_history_board_update(BoardBuyHistoryVO vo); //¼öÁ¤
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½
+	public ArrayList<BoardBuyHistoryVO> buy_history_board_select(); //ï¿½ï¿½ï¿½
+	public BoardBuyHistoryVO buy_history_board_detail(int postSeq); //ï¿½ï¿½
+	public int buy_history_board_insert(BoardBuyHistoryVO fvo); //ï¿½ï¿½ï¿½
+	public int buy_history_board_update(BoardBuyHistoryVO vo); //ï¿½ï¿½ï¿½ï¿½
 	
 	
 	
