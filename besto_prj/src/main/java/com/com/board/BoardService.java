@@ -1,22 +1,48 @@
 package com.com.board;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface BoardService {
 
-	//ÀÚÀ¯°Ô½ÃÆÇ
-	public ArrayList<BoardFreeVO> BoardList();
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½
+	public int free_board_total();
+	public ArrayList<Map<String, Object>> free_board_select(Criteria cri);
 	public BoardFreeVO boardFreeDetail(int postSeq);
 	public int boardFreeInsert(BoardFreeVO fvo);
+	public int boardFreeUpdate(BoardFreeVO fvo);
 	
-	//µµÀüºÐ¼®
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½
 	public ArrayList<BoardChallengeVO> BoardChallengeList();
-	public ArrayList<BoardChallengeVO> BoardChallengeDetail(int postSeq);
-	
-	//º£ÆÃÅä·Ð
-	public ArrayList<BoardBuyHistoryVO> BoardBuyHistoryList();
-	
-	//ÀûÁß±â·Ï
+	public BoardChallengeVO BoardChallengeDetail(int postSeq);
+	public int boardChallengeInsert(BoardChallengeVO fvo);
+	public int boardChallengeUpdate(BoardChallengeVO fvo);
+
+	//ï¿½ï¿½ï¿½ß±ï¿½ï¿½
 	public ArrayList<BoardHitHistoryVO> BoardHitHistoryList();
+	public BoardHitHistoryVO BoardFreeHitDetail(int postSeq);
+	public int boardHitInsert(BoardHitHistoryVO fvo);
+	public int boardHitUpdate(BoardHitHistoryVO fvo);
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public ArrayList<BoardBuyHistoryVO> boardBuyHistoryList();
+	public BoardBuyHistoryVO BoardBuyHistoryDetail(int postSeq);
+	public int boardBuyInsert(BoardBuyHistoryVO fvo);
+	public int boardBuyUpdate(BoardBuyHistoryVO fvo);
+	
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public ArrayList<NoticeVO> noticeList();
+	public NoticeVO noticeDetail(int a);
+	public int noticeCount(int a);
+	public int notice_insert(NoticeVO nvo);
+	public int noticeUpdate(NoticeVO nvo);
+	public int noticeDelete(int a);
+	public ArrayList<NoticeVO> noticeSearch(String b);
+	
+	
+
+	
 	
 }

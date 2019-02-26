@@ -67,16 +67,23 @@
                       </tr>
                     </thead>
                     <tbody>
+                  
+                  
+                   
+                  <script>
+                  colsole.log("ㅅㅂ....ㅅㅂ!!!!!")
+                  </script>
                       <tr>
-                        <td>140,000 <strong>원</strong></td>
-                        <td>95,000 <strong>원</strong></td>
-                        <td>63%</td>
+                        <td>${KEY_YLIST.KEY_N1} <strong>원</strong></td>
+                        <td>${KEY_YLIST.KEY_N2 } <strong>원</strong></td>
+                        <td>${KEY_YLIST.KEY_N3 }%</td>
                       </tr>
+                   
                     </tbody>
                     <tfoot>
                       <tr>
                         <th colspan="5" class="text-right"><h5>▶ 최고 적중금액</h5>
-                        									   45,000 <strong>원</strong>	</th>
+                        									   ${KEY_YLIST.KEY_N4}<strong>원</strong>	</th>
                       </tr>
                     </tfoot>
                   </table>

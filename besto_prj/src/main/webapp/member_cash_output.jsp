@@ -8,9 +8,42 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
-</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#refundBtn").click(function(){
+		alert("출금신청 들어갑니다.");
+		$('#refund').submit(function() { 
+			alert("출금 되었습니다."); 
+		});
+	});
+	
+	/* $("#refundBtn").click(function(){
+		var pointChange = $("#pointChange").val();
+		alert(pointChange);
+		$.ajax({
+			url:"/refund.do",
+			type:"GET",
+			data:"pointChange="+pointChange,
+			success:function(res){
+				if(res == 1) {
+					alert("환급이 완료되었습니다.");
+					location.href("member_cash_output.jsp");
+				} else {
+					alert("환급이 실패하였습니다.");
+					return false;
+				}
+			}
+		})
+	}) */
+	function timer_test(){
+		alert("예치금 내역보기 페이지로 이동합니다.");
+		}
+	
+});
 
-  <body>
+</script>
+</head>
+<body>
     <div id="all">
     
 <!-- Topbar Include CSS START-->
@@ -51,7 +84,7 @@
 <!-- 게시판 메인부분 -->
             <div class="col-md-10">
               <div id="basket" class="col-lg-12">
-                <form method="get" action="shop-checkout1.html">
+                <form method="get" action="/refund.do" id="refund" name="refund">
                   <div class="table-responsive">
                     <h4>◈ 예치금 > 출금</h4>
                   		<p class="text-muted lead"><font size="2">상세내용을 보시려면 <strong>게임종류, 구매일시, 상태</strong>를 클릭해 주세요.</font></p>
@@ -62,8 +95,9 @@
                     <p><font size="2">단, 적중금과 경기취소 및 구매오류로 인한 환불금은 수수료 없이 출금 가능합니다.</font></p>
                     
                     <br>
-                    <div role="alert" class="alert alert-success">※ 현재 예치금 잔액 : <strong>30,000 원		 &emsp;&emsp;&emsp;&nbsp;&nbsp;</strong>
-                    <button type="button" class="btn btn-link">출금신청</button>
+                    <div role="alert" class="alert alert-success">※ 현재 예치금 잔액 : <strong>${SESS_POINT} 원		 &emsp;&emsp;&emsp;&nbsp;&nbsp;</strong>
+                    <input type="text" placeholder="금액을 적어주세요." class="form-control" id="pointChange" name="pointChange">
+                    <button type="submit" class="btn btn-link" id="refundBtn">출금신청</button>
                     </div>
                     <p> <font size="2">- 예치금은 출금신청 시간에 따라 당일 혹은 익일에 입금됩니다.</font></p>
                   <table class="table">
@@ -73,7 +107,7 @@
                         <th bgcolor="#EEEEEE">입금시간</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody>  
                       <tr>
                         <td>0시부터 8시까지</td>
                         <td>당일 9시 30분부터 14시까지</td>
@@ -92,41 +126,6 @@
                 <hr>
                </div>
                <br>
-               <h4>◈ 예치금 출금내역</h4>
-               <div class="col-md-13">
-                  <div class="box-simple box-white same-height">
-                    <p style = "text-align:left;"><strong>조회 일자 : </strong>웹에서 지원해주는 달력쓰셈</p>
-                    <p style = "text-align:left;"><strong>조회 기간 : </strong><i class="fa fa-calendar-o"> 2019.02.01 - </i> <i class="fa fa-calendar-o"> 2019.02.20</i></p>
-                    <br>
-                    <table class="table">
-                    <thead>
-                      <tr>
-                        <th bgcolor="#EEEEEE">신청일자</th>
-                        <th bgcolor="#EEEEEE">시간</th>
-                        <th bgcolor="#EEEEEE">신청금액</th>
-                        <th bgcolor="#EEEEEE">결제대행 수수료</th>
-                        <th bgcolor="#EEEEEE">내용</th>
-                        <th bgcolor="#EEEEEE">상태</th>
-                        <th bgcolor="#EEEEEE">출금완료일</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
-                    
-                  </div>
-                </div>
-               
                 </form>
             </div>
             <br>

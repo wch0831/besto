@@ -10,14 +10,44 @@
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
 <script>
-/* <tr>
-	<td style = "text-align:center;">${noti.noticeSeq}</td>
-	<td style = "text-align:center;"><a href="#"><font color="black">${noti.noticeTitle}</font></a></td>
-	<td style = "text-align:center;">관리자</td>
-	<td style = "text-align:center;">${noti.noticeRegdate}</td>
-	<td style = "text-align:center;">${noti.noticeHits}</td>
-</tr> */
+ 
 
+	$(document).ready(function() {
+
+		$("#searchButton").click(function() {
+			var text = $("input[name=search]").val();
+			console.log(text);
+
+			$.ajax({
+				type : "GET",
+				url : "/notice_serach.do",
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				data : "b="+text,
+				success : function(res) {
+					
+					console.log(res);
+					var htmlStr = "";
+					$.map(res, function(vv, idx){
+						htmlStr += "<tr>";
+						htmlStr += "<td style = 'text-align:center;'>"+vv.noticeSeq+"</td>";	
+						htmlStr += "<td style = 'text-align:center;'><a href='/board_protice/"+vv.noticeSeq+".do'><font color='black'>"+vv.noticeTitle+"</font></a></td>";
+						htmlStr += "<td style = 'text-align:center;'>관리자</td>";
+						htmlStr += "<td style = 'text-align:center;'>"+vv.noticeRegdate+"</td>";
+						htmlStr += "<td style = 'text-align:center;'>"+vv.noticeHits+"</td>";
+						htmlStr += "</tr>";
+					})
+					
+					$("#searchDetail").empty();
+					$("#searchDetail").html(htmlStr);
+					console.log(htmlStr);
+					
+					console.log("siri! 제대로 가고있어???? >>>>>>>>>>>>>>>>>" + text);
+					
+				}
+
+			});
+		});
+	});
 </script>
 </head>
 
@@ -78,11 +108,11 @@
                         </tr>
                       </thead>
                       
-                      <tbody>
-                      	<c:forEach var="noti" items="${KEY_NOTICE}">
+                      <tbody id="searchDetail">
+                      	<c:forEach var="noti" items="${KEY_NOTICE}" varStatus="status">
                         	<tr>
                           		<td style = "text-align:center;">${noti.noticeSeq}</td>
-                          		<td style = "text-align:center;"><a href="board_protice_detail.jsp"><font color="black">${noti.noticeTitle}</font></a></td>
+                          		<td style = "text-align:center;"><a href="/board_protice/${noti.noticeSeq}.do"><font color="black">${noti.noticeTitle}</font></a></td>
                           		<td style = "text-align:center;">관리자</td>
                           		<td style = "text-align:center;">${noti.noticeRegdate}</td>
                           		<td style = "text-align:center;">${noti.noticeHits}</td>
@@ -103,14 +133,13 @@
               	 </div>
 					<select class="bs-select" tabindex="-98" style="width:50px;">
                       <option value="title">제목</option>
-                      <option value="user">작성자</option>
                      </select>
                  </div>
             	<div class="panel-body" >
                   <form role="search">
                     <div class="input-group">
-                      <input type="text" placeholder="검색" class="form-control"><span class="input-group-btn">
-                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
+                      <input type="text" placeholder="검색" class="form-control" id="search" name="search"> <span class="input-group-btn">
+                        <button type="button" class="btn btn-template-main" id="searchButton" name="searchButton"><i class="fa fa-search"></i></button></span>
                     </div>
                   </form>
                 </div>

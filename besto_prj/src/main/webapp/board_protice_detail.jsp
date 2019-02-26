@@ -8,6 +8,19 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+
+
+<script>
+
+
+$(document).ready(function(){
+/* 	$("#button1").click(function(){
+		
+	}) */
+	
+})
+
+</script>
 </head>
 
   <body>
@@ -42,7 +55,7 @@
             <div class="col-md-2">
 
 <!-- Sidebar_Main Include CSS START-->
-<%@ include file="/include/sidebar_board_main.jsp" %>
+<%@ include file="/include/sidebar_board_protice.jsp" %>
 <!-- Sidebar_Main Include CSS END-->
               
             </div>
@@ -51,15 +64,15 @@
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
-                <form method="get" action="shop-checkout1.html">
+                <form method="post" action="/protice_select/${KEY_DETAIL.noticeSeq}.do">
                   <h4>◈ 공지사항</h4>
                   <br>
-                  <h5>공지사항 제목1111111</h5><hr>
+                  <h5>${KEY_DETAIL.noticeTitle}</h5><hr>
                   <font size="2"><strong>작성자</strong> : 관리자 </font> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                  						    <font size="2"> <strong>등록일</strong> : 2019-02.03 18:33</font><br><br>
+                  						    <font size="2"> <strong>등록일</strong> : ${KEY_DETAIL.noticeRegdate}</font><br><br>
                     	<br>
                     <div class="form-group col-sm-10">
-                    	글쓰기에서 입력한 내용 가져오기
+                    	${KEY_DETAIL.noticeContent}
                     </div>
                     <br>
                   <hr>
@@ -68,8 +81,12 @@
                 <div class="col-md-12 pull-right">
                 <br>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
-                  <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 삭제</i></button>
-                  <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"> 수정</i></button>
+				  
+				  <c:if test="${SESS_GRANT eq 'a' }">
+                  <button type="button" class="btn btn-sm btn-danger pull-right" onclick="location.href='/protice_delete/${KEY_DETAIL.noticeSeq}.do'"><i class="fa fa-times-circle"> 삭제</i></button>
+                  <button type="butoon" class="btn btn-sm btn-primary pull-right" ><i class="fa fa-save"> 수정</i></button>
+				  </c:if>
+				  
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
                   <br><br>
                   </div>

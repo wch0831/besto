@@ -8,9 +8,9 @@
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
                     <li class="nav-item"><a href="member_info.jsp" class="nav-link"><span><font color="black">개인정보</font></span></a></li>
-                    <li class="nav-item"><a href="member_buy_score.jsp" class="nav-link"><span><font color="black">구매/적중내역</font></span></a></li>
-                    <li class="nav-item"><a href="member_buy_info.jsp" class="nav-link"><span><font color="black">구매현황분석</font></span></a></li>
-                    <li class="nav-item"><a href="member_cart.jsp" class="nav-link"><span><font color="black">쇼핑카트</font></span></a></li>
+                    <li class="nav-item"><a href="/buyhitlist.do" class="nav-link"><span><font color="black">구매/적중내역</font></span></a></li>
+                    <li class="nav-item"><a href="/buyanalsys.do" class="nav-link"><span><font color="black">구매현황분석</font></span></a></li>
+                    <li class="nav-item"><a href="/buyanalsys.do" class="nav-link"><span><font color="black">쇼핑카트</font></span></a></li>
                   </ul>
                 </div>
                 
@@ -20,7 +20,7 @@
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="member_cash_detail.jsp" class="nav-link"><span><font color="black">내역보기</font></span></a></li>
+                    <li class="nav-item"><a href="/selectSearch.do" class="nav-link"><span><font color="black">내역보기</font></span></a></li>
                     <li class="nav-item"><a href="member_cash_charge.jsp" class="nav-link"><span><font color="black">충전하기</font></span></a></li>
                     <li class="nav-item"><a href="member_cash_output.jsp" class="nav-link"><span><font color="black">출금</font></span></a></li>
                   </ul>

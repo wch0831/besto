@@ -67,8 +67,8 @@ public class MatchVO {
 	}
 	
 	//---------------------------------------------------------------
-	//board_open_window_history.jsp 기록식 게임 체크박스 체크 시 구매내역확인 자동완성을 위한 프로퍼티
-	//@RestController gameInsert(MatchVO matchVO) { matchVO.getRecordRateVOList() }에 사용
+	//board_open_window_history.jsp 湲곕줉�떇 寃뚯엫 泥댄겕諛뺤뒪 泥댄겕 �떆 援щℓ�궡�뿭�솗�씤 �옄�룞�셿�꽦�쓣 �쐞�븳 �봽濡쒗띁�떚
+	//@RestController gameInsert(MatchVO matchVO) { matchVO.getRecordRateVOList() }�뿉 �궗�슜
 	private ArrayList<RecordRateVO> recordRateVOList;
 	public ArrayList<RecordRateVO> getRecordRateVOList() {
 		return recordRateVOList;

@@ -5,12 +5,7 @@
 <html>
 
 <head> 
-
-<!-- <script>
-$(document).ready(function(){
-	
-});
-</script> -->
+ 
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
@@ -73,23 +68,19 @@ $(document).ready(function(){
                         </tr>
                       </thead>
                       <tbody>
-                      <c:forEach var="a" items="${KEY_RESULT}">
+                      <!-- 자유게시판 글 뿌리는 곳  -->
+                      <c:forEach var="a" items="${list}">
                         <tr>    
-                          <td style = "text-align:center;">${a.postSeq}</td>
+                          <td style = "text-align:center;">${a.POST_SEQ}</td>
                           <td style = "text-align:center;">
-                          
-                         <%--  <a href="/board_free_detail.do?postSeq=${a.postSeq}"><font color="black">${a.freeBoardTitle}</font></a> --%>
-                          <a href="/board_free_detail/${a.postSeq}.do"><font color="black">${a.freeBoardTitle}</font></a>
-                          
+                          <a href="/board_free_detail/${a.POST_SEQ}.do?gubun=a"><font color="black">${a.FREE_BOARD_TITLE}</font></a>                       
                           </td>
-                          
-                          
-                          <td style = "text-align:center;">${a.usersName}</td>
-                          <td style = "text-align:center;">${a.freeBoardRegdate}</td>
-                          <td style = "text-align:center;">${a.freeBoardHits}</td>
+                          <td style = "text-align:center;">${a.USERS_NAME}</td>
+                          <td style = "text-align:center;">${a.FREE_BOARD_REGDATE}</td>
+                          <td style = "text-align:center;">${a.FREE_BOARD_HITS}</td>
                         </tr>
                       </c:forEach>
-     
+     				<!-- 자유게시판 글 뿌리는 곳  -->
                       </tbody>
                     </table>
                     <br>
@@ -125,16 +116,27 @@ $(document).ready(function(){
 <!-- 검색바 -->
 
 <!-- 페이징하셈 -->
-              <div class="pages" style="position:relative; left: 360px; top: 40px;">
+               <div class="pages" style="position:relative; left: 360px; top: 40px;">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                   <ul class="pagination">
-                    <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-double-left"></i></a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
+                    <c:if test="${pageMaker.prev}">
+                    <li class="page-item">
+                    <a href='<c:url value="/board_free.do?page=${pageMaker.startPage-1 }"/>' class="page-link"><i class="fa fa-angle-double-left"></i></a></li>
+                    </c:if>
+                    
+                    <c:if test="${pageMaker.startPage > 0}">
+                    	<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var = "idx"> 
+                    	<li class="page-item"><a href="/board_free.do?page=${idx}" class="page-link">${idx}</a></li>
+                    	</c:forEach>
+                    </c:if>
+                    <c:if test="${pageMaker.startPage <= 0}">
+                    	<c:forEach begin="1" end="${pageMaker.endPage}" var = "idx"> 
+                    	<li class="page-item"><a href="/board_free.do?page=${idx}" class="page-link">${idx}</a></li>
+                    	</c:forEach>
+                    </c:if>
+                    <c:if test="${pageMaker.next && pageMaker.endPage >0}">
+                    <li class="page-item"><a href='<c:url value="/board_free.do?page=${pageMaker.endPage+1 }"/>' class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
+                    </c:if>
                   </ul>
                 </nav>
               </div>

@@ -30,9 +30,9 @@
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
-                  	<li class="nav-item"><a href="/board_free_betting.jsp" class="nav-link"><span><font color="black">베팅토론방</font></span></a></li>
+                  	<li class="nav-item"><a href="/board_free_betting.do" class="nav-link"><span><font color="black">베팅토론방</font></span></a></li>
                     <li class="nav-item"><a href="/board_free_hit.do" class="nav-link"><span><font color="black">적중토론방</font></span></a></li>
-                    <li class="nav-item"><a href="/board_free_challenge.jsp" class="nav-link"><span><font color="black">도전분석방</font></span></a></li>
+                    <li class="nav-item"><a href="/board_free_challenge.do" class="nav-link"><span><font color="black">도전분석방</font></span></a></li>
                     <li class="nav-item"><a href="/board_free.do" class="nav-link"><span><font color="black">자유게시판</font></span></a></li>
                   </ul>
                 </div>

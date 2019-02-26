@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import com.com.mapper.BoardMapper;
 
 @Service
-public class NoticeServiceImpl implements NoticeService{
+public class BoardChallengeServiceImpl implements BoardChallengeService{
 
 	@Autowired
-	private BoardMapper boardMapper ;
+	private BoardMapper boardMapper;
 
-	@Override
-	public ArrayList<NoticeVO> NoticeList() {
-		return boardMapper.notice_all();
+	public ArrayList<BoardChallengeVO> BoardChallengeList() {
+		return boardMapper.challenge_board_select();
 	}
+
 	
 }

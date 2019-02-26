@@ -2,29 +2,84 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.com.mapper.MypageMapper">
-	<resultMap id="buy_hit_list" type="com.mypage.com.MypageVO" 
-		extends="myPageMap">
-		
+	
+	<resultMap id="buy_hit_list" type="com.com.mypage.MypageVO">
+		<id 		property="bseq" 		column="betting_seq" />
+		<result property="groundseq" 		column="game_roundseq" />
+		<result property="cartSeq" 		column="cart_seq" />
+		<result property="ggubun" 		column="game_gubun" />
+		<result property="bregdate" 	column="betting_regdate" />
+		<result property="bprice" 		column="betting_price" />
+		<result property="gstatus" 	column="game_status" />
+		<result property="bhityn" 	column="betting_hityn" />
+		<result property="bhitrate" 		column="betting_hitrate" />
+		<result property="cregdate" 		column="cart_regdate" />
+		<result property="cprice" 			column="cart_battingprice" />
+		<result property="bcontent"         column="betting_content"/>
+		<result property="cbattingcontent" 			column="cart_battingcontent" />
+	
 	</resultMap>
 	
 	
-	
-	<resultMap id="myPageMap" type="com.mypage.com.MypageVO">
-		<id property="bseq" column="bseq" />
-		<result property="btitle" column="btitle" />
-		<result property="regid" column="regid" />
-		<result property="regdate" column="regdate" />
-	</resultMap>
 	
 	
 	
 	<select id="buyhitselect" parameterType="int" resultMap="buy_hit_list">
-		select g.game_gubun, g.game_roundseq, g.game_status
-		b.betting_regdate, b.betting_seq, b.betting_price
-		from users u, betting b, game g
-		where #{users_seq}
-		and u.users_seq = b.betting_seq
+		select g.game_gubun, g.game_roundseq, g.game_status,
+		b.betting_regdate, b.betting_seq, b.betting_price,  b.betting_hityn
+		from betting b, game g
+		where b.users_seq = #{users_seq}
 		and g.game_seq = b.game_seq
 	</select>
+	
+	
+	
+	<select id="buycartselect" parameterType="int" resultMap="buy_hit_list">
+	select i.cart_seq, g.game_gubun, g.game_roundseq, i.cart_regdate, 
+	i.cart_battingprice, i.cart_battingcontent
+        from cart i, game g
+        where i.game_seq = g.game_seq
+        and i.users_seq = #{users_seq}
+	</select>
+	
+	
+	<delete id="buycartdel" parameterType="int" >
+	delete from cart where cart_seq = #{value}
+	</delete>
+	
+	
+	
+	
+	
+	<select id="buyanalselect1" parameterType="int" resultType="int">
+	
+	  select sum(betting_price) from betting 
+		where users_seq = #{users_seq}
+	
+	</select>
+	
+	
+	
+	<select id="buyanalselect2" parameterType="int" resultType="int">
+	
+	  select sum(betting_price*betting_hitrate)
+	  from betting
+	  where betting_hityn='y' 
+	  and users_seq = #{users_seq}
+	  
+	
+	</select>
+	
+	
+	
+	<select id="buyanalselect3" parameterType="int" resultType="int">
+	
+	  select max(betting_price*betting_hitrate) 
+	  from betting
+      where betting_hityn='y' and users_seq = #{users_seq}
+	
+	</select>
+	
+	
 	
 </mapper>	

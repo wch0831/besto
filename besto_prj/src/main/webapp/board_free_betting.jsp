@@ -76,12 +76,12 @@ $(document).ready(function(){
                       <c:forEach var="a" items="${KEY_RESULT}"> 
                         <tr>    
                           <td style = "text-align:center;">${a.postSeq}</td>
-                          <td style = "text-align:center;">${a.challengeBoardGcode}</td>
-                          <td style = "text-align:center;">${a.challengeBoadrRoundseq}</td>
-                           <td style = "text-align:center;"><a href="board_free_betting_hit_detail.jsp"><font color="black">${a.challengeBoardTitle}</font></a></td>
-                           <td style = "text-align:center;">${a.usersSeq}</td>
-                           <td style = "text-align:center;">${a.challengeBoardRegdate}</td>
-                           <td style = "text-align:center;">${a.challengeBoardHits}</td>
+                          <td style = "text-align:center;">${a.buyhistoryDiscussionGcode}</td>
+                          <td style = "text-align:center;">${a.buyhistoryDiscussionRoundseq}</td>
+                           <td style = "text-align:center;"><a href="/board_free_betting_buy_detail/${a.postSeq}.do?gubun=a"><font color="black">${a.buyhistoryDiscussionTitle}</font></a></td>
+                           <td style = "text-align:center;">${a.usersName}</td>
+                           <td style = "text-align:center;">${a.buyhistoryDiscussionRegdate}</td>
+                           <td style = "text-align:center;">${a.buyhistoryDiscussionHits}</td>
                            <td style = "text-align:center;"><font color="red">${a.boardCode}</font></td>
                         </tr>
                         </c:forEach>

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,13 +17,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.com.member.MemberVO;
 import com.com.member.UserService;
+import com.com.point.PointService;
 
 @Controller
 public class UserController {
 
 	@Resource
 	private UserService userService;
-	
+	@Resource
+	private PointService pointService;
 //	@Autowired
 //	private MemberVO mvo;
 	
@@ -40,6 +41,7 @@ public class UserController {
 				session.setAttribute("SESS_ID", mvo.getUsersId());
 				session.setAttribute("SESS_NAME", mvo.getUsersName());
 				session.setAttribute("SESS_GRANT", mvo.getUsersGrant());
+				session.setAttribute("SESS_POINT", pointService.pointCheck(mvo.getUsersSeq()).getPointCurrent());
 				mav.setViewName("index");
 			} else {
 				mav.setViewName("board_protice_find");
@@ -137,6 +139,34 @@ public class UserController {
 			} else {
 				mav.addObject("MDETAIL" , mvo);
 				mav.setViewName("member_update");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/finduinfo.do", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView findUser(MemberVO mvo, @RequestParam(value="checkm")String mode) {
+		ModelAndView mav = new ModelAndView();
+		try {
+			if(mode.equals("1")) {
+				String uid = userService.findId(mvo);
+				if(uid != null) {
+					
+				}else {
+					
+				}
+			}else if(mode.endsWith("2")) {
+				int res = userService.changePassword(mvo);				
+				if(res > 0) {
+					mav.setViewName("index");
+				} else {
+					mav.addObject("MDETAIL" , mvo);
+					mav.setViewName("member_update");
+				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

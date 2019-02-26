@@ -17,4 +17,8 @@ public class MatchServiceImpl implements MatchService {
 	public ArrayList<MatchVO> todayMatchList() {return matchMapper.todayMatchList();}
 	@Override
 	public ArrayList<MatchVO> matchList() {return matchMapper.matchList();}
+	@Override
+	public ArrayList<MatchVO> kaeruList(MatchVO mvo) {
+		return matchMapper.kaeruList(mvo);
+	}
 }
