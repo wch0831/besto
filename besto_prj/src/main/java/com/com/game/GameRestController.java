@@ -77,14 +77,17 @@ public class GameRestController {
 			ArrayList<PointVO> plist = new ArrayList<PointVO>();
 			
 			
-			for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
+			for(int i=0; i<matchVO.getRecordRateVOList().size() - 1; i++) {
 				matchVO.getRecordRateVOList().get(i).setUsersSeq(useq);
-				plist.get(i).setPointChange(Integer.parseInt(matchVO.getRecordRateVOList().get(i).getInputCashList()));
-				plist.get(i).setUsersSeq(useq);
+				PointVO pvo = new PointVO();
+				pvo.setPointChange(Integer.parseInt(matchVO.getRecordRateVOList().get(i).getInputCashList()));
+				pvo.setUsersSeq(useq);
+				plist.add(pvo);
+//				plist.get(i).setPointChange(Integer.parseInt(matchVO.getRecordRateVOList().get(i).getInputCashList()));
+//				plist.get(i).setUsersSeq(useq);
 			}
 			
 			if(matchVO.getRecordRateVOList().get(0).getPassWord().equals(gameService.svcUserPw(useq))) {
-				
 //				matchVO.getRecordRateVOList().get(i) => RecordRateVO
 				for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
 					if(matchVO.getRecordRateVOList().get(i).getGameSeq() != 0) {

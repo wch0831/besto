@@ -19,12 +19,12 @@ var jsonData;
   $("#matchviewBtnV").click("change", function(){
 	  			console.log("경기목록 보기 버튼 클릭");
 			  $.ajax({ 
-						url:"http://localhost:8087/bestoapi/alist.do",
+						url:"http://192.168.0.45:8087/bestoapi/alist.do",
 						type:"get",
 						contentType: "application/json; charset=UTF-8", 
 						resultType: "json",
 						success:function(jsonObj){
-								//console.log(jsonObj);		//[{"rseq":1 , "reply":"aa"} , {}]
+								console.log(jsonObj);		//[{"rseq":1 , "reply":"aa"} , {}]
 								var htmlStr = "";
 								jsonData = jsonObj;
 								console.log(jsonData);
@@ -55,7 +55,7 @@ var jsonData;
   $("#matchviewBtnR").click("change", function(){
 		console.log("경기목록 보기 버튼 클릭");
 	  $.ajax({ 
-				url:"http://localhost:8087/bestoapi/alist.do",
+				url:"http://192.168.0.45:8087/bestoapi/alist.do",
 				type:"get",
 				contentType: "application/json; charset=UTF-8", 
 				resultType: "json",
