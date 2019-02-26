@@ -123,5 +123,16 @@ public class GameController {
 		return mav;
 	}
 	
+	@RequestMapping(value="board_game_victory/{gameSeq}.do", method = RequestMethod.GET)
+	public ModelAndView gameEntryVictory(@PathVariable(value = "gameSeq") int gameSeq){
+		ModelAndView mav=new ModelAndView(); 
+		GameVO gvo = gameService.svcGameVictorySelect(gameSeq);
+		System.out.println(gvo.getMatchlist().get(0).getHomeTeamName() + "================="+ gvo.getMatchlist().get(0).getAwayTeamName());
+		System.out.println(gvo.getMatchlist().get(0).getVicVO().getVictoryrateWin());
+		mav.addObject("KEY_GVO", gvo);
+		mav.setViewName("board_open_window_match");		
+		return mav;
+	}
+	
 
 }

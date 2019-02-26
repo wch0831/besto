@@ -49,6 +49,23 @@ public class GameRestController {
 //			}
 //			System.out.println(res + "건 게임 등록 완료");
 //		}
+	
+		@RequestMapping(value="/buyVictoryRestCtl.do", method = RequestMethod.POST)
+		public void victorygameInsert(MatchVO matchVO) {
+			
+			for(VictoryRateVO rateVO : matchVO.getVictoryRateVOList()) {
+				if(rateVO.getMatchSeqList() != null) { 
+					System.out.print(rateVO.getMatchSeqList() + " ");
+					System.out.print(rateVO.getScoreList() + " ");
+					System.out.print(rateVO.getRecoderateList() + " ");
+					System.out.print(rateVO.getInputCashList() + " ");
+					System.out.println(rateVO.getGseq());
+					
+	//				int res = gameService.
+				}
+			}
+			
+		}
 		
 		
 		@RequestMapping(value="/passCheck.do", method = RequestMethod.POST)

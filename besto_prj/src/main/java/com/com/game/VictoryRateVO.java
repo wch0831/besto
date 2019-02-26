@@ -5,6 +5,12 @@ public class VictoryRateVO {
 	private float victoryrateWin;
 	private float victoryrateDraw;
 	private float victoryrateLose;
+	private int gseq;
+	
+	private String matchSeqList;
+	private String scoreList;
+	private String recoderateList;
+	private String inputCashList;
 	
 	public int getMatchSeq() {
 		return matchSeq;
@@ -30,7 +36,36 @@ public class VictoryRateVO {
 	public void setVictoryrateLose(float victoryrateLose) {
 		this.victoryrateLose = victoryrateLose;
 	}
-	
+	public int getGseq() {
+		return gseq;
+	}
+	public void setGseq(int gseq) {
+		this.gseq = gseq;
+	}
+	public String getMatchSeqList() {
+		return matchSeqList;
+	}
+	public void setMatchSeqList(String matchSeqList) {
+		this.matchSeqList = matchSeqList;
+	}
+	public String getScoreList() {
+		return scoreList;
+	}
+	public void setScoreList(String scoreList) {
+		this.scoreList = scoreList;
+	}
+	public String getRecoderateList() {
+		return recoderateList;
+	}
+	public void setRecoderateList(String recoderateList) {
+		this.recoderateList = recoderateList;
+	}
+	public String getInputCashList() {
+		return inputCashList;
+	}
+	public void setInputCashList(String inputCashList) {
+		this.inputCashList = inputCashList;
+	}
 	
 	
 }

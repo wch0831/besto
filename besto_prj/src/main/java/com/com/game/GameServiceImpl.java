@@ -123,5 +123,11 @@ public class GameServiceImpl implements GameService{
 	}
 
 
+	@Override
+	public GameVO svcGameVictorySelect(int gseq) {
+		return gameMapper.selectVictorySelect(gseq);
+	}
+
+
 
 }
