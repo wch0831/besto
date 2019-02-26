@@ -61,7 +61,7 @@ $(document).ready(function() {
 			$("#rateForm").serializeArray().map(function(x){
 				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
 				param['recordRateVOList[' + idx +'].passWord'] = pass;
-				if(loopCount%6 == 0) idx++;
+				if(loopCount%5 == 0) idx++;
 				loopCount++;
 			}); 
 			
@@ -120,35 +120,41 @@ $(document).ready(function() {
 		});
 		
 		
-		var clicknum = 0;
 		$(".rateCheckBox").click(function(){
-			clicknum++;
+		   var cnt = $(this).attr("name");
+			console.log($("#checkB"+cnt).is(":checked"));
+			if($("#checkB"+cnt).is(":checked")){
+				var htmlStr = "";
+				var arr = $(this).val().split("|");
+				htmlStr += "<tr id='newtd"+cnt+"' class='trcl'>";
+				htmlStr += "<td>"+arr[0]+"</td><td>"+arr[1]+"</td><td>"+arr[2]+"</td>";
+				htmlStr += "<td><input class='input_cash' id='inputCashList' name='inputCashList' type='text' size='5.5%'><strong>&nbsp;<font color='black'>원</font></strong></td>";
+				htmlStr += "<td><a href='#'><i class='fa fa-trash-o' name='"+cnt+"'></i></a></td>";
+				htmlStr += "</tr>";
+				htmlStr += "<input type='hidden' class='vv"+cnt+"' name='matchSeqList' value='"+arr[0]+"'>";
+				htmlStr += "<input type='hidden' class='vv"+cnt+"' name='scoreList' value='"+arr[1]+"'>";
+				htmlStr += "<input type='hidden' class='vv"+cnt+"' name='recoderateList' value='"+arr[2]+"'>";
+				htmlStr += "<input type='hidden' class='vv"+cnt+"' name='gameSeq' value='"+arr[3]+"'>";
+		        $('#rateTbody').append(htmlStr);
+			} else{
+				 $("#newtd"+cnt).remove();
+				 $(".vv"+cnt).remove();
+			}
 			
-			var htmlStr = "";
-			var arr = $(this).val().split("|");
-			htmlStr += "<tr id='newtd"+clicknum+"' class='trcl'>";
-			htmlStr += "<td>"+arr[0]+"</td><td>"+arr[1]+"</td><td>"+arr[2]+"</td>";
-			htmlStr += "<td><input class='input_cash' id='inputCashList' name='inputCashList' type='text' size='5.5%'><strong>&nbsp;<font color='black'>원</font></strong></td>";
-			htmlStr += "<td><a href='#'><i class='fa fa-trash-o' name='"+clicknum+"'></i></a></td>";
-			htmlStr += "</tr>";
-			htmlStr += "<input type='hidden' class='vava"+clicknum+"' name='matchSeqList' value='"+arr[0]+"'>";
-			htmlStr += "<input type='hidden' class='vava"+clicknum+"' name='scoreList' value='"+arr[1]+"'>";
-			htmlStr += "<input type='hidden' class='vava"+clicknum+"' name='recoderateList' value='"+arr[2]+"'>";
-			htmlStr += "<input type='hidden' class='vava"+clicknum+"' name='gameSeq' value='"+arr[3]+"'>";
-	        $('#rateTbody').append(htmlStr);
 		});
 		
 		$(document).on("click", '.fa.fa-trash-o', function() {
-		   var cnt = $(this).attr("name");
-		   
+			var cnt = $(this).attr("name");
 		   var checkcnt = $('.rateCheckBox').attr("name"); //번호가 하나만 저장된다?....안되네.. 멀 누르는지 모르니깐...
-		   console.log(checkcnt);
-		   if($("#checkB"+checkcnt).prop("checked", true)){
-			   $("#checkB"+checkcnt).prop("checked", false);
-		   }
+		   console.log($("#checkB"+cnt).prop("checked", true));
+		   //if($("#checkB"+cnt).prop("checked", true)){
+			   $("#checkB"+cnt).prop("checked", false);
+		  // }
 		   $("#newtd"+cnt).remove();
-		   $(".vava"+cnt).remove();
+		   $(".vv"+cnt).remove();
 		});
+		
+		
    
 });
 
@@ -178,14 +184,14 @@ $(document).ready(function() {
                   <h4>▶ 프로토 기록식</h4>
             </div>
             <div id="basket" class="col-lg-8"> 
-           
-        <c:forEach var="gvolist" items="${KEY_GVO.matchlist}"> 
+           <div Role="tablist">
+        <c:forEach var="gvolist" items="${KEY_GVO.matchlist}" varStatus="status"> 
          
-                <div class="card">
-                  <div id="headingOne" role="tab" class="card-header">
-                    <h5 class="mb-0"><a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="">${gvolist.homeTeamName} vs ${gvolist.awayTeamName}</a></h5>
+                <div class="card" >
+                  <div role="tab" class="card-header">
+                    <h5 class="mb-0"><a data-toggle="collapse" href="#collapseOne${status.index}" aria-expanded="true" aria-controls="collapseOne" class="">${gvolist.homeTeamName} vs ${gvolist.awayTeamName}</a></h5>
                   </div>
-                  <div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" class="collapse show" style="">
+                  <div id="collapseOne${status.index}" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" class="collapse show" style="">
                     <div class="card-body">
                       <div class="row">
                           <div class="table-responsive col-md-30">
@@ -287,7 +293,28 @@ $(document).ready(function() {
                 </div>
                 
          </c:forEach>
-                
+           </div> 
+            <div class="card"  style="visibility:hidden">
+             <table class="table">
+                      <thead>
+                        <tr>
+                          <th style="text-align:center;" width=70 bgcolor="#EEEEEE" >번호</th>
+                          <th style="text-align:center;"width=70 bgcolor="#EEEEEE" >예상</th>
+                          <th style="text-align:center;"width=90 bgcolor="#EEEEEE" >배당률</th>
+                          <th style="text-align:center;"width=65 bgcolor="#EEEEEE" >번호</th>
+                          <th style="text-align:center;" width=70 bgcolor="#EEEEEE" >예상</th>
+                          <th style="text-align:center;" width=90 bgcolor="#EEEEEE" >배당률</th>  
+                          <th style="text-align:center;" width=65 bgcolor="#EEEEEE" >번호</th>
+                          <th style="text-align:center;" width=70 bgcolor="#EEEEEE" >예상</th>
+                          <th style="text-align:center;" width=90 bgcolor="#EEEEEE" >배당률</th>  
+                          <th style="text-align:center;" width=65 bgcolor="#EEEEEE" >번호</th>  
+                          <th style="text-align:center;" width=70 bgcolor="#EEEEEE" >예상</th>
+                          <th style="text-align:center;" width=90 bgcolor="#EEEEEE" >배당률</th>       
+                         
+                        </tr>
+                      </thead>
+             </table>
+            </div>
                 
                 
                 

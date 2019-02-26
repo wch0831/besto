@@ -28,7 +28,7 @@ $(document).ready(function() {
 	                  //contentType: "application/json; charset=UTF-8",
 	                  //data:JSON.stringify(jsonData),
 	                  
-	                  url:"http://localhost:80/bestoapi/vs.do",
+	                  url:"http://192.168.0.45:8087/bestoapi/vs.do",
 	                  type:"get",
 	                  contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 	                  //data: { "team1" : team1, "team2" : team2 },
