@@ -55,38 +55,86 @@ $(document).ready(function() {
 			var param = {};
 			var loopCount = 1;
 			var idx = 0;
+			//var pass = $("password[name=pass]").val();
+			var pass = $("#pass").val();
+			
+			$("#rateForm").serializeArray().map(function(x){
+				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
+				param['recordRateVOList[' + idx +'].passWord'] = pass;
+				if(loopCount%6 == 0) idx++;
+				loopCount++;
+			}); 
+			
+			console.log(param);
+			
+			$.ajax({ 
+					type:"post",
+			        url:"/passCheck.do",
+			        contentType : "application/x-www-form-urlencoded; charset=UTF-8", 
+			        data : param, 
+					success:function(res){
+							console.log(res);
+							if(res == "fail"){
+								alert("잘못된 비밀번호입니다.");
+								$("#pass").val("");
+							} else{
+								alert("결제 되었습니다.");
+								$(".trcl").remove();
+								$("#pass").val("");
+							}
+							
+							
+					}
+			}); 
+		});
+		
+		
+		
+		$("#cartButton").click(function(){
+			var param = {};
+			var loopCount = 1;
+			var idx = 0;
+			
 			$("#rateForm").serializeArray().map(function(x){
 				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
 				if(loopCount%5 == 0) idx++;
 				loopCount++;
 			}); 
+			
 			console.log(param);
 			
 			$.ajax({ 
 					type:"post",
-			        url:"/buyRestCtl.do",
+			        url:"/cartInsert.do",
 			        contentType : "application/x-www-form-urlencoded; charset=UTF-8", 
 			        data : param, 
 					success:function(res){
 							console.log(res);
+							if(res == "fail"){
+								alert("무언가 문제가??");
+							} else{
+								alert("카트에 추가되었습니다.");
+							}
 					}
 			}); 
 		});
 		
+		
 		var clicknum = 0;
 		$(".rateCheckBox").click(function(){
 			clicknum++;
+			
 			var htmlStr = "";
 			var arr = $(this).val().split("|");
-			htmlStr += "<tr id='newtd"+clicknum+"'>";
+			htmlStr += "<tr id='newtd"+clicknum+"' class='trcl'>";
 			htmlStr += "<td>"+arr[0]+"</td><td>"+arr[1]+"</td><td>"+arr[2]+"</td>";
-			htmlStr += "<td><input class='input_cash' name='inputCashList' type='text' size='5.5%'><strong>&nbsp;<font color='black'>원</font></strong></td>";
+			htmlStr += "<td><input class='input_cash' id='inputCashList' name='inputCashList' type='text' size='5.5%'><strong>&nbsp;<font color='black'>원</font></strong></td>";
 			htmlStr += "<td><a href='#'><i class='fa fa-trash-o' name='"+clicknum+"'></i></a></td>";
 			htmlStr += "</tr>";
 			htmlStr += "<input type='hidden' class='vava"+clicknum+"' name='matchSeqList' value='"+arr[0]+"'>";
 			htmlStr += "<input type='hidden' class='vava"+clicknum+"' name='scoreList' value='"+arr[1]+"'>";
 			htmlStr += "<input type='hidden' class='vava"+clicknum+"' name='recoderateList' value='"+arr[2]+"'>";
-			htmlStr += "<input type='hidden' class='vava"+clicknum+"' name='gseq' value='"+arr[3]+"'>";
+			htmlStr += "<input type='hidden' class='vava"+clicknum+"' name='gameSeq' value='"+arr[3]+"'>";
 	        $('#rateTbody').append(htmlStr);
 		});
 		
@@ -274,9 +322,9 @@ $(document).ready(function() {
                  <p>▷ 총 구매금액 : 3,000 <strong>원</strong>입니다.</p>
                   <hr>
                   <p>※ 구매가능 금액은 <font color="red">50,000 </font><strong>원</strong> 입니다.</p>
-                  <p>※ 비밀번호를 입력하세요 <input class="input_cash pull-right" name="pass" type="password" size="10.5%"> </p>
-                  	<button type="button" class="btn btn-sm btn-default">카트담기</button>
-                  	<button type="button" class="btn btn-sm btn-info">카트가기</button>
+                  <p>※ 비밀번호를 입력하세요 <input class="input_cash pull-right" id="pass" name="pass" type="password" size="10.5%"> </p>
+                  	<button type="button" id="cartButton" class="btn btn-sm btn-default">카트담기</button>
+                  	<button type="button" onclick="location.href='/member_cart.jsp'" class="btn btn-sm btn-info">카트가기</button>
                   	<button type="button" id="buyButton" class="btn btn-sm btn-danger pull-right">바로구매</button>
                 </form>
                 </div>

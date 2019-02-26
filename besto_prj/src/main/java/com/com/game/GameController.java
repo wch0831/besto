@@ -93,6 +93,25 @@ public class GameController {
 		return mav;
 	}
 	
+	@RequestMapping(value="game_schedule.do")
+	public ModelAndView gameSchedule(){
+		ModelAndView mav=new ModelAndView(); 
+		ArrayList<GameVO> list =gameService.svcGameSchedule();	
+		mav.addObject("GLIST", list);
+		mav.setViewName("board_game_schedule");		
+		return mav;
+	}
+	
+	@RequestMapping(value="game_schedule_detail.do", method = RequestMethod.GET)
+	public ModelAndView gameScheduleDetail(@RequestParam(value = "gameSeq") int gameSeq){
+		ModelAndView mav=new ModelAndView();
+		ArrayList<MatchVO> mlist =gameService.svcGameAvailableSchedule(gameSeq);
+		System.out.println(mlist.size());
+		mav.addObject("MLIST", mlist);
+		mav.setViewName("board_game_schedule_detail");		
+		return mav;
+	}
+	
 	@RequestMapping(value="board_game_record/{gameSeq}.do", method = RequestMethod.GET)
 	public ModelAndView gameEntryRecord(@PathVariable(value = "gameSeq") int gameSeq){
 		ModelAndView mav=new ModelAndView(); 
@@ -100,11 +119,9 @@ public class GameController {
 		System.out.println(gvo.getMatchlist().get(0).getHomeTeamName() + "================="+ gvo.getMatchlist().get(0).getAwayTeamName());
 		System.out.println(gvo.getMatchlist().get(0).getRecVO().getRecoderate22());
 		mav.addObject("KEY_GVO", gvo);
-		mav.setViewName("board_open_window_history");		
+		mav.setViewName("board_open_window_history");	
 		return mav;
 	}
 	
-	
-
 
 }

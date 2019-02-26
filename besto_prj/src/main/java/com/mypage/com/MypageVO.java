@@ -9,7 +9,50 @@ public class MypageVO {
 	private String bprice;
 	private String gstatus;
 	
+	private int cartSeq;
+	private int cartBattingprice;
+	private String cartBattingcontent;
+	private String cartRegdate;
+	private int usersSeq;
+	private int gameSeq;
 	
+	
+	public int getCartSeq() {
+		return cartSeq;
+	}
+	public void setCartSeq(int cartSeq) {
+		this.cartSeq = cartSeq;
+	}
+	public int getCartBattingprice() {
+		return cartBattingprice;
+	}
+	public void setCartBattingprice(int cartBattingprice) {
+		this.cartBattingprice = cartBattingprice;
+	}
+	public String getCartBattingcontent() {
+		return cartBattingcontent;
+	}
+	public void setCartBattingcontent(String cartBattingcontent) {
+		this.cartBattingcontent = cartBattingcontent;
+	}
+	public String getCartRegdate() {
+		return cartRegdate;
+	}
+	public void setCartRegdate(String cartRegdate) {
+		this.cartRegdate = cartRegdate;
+	}
+	public int getUsersSeq() {
+		return usersSeq;
+	}
+	public void setUsersSeq(int usersSeq) {
+		this.usersSeq = usersSeq;
+	}
+	public int getGameSeq() {
+		return gameSeq;
+	}
+	public void setGameSeq(int gameSeq) {
+		this.gameSeq = gameSeq;
+	}
 	public int getGroundseq() {
 		return groundseq;
 	}
