@@ -7,8 +7,8 @@
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="board_game_buy.jsp" class="nav-link"><span><font color="black">구매가능 게임</font></span></a></li>
-                    <li class="nav-item"><a href="board_game_schedule.jsp" class="nav-link"><span><font color="black">게임일정</font></span></a></li>
+                    <li class="nav-item"><a href="board_game_buy.do?mode=game" class="nav-link"><span><font color="black">구매가능 게임</font></span></a></li>
+                    <li class="nav-item"><a href="game_schedule.do" class="nav-link"><span><font color="black">게임일정</font></span></a></li>
                     <li class="nav-item"><a href="board_game_hit_result.jsp" class="nav-link"><span><font color="black">적중결과</font></span></a></li>
                   </ul>
                   <br>

@@ -87,11 +87,12 @@ public class GameController {
 	@RequestMapping(value="board_game_buy.do")
 	public ModelAndView ctlAvailableGame(@RequestParam(value = "mode") String mode){
 		ModelAndView mav=new ModelAndView(); 
-		ArrayList<GameVO> list =gameService.svcAvailableGame();
 		if(mode.equals("manage")) {
+			ArrayList<GameVO> list = gameService.svcGameSchedule();
 			mav.addObject("GLIST", list);
 			mav.setViewName("board_manager_game_deadline");
 		} else if(mode.equals("game")) {
+			ArrayList<GameVO> list = gameService.svcAvailableGame();
 			mav.addObject("ALIST", list);
 			mav.setViewName("board_game_buy");		
 		}

@@ -39,4 +39,5 @@ public interface GameMapper {
 	public int matchStatusUpdate(MatchVO vo);
 	public int maxBettingSeq();
 	public ArrayList<BettingVO> bettingSeqSelect(BettingVO vo);
+	public int gameStatusUpdate(GameVO vo);
 }

@@ -158,4 +158,11 @@ public class GameServiceImpl implements GameService{
 
 
 
+	@Override
+	public int svcGameStatusUpdate(GameVO vo) {
+		return gameMapper.gameStatusUpdate(vo);
+	}
+
+
+
 }

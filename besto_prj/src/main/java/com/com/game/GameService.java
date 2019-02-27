@@ -27,4 +27,5 @@ public interface GameService {
 	public int svcMatchStatusUpdate(MatchVO vo);
 	public int svcMaxBettingSeq();
 	public ArrayList<BettingVO> svcBettingSeqSelect(BettingVO vo);
+	public int svcGameStatusUpdate(GameVO vo);
 }

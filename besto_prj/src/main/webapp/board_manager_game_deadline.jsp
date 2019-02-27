@@ -8,6 +8,64 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
+<script>
+$(document).ready(function(){
+
+	$(document).on("click", ".fa.fa-trash-o", function(){
+		 var name = $(this).attr("name");
+		 var gameseq = $("#game"+name).val();
+		 console.log(gameseq);
+		 var jsonData = {"gameSeq":gameseq};
+		 
+		 console.log(jsonData);
+		 
+        $.ajax({
+	          url:"/game_deadline.do",
+	          type:"get",
+	          contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+	          data : jsonData,
+	          success : function(resObj){
+	        	  console.log(resObj);
+	        	  alert("마감처리 되었습니다.");
+	        	  
+	                var htmlStr = "";
+	                var cnt = 0;
+	                $.map(resObj, function(vv,idx){
+	 		               cnt++;
+	 		               htmlStr += "<tr>";
+	 		               if(vv.gameGubun=='v'){
+	 		            	  htmlStr += "<td style = 'text-align:center;'><a href='game_manager_deadline_detail.do?gameSeq="+vv.gameSeq+"'><font color='green'>프로토 승부식  "+vv.gameRoundseq+"회차</font></a></td>";
+	 		               } else{
+	 		            	  htmlStr += "<td style = 'text-align:center;'><a href='game_manager_deadline_detail.do?gameSeq="+vv.gameSeq+"'><font color='green'>프로토 기록식  "+vv.gameRoundseq+"회차</font></a></td>";
+	 		               }
+	                        
+	 		               htmlStr += "<td style = 'text-align:center;'>"+vv.gameFinishdate+" ~ 경기별 10분전까지 마감 선택</td>";
+                              
+	 		               if(vv.gameStatus=='f'){
+	 		            	  htmlStr += "<td style = 'text-align:center;'>발매마감</td>";
+	 		               } else{
+	 		            	  htmlStr += "<td style = 'text-align:center;'>발매중</td>";
+	 		               }
+	                        
+	 		               if(vv.gameStatus=='p'){
+	 		            	  htmlStr += "<td style = 'text-align:center;'><a href='#'><i class='fa fa-trash-o' name='"+cnt+"'></i></a></td>";
+	 		            	  htmlStr += "<input type='hidden' id='game"+cnt+"' value='"+vv.gameSeq+"' />";
+	 		               }
+	 		              htmlStr += "</tr>";
+	                          
+	                });
+	                
+	               	$("#gameArea").empty();
+	               	$("#gameArea").html(htmlStr);
+	          }
+		 });
+	});
+
+});
+
+</script>
+
+
 </head>
 
   <body>
@@ -62,10 +120,11 @@
                              <th style = "text-align:center;">게임명</th>
                              <th style = "text-align:center;">게임마감일</th>
                              <th style = "text-align:center;">게임상태</th>
+                             <th style = "text-align:center;">게임마감</th>
                            </tr>
                          </thead>
-                         <tbody>
-                         <c:forEach var="vv" items="${GLIST}">
+                         <tbody id="gameArea">
+                         <c:forEach var="vv" items="${GLIST}" varStatus="status">
                            <tr>
                            
                            <c:choose>
@@ -87,6 +146,14 @@
 	                        <td style = "text-align:center;">발매중</td>
 							</c:when>
 	                        </c:choose>
+	                        
+	                         <c:choose>
+	                          <c:when test="${vv.gameStatus=='p'}">
+		                        <td style = "text-align:center;"><a href="#"><i class="fa fa-trash-o" name="${status.index}"></i></a></td>
+		                        <input type="hidden" id="game${status.index}" value="${vv.gameSeq}" />
+	                          </c:when>
+	                          </c:choose>
+	                          
                            </tr>
                          </c:forEach>
                          </tbody>

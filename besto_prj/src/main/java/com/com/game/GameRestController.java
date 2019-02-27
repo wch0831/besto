@@ -108,13 +108,16 @@ public class GameRestController {
 				for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
 					
 				}
+//				game_seq=45 / match_seq_list=11 / user_seq=5 / cash=500
+//				45 12 5 8000
+//				내가 선택한 match_seq가 필요하다.
 				
 //				int bseq = gameService.svcMaxBettingSeq();
 //				int betting_Size = matchVO.getRecordRateVOList().size() - 1;
 //				BettingVO bvo = new BettingVO();
 //				bvo.setMaxSeq(bseq);
 //				bvo.setSiezSeq(betting_Size);
-//				ArrayList<BettingVO> blist = gameService.svcBettingSeqSelect(bvo); //betting_seq, game_seq  개억지코드...
+//				ArrayList<BettingVO> blist = gameService.svcBettingSeqSelect(bvo); //betting_seq, game_seq  선택한 게임
 				
 				System.out.println(res + "건 게임 구매 완료");
 				System.out.println(pres + "건 포인트 차감");
@@ -269,13 +272,21 @@ public class GameRestController {
 		@RequestMapping(value="match_deadline_check.do", method = RequestMethod.GET)
 		public ArrayList<MatchVO> matchDeadlineCheck(MatchVO vo){
 			int res = gameService.svcMatchStatusUpdate(vo);
-			System.out.println(res +"건 마감처리완료 ===============");
+			System.out.println(res +"건 매치 마감처리완료 ===============");
 			ArrayList<MatchVO> mlist = gameService.svcGameDeadline(vo.getGameSeq());
 			System.out.println(mlist.size());
 			return mlist;
 		}
 		
-			
+		@RequestMapping(value="game_deadline.do", method = RequestMethod.GET)
+		public ArrayList<GameVO> gameDeadline(GameVO vo){
+			int res = gameService.svcGameStatusUpdate(vo);
+			System.out.println(res +"건 게임 마감처리완료 ===============");
+			ArrayList<GameVO> glist = gameService.svcGameSchedule();
+			System.out.println(vo.getGameSeq());
+			System.out.println(glist.size());
+			return glist;
+		}
 		
 	
 
