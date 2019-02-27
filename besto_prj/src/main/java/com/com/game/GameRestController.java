@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.com.point.PointService;
@@ -68,7 +69,7 @@ public class GameRestController {
 		}
 		
 		
-		@RequestMapping(value="/passCheck.do", method = RequestMethod.POST)
+		@RequestMapping(value="/passCheckInsertGame.do", method = RequestMethod.POST)
 		public String checkPass(HttpServletRequest request, MatchVO matchVO) {
 			HttpSession session = request.getSession();
 			int useq = (Integer) session.getAttribute("SESS_SEQ");
@@ -87,21 +88,34 @@ public class GameRestController {
 //				plist.get(i).setUsersSeq(useq);
 			}
 			
+			
+			
 			if(matchVO.getRecordRateVOList().get(0).getPassWord().equals(gameService.svcUserPw(useq))) {
 //				matchVO.getRecordRateVOList().get(i) => RecordRateVO
 				for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
 					if(matchVO.getRecordRateVOList().get(i).getGameSeq() != 0) {
 						System.out.print(matchVO.getRecordRateVOList().get(i).getGameSeq() + " ");
-						System.out.print(matchVO.getRecordRateVOList().get(i).getMatchSeqList() + " ");
+						System.out.print(matchVO.getRecordRateVOList().get(i).getMatchSeqList() + " ");  //expect를 빼서 넣어주고
 						System.out.print(matchVO.getRecordRateVOList().get(i).getUsersSeq() + " ");
 						System.out.println(matchVO.getRecordRateVOList().get(i).getInputCashList());
-
-						res += gameService.svcRecordInsert(matchVO.getRecordRateVOList().get(i));
 						
+						res += gameService.svcRecordInsert(matchVO.getRecordRateVOList().get(i));
 						//user의 포인트 결제 목록 insert 
 //						pres += pointService.pointRecharge(plist.get(i));
 					}
 				}
+				
+				for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
+					
+				}
+				
+//				int bseq = gameService.svcMaxBettingSeq();
+//				int betting_Size = matchVO.getRecordRateVOList().size() - 1;
+//				BettingVO bvo = new BettingVO();
+//				bvo.setMaxSeq(bseq);
+//				bvo.setSiezSeq(betting_Size);
+//				ArrayList<BettingVO> blist = gameService.svcBettingSeqSelect(bvo); //betting_seq, game_seq  개억지코드...
+				
 				System.out.println(res + "건 게임 구매 완료");
 				System.out.println(pres + "건 포인트 차감");
 				
@@ -160,6 +174,16 @@ public class GameRestController {
 		public ArrayList<MatchVO> gameSchedule(GameVO vo){
 			ArrayList<MatchVO> list = gameService.svcGameAvailableSchedule(vo.getGameSeq());
 			return list;
+		}
+		
+		
+		@RequestMapping(value="match_deadline_check.do", method = RequestMethod.GET)
+		public ArrayList<MatchVO> matchDeadlineCheck(MatchVO vo){
+			int res = gameService.svcMatchStatusUpdate(vo);
+			System.out.println(res +"건 마감처리완료 ===============");
+			ArrayList<MatchVO> mlist = gameService.svcGameDeadline(vo.getGameSeq());
+			System.out.println(mlist.size());
+			return mlist;
 		}
 		
 			

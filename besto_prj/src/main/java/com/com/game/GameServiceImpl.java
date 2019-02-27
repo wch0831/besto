@@ -130,4 +130,32 @@ public class GameServiceImpl implements GameService{
 
 
 
+	@Override
+	public ArrayList<MatchVO> svcGameDeadline(int seq) {
+		return gameMapper.deadlineSelect(seq);
+	}
+
+
+
+	@Override
+	public int svcMatchStatusUpdate(MatchVO vo) {
+		return gameMapper.matchStatusUpdate(vo);
+	}
+
+
+
+	@Override
+	public int svcMaxBettingSeq() {
+		return gameMapper.maxBettingSeq();
+	}
+
+
+
+	@Override
+	public ArrayList<BettingVO> svcBettingSeqSelect(BettingVO vo) {
+		return gameMapper.bettingSeqSelect(vo);
+	}
+
+
+
 }

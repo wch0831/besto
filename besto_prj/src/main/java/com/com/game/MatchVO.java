@@ -30,6 +30,15 @@ public class MatchVO {
 	private VictoryRateVO vicVO;
 	private RecordRateVO recVO;
 	
+	private MatchResultVO mrVO;
+	
+	
+	public MatchResultVO getMrVO() {
+		return mrVO;
+	}
+	public void setMrVO(MatchResultVO mrVO) {
+		this.mrVO = mrVO;
+	}
 	public int getMatchSeq() {
 		return matchSeq;
 	}

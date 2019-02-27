@@ -17,7 +17,6 @@ public class RecordRateVO {
 	private int usersSeq;
 	private String passWord;
 	
-	
 	public String getPassWord() {
 		return passWord;
 	}
