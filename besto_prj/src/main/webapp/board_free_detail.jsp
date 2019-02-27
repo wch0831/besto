@@ -79,19 +79,16 @@ $(document).ready(function(){
 				var htmlStr = "";
 
 	 			$.map(res, function(vv, idx){
-	 				
-
-	 				htmlStr+="<div class='col-sm-12'>";
-	 					 				htmlStr+="<i class='fa fa-quote-left'></i> "+vv.usersName+" &emsp;<b>:</b>&emsp"+vv.replyContent+"&emsp;&emsp;"+vv.replyRegdate+"&emsp;&emsp;";
-	 					 				
-										if(${sessionScope.SESS_SEQ}==vv.usersSeq){
-	 					 				htmlStr+="<button type='button' class='fa fa-check' id='replyDelete' >삭제하기</button>";
-	 					 				htmlStr+="<button type='button' class='fa fa-times' id='replyUpdate' >수정하기</button>";
-										}
-	 					 			
-	 					 				htmlStr+="<hr>";
-	 					 				htmlStr+="</div>";
+		 				htmlStr+="<div class='col-sm-12'>";
+		 				htmlStr+="<i class='fa fa-quote-left'></i> "+vv.usersName+" &emsp;<b>:</b>&emsp;"+vv.replyContent+"&emsp;&emsp;"+vv.replyRegdate+"&emsp;&emsp;";	 				
+						if(${sessionScope.SESS_SEQ}==vv.usersSeq){
+			 				htmlStr+="<button type='button' class='fa fa-check' id='replyDelete' >삭제하기</button>";
+			 				htmlStr+="<button type='button' class='fa fa-times' id='replyUpdate' >수정하기</button>";
+						}
+		 				htmlStr+="<hr>";
+		 				htmlStr+="</div>";
 			});
+	 			
 	 			$("#replyarea").html(htmlStr);
 	        }	
 			
@@ -199,14 +196,14 @@ $(document).ready(function(){
                 <br>
              	
              <div  id="replyarea" class="col-sm-12">
-             	
+             	<c:if test="${KEY_BVO.rlist[0].replyName ne null}">
              	<c:forEach varStatus="index" var="vv" items="${KEY_BVO.rlist}">
              	
    <!-- 댓글 루프돌릴 div영역 -->
              	<div class="col-sm-12">
              	
              	
-             	<i class="fa fa-quote-left"></i> ${vv.usersName} &emsp;<b>:</b>&emsp; ${vv.replyContent}&emsp;&emsp;${vv.replyRegdate}&emsp;&emsp;
+             	<i class="fa fa-quote-left"></i> ${vv.replyName} &emsp;<b>:</b>&emsp; ${vv.replyContent}&emsp;&emsp;${vv.replyRegdate}&emsp;&emsp;
              		
              		<c:choose>
                 <c:when test="${sessionScope.SESS_SEQ eq vv.usersSeq}">
@@ -229,6 +226,7 @@ $(document).ready(function(){
              	
              	</div>
              	</c:forEach>
+             </c:if>
              </div>
      
              	

@@ -37,7 +37,7 @@
       <result property="replyRegdate"     	column="reply_regdate" />
       <result property="postSeq"     		column="post_seq" />
       <result property="boardCode"   		column="board_code" />
-      <result property="usersName" 			column="users_name" />
+      <result property="replyName" 			column="reply_name" />
       
    </resultMap>
 	
@@ -108,12 +108,11 @@
  	</select>
  	
  	<select id="free_board_detail" parameterType="int" resultMap="board_reply_1n">
- select f.post_seq, f.free_board_title, f.free_board_content,u.users_seq, u.users_name, 
- 	 			f.board_code, f.free_board_regdate , r.REPLY_SEQ, r.REPLY_CONTENT, r.USERS_SEQ as reply_user, r.REPLY_REGDATE, r.POST_SEQ, r.BOARD_CODE
-from FREE_BOARD f, USERS u, reply r
-where r.users_seq = u.users_seq and f.post_seq = r.post_seq and r.board_code = 'free' and r.users_seq=u.users_seq 
-and f.post_seq= #{postSeq} order by r.reply_regdate asc
- 		
+ select f.post_seq, f.free_board_title, f.free_board_content,f.users_seq, u.users_name, u2.board_code, 
+f.free_board_regdate , u2.REPLY_SEQ, u2.REPLY_CONTENT, u2.users_name as reply_name, u2.REPLY_REGDATE, 
+u2.POST_SEQ, u2.BOARD_CODE 
+from FREE_BOARD f, USERS u, (select * from users u, reply r where u.users_seq = r.users_seq) u2 
+where f.users_seq = u.users_seq and f.post_seq = u2.post_seq(+) and f.post_seq= #{value} and f.board_code = u2.board_code(+) order by u2.reply_regdate
  	</select>
  	
  	<insert id="free_board_insert" parameterType="com.com.board.BoardFreeVO">

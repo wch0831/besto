@@ -7,14 +7,14 @@ public class ReplyVO {
 	private String replyRegdate;
 	private int postSeq;
 	private String boardCode;
-	private String usersName;
+	private String replyName;
 	
-	
-	public String getUsersName() {
-		return usersName;
+
+	public String getReplyName() {
+		return replyName;
 	}
-	public void setUsersName(String usersName) {
-		this.usersName = usersName;
+	public void setReplyName(String replyName) {
+		this.replyName = replyName;
 	}
 	public int getReplySeq() {
 		return replySeq;
