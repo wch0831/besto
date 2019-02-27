@@ -85,11 +85,35 @@ public class GameController {
 //	}
 	
 	@RequestMapping(value="board_game_buy.do")
-	public ModelAndView ctlAvailableGame(){
+	public ModelAndView ctlAvailableGame(@RequestParam(value = "mode") String mode){
 		ModelAndView mav=new ModelAndView(); 
-		ArrayList<GameVO> list =gameService.svcAvailableGame();	
-		mav.addObject("ALIST", list);
-		mav.setViewName("board_game_buy");		
+		ArrayList<GameVO> list =gameService.svcAvailableGame();
+		if(mode.equals("manage")) {
+			mav.addObject("GLIST", list);
+			mav.setViewName("board_manager_game_deadline");
+		} else if(mode.equals("game")) {
+			mav.addObject("ALIST", list);
+			mav.setViewName("board_game_buy");		
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value="game_schedule.do")
+	public ModelAndView gameSchedule(){
+		ModelAndView mav=new ModelAndView(); 
+		ArrayList<GameVO> list =gameService.svcGameSchedule();	
+		mav.addObject("GLIST", list);
+		mav.setViewName("board_game_schedule");		
+		return mav;
+	}
+	
+	@RequestMapping(value="game_schedule_detail.do", method = RequestMethod.GET)
+	public ModelAndView gameScheduleDetail(@RequestParam(value = "gameSeq") int gameSeq){
+		ModelAndView mav=new ModelAndView();
+		ArrayList<MatchVO> mlist =gameService.svcGameAvailableSchedule(gameSeq);
+		System.out.println(mlist.size());
+		mav.addObject("MLIST", mlist);
+		mav.setViewName("board_game_schedule_detail");		
 		return mav;
 	}
 	
@@ -100,11 +124,30 @@ public class GameController {
 		System.out.println(gvo.getMatchlist().get(0).getHomeTeamName() + "================="+ gvo.getMatchlist().get(0).getAwayTeamName());
 		System.out.println(gvo.getMatchlist().get(0).getRecVO().getRecoderate22());
 		mav.addObject("KEY_GVO", gvo);
-		mav.setViewName("board_open_window_history");		
+		mav.setViewName("board_open_window_history");	
+		return mav;
+	}
+	
+	@RequestMapping(value="board_game_victory/{gameSeq}.do", method = RequestMethod.GET)
+	public ModelAndView gameEntryVictory(@PathVariable(value = "gameSeq") int gameSeq){
+		ModelAndView mav=new ModelAndView(); 
+		GameVO gvo = gameService.svcGameVictorySelect(gameSeq);
+		System.out.println(gvo.getMatchlist().get(0).getHomeTeamName() + "================="+ gvo.getMatchlist().get(0).getAwayTeamName());
+		System.out.println(gvo.getMatchlist().get(0).getVicVO().getVictoryrateWin());
+		mav.addObject("KEY_GVO", gvo);
+		mav.setViewName("board_open_window_match");		
 		return mav;
 	}
 	
 	
-
+	@RequestMapping(value="game_manager_deadline_detail.do", method = RequestMethod.GET)
+	public ModelAndView gameManagerDeadline(@RequestParam(value = "gameSeq") int gameSeq){
+		ModelAndView mav=new ModelAndView();
+		ArrayList<MatchVO> mlist =gameService.svcGameDeadline(gameSeq);
+		System.out.println(mlist.size());
+		mav.addObject("DLIST", mlist);
+		mav.setViewName("board_manager_game_deadline_detail");		
+		return mav;
+	}
 
 }

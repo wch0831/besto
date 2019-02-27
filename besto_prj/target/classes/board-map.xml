@@ -96,17 +96,15 @@
 		<result property="usersSeq" 		column="users_seq" />
 	</resultMap>
 	
-		<!-- 자유게시판 -->
- 	<select id="free_board_select" resultMap="boardfree-map">
- 	  select rownum as flist, b.*
-          from ( 
-                  select f.post_seq, f.free_board_title, f.free_board_content, f.board_code, 
-                  f.free_board_regdate,f.free_board_hits ,u.users_name
-                  from FREE_BOARD f, USERS u
-                  where f.users_seq = u.users_seq  and f.free_board_del = 'n' 
-                  order by f.free_board_regdate
-                    ) b
-                    order by flist desc
+	<!-- 자유게시판 -->
+	<select id="free_board_total" resultType="integer">
+		select count(*) from free_board
+	</select>
+ 	<select id="free_board_select" parameterType="hashmap" resultType="hashmap">
+ 		select rownum rr, ff.* from (select rownum r ,f.* from (select f.post_seq, f.free_board_title, f.free_board_content, f.board_code, 
+ 				f.free_board_regdate,f.free_board_hits ,u.users_name
+ 		from FREE_BOARD f, USERS u
+ 		where f.users_seq = u.users_seq order by f.post_seq desc) f) ff where ff.r between (#{pageStart}+1) and (#{pageStart}+7)
  	</select>
  	
  	<select id="free_board_detail" parameterType="int" resultMap="board_reply_1n">
@@ -315,9 +313,43 @@ where r.users_seq=u.users_seq and r.board_code ='free' and r.post_seq =#{postSeq
         order by notice_seq desc
    	</select>
    	
-   	<!-- <update id="notice_count" parameterType="integer">
+   	<select id="notice_detail" parameterType="int" resultMap="notice-map">
+   		select *
+   		from notice
+   		where notice_seq = #{value}
+   	</select>
+   	
+
+   	<!-- 공지사항 hit수 올리기 -->
+	<update id="notice_count" parameterType="integer">
    		update notice set notice_hits = notice_hits +1 where notice_seq = #{value}
-   	</update> -->
+   	</update>
+   	
+   	<!-- 공지사항 입력 -->
+   	<insert id="notice_insert" parameterType="com.com.board.NoticeVO">
+   		insert into notice
+   		values(notice_seq.nextval, #{noticeTitle}, #{noticeContent}, sysdate, 0, 5)
+   	</insert>	
+   	
+   	<!-- 공지사항 수정 -->
+   	<update id="notice_update" parameterType="com.com.board.NoticeVO">
+   		update notice set notice_title = #{noticeTitle}, notice_content = #{noticeContent}, notice_regdate = sysdate
+   		where notice_seq = #{noticeSeq}   	
+   	</update>
+   	
+   	<!-- 공지사항 삭제 -->
+   	<delete id="notice_delete" parameterType="integer">
+   		delete from notice
+   		where notice_seq = #{noticeSeq}
+   	</delete>
+   	
+   	<!-- 공지사항 검색 -->
+   	<select id="notice_search" parameterType="String" resultMap="notice-map">
+   		select * 
+   		from notice 
+   		where notice_title like '%'||#{value}||'%'
+   	</select>
+
 
 </mapper>
 

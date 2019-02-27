@@ -13,13 +13,27 @@ public class RecordRateVO {
 	private String scoreList;
 	private String recoderateList;
 	private String inputCashList;
-	private int gseq;
+	private int gameSeq;
+	private int usersSeq;
+	private String passWord;
 	
-	public int getGseq() {
-		return gseq;
+	public String getPassWord() {
+		return passWord;
 	}
-	public void setGseq(int gseq) {
-		this.gseq = gseq;
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+	public int getGameSeq() {
+		return gameSeq;
+	}
+	public void setGameSeq(int gameSeq) {
+		this.gameSeq = gameSeq;
+	}
+	public int getUsersSeq() {
+		return usersSeq;
+	}
+	public void setUsersSeq(int usersSeq) {
+		this.usersSeq = usersSeq;
 	}
 	public String getMatchSeqList() {
 		return matchSeqList;

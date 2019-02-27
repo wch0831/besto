@@ -1,6 +1,7 @@
 package com.com.board;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,12 +12,19 @@ import com.com.mapper.BoardMapper;
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
-	private BoardMapper boardMapper ;
+	BoardMapper boardMapper ;
 	
-	//ÀÚÀ¯°Ô½ÃÆÇ
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½
 	@Override
-	public ArrayList<BoardFreeVO> BoardList() {
-		return boardMapper.free_board_select();
+	public int free_board_total() {
+		// TODO Auto-generated method stub
+		return boardMapper.free_board_total();
+	}
+	@Override
+	public ArrayList<Map<String, Object>> free_board_select(Criteria cri) {
+		// TODO Auto-generated method stub
+		return boardMapper.free_board_select(cri);
 	}
 	@Override
 	public BoardFreeVO boardFreeDetail(int postSeq) {
@@ -50,7 +58,7 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.free_board_reply_select_after_delete(postSeq);
 	}
 	
-	//µµÀüºÐ¼®¹æ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
 	@Override
 	public ArrayList<BoardChallengeVO> BoardChallengeList() {
 		return boardMapper.challenge_board_select();
@@ -75,7 +83,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	
-	//ÀûÁß³»¿ª
+	//ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½
 	@Override
 	public ArrayList<BoardHitHistoryVO> BoardHitHistoryList() {
 		return boardMapper.hit_history_board_select();
@@ -128,6 +136,47 @@ public class BoardServiceImpl implements BoardService {
 
 	
 
+	
+	
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	@Override
+	public ArrayList<NoticeVO> noticeList() {
+		return boardMapper.notice_all();
+	}
+	
+	@Override
+	public NoticeVO noticeDetail(int a) {
+		return boardMapper.notice_detail(a);
+	}
+	
+	@Override
+	public int noticeCount(int a) {
+		return boardMapper.notice_count(a);
+	}
+	
+	@Override
+	public int notice_insert(NoticeVO nvo) {
+		return boardMapper.notice_insert(nvo);
+	}
+	
+	@Override
+	public int noticeUpdate(NoticeVO nvo) {
+		return boardMapper.notice_update(nvo);
+	}
+	
+	@Override
+	public int noticeDelete(int a) {
+		return boardMapper.notice_delete(a);
+	}
+	
+	@Override
+	public ArrayList<NoticeVO> noticeSearch(String b) {
+		return boardMapper.notice_search(b);
+	}
+	
+	
+	
 	
 	
 	

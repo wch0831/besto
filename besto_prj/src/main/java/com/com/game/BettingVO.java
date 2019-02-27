@@ -9,6 +9,22 @@ public class BettingVO {
 	private float bettingHitrate;
 	private int gameSeq;
 	private int usersSeq;
+	private int maxSeq;
+	private int siezSeq;
+	
+	
+	public int getMaxSeq() {
+		return maxSeq;
+	}
+	public void setMaxSeq(int maxSeq) {
+		this.maxSeq = maxSeq;
+	}
+	public int getSiezSeq() {
+		return siezSeq;
+	}
+	public void setSiezSeq(int siezSeq) {
+		this.siezSeq = siezSeq;
+	}
 	
 	public int getBettingSeq() {
 		return BettingSeq;

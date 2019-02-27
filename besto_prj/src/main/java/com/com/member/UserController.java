@@ -17,13 +17,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.com.member.MemberVO;
 import com.com.member.UserService;
+import com.com.point.PointService;
 
 @Controller
 public class UserController {
 
 	@Resource
 	private UserService userService;
-	
+	@Resource
+	private PointService pointService;
 //	@Autowired
 //	private MemberVO mvo;
 	
@@ -39,6 +41,7 @@ public class UserController {
 				session.setAttribute("SESS_ID", mvo.getUsersId());
 				session.setAttribute("SESS_NAME", mvo.getUsersName());
 				session.setAttribute("SESS_GRANT", mvo.getUsersGrant());
+				session.setAttribute("SESS_POINT", pointService.pointCheck(mvo.getUsersSeq()).getPointCurrent());
 				mav.setViewName("index");
 			} else {
 				mav.setViewName("board_protice_find");

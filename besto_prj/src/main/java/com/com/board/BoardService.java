@@ -1,11 +1,13 @@
 package com.com.board;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface BoardService {
 
-	//ÀÚÀ¯°Ô½ÃÆÇ
-	public ArrayList<BoardFreeVO> BoardList();
+	//å ì™ì˜™å ì™ì˜™å ìŒ‰ì™ì˜™å ì™ì˜™
+	public int free_board_total();
+	public ArrayList<Map<String, Object>> free_board_select(Criteria cri);
 	public BoardFreeVO boardFreeDetail(int postSeq);
 	public int boardFreeInsert(BoardFreeVO fvo);
 	public int boardFreeUpdate(BoardFreeVO fvo);
@@ -15,25 +17,39 @@ public interface BoardService {
 	public int boardFreeReplyDelete(ReplyVO rvo);
 	public ArrayList<ReplyVO> free_board_reply_select_after_delete(int postSeq);
 
-	//µµÀüºĞ¼®
+	//ë„ì „ë¶„ì„
 	public ArrayList<BoardChallengeVO> BoardChallengeList();
 	public BoardChallengeVO BoardChallengeDetail(int postSeq);
 	public int boardChallengeInsert(BoardChallengeVO fvo);
 	public int boardChallengeUpdate(BoardChallengeVO fvo);
 	public int boardChallengDelete(BoardChallengeVO fvo);
 
-	//ÀûÁß±â·Ï
+	//å ì™ì˜™å ìŒ©ê¹ì˜™å ï¿½
 	public ArrayList<BoardHitHistoryVO> BoardHitHistoryList();
 	public BoardHitHistoryVO BoardFreeHitDetail(int postSeq);
 	public int boardHitInsert(BoardHitHistoryVO fvo);
 	public int boardHitUpdate(BoardHitHistoryVO fvo);
 	public int boardHitDelete(BoardHitHistoryVO fvo);
 	
-	//º£ÆÃÅä·Ğ
+	//å ì™ì˜™å ì™ì˜™å ì™ì˜™å ï¿½
 	public ArrayList<BoardBuyHistoryVO> boardBuyHistoryList();
 	public BoardBuyHistoryVO BoardBuyHistoryDetail(int postSeq);
 	public int boardBuyInsert(BoardBuyHistoryVO fvo);
 	public int boardBuyUpdate(BoardBuyHistoryVO fvo);
 	public int boardBuyDelete(BoardBuyHistoryVO fvo);
+	
+	
+	//å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™
+	public ArrayList<NoticeVO> noticeList();
+	public NoticeVO noticeDetail(int a);
+	public int noticeCount(int a);
+	public int notice_insert(NoticeVO nvo);
+	public int noticeUpdate(NoticeVO nvo);
+	public int noticeDelete(int a);
+	public ArrayList<NoticeVO> noticeSearch(String b);
+	
+	
+
+	
 	
 }
