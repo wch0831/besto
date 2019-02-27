@@ -125,6 +125,52 @@ public class GameRestController {
 			}
 		}
 		
+		@RequestMapping(value="/passCheck2.do", method = RequestMethod.POST)
+		public String checkPass2(HttpServletRequest request, MatchVO matchVO) {
+			HttpSession session = request.getSession();
+			int useq = (Integer) session.getAttribute("SESS_SEQ");
+			int res = 0;
+			int pres = 0;
+			ArrayList<PointVO> plist = new ArrayList<PointVO>();
+			
+			
+			for(int i=0; i<(matchVO.getRecordRateVOList().size()-1)/3 ; i++) {
+				matchVO.getRecordRateVOList().get(i).setUsersSeq(useq);
+				PointVO pvo = new PointVO();
+				pvo.setPointChange(Integer.parseInt(matchVO.getRecordRateVOList().get(i).getInputCashList()));
+				pvo.setUsersSeq(useq);
+				plist.add(pvo);
+//				plist.get(i).setPointChange(Integer.parseInt(matchVO.getRecordRateVOList().get(i).getInputCashList()));
+//				plist.get(i).setUsersSeq(useq);
+			}
+			
+			
+			if(matchVO.getRecordRateVOList().get(0).getPassWord().equals(gameService.svcUserPw(useq))) {
+//				matchVO.getRecordRateVOList().get(i) => RecordRateVO
+				for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
+					if(matchVO.getRecordRateVOList().get(i).getGameSeq() != 0) {
+						System.out.print(matchVO.getRecordRateVOList().get(i).getGameSeq() + " ");
+						System.out.print(matchVO.getRecordRateVOList().get(i).getMatchSeqList() + " ");
+						System.out.print(matchVO.getRecordRateVOList().get(i).getUsersSeq() + " ");
+						System.out.println(matchVO.getRecordRateVOList().get(i).getInputCashList());
+
+						res += gameService.svcRecordInsert(matchVO.getRecordRateVOList().get(i));
+						
+						//user의 포인트 결제 목록 insert 
+//						pres += pointService.pointRecharge(plist.get(i));
+					}
+				}
+				System.out.println(res + "건 게임 구매 완료");
+				System.out.println(pres + "건 포인트 차감");
+				
+				return "sucess";
+			} else {
+				return "fail";
+			}
+		}
+		
+		
+		
 		
 		@RequestMapping(value="/cartInsert.do", method = RequestMethod.POST)
 		public String cartInsert(HttpServletRequest request, MatchVO matchVO) {
@@ -167,6 +213,49 @@ public class GameRestController {
 			} else {
 				return "fail";
 			}
+		}
+		
+		@RequestMapping(value="/cartInsert2.do", method = RequestMethod.POST)
+		public String cartInsert2(HttpServletRequest request, MatchVO matchVO) {
+			HttpSession session = request.getSession();
+			int useq = (Integer) session.getAttribute("SESS_SEQ");
+			int res = 0;
+			ArrayList<MypageVO> mlist = new ArrayList<MypageVO>();
+			System.out.println(matchVO.getRecordRateVOList().size());
+//			
+//			for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
+//				System.out.print(matchVO.getRecordRateVOList().get(i).getGameSeq() + " ");
+//				System.out.print(matchVO.getRecordRateVOList().get(i).getMatchSeqList() + " ");
+//				System.out.print(useq + " ");
+//				System.out.println(matchVO.getRecordRateVOList().get(i).getInputCashList());
+//			}
+//			
+//			for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
+//				System.out.println(matchVO.getRecordRateVOList().get(i).getInputCashList());
+//				MypageVO mvo = new MypageVO();
+//				if(matchVO.getRecordRateVOList().get(i).getGameSeq() != 0) {
+//					mvo.setCartBattingprice(Integer.parseInt(matchVO.getRecordRateVOList().get(i).getInputCashList()));
+//					mvo.setGameSeq(matchVO.getRecordRateVOList().get(i).getGameSeq());
+//					mvo.setUsersSeq(useq);
+//					mlist.add(mvo);
+//					//mlist.get(i).setCartBattingprice(Integer.parseInt(matchVO.getRecordRateVOList().get(i).getInputCashList()));
+//					//mlist.get(i).setGameSeq(matchVO.getRecordRateVOList().get(i).getGameSeq());
+//					//mlist.get(i).setUsersSeq(useq);
+//				}
+//			}
+//			System.out.println(mlist.size());
+//			
+//			if(Integer.parseInt(matchVO.getRecordRateVOList().get(0).getInputCashList()) != 0) { //안들어오네
+////				matchVO.getRecordRateVOList().get(i) => RecordRateVO
+//				for(int i=0; i<mlist.size(); i++) {
+//					res += gameService.svcCartInsert(mlist.get(i));
+//				}
+//				System.out.println(res + "건 카트 추가 완료");
+//				
+				return "sucess";
+//			} else {
+//				return "fail";
+//			}
 		}
 		
 		
