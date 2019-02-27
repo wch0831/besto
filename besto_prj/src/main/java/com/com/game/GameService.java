@@ -22,7 +22,12 @@ public interface GameService {
 	
 	public int svcCartInsert(MypageVO mvo);
 	public ArrayList<MatchVO> svcGameAvailableSchedule(int seq);
+	
+	
+	/* 안드로이드 */
+	public ArrayList<MatchVO> mGameAvailableSchedule();
 	public ArrayList<GameVO> svcGameSchedule();
+	
 	public ArrayList<MatchVO> svcGameDeadline(int seq);
 	public int svcMatchStatusUpdate(MatchVO vo);
 	public int svcMaxBettingSeq();

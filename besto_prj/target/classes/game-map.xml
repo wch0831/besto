@@ -226,7 +226,17 @@
     	(select t.t_name from team t where t.t_code = m.match_awayteam) as awayTeamName,
      	m.match_stadium
     	from match m, game g
-    	where m.game_seq = g.game_seq and m.game_seq = ${value} and m.match_status = 'p'
+    	where m.game_seq = g.game_seq 
+    	and m.game_seq = ${value}
+ 	</select>
+ 	
+ 	<select id="mGameAvailableSchedule" resultMap="matchMap">
+ 		select m.game_mno, m.match_starttime,
+   		(select t.t_name from team t where t.t_code = m.match_hometeam) as homeTeamName,
+    	(select t.t_name from team t where t.t_code = m.match_awayteam) as awayTeamName,
+     	m.match_stadium
+    	from match m, game g
+    	where m.game_seq = g.game_seq
  	</select>
  	
  	

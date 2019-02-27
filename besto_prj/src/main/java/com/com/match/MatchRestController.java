@@ -21,5 +21,6 @@ public class MatchRestController {
 		mvo.setMatchAwayteam(Integer.parseInt(team2));
 		return matchService.kaeruList(mvo);
 		}
+	
 }
 

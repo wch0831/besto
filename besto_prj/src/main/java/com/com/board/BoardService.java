@@ -48,6 +48,8 @@ public interface BoardService {
 	public int noticeDelete(int a);
 	public ArrayList<NoticeVO> noticeSearch(String b);
 	
+	//안드로이드용
+	public ArrayList<BoardFreeVO> androidBoardFree();
 	
 
 	

@@ -100,6 +100,7 @@
 	<select id="free_board_total" resultType="integer">
 		select count(*) from free_board
 	</select>
+	
  	<select id="free_board_select" parameterType="hashmap" resultType="hashmap">
  		select rownum rr, ff.* from (select rownum r ,f.* from (select f.post_seq, f.free_board_title, f.free_board_content, f.board_code, 
  				f.free_board_regdate,f.free_board_hits ,u.users_name
@@ -107,12 +108,23 @@
  		where f.users_seq = u.users_seq order by f.post_seq desc) f) ff where ff.r between (#{pageStart}+1) and (#{pageStart}+7)
  	</select>
  	
+ 	
+ 	<!-- 안드로이드용  start-->
+ 	<select id="androidBoardFree" resultMap="boardfree-map">
+ 		select rownum rr, ff.* from (select rownum r ,f.* from (select f.post_seq, f.free_board_title, f.free_board_content, f.board_code, 
+ 				f.free_board_regdate,f.free_board_hits ,u.users_name
+ 		from FREE_BOARD f, USERS u
+ 		where f.users_seq = u.users_seq order by f.post_seq desc) f) ff where ff.r between 0 and 10
+ 	</select>
+ 	<!-- 안드로이드용  end -->
+ 	
+ 	
  	<select id="free_board_detail" parameterType="int" resultMap="board_reply_1n">
- select f.post_seq, f.free_board_title, f.free_board_content,f.users_seq, u.users_name, u2.board_code, 
-f.free_board_regdate , u2.REPLY_SEQ, u2.REPLY_CONTENT, u2.users_name as reply_name, u2.REPLY_REGDATE, 
-u2.POST_SEQ, u2.BOARD_CODE 
-from FREE_BOARD f, USERS u, (select * from users u, reply r where u.users_seq = r.users_seq) u2 
-where f.users_seq = u.users_seq and f.post_seq = u2.post_seq(+) and f.post_seq= #{value} and f.board_code = u2.board_code(+) order by u2.reply_regdate
+		 select f.post_seq, f.free_board_title, f.free_board_content,f.users_seq, u.users_name, u2.board_code, 
+		f.free_board_regdate , u2.REPLY_SEQ, u2.REPLY_CONTENT, u2.users_name as reply_name, u2.REPLY_REGDATE, 
+		u2.POST_SEQ, u2.BOARD_CODE 
+		from FREE_BOARD f, USERS u, (select * from users u, reply r where u.users_seq = r.users_seq) u2 
+		where f.users_seq = u.users_seq and f.post_seq = u2.post_seq(+) and f.post_seq= #{value} and f.board_code = u2.board_code(+) order by u2.reply_regdate
  	</select>
  	
  	<insert id="free_board_insert" parameterType="com.com.board.BoardFreeVO">
