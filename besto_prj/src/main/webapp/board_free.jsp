@@ -56,6 +56,7 @@
               <div id="basket" class="col-lg-12">
                 <form method="get" action="/register">
                   <div class="table-responsive">
+                  
                   <h4>◈ 자유게시판</h4>
                     <table class="table">
                       <thead bgcolor="#EEEEEE">
@@ -70,7 +71,7 @@
                       <tbody>
                       <c:forEach var="a" items="${KEY_RESULT}">
                         <tr>    
-                          <td style = "text-align:center;">${a.postSeq}</td>
+                          <td style = "text-align:center;">${a.flist}</td>
                           <td style = "text-align:center;">
                           
                          <%--  <a href="/board_free_detail.do?postSeq=${a.postSeq}"><font color="black">${a.freeBoardTitle}</font></a> --%>
@@ -114,7 +115,6 @@
                 </div>
             </div>
             </div>
-            
 <!-- 검색바 -->
 
 <!-- 페이징하셈 -->

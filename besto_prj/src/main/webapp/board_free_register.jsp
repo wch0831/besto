@@ -82,6 +82,7 @@
                 </div>
  
                 <form name = "board" method="post" action="/board_free_register.do">
+                
                   <div class="col-sm-10">
                     <div class="form-group">
                     
