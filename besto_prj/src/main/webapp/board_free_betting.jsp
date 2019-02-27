@@ -75,7 +75,7 @@ $(document).ready(function(){
                       <tbody>
                       <c:forEach var="a" items="${KEY_RESULT}"> 
                         <tr>    
-                          <td style = "text-align:center;">${a.postSeq}</td>
+                          <td style = "text-align:center;">${a.hlist}</td>
                           <td style = "text-align:center;">${a.buyhistoryDiscussionGcode}</td>
                           <td style = "text-align:center;">${a.buyhistoryDiscussionRoundseq}</td>
                            <td style = "text-align:center;"><a href="/board_free_betting_buy_detail/${a.postSeq}.do?gubun=a"><font color="black">${a.buyhistoryDiscussionTitle}</font></a></td>

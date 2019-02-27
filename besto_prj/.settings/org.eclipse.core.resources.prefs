@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/com/board/BoardController.java=UTF-8
+encoding//src/main/java/com/com/board/BoardService.java=UTF-8
 encoding//src/main/java/com/com/game/GameController.java=UTF-8
 encoding//src/main/java/com/com/game/GameRestController.java=UTF-8
 encoding//src/main/java/com/com/game/MatchVO.java=UTF-8
+encoding//src/main/java/com/com/mapper/BoardMapper.java=UTF-8

@@ -80,21 +80,23 @@
 	                        <tr>
 	                          <th style = "text-align:center;">경기</th>
 	                          <th style = "text-align:center;">경기일</th>
-	                          <th style = "text-align:center;">경기시간</th>
 	                          <th style = "text-align:center;">홈팀 <span class="badge badge-danger">VS</span> 원정팀</th>
 	                          <th style = "text-align:center;">경기장소</th>
 	                          <th style = "text-align:center;">중계일정</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
+	                      <c:forEach var="vv" items="${MLIST}">
+	                      
 	                        <tr>
-	                          <td style = "text-align:center;">1</td>
-	                          <td style = "text-align:center;">19.02.15</td>
-	                          <td style = "text-align:center;">17:00</td>
-	                          <td style = "text-align:center;">AT마드<span class="badge badge-danger">VS</span>비야레알</td>
-	                          <td style = "text-align:center;">시티스타디움</td>
+	                          <td style = "text-align:center;">${vv.gameMno}</td>
+	                          <td style = "text-align:center;">${vv.matchStarttime}</td>
+	                          <td style = "text-align:center;">${vv.homeTeamName}<span class="badge badge-danger">VS</span>${vv.awayTeamName}</td>
+	                          <td style = "text-align:center;">${vv.matchStadium} </td>
 	                          <td style = "text-align:center;">-</td>
 	                        </tr>
+	                        
+	                      </c:forEach>
 	                      </tbody>
 	                    </table>
                   </div>
