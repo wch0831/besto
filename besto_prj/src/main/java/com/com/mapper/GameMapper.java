@@ -34,4 +34,7 @@ public interface GameMapper {
 	public int recordCartInsert(MypageVO mvo);
 	public ArrayList<MatchVO> gameAvailableSchedule(int seq);
 	public ArrayList<GameVO> gameSchedule();
+	
+	/* 안드로이드 */
+	public ArrayList<MatchVO> mGameAvailableSchedule();
 }

@@ -10,8 +10,15 @@ public class GameVO {
 	private int gameRoundseq;
 	private String gameRegdate;
 	private int usersSeq;
+	private String gameName;
 	
 
+	public String getGameName() {
+		return gameName;
+	}
+	public void setGameName(String gameName) {
+		this.gameName = gameName;
+	}
 	private ArrayList<MatchVO> matchlist;
 	
 	public ArrayList<MatchVO> getMatchlist() {

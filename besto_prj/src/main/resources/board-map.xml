@@ -88,12 +88,24 @@
 	<select id="free_board_total" resultType="integer">
 		select count(*) from free_board
 	</select>
+	
  	<select id="free_board_select" parameterType="hashmap" resultType="hashmap">
  		select rownum rr, ff.* from (select rownum r ,f.* from (select f.post_seq, f.free_board_title, f.free_board_content, f.board_code, 
  				f.free_board_regdate,f.free_board_hits ,u.users_name
  		from FREE_BOARD f, USERS u
  		where f.users_seq = u.users_seq order by f.post_seq desc) f) ff where ff.r between (#{pageStart}+1) and (#{pageStart}+7)
  	</select>
+ 	
+ 	
+ 	<!-- 안드로이드용  start-->
+ 	<select id="androidBoardFree" resultMap="boardfree-map">
+ 		select rownum rr, ff.* from (select rownum r ,f.* from (select f.post_seq, f.free_board_title, f.free_board_content, f.board_code, 
+ 				f.free_board_regdate,f.free_board_hits ,u.users_name
+ 		from FREE_BOARD f, USERS u
+ 		where f.users_seq = u.users_seq order by f.post_seq desc) f) ff where ff.r between 0 and 10
+ 	</select>
+ 	<!-- 안드로이드용  end -->
+ 	
  	
  	<select id="free_board_detail" parameterType="int" resultMap="boardfree-map">
  	 	select f.post_seq, f.free_board_title, f.free_board_content, u.users_name, 

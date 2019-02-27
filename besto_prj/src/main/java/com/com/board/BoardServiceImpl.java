@@ -142,6 +142,14 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	
+	//안드로이드용
+	@Override
+	public ArrayList<BoardFreeVO> androidBoardFree() {
+		// TODO Auto-generated method stub
+		return boardMapper.androidBoardFree();
+	}
+	
+	
 	
 	
 	

@@ -15,7 +15,7 @@ public class GameServiceImpl implements GameService{
 	@Autowired
 	private GameMapper gameMapper;
 
-	//game 추가 먼저
+	//game 異붽� 癒쇱�
 	@Override
 	public int svcGameInsert(GameVO vo) {
 		return gameMapper.gameInsert(vo);
@@ -31,7 +31,7 @@ public class GameServiceImpl implements GameService{
 	}
 
 	
-	//match 및 배당률 추가
+	//match 諛� 諛곕떦瑜� 異붽�
 	@Override
 	public int svcMatchInsert(ArrayList<MatchVO> list) {
 		int res = 0;
@@ -47,15 +47,15 @@ public class GameServiceImpl implements GameService{
 				list.get(m).setGameMno(gameMno);
 				gameMno++;
 			}
-			// match게임 insert에서 게임이 등록 되어있는지 아닌지 확인 seq로 확인
+			// match寃뚯엫 insert�뿉�꽌 寃뚯엫�씠 �벑濡� �릺�뼱�엳�뒗吏� �븘�땶吏� �솗�씤 seq濡� �솗�씤
 			for(int j=0; j<mlist.size(); j++) {
 				
-				if(list.get(i).getMatchSeq() == mlist.get(j).getMatchSeq()) { //비교문 xx
+				if(list.get(i).getMatchSeq() == mlist.get(j).getMatchSeq()) { //鍮꾧탳臾� xx
 					count += 1;
 				}
 			}
 			
-			//match가 등록 안되어있으면 등록해라
+			//match媛� �벑濡� �븞�릺�뼱�엳�쑝硫� �벑濡앺빐�씪
 			if(count == 0) {
 				res += gameMapper.matchInsert(list.get(i));
 			}
@@ -66,8 +66,8 @@ public class GameServiceImpl implements GameService{
 				mres += gameMapper.recordRateInsert(list.get(i).getRecVO());
 			}
 		}
-		System.out.println(res+"건 매치가 등록");
-		System.out.println(mres+"건 배당률 등록");
+		System.out.println(res+"嫄� 留ㅼ튂媛� �벑濡�");
+		System.out.println(mres+"嫄� 諛곕떦瑜� �벑濡�");
 		return res;
 	}
 	
@@ -120,6 +120,13 @@ public class GameServiceImpl implements GameService{
 	@Override
 	public ArrayList<GameVO> svcGameSchedule() {
 		return gameMapper.gameSchedule();
+	}
+
+
+
+	@Override
+	public ArrayList<MatchVO> mGameAvailableSchedule() {
+		return gameMapper.mGameAvailableSchedule();
 	}
 
 
