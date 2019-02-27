@@ -17,9 +17,11 @@
 		<result property="awayTeamName" 		column="awayTeamName" />
 		<result property="gameMno" 		column="game_mno" />		
 		<result property="gameGubun" 		column="game_gubun" />
-		<result property="victoryrateWin" 		column="victoryrate_win" />
-		<result property="victoryrateDraw" 		column="victoryrate_draw" />
-		<result property="victoryrateLose" 		column="victoryrate_lose" />
+		
+	</resultMap>
+	
+	<resultMap type="com.com.game.GameVO" id="gameVictoryMap_11n" extends="gameMap">
+		<collection property="matchlist" resultMap="victory_11"/>
 	</resultMap>
 	
 	<resultMap id="gameMap" type="com.com.game.GameVO">
@@ -53,6 +55,10 @@
 		<association property="recVO" resultMap="recordRateMap"/>
 	</resultMap>
 	
+	<resultMap id="deadline_11" type="com.com.game.MatchVO" extends="matchMap">
+		<association property="mrVO" resultMap="matchResultMap"/>
+	</resultMap>
+	
 	<resultMap id="recordRateMap" type="com.com.game.RecordRateVO">
 		<id 	property="matchSeq" 		column="match_seq" />
 		<result property="recoderate00" 		column="recoderate_00" />
@@ -76,8 +82,7 @@
 		<result property="victoryrateLose" 	column="victoryrate_lose" />			
 	</resultMap>
 	
-	<!-- 아직 안쓰는중 -->
-	<resultMap id="bettingBuyMap" type="com.com.game.RecordRateVO">
+	<resultMap id="bettingMap" type="com.com.game.BettingVO">
 		<id 	property="bettingSeq" 		column="betting_seq" />
 		<result property="bettingContent" 		column="betting_content" />
 		<result property="bettingPrice" 		column="betting_price" />
@@ -85,7 +90,9 @@
 		<result property="bettingHityn" 	column="betting_hityn" />	
 		<result property="bettingHitrate" 	column="betting_hitrate" />	
 		<result property="gameSeq" 	column="game_seq" />	
-		<result property="usersSeq" 	column="users_seq" />	
+		<result property="usersSeq" 	column="users_seq" />
+		<result property="maxSeq" 	column="max_seq" />	
+		<result property="siezSeq" 	column="size_seq" />		
 	</resultMap>	
 	
 	<resultMap id="memberMap" type="com.com.member.MemberVO">
@@ -110,6 +117,13 @@
 		<result property="cartRegdate" 				column="cart_regdate" />
 		<result property="usersSeq" 				column="users_seq" />
 		<result property="gameSeq" 					column="game_seq" />
+	</resultMap>
+	
+	<resultMap id="matchResultMap" type="com.com.game.MatchResultVO">
+		<id 	property="matchSeq" 		column="match_seq" />
+		<result property="matchScore" 		column="match_score" />
+		<result property="matchVs" 			column="match_vs" />
+		<result property="registerYn" 		column="register_yn" />
 	</resultMap>
 	
  	<sql id="commonSelect">user_name, user_gubun</sql>
@@ -187,8 +201,8 @@
     	(select t.t_name from team t where t.t_code = m.match_awayteam) as awayTeamName,
     	r.recoderate_00, r.recoderate_01, r.recoderate_02, r.recoderate_10, r.recoderate_11, r.recoderate_20, r.recoderate_22
     	from game g, match m, recoderate r
-    	where m.game_seq = g.game_seq(+) and r.match_seq = m.match_seq(+)
-    	and m.game_seq = #{value}
+    	where m.game_seq = g.game_seq(+) and r.match_seq = m.match_seq(+) 
+    	and m.game_seq = #{value} and m.match_status = 'p'
  	</select>
  	
  	<select id="userPw" parameterType="int" resultType="String">
@@ -205,7 +219,7 @@
  		where game_status='p'
  	</select>
  	
- 	<!-- 게임구매에서 해당게임 일정 보기  -->
+ 	<!-- 게임구매에서 해당게임 일정 보기  --> <!-- m.match_status = 'p' 추가 -->
  	<select id="gameAvailableSchedule" parameterType="int" resultMap="matchMap">
  		select m.game_mno, m.match_starttime,
    		(select t.t_name from team t where t.t_code = m.match_hometeam) as homeTeamName,
@@ -232,6 +246,41 @@
  		from game
  	</select>
  	
+ 	<select id="selectVictorySelect" resultMap="gameVictoryMap_11n" parameterType="int">
+ 		select m.match_seq, m.game_seq, m.match_stadium,
+ 		(select t.t_name from team t where t.t_code = m.match_hometeam) as homeTeamName,
+ 		(select t.t_name from team t where t.t_code = m.match_awayteam) as awayTeamName,
+ 		v.victoryrate_draw,v.victoryrate_lose,v.victoryrate_win
+ 		from game g, match m, victoryrate v
+ 		where m.game_seq = g.game_seq(+) and v.match_seq = m.match_seq and m.game_seq =#{value}  and m.match_status = 'p'
+ 	</select>
+ 	
+ 	<select id="deadlineSelect" resultMap="deadline_11" parameterType="int">
+ 		select (select t.t_name from team t where t.t_code = m.match_hometeam) as homeTeamName, 
+        	   (select t.t_name from team t where t.t_code = m.match_awayteam) as awayTeamName,
+ 		m.game_mno, m.match_starttime, m.match_status, r.match_score, r.match_vs, m.match_seq, m.game_seq
+ 		from match m, match_result r
+ 		where m.match_seq = r.match_seq and m.game_seq = #{value}
+ 	</select>
+ 	
+	<update id="matchStatusUpdate" parameterType="com.com.game.MatchVO">
+		update match set match_status='f' where match_seq = #{matchSeq} and game_seq = #{gameSeq}
+	</update>
+	
+	<select id="maxBettingSeq" resultMap="bettingMap">
+ 		select max(betting_seq) as betting_seq
+  		from betting
+ 	</select>
+ 	
+ 	<select id="BettingSeqSelect" resultMap="bettingMap" parameterType="com.com.game.BettingVO">
+ 		select betting_seq, game_seq
+ 		from betting
+  		where betting_seq > (#{maxSeq}-#{sizeSeq})
+ 	</select>
+ 	
+ 	<update id="gameStatusUpdate" parameterType="com.com.game.GameVO">
+		update game set game_status='f' where game_seq = #{gameSeq}
+	</update>
  	
  <!-- 	<select id="objectGame" parameterType="com.com.game.GameVO" resultMap="matchMap">
  		select match_starttime,match_hometeam,match_awayteam,match_stadium

@@ -13,7 +13,7 @@ $(document).ready(function() {
 					//오늘의 경기 ajax
 
 	            $.ajax({ 
-	                  url:"http://localhost:8082/matchRest.do",
+	                  url:"http://192.168.0.45:8087/matchRest.do",
 	                  type:"get",
 	                  success:function(jsonObj){
 	                	  var arraystra=JSON.stringify (jsonObj);

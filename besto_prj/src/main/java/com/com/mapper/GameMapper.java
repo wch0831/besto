@@ -37,4 +37,10 @@ public interface GameMapper {
 	
 	/* 안드로이드 */
 	public ArrayList<MatchVO> mGameAvailableSchedule();
+	public GameVO selectVictorySelect(int gseq);
+	public ArrayList<MatchVO> deadlineSelect(int seq);
+	public int matchStatusUpdate(MatchVO vo);
+	public int maxBettingSeq();
+	public ArrayList<BettingVO> bettingSeqSelect(BettingVO vo);
+	public int gameStatusUpdate(GameVO vo);
 }

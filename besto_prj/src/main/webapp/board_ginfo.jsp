@@ -15,7 +15,7 @@ $(document).ready(function() {
 	
 					//오늘의 경기 ajax
 	            $.ajax({ 
-	                  url:"http://localhost:8082/todayMatchRest.do",
+	                  url:"http://192.168.0.45:8087/todayMatchRest.do",
 	                  type:"get",
 	                  success:function(jsonObj){
 	                     	console.log("hi");
@@ -38,7 +38,7 @@ $(document).ready(function() {
 	         
 	         	//순위 정보 ajax
 	            $.ajax({ 
-	                  url:"http://localhost:8082/bestoapi/rankinfo.do",
+	                  url:"http://192.168.0.45:8087/bestoapi/rankinfo.do",
 	                  type:"get",
 	                  success:function(jsonObj){
 	                     	console.log("hi");

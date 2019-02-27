@@ -40,6 +40,23 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.free_board_update(vo);
 	}
 	
+	@Override
+	public int boardFreeDelete(BoardFreeVO vo) {
+		return boardMapper.free_board_delete(vo);
+	}
+	@Override
+	public int boardFreeReplyInsert(ReplyVO rvo) {
+		return boardMapper.free_board_reply_insert(rvo);
+	}
+	
+	public int boardFreeReplyDelete(ReplyVO rvo) {
+		return boardMapper.free_board_reply_delete(rvo);
+	}
+	@Override
+	public ArrayList<ReplyVO> free_board_reply_select_after_delete(int postSeq) {
+		// TODO Auto-generated method stub
+		return boardMapper.free_board_reply_select_after_delete(postSeq);
+	}
 	
 	//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
 	@Override
@@ -58,6 +75,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int boardChallengeUpdate(BoardChallengeVO vo) {
 		return boardMapper.challenge_board_update(vo);
+	}
+	
+	@Override
+	public int boardChallengDelete(BoardChallengeVO vo) {
+		return boardMapper.challenge_board_delete(vo);
 	}
 	
 	
@@ -82,7 +104,13 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.hit_history_board_update(vo);
 	}
 	
-	/*ï¿½ï¿½ï¿½Å³ï¿½ï¿½ï¿½*/
+	@Override
+	public int boardHitDelete(BoardHitHistoryVO vo) {
+		return boardMapper.hit_history_board_delete(vo);
+	}
+	
+	
+	/*±¸¸Å³»¿ª*/
 	@Override
 	public ArrayList<BoardBuyHistoryVO> boardBuyHistoryList() {
 		return boardMapper.buy_history_board_select();
@@ -100,6 +128,12 @@ public class BoardServiceImpl implements BoardService {
 	public int boardBuyUpdate(BoardBuyHistoryVO vo) {
 		return boardMapper.buy_history_board_update(vo);
 	}
+	
+	@Override
+	public int boardBuyDelete(BoardBuyHistoryVO vo) {
+		return boardMapper.buy_history_board_delete(vo);
+	}
+
 	
 
 	

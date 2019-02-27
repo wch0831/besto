@@ -56,6 +56,7 @@
               <div id="basket" class="col-lg-12">
                 <form method="get" action="/register">
                   <div class="table-responsive">
+                  
                   <h4>◈ 자유게시판</h4>
                     <table class="table">
                       <thead bgcolor="#EEEEEE">
@@ -112,7 +113,6 @@
                 </div>
             </div>
             </div>
-            
 <!-- 검색바 -->
 
 <!-- 페이징하셈 -->
