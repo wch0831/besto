@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
-
 @Controller
 public class NewsController {
 	
