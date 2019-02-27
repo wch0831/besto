@@ -8,29 +8,24 @@
 <!-- Header Include CSS START-->
 <%@ include file="/include/header.jsp" %>
 <!-- Header Include CSS END-->
-
 <script>
-
 
 $(document).ready(function(){
 	console.log("여기는 오니?");
-	var dd = "${BVO.code}";
-
-	console.log(dd);
 	
 	$("#board_del").on("click", function(){
 		if (confirm("정말 게시글을 삭제하시겠습니까?") == true){
-			location = "/board_delete?boardSeq=${BVO.boardSeq}&code=${BVO.code}";
+			location = "/board_free_challenge_delete/${KEY_BVO.postSeq}.do";
 		} else{   //취소
 		     alert("게시글 삭제가 취소되었습니다.");
 		 }
 	});
 	
-	
 	$("#board_update").on("click", function(){
 		if (confirm("게시글을 수정하시겠습니까?") == true){
+			//location = "/board_free_challenge_detail/${KEY_BVO.postSeq}.do";
 			/* location = "/boardUpdate"; */
-			$("#boardUpdate").submit();
+			$("#boardUpdateForm").submit();
 		} else{   //취소
 		     alert("게시글 수정이 취소되었습니다.");
 		 }
@@ -84,9 +79,9 @@ $(document).ready(function(){
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
-                <form method="get" id="boardUpdate" action="/board_free_challenge_detail/${KEY_BVO.postSeq}.do">
+                <form method="get" id="boardUpdateForm" action="/board_free_challenge_detail/${KEY_BVO.postSeq}.do">
                  <input type="hidden" name="postSeq" value="${KEY_BVO.postSeq}"/>
-                <input type="hidden" value="b" name="gubun">
+               	 <input type="hidden" value="b" name="gubun">
                   <div class="table-responsive">
                   <h4>◈ 도전분석방</h4>
                   <br>
@@ -119,73 +114,73 @@ $(document).ready(function(){
                       </thead>
                       <tbody>
                         <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                        </tr>
-                        <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
                         </tr>
                         <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                        </tr>
-                        <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
-                          <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
                         </tr>
                         <tr>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
-                          <td bgcolor="#EEEEEE">--</td>
-                          <td>--</td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
+                          <td>--<input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
+                          <td>--<input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
+                          <td>--<input type="checkbox"></td>
+                          <td bgcolor="#EEEEEE">ㅇㅇ</td>
+                          <td>ㅇㅇ</td>
                           <td>--<input type="checkbox"></td>
                         </tr>
                       </tbody>
@@ -211,24 +206,24 @@ $(document).ready(function(){
                         <tr>
                           <td>1</td>
                           <td>02-15(금)<br>15:50</td>
-                          <td>--</td>
+                          <td>ㅇㅇ</td>
                           <td><span class="badge badge-info">일반</span></td>
-                          <td>--</td>
+                          <td>ㅇㅇ</td>
                           <td><font color="red">승</font>1.34 <input type="checkbox"></td>
                           <td>무 1.50 <input type="checkbox"></td>
                           <td><font color="blue">패</font>2.55 <input type="checkbox"></td>
-                          <td>--</td>
+                          <td>ㅇㅇ</td>
                         </tr>
                         <tr>
                           <td>1</td>
                           <td>02-15(금)<br>15:50</td>
-                          <td>--</td>
+                          <td>ㅇㅇ</td>
                           <td><span class="badge badge-info">일반</span></td>
-                          <td>--</td>
+                          <td>ㅇㅇ</td>
                           <td><font color="red">승</font>1.34 <input type="checkbox"></td>
                           <td>무 1.50 <input type="checkbox"></td>
                           <td><font color="blue">패</font>2.55 <input type="checkbox"></td>
-                          <td>--</td>
+                          <td>ㅇㅇ</td>
                         </tr>
                       </tbody>
                     </table>
@@ -254,8 +249,17 @@ $(document).ready(function(){
                 <div class="col-md-12 pull-right">
                 <br>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
-                  <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle">삭제</i></button>
+				<c:set var="userSEQ" value= "${KEY_BVO.usersSeq}"/>
+				<c:choose>
+                <c:when test="${sessionScope.SESS_SEQ eq userSEQ}">
+				<div>
+                  <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle" id="board_del" >삭제</i></button>
                   <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save" id="board_update">수정</i></button>
+				</div>
+				</c:when>
+				<c:otherwise></c:otherwise>
+                </c:choose>
+
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
                   <br><br>
                   </div>

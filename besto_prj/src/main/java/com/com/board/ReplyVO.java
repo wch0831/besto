@@ -3,10 +3,19 @@ package com.com.board;
 public class ReplyVO {
 	private int replySeq;
 	private String replyContent;
-	private String replyWriter;
+	private int usersSeq;
 	private String replyRegdate;
 	private int postSeq;
 	private String boardCode;
+	private String replyName;
+	
+
+	public String getReplyName() {
+		return replyName;
+	}
+	public void setReplyName(String replyName) {
+		this.replyName = replyName;
+	}
 	public int getReplySeq() {
 		return replySeq;
 	}
@@ -19,11 +28,12 @@ public class ReplyVO {
 	public void setReplyContent(String replyContent) {
 		this.replyContent = replyContent;
 	}
-	public String getReplyWriter() {
-		return replyWriter;
+
+	public int getUsersSeq() {
+		return usersSeq;
 	}
-	public void setReplyWriter(String replyWriter) {
-		this.replyWriter = replyWriter;
+	public void setUsersSeq(int usersSeq) {
+		this.usersSeq = usersSeq;
 	}
 	public String getReplyRegdate() {
 		return replyRegdate;

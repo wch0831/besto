@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 	$("#board_del").on("click", function(){
 		if (confirm("정말 게시글을 삭제하시겠습니까?") == true){
-			location = "/board_delete?boardSeq=${BVO.boardSeq}&code=${BVO.code}";
+			location = "/board_free_hit_delete/${KEY_BVO.postSeq}.do";
 		} else{   //취소
 		     alert("게시글 삭제가 취소되었습니다.");
 		 }
@@ -308,8 +308,25 @@ $(document).ready(function(){
                 <div class="col-md-12 pull-right">
                 <br>
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
-                  <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 삭제</i></button>
-                  <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save" id="board_update"> 수정</i></button>
+
+				<c:set var="userSEQ" value= "${KEY_BVO.usersSeq}"/>
+				
+				<c:choose>
+                <c:when test="${sessionScope.SESS_SEQ eq userSEQ}">
+				<div>
+				
+					<button type="button" class="btn btn-sm btn-danger pull-right" id="board_del" >삭제하기</button>
+					<button type="button" class="btn btn-sm btn-danger pull-right" id="board_update" >수정하기</button>
+			
+					<!-- <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"> 삭제하기</i></button>
+                  <button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-save" id="boardUpdate"> 수정하기</i></button>
+               -->  
+               	</div>
+				</c:when>
+				<c:otherwise></c:otherwise>
+                </c:choose>
+                
+                  
 <!-- 세션비교 후 작성자만 보이게 설정하기 -->
                   <br><br>
                   </div>

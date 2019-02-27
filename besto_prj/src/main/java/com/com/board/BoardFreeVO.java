@@ -1,7 +1,10 @@
 package com.com.board;
 
+import java.util.ArrayList;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
 
 @Component
 @Scope("prototype")
@@ -9,16 +12,35 @@ public class BoardFreeVO {
 	
 	private int postSeq;
 	private String boardCode;
-	private int userSeq;
+	private int usersSeq;
 	private String freeBoardTitle;
 	private String freeBoardContent;
 	private String freeBoardRegdate;
 	private int freeBoardHits;
 	private String freeBoardDel;
 	private String usersName;
+	private int flist;
 	
-	
-	
+	private ArrayList<ReplyVO> rlist;
+		
+	public ArrayList<ReplyVO> getRlist() {
+		return rlist;
+	}
+	public void setRlist(ArrayList<ReplyVO> rlist) {
+		this.rlist = rlist;
+	}
+	public int getFlist() {
+		return flist;
+	}
+	public void setFlist(int flist) {
+		this.flist = flist;
+	}
+	/*public int getFrnum() {
+		return frnum;
+	}
+	public void setFrnum(int frnum) {
+		this.frnum = frnum;
+	}*/
 	public String getUsersName() {
 		return usersName;
 	}
@@ -37,11 +59,11 @@ public class BoardFreeVO {
 	public void setBoardCode(String boardCode) {
 		this.boardCode = boardCode;
 	}
-	public int getUserSeq() {
-		return userSeq;
+	public int getUsersSeq() {
+		return usersSeq;
 	}
-	public void setUserSeq(int userSeq) {
-		this.userSeq = userSeq;
+	public void setUsersSeq(int userSeq) {
+		this.usersSeq = userSeq;
 	}
 	public String getFreeBoardTitle() {
 		return freeBoardTitle;

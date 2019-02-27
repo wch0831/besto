@@ -3,6 +3,7 @@ package com.com.board;
 import java.util.ArrayList;
 import java.util.Map;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.swing.plaf.synth.SynthSpinnerUI;
@@ -27,11 +28,13 @@ public class BoardController {
 	@Autowired
 	BoardService bs;
 
-	/** �����Խ��� */
-	/*����Ʈ*/
+	/** 占쏙옙占쏙옙占쌉쏙옙占쏙옙 */
+	/*占쏙옙占쏙옙트*/
 	@RequestMapping(value="/board_free.do")
 	public ModelAndView freeList(Criteria cri) {
 		ModelAndView mav = new ModelAndView();
+		
+		
 		ArrayList<Map<String, Object>> list = bs.free_board_select(cri);
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
@@ -46,11 +49,11 @@ public class BoardController {
 		return mav;
 	}
 
-	/*�󼼺���*/
+	/*占쏢세븝옙占쏙옙*/
 	@RequestMapping(value="/board_free_detail/{postSeq}.do", method = RequestMethod.GET)
 	public ModelAndView freeDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		ModelAndView mav = new ModelAndView();
-		BoardFreeVO bvo = bs.boardFreeDetail(postSeq);
+		BoardFreeVO bvo = bs.boardFreeDetail(postSeq);	
 		mav.addObject("KEY_BVO", bvo);
 		if(gubun.equals("a")) {
 			mav.setViewName("board_free_detail");
@@ -59,16 +62,46 @@ public class BoardController {
 		}
 		return mav;
 	}
+	
+	
 
-	/*�Խù����*/
+	/*댓글등록*/
+	@RequestMapping(value="/board_free_reply_insert/{postSeq}.do")
+	public String freeInsert(HttpServletRequest request,@PathVariable(value="postSeq") int postSeq,
+			ReplyVO rvo) {
+		//bvo.setUsersSeq(usersSeq);
+		rvo.setUsersSeq((Integer) request.getSession().getAttribute("SESS_SEQ"));
+		bs.boardFreeReplyInsert(rvo);
+		
+		return "redirect:/board_free_detail/"+postSeq+".do?gubun=a"; 
+	}
+	
+//	/*댓글삭제*/
+//	@RequestMapping(value="/board_free_reply_delete.do")
+//	public String freeDelete(HttpServletRequest request,@PathVariable(value="postSeq") int postSeq,
+//			ReplyVO rvo) {
+//		//bvo.setUsersSeq(usersSeq);
+//		rvo.setUsersSeq((Integer) request.getSession().getAttribute("SESS_SEQ"));
+//		bs.boardFreeReplyDelete(rvo);
+//		
+//		return "redirect:/board_free_detail/"+postSeq+".do?gubun=a"; 
+//	}
+//	
+	
+	
+	
+	/*게시물등록*/
 	@RequestMapping(value="/board_free_register.do", method = RequestMethod.POST)
-	public String freeInsert(BoardFreeVO bvo) {
+	public String freeInsert(HttpServletRequest request,BoardFreeVO bvo) {
+		//bvo.setUsersSeq(usersSeq);
+		HttpSession session = request.getSession();
+		bvo.setUsersSeq(Integer.parseInt(session.getAttribute("SESS_SEQ").toString()));
 		bs.boardFreeInsert(bvo);
-		return "redirect:/board_free.do";   //������� ����ص� ������ 
+		return "redirect:/board_free.do";   //占쏙옙占쏙옙占쏙옙占� 占쏙옙占쏙옙巒占� 占쏙옙占쏙옙占쏙옙 
 	}
 
 	
-	/*�Խù� ����*/
+	/*占쌉시뱄옙 占쏙옙占쏙옙*/
 	@RequestMapping(value="/board_free_update.do", method=RequestMethod.POST)
 	public String freeUpdate(BoardFreeVO vo) {
 		System.out.println("===================================================================================");
@@ -77,12 +110,21 @@ public class BoardController {
 	}
 	
 	
+	/*게시물 삭제*/
+	@RequestMapping(value="/board_free_delete/{postSeq}.do", method=RequestMethod.GET)
+	public String freeDelete(BoardFreeVO vo) {
+		System.out.println("===================================================================================");
+		bs.boardFreeDelete(vo);
+		return "redirect:/board_free.do"; 
+	}
+	
+	
 
 	
 	
 	
-	/** �����м��� */
-	/*����Ʈ*/
+	/** 占쏙옙占쏙옙占싻쇽옙占쏙옙 */
+	/*占쏙옙占쏙옙트*/
 	@RequestMapping(value="/board_free_challenge.do" , method = RequestMethod.GET)
 	public ModelAndView challengeList() {
 		ModelAndView mav = new ModelAndView();
@@ -93,12 +135,14 @@ public class BoardController {
 		return mav;
 	}
 
-	/*�󼼺���*/
+	/*占쏢세븝옙占쏙옙*/
 	@RequestMapping(value="/board_free_challenge_detail/{postSeq}.do", method = RequestMethod.GET)
 	public ModelAndView challengeDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		ModelAndView mav = new ModelAndView();
 		BoardChallengeVO bvo = bs.BoardChallengeDetail(postSeq);
 		mav.addObject("KEY_BVO", bvo);
+		
+		
 		if(gubun.equals("a")) {
 			mav.setViewName("board_free_challenge_detail");
 		}else if(gubun.equals("b")){
@@ -107,15 +151,18 @@ public class BoardController {
 		return mav;
 	}
 	
-	/*�Խù����*/
+	/*占쌉시뱄옙占쏙옙占�*/
 	@RequestMapping(value="/board_free_challenge_register.do", method = RequestMethod.POST)
-	public String chalengeInsert(BoardChallengeVO bvo) {
+	public String chalengeInsert(HttpServletRequest request, BoardChallengeVO bvo) {
+		HttpSession session = request.getSession();
+		bvo.setUsersSeq(Integer.parseInt(session.getAttribute("SESS_SEQ").toString()));
+		
 		bs.boardChallengeInsert(bvo);
-		return "redirect:/board_free_challenge.do";   //������� ����ص� ������ 
+		return "redirect:/board_free_challenge.do";   //占쏙옙占쏙옙占쏙옙占� 占쏙옙占쏙옙巒占� 占쏙옙占쏙옙占쏙옙 
 	}
 	
 	
-	/*�Խù�����*/
+	/*占쌉시뱄옙占쏙옙占쏙옙*/
 	@RequestMapping(value="/board_free_challenge_update.do", method=RequestMethod.POST)
 	public String challengeUpdate(BoardChallengeVO vo) {
 		System.out.println("===================================================================================");
@@ -124,9 +171,23 @@ public class BoardController {
 	}
 	
 	
+	/*게시물 삭제*/
+	@RequestMapping(value="/board_free_challenge_delete/{postSeq}.do", method=RequestMethod.GET)
+	public String challengeDelete(BoardChallengeVO vo) {
+		System.out.println("==보드 첼린지 삭제 들어옴=================================================================================");
+		System.out.println("*********************************************************************************"+vo.getPostSeq());
+		bs.boardChallengDelete(vo);
+		return "redirect:/board_free_challenge.do"; 
+	}
 	
-	/** ������й� */
-	/*����Ʈ*/
+	
+	
+	
+	
+	
+	
+	/** 占쏙옙占쏙옙占쏙옙橘占� */
+	/*占쏙옙占쏙옙트*/
 	@RequestMapping(value="/board_free_hit.do" , method = RequestMethod.GET)
 	public ModelAndView hitList() {
 		ModelAndView mav = new ModelAndView();
@@ -137,7 +198,7 @@ public class BoardController {
 		return mav;
 	}
 	
-	/*�󼼺���*/
+	/*占쏢세븝옙占쏙옙*/
 	@RequestMapping(value="/board_free_hit_detail/{postSeq}.do", method = RequestMethod.GET)
 	public ModelAndView hitDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		System.out.println(postSeq + " ::: hitDetail");
@@ -152,22 +213,34 @@ public class BoardController {
 		return mav;
 	}
 	
-	/*�Խù����*/
+	/*占쌉시뱄옙占쏙옙占�*/
 	@RequestMapping(value="/board_free_hit_register.do", method = RequestMethod.POST)
-	public String boardHitInsert(BoardHitHistoryVO vo) {
+	public String boardHitInsert(HttpServletRequest request, BoardHitHistoryVO vo) {
+		HttpSession session = request.getSession();
+		vo.setUsersSeq(Integer.parseInt(session.getAttribute("SESS_SEQ").toString()));
+		
 		bs.boardHitInsert(vo);
-		return "redirect:/board_free_hit.do";   //������� ����ص� ������ 
+		return "redirect:/board_free_hit.do";   //占쏙옙占쏙옙占쏙옙占� 占쏙옙占쏙옙巒占� 占쏙옙占쏙옙占쏙옙 
 	}
 	
-	/*�Խù� ����*/
+	/*占쌉시뱄옙 占쏙옙占쏙옙*/
 	@RequestMapping(value="/board_free_hit_update.do", method=RequestMethod.POST)
 	public String hitUpdate(BoardHitHistoryVO vo) {
 		bs.boardHitUpdate(vo);
 		return "redirect:/board_free_hit.do"; 
 	}
 	
-	/** ������й� */
-	/*����Ʈ*/
+	/*게시물 삭제*/
+	@RequestMapping(value="/board_free_hit_delete/{postSeq}.do", method=RequestMethod.GET)
+	public String hitDelete(BoardHitHistoryVO vo) {
+		System.out.println("===================================================================================");
+		bs.boardHitDelete(vo);
+		return "redirect:/board_free_hit_update.do"; 
+	}
+	
+	
+	/** 베팅토론방 */
+	/*리스트*/
 	@RequestMapping(value="/board_free_betting.do" , method = RequestMethod.GET)
 	public ModelAndView buyList() {
 		ModelAndView mav = new ModelAndView();
@@ -176,7 +249,7 @@ public class BoardController {
 		mav.setViewName("board_free_betting");
 		return mav;
 	}
-	/*�󼼺���*/
+	/*占쏢세븝옙占쏙옙*/
 	@RequestMapping(value="/board_free_betting_buy_detail/{postSeq}.do", method = RequestMethod.GET)
 	public ModelAndView bettingDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
 		System.out.println(postSeq + " ::: buyDetail");
@@ -186,22 +259,33 @@ public class BoardController {
 		if(gubun.equals("a")) {
 			mav.setViewName("board_free_betting_buy_detail");
 		}else if(gubun.equals("b")){
+			mav.addObject("postSeq");//
 			mav.setViewName("board_free_betting_buy_update");
 		}
 		return mav;
 	}
 	
-	/*�Խù����*/
+	/*占쌉시뱄옙占쏙옙占�*/
 	@RequestMapping(value="/board_free_betting_buy_register.do", method = RequestMethod.POST)
-	public String boardBuyInsert(BoardBuyHistoryVO bvo) {
+	public String boardBuyInsert(HttpServletRequest request, BoardBuyHistoryVO bvo) {
+		HttpSession session = request.getSession();
+		bvo.setUsersSeq(Integer.parseInt(session.getAttribute("SESS_SEQ").toString()));
 		bs.boardBuyInsert(bvo);
-		return "redirect:/board_free_betting.do";   //������� ����ص� ������ 
+		return "redirect:/board_free_betting.do";   //占쏙옙占쏙옙占쏙옙占� 占쏙옙占쏙옙巒占� 占쏙옙占쏙옙占쏙옙 
 	}
 	
-	/*�Խù�����*/
-	@RequestMapping(value="/board_free_betting_buy_update.do", method=RequestMethod.POST)
+	/*게시물수정*/
+	@RequestMapping(value="/board_free_betting_buy_update.do" , method=RequestMethod.POST)
 	public String buyUpdate(BoardBuyHistoryVO vo) {
 		bs.boardBuyUpdate(vo);
+		return "redirect:/board_free_betting.do"; 
+	}
+	
+	/*게시물 삭제*/
+	@RequestMapping(value="/board_free_betting_buy_delete/{postSeq}.do", method=RequestMethod.GET)
+	public String buyDelete(BoardBuyHistoryVO vo) {
+		System.out.println("===================================================================================");
+		bs.boardBuyDelete(vo);
 		return "redirect:/board_free_betting.do"; 
 	}
 		
@@ -210,8 +294,8 @@ public class BoardController {
 	
 	
 	
-	/** �������� */
-	/*����Ʈ*/
+	/** 占쏙옙占쏙옙占쏙옙占쏙옙 */
+	/*占쏙옙占쏙옙트*/
 	@RequestMapping(value="/board_protice.do")
 	public ModelAndView ctlNoticeSelect(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -226,10 +310,10 @@ public class BoardController {
 	}
 	
 	
-	/*�󼼺���*/
+	/*占쏢세븝옙占쏙옙*/
 	@RequestMapping(value="/board_protice/{noticeSeq}.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView noticeDetail(HttpServletRequest request, @PathVariable(value="noticeSeq") int noticeSeq) {
-		System.out.println("OK, Google �󼼺��� ���� ===========");
+		System.out.println("OK, Google 占쏢세븝옙占쏙옙 占쏙옙占쏙옙 ===========");
 		String useq = "";
 		try {
 			useq = request.getSession().getAttribute("SESS_SEQ").toString();
@@ -251,10 +335,10 @@ public class BoardController {
 	}
 
 	
-	/*���Է�*/	
+	/*占쏙옙占쌉뤄옙*/	
 	@RequestMapping(value="/board_protice_register.do", method = RequestMethod.POST)
 	public String notice_insert(HttpServletRequest request, NoticeVO vo) {
-		System.out.println("���Է�");
+		System.out.println("占쏙옙占쌉뤄옙");
 
 		bs.notice_insert(vo);
 		
@@ -263,7 +347,7 @@ public class BoardController {
 	}
 	
 	
-	//������Ʈ �� �˻��ؼ� �ѷ��ֱ�
+	//占쏙옙占쏙옙占쏙옙트 占쏙옙 占싯삼옙占쌔쇽옙 占싼뤄옙占쌍깍옙
 	@RequestMapping(value="/protice_select/{noticeSeq}.do", method = RequestMethod.POST)
 	public ModelAndView noticeUpdate(HttpServletRequest request, @PathVariable(value="noticeSeq") int noticeSeq) {
 		System.out.println("===select===");
@@ -280,7 +364,7 @@ public class BoardController {
 	}
 	
 		
-	//������Ʈ============================
+	//占쏙옙占쏙옙占쏙옙트============================
 	@RequestMapping(value="/protice_update/{noticeSeq}.do", method = RequestMethod.POST)
 	public String notiUpdate(HttpServletRequest request, @PathVariable(value="noticeSeq") int noticeSeq, NoticeVO nvo) {
 		System.out.println("===update===");
@@ -294,7 +378,7 @@ public class BoardController {
 		
 	}
 	
-	//�����ϱ�========================
+	//占쏙옙占쏙옙占싹깍옙========================
 	@RequestMapping(value="/protice_delete/{noticeSeq}.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String notiDel(HttpServletRequest request, @PathVariable(value="noticeSeq") int noticeSeq) {
 		System.out.println("===delete===");
@@ -309,12 +393,12 @@ public class BoardController {
 		
 	}
 	
-	//�˻�==========================
+	//占싯삼옙==========================
 	@RequestMapping(value="/notice_serach.do", method = RequestMethod.GET)
 	@ResponseBody
 	public ArrayList<NoticeVO> noticeSearch(@RequestParam (value="b") String b) {
 		
-		System.out.println("siri! ����» ȥ����>>>>>>>>>>>>>>>>>" + b);
+		System.out.println("siri! 占쏙옙占쏙옙쨩 혼占쏙옙占쏙옙>>>>>>>>>>>>>>>>>" + b);
 		
 		ArrayList<NoticeVO> sclist = bs.noticeSearch(b);
 //		
