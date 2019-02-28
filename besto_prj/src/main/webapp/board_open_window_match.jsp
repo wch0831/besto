@@ -64,45 +64,6 @@ $(document).ready(function() {
 			}); 
 		});
 		
-	/* 	$("#buyButton").click(function(){
-			var param = {};
-			var loopCount = 1;
-			var idx = 0;
-			//var pass = $("password[name=pass]").val();
-			var pass = $("#pass").val();
-			
-			$("#rateForm").serializeArray().map(function(x){
-				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
-				param['recordRateVOList[' + idx +'].passWord'] = pass;
-				if(loopCount%5 == 0) idx++;
-				loopCount++;
-			}); 
-			
-			console.log(param);
-			
-			$.ajax({ 
-					type:"post",
-			        url:"/passCheck.do",
-			        contentType : "application/x-www-form-urlencoded; charset=UTF-8", 
-			        data : param, 
-					success:function(res){
-							console.log(res);
-							if(res == "fail"){
-								alert("잘못된 비밀번호입니다.");
-								$("#pass").val("");
-							} else{
-								alert("결제 되었습니다.");
-								$(".trcl").remove();
-								$("#pass").val("");
-							}
-							
-							
-					}
-			}); 
-		}); */
-		
-		
-		
 		$("#cartButton").click(function(){
 			var param = {};
 			var loopCount = 1;
@@ -110,15 +71,17 @@ $(document).ready(function() {
 			
 			$("#rateForm").serializeArray().map(function(x){
 				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
-				if(loopCount%5 == 0) idx++;
 				loopCount++;
+				if(loopCount%5 == 0) {
+					idx++;
+					loopCount=1;
+				}
+				
 			}); 
-			
-			console.log(param);
 			
 			$.ajax({ 
 					type:"post",
-			        url:"/cartInsert2.do",
+			        url:"/cartInsertV.do",
 			        contentType : "application/x-www-form-urlencoded; charset=UTF-8", 
 			        data : param, 
 					success:function(res){

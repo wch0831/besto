@@ -20,7 +20,17 @@ public class RecordRateVO {
 	private String expect;
 	private float baedang;
 	private int bettingSeq;
+	private int cartSeq;
 	
+
+	public int getCartSeq() {
+		return cartSeq;
+	}
+	public void setCartSeq(int cartSeq) {
+		this.cartSeq = cartSeq;
+	}
+
+
 
 	private String baedangsum;
 	

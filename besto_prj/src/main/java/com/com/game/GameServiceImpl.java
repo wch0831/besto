@@ -15,23 +15,23 @@ public class GameServiceImpl implements GameService{
 	@Autowired
 	private GameMapper gameMapper;
 
-	//game 추가 먼저
+	//game 異붽� 癒쇱�
 	@Override
 	public int svcGameInsert(GameVO vo) {
 		return gameMapper.gameInsert(vo);
 	}
 
 
-	
-//	public ArrayList<RecordRateVO> svcBuyNoteRecordRate(MatchVO mvo) {		
-//		return gameMapper.buyNoteRecordRate(mvo);
-//	}
+
+	//	public ArrayList<RecordRateVO> svcBuyNoteRecordRate(MatchVO mvo) {		
+	//		return gameMapper.buyNoteRecordRate(mvo);
+	//	}
 	public ArrayList<GameVO> svcAvailableGame(){
 		return gameMapper.availableGame();
 	}
 
-	
-	//match 및 배당률 추가
+
+	//match 諛� 諛곕떦瑜� 異붽�
 	@Override
 	public int svcMatchInsert(ArrayList<MatchVO> list) {
 		int res = 0;
@@ -39,23 +39,23 @@ public class GameServiceImpl implements GameService{
 		int count = 0;
 		int gameMno = 1;
 		ArrayList<MatchVO> mlist = gameMapper.selectMseqList();
-		
+
 		System.out.println(list.size()+ " " +mlist.size()+ " ==================================================== ");
-		
+
 		for(int i=0; i<list.size(); i++) {
 			for(int m=0; m<list.size(); m++) {
 				list.get(m).setGameMno(gameMno);
 				gameMno++;
 			}
-			// match게임 insert에서 게임이 등록 되어있는지 아닌지 확인 seq로 확인
+			// match寃뚯엫 insert�뿉�꽌 寃뚯엫�씠 �벑濡� �릺�뼱�엳�뒗吏� �븘�땶吏� �솗�씤 seq濡� �솗�씤
 			for(int j=0; j<mlist.size(); j++) {
-				
-				if(list.get(i).getMatchSeq() == mlist.get(j).getMatchSeq()) { //비교문 xx
+
+				if(list.get(i).getMatchSeq() == mlist.get(j).getMatchSeq()) { //鍮꾧탳臾� xx
 					count += 1;
 				}
 			}
-			
-			//match가 등록 안되어있으면 등록해라
+
+			//match媛� �벑濡� �븞�릺�뼱�엳�쑝硫� �벑濡앺빐�씪
 			if(count == 0) {
 				res += gameMapper.matchInsert(list.get(i));
 			}
@@ -66,11 +66,11 @@ public class GameServiceImpl implements GameService{
 				mres += gameMapper.recordRateInsert(list.get(i).getRecVO());
 			}
 		}
-		System.out.println(res+"건 매치가 등록");
-		System.out.println(mres+"건 배당률 등록");
+		System.out.println(res+"嫄� 留ㅼ튂媛� �벑濡�");
+		System.out.println(mres+"嫄� 諛곕떦瑜� �벑濡�");
 		return res;
 	}
-	
+
 	@Override
 	public ArrayList<MatchVO> svcGameSelect(GameVO vo) {
 		ArrayList<MatchVO> list = gameMapper.gameInsertSelect(vo);
@@ -123,28 +123,82 @@ public class GameServiceImpl implements GameService{
 	}
 
 
+
+	@Override
+	public ArrayList<MatchVO> mGameAvailableSchedule() {
+		return gameMapper.mGameAvailableSchedule();
+	}
 	@Override
 	public GameVO svcGameVictorySelect(int gseq) {
 		return gameMapper.selectVictorySelect(gseq);
 	}
 
 	
+	@Override
+	public ArrayList<MatchVO> svcGameDeadline(int seq) {
+		return gameMapper.deadlineSelect(seq);
+	}
 
+
+
+	@Override
+	public int svcMatchStatusUpdate(MatchVO vo) {
+		return gameMapper.matchStatusUpdate(vo);
+	}
+
+
+
+	@Override
+	public int svcMaxBettingSeq() {
+		return gameMapper.maxBettingSeq();
+	}
+
+
+
+	@Override
+	public ArrayList<BettingVO> svcBettingSeqSelect(BettingVO vo) {
+		return gameMapper.bettingSeqSelect(vo);
+	}
+
+
+
+	@Override
+	public int svcGameStatusUpdate(GameVO vo) {
+		return gameMapper.gameStatusUpdate(vo);
+	}
+
+	
+	
 	@Override
 	public int selectBettingSeqNextValForSaveIntProperty() {
 		return gameMapper.selectBettingSeqNextValForSaveIntProperty();
 	}
+	
 	@Override
 	public int vintoryRateInsert(RecordRateVO vo) {
 		return gameMapper.vintoryRateInsert(vo);
 	}
 
-
-
 	@Override
 	public int victoryRateInsertAfterOneInsert(RecordRateVO vo) {
-		// TODO Auto-generated method stub
 		return gameMapper.victoryRateInsertAfterOneInsert(vo);
+	}
+
+	
+	
+	@Override
+	public int selectCartSeqNextValForSaveIntProperty() {
+		return gameMapper.selectCartSeqNextValForSaveIntProperty();
+	}
+
+	@Override
+	public int cartVintoryRateInsert(RecordRateVO vo) {
+		return gameMapper.cartVintoryRateInsert(vo);
+	}
+
+	@Override
+	public int victoryRateInsertCart(RecordRateVO vo) {
+		return gameMapper.victoryRateInsertCart(vo);
 	}
 
 

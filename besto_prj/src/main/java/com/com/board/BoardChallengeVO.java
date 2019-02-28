@@ -13,7 +13,14 @@ public class BoardChallengeVO {
 	private int challengeBoardHits;
 	private String challengeBoardContent;
 	private String usersName;
+	private int clist;
 	
+	public int getClist() {
+		return clist;
+	}
+	public void setClist(int clist) {
+		this.clist = clist;
+	}
 	public String getUsersName() {
 		return usersName;
 	}

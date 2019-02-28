@@ -22,10 +22,27 @@ public interface GameService {
 	
 	public int svcCartInsert(MypageVO mvo);
 	public ArrayList<MatchVO> svcGameAvailableSchedule(int seq);
+	
+	
+	/* �ȵ���̵� */
+	public ArrayList<MatchVO> mGameAvailableSchedule();
 	public ArrayList<GameVO> svcGameSchedule();
 	
 	//LMK
 	public int selectBettingSeqNextValForSaveIntProperty();
 	public int vintoryRateInsert(RecordRateVO vo);
 	public int victoryRateInsertAfterOneInsert(RecordRateVO vo);
+
+	public ArrayList<MatchVO> svcGameDeadline(int seq);
+	public int svcMatchStatusUpdate(MatchVO vo);
+	public int svcMaxBettingSeq();
+	public ArrayList<BettingVO> svcBettingSeqSelect(BettingVO vo);
+	public int svcGameStatusUpdate(GameVO vo);
+	
+	
+	//WCH
+	public int selectCartSeqNextValForSaveIntProperty();
+	public int cartVintoryRateInsert(RecordRateVO vo);
+	public int victoryRateInsertCart(RecordRateVO vo);
+	
 }

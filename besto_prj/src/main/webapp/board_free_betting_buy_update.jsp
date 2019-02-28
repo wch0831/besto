@@ -78,7 +78,7 @@
             <div class="col-md-10">
               <p class="text-muted lead"><font size="2">남을 비방하는 글이나 욕설, 게시판 성격에 맞지 않거나 광고성 게시물은 사전 동의없이 삭제될 수 있습니다. 답변을 원하시는 건의 및 문의 사항은 고객센터 > 고객상담실을 이용하여 주시기 바랍니다. </font></p>
               <div id="basket" class="col-lg-12">
-                <form name="board"  id="board_update" method="post" action="/board_free_betting_buy_update.do">
+                <form name="board"  id="board_update" method="post" action="/board_free_betting_buy_update.do?postSeq=${postSeq}">
                   <div class="table-responsive">
                   <h4>◈ 베팅토론방 수정하기</h4>
                   <br>

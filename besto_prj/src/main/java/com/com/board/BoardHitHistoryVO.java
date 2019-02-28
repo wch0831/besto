@@ -4,6 +4,14 @@ public class BoardHitHistoryVO {
 	
 	private String usersName;
 	
+	private int hlist;
+	
+	public int getHlist() {
+		return hlist;
+	}
+	public void setHlist(int hlist) {
+		this.hlist = hlist;
+	}
 	public String getUsersName() {
 		return usersName;
 	}
