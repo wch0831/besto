@@ -3,8 +3,10 @@ package com.com.android;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.com.board.BoardFreeVO;
@@ -21,7 +23,7 @@ public class AndroidRestController {
 	@Autowired
 	BoardService bservice;
 
-	//°ÔÀÓ¸®½ºÆ®
+	//ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½Æ®
 	@RequestMapping(value="/m_android_game_schedule.do", method = RequestMethod.GET)
 	public ArrayList<GameVO> mGameSchedule(){
 		System.out.println("controller");
@@ -30,15 +32,15 @@ public class AndroidRestController {
 		return list;
 	}
 
-	//°ÔÀÓ»ó¼¼¸®½ºÆ®
-	@RequestMapping(value="/m_android_game_schedule_detail.do" , method = RequestMethod.GET)
+	//ï¿½ï¿½ï¿½Ó»ó¼¼¸ï¿½ï¿½ï¿½Æ®
+	@RequestMapping(value="/m_android_game_schedule_detail.do", method = RequestMethod.GET)
 	public ArrayList<MatchVO> mGameScheduleList() {
 		System.out.println("controller");
 		ArrayList<MatchVO> glist = service.mGameAvailableSchedule();
 		return glist;
 	}
 
-	//ÀÚÀ¯°Ô½ÃÆÇ ¸ñ·Ï
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@RequestMapping(value="/m_android_board_list.do")
 	public ArrayList<BoardFreeVO> mBoardList() {
 		ArrayList<BoardFreeVO> blist = bservice.androidBoardFree();
@@ -49,6 +51,28 @@ public class AndroidRestController {
 		return blist;
 	}  
 	
+	
+	//ììœ ê²Œì‹œíŒ ë””í…Œì¼
+		@RequestMapping(value="/m_android_board_detail.do")
+		public ArrayList<BoardFreeVO> mBoardFreeDetail(@PathVariable(value="postSeq") int postSeq, @RequestParam(value="gubun") String gubun) {
+			BoardFreeVO bvo = bservice.boardFreeDetail(postSeq);
+			ArrayList<BoardFreeVO> list = new ArrayList<BoardFreeVO>();
+			bvo.setPostSeq(postSeq);
+			list.add(bvo);
+			return list;
+		}  
+	
+	
+	@RequestMapping(value="/news.do", method = RequestMethod.GET)
+	public ArrayList<NewsVO> newsSelect() {
+		NewsCraw nc = new NewsCraw();
+		ArrayList<NewsVO> list = nc.newsCrawling("http://www.yonhapnews.co.kr/sports/1003000001.html","#content > div.contents > div.contents01 > div > div.headlines.headline-list > ul > li.section02",10);
+		 for(NewsVO vo : list) {
+			 System.out.println(vo.getTitle());
+		 }
+		return list;
+	}  
+	
 
 	
 	
@@ -57,18 +81,18 @@ public class AndroidRestController {
 	
 	
 	
-	/* °ÔÀÓÀÌ¸§¸¸µé±â */
+	/* ì•ˆë“œë¡œì´ë“œìš© ê²Œì„ë„¤ì„ ë§Œë“¤ê¸° */
 	public ArrayList<GameVO> changeName(ArrayList<GameVO> list) {
 		ArrayList<GameVO> glist = new ArrayList<GameVO>();
 		for(GameVO gvo : list) {
 			StringBuffer gameName =new StringBuffer();
 			
 			if(gvo.getGameGubun().equals("r")) {
-				gameName.append("±â·Ï½Ä");
+				gameName.append("ê¸°ë¡ì‹");
 			} else if(gvo.getGameGubun().equals("v")) {
-				gameName.append("½ÂºÎ½Ä");
+				gameName.append("ìŠ¹ë¶€ì‹");
 			}
-			gameName.append(gvo.getGameRoundseq()+"È¸Â÷");
+			gameName.append(gvo.getGameRoundseq()+"íšŒì°¨");
 			gvo.setGameName(gameName.toString());
 			glist.add(gvo);
 		}

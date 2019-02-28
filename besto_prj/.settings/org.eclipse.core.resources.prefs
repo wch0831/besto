@@ -1,14 +1,7 @@
+=\=\=\=\=\=\=
 eclipse.preferences.version=1
-<<<<<<< HEAD
-encoding//src/main/java/com/com/board/BoardService.java=UTF-8
-=======
-<<<<<<< HEAD
-encoding//src/main/java/com/com/com/NewsController.java=UTF-8
-=======
 encoding//src/main/java/com/com/board/BoardController.java=UTF-8
 encoding//src/main/java/com/com/board/BoardService.java=UTF-8
->>>>>>> branch 'master' of https://github.com/wch0831/besto
->>>>>>> branch 'master' of https://github.com/wch0831/besto
 encoding//src/main/java/com/com/game/GameController.java=UTF-8
 encoding//src/main/java/com/com/game/GameRestController.java=UTF-8
 encoding//src/main/java/com/com/game/GameServiceImpl.java=UTF-8

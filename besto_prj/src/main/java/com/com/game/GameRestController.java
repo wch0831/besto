@@ -76,7 +76,8 @@ public class GameRestController {
 			int res = 0;
 			int pres = 0;
 			ArrayList<PointVO> plist = new ArrayList<PointVO>();
-			
+			//record_bundle을 따로 빼서 넣는 set하는거 만들고
+			int rBundleSeq = gameService.svcRecordBundleNextval();
 			
 			for(int i=0; i<matchVO.getRecordRateVOList().size() - 1; i++) {
 				matchVO.getRecordRateVOList().get(i).setUsersSeq(useq);
@@ -94,21 +95,27 @@ public class GameRestController {
 //				matchVO.getRecordRateVOList().get(i) => RecordRateVO
 				for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
 					if(matchVO.getRecordRateVOList().get(i).getGameSeq() != 0) {
+						matchVO.getRecordRateVOList().get(i).setRecordBundle(rBundleSeq);
 						System.out.print(matchVO.getRecordRateVOList().get(i).getGameSeq() + " ");
 						System.out.print(matchVO.getRecordRateVOList().get(i).getMatchSeqList() + " ");  //expect를 빼서 넣어주고
 						System.out.print(matchVO.getRecordRateVOList().get(i).getUsersSeq() + " ");
+						System.out.print(matchVO.getRecordRateVOList().get(i).getRecoderateList()+ " ");
+						System.out.print(matchVO.getRecordRateVOList().get(i).getMatchSeq()+ " ");
 						System.out.println(matchVO.getRecordRateVOList().get(i).getInputCashList());
 						
 						res += gameService.svcRecordInsert(matchVO.getRecordRateVOList().get(i));
+						
 						//user의 포인트 결제 목록 insert 
 //						pres += pointService.pointRecharge(plist.get(i));
 					}
 				}
 				
+				
+				
 				for(int i=0; i<matchVO.getRecordRateVOList().size(); i++) {
 					
 				}
-//				game_seq=45 / match_seq_list=11 / user_seq=5 / cash=500
+//				game_seq=45 / match_seq_list=11 / user_seq=5 / cash=500 / recordrate = 15.6
 //				45 12 5 8000
 //				내가 선택한 match_seq가 필요하다.
 				

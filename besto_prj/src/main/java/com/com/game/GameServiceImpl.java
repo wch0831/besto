@@ -170,4 +170,11 @@ public class GameServiceImpl implements GameService{
 
 
 
+	@Override
+	public int svcRecordBundleNextval() {
+		return gameMapper.recordBundleNextval();
+	}
+
+
+
 }

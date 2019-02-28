@@ -35,7 +35,7 @@ public interface GameMapper {
 	public ArrayList<MatchVO> gameAvailableSchedule(int seq);
 	public ArrayList<GameVO> gameSchedule();
 	
-	/* ¾Èµå·ÎÀÌµå */
+	/* ï¿½Èµï¿½ï¿½ï¿½Ìµï¿½ */
 	public ArrayList<MatchVO> mGameAvailableSchedule();
 	public GameVO selectVictorySelect(int gseq);
 	public ArrayList<MatchVO> deadlineSelect(int seq);
@@ -43,4 +43,5 @@ public interface GameMapper {
 	public int maxBettingSeq();
 	public ArrayList<BettingVO> bettingSeqSelect(BettingVO vo);
 	public int gameStatusUpdate(GameVO vo);
+	public int recordBundleNextval();
 }

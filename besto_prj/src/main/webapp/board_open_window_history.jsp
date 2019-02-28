@@ -61,7 +61,7 @@ $(document).ready(function() {
 			$("#rateForm").serializeArray().map(function(x){
 				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
 				param['recordRateVOList[' + idx +'].passWord'] = pass;
-				if(loopCount%5 == 0) idx++;
+				if(loopCount%6 == 0) idx++;
 				loopCount++;
 			}); 
 			
@@ -81,7 +81,7 @@ $(document).ready(function() {
 								alert("결제 되었습니다.");
 								$(".trcl").remove();
 								$("#pass").val("");
-								window.close();
+								//window.close();
 								opener.location.href="/buyhitlist.do";
 							}
 							
@@ -98,7 +98,7 @@ $(document).ready(function() {
 			
 			$("#rateForm").serializeArray().map(function(x){
 				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
-				if(loopCount%5 == 0) idx++;
+				if(loopCount%6 == 0) idx++;
 				loopCount++;
 			}); 
 			
@@ -136,6 +136,7 @@ $(document).ready(function() {
 				htmlStr += "<input type='hidden' class='vv"+cnt+"' name='scoreList' value='"+arr[1]+"'>";
 				htmlStr += "<input type='hidden' class='vv"+cnt+"' name='recoderateList' value='"+arr[2]+"'>";
 				htmlStr += "<input type='hidden' class='vv"+cnt+"' name='gameSeq' value='"+arr[3]+"'>";
+				htmlStr += "<input type='hidden' class='vv"+cnt+"' name='matchSeq' value='"+arr[4]+"'>";
 		        $('#rateTbody').append(htmlStr);
 			} else{
 				 $("#newtd"+cnt).remove();
@@ -218,71 +219,70 @@ $(document).ready(function() {
                         <tr>
                           <td style="font-size:10px; text-align:center;">1번</td>
                           <td style="font-size:10px; text-align:center;">1-0</td>
-                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate10} &nbsp&nbsp<input type="checkbox" id="checkB1" name="1" class="rateCheckBox" value="1|1-0|${gvolist.recVO.recoderate10}|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate10} &nbsp&nbsp<input type="checkbox" id="checkB1" name="1" class="rateCheckBox" value="1|1-0|${gvolist.recVO.recoderate10}|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">6번</td>
                           <td style="font-size:10px; text-align:center;">3-2</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB6" name="6" class="rateCheckBox" value="6|3-2|20.4|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB6" name="6" class="rateCheckBox" value="6|3-2|20.4|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">11번</td>
                           <td style="font-size:10px; text-align:center;">3-3</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB11" name="11" class="rateCheckBox" value="11|3-3|20.5|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB11" name="11" class="rateCheckBox" value="11|3-3|20.5|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">16번</td>
                           <td style="font-size:10px; text-align:center;">0-3</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB16" name="16" class="rateCheckBox" value="16|0-3|33.5|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB16" name="16" class="rateCheckBox" value="16|0-3|33.5|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                         </tr>
                         <tr>
                           <td style="font-size:10px; text-align:center;">2번</td>
                           <td style="font-size:10px; text-align:center;">2-0</td>
-                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate20} &nbsp&nbsp<input type="checkbox" id="checkB2" name="2" class="rateCheckBox" value="2|2-0|${gvolist.recVO.recoderate20}|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate20} &nbsp&nbsp<input type="checkbox" id="checkB2" name="2" class="rateCheckBox" value="2|2-0|${gvolist.recVO.recoderate20}|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">7번</td>
                           <td style="font-size:10px; text-align:center;">기타승</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB7" name="7" class="rateCheckBox" value="7|기타승|999|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB7" name="7" class="rateCheckBox" value="7|기타승|999|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">12번</td>
                           <td style="font-size:10px; text-align:center;">기타무</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB12" name="12" class="rateCheckBox" value="12|기타무|999|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB12" name="12" class="rateCheckBox" value="12|기타무|999|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">17번</td>
                           <td style="font-size:10px; text-align:center;">1-3</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB17" name="17" class="rateCheckBox" value="17|1-3|20.4|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB17" name="17" class="rateCheckBox" value="17|1-3|20.4|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                         </tr>
                         <tr>
                           <td style="font-size:10px; text-align:center;">3번</td>
                           <td style="font-size:10px; text-align:center;">2-1</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB3" name="3" class="rateCheckBox" value="3|2-1|12.4|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB3" name="3" class="rateCheckBox" value="3|2-1|12.4|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">8번</td>
                           <td style="font-size:10px; text-align:center;">0-0</td>
-                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate00} &nbsp&nbsp<input type="checkbox" id="checkB8" name="8" class="rateCheckBox" value="8|0-0|${gvolist.recVO.recoderate00}|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate00} &nbsp&nbsp<input type="checkbox" id="checkB8" name="8" class="rateCheckBox" value="8|0-0|${gvolist.recVO.recoderate00}|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">13번</td>
                           <td style="font-size:10px; text-align:center;">0-1</td>
-                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate01} &nbsp&nbsp<input type="checkbox" id="checkB13" name="13" class="rateCheckBox" value="13|0-1|${gvolist.recVO.recoderate01}|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate01} &nbsp&nbsp<input type="checkbox" id="checkB13" name="13" class="rateCheckBox" value="13|0-1|${gvolist.recVO.recoderate01}|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">18번</td>
                           <td style="font-size:10px; text-align:center;">2-3</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" id="checkB18" name="18" value="18|2-3|30|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" id="checkB18" name="18" value="18|2-3|30|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                         </tr>
                         <tr>
                           <td style="font-size:10px; text-align:center;">4번</td>
                           <td style="font-size:10px; text-align:center;">3-0</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" id="checkB4" name="4" value="4|3-0|17.4|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" class="rateCheckBox" id="checkB4" name="4" value="4|3-0|17.4|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">9번</td>
                           <td style="font-size:10px; text-align:center;">1-1</td>
-                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate11} &nbsp&nbsp<input type="checkbox" id="checkB9" name="9" class="rateCheckBox" value="9|1-1|${gvolist.recVO.recoderate11}|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate11} &nbsp&nbsp<input type="checkbox" id="checkB9" name="9" class="rateCheckBox" value="9|1-1|${gvolist.recVO.recoderate11}|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">14번</td>
                           <td style="font-size:10px; text-align:center;">0-2</td>
-                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate02} &nbsp&nbsp<input type="checkbox" id="checkB14" name="14" class="rateCheckBox" value="14|0-2|${gvolist.recVO.recoderate02}|${KEY_GVO.gameSeq}"></td> 
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate02} &nbsp&nbsp<input type="checkbox" id="checkB14" name="14" class="rateCheckBox" value="14|0-2|${gvolist.recVO.recoderate02}|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td> 
                           <td style="font-size:10px; text-align:center;">19번</td>
                           <td style="font-size:10px; text-align:center;">기타패</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB19" name="19" class="rateCheckBox" value="19|기타패|999|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB19" name="19" class="rateCheckBox" value="19|기타패|999|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                         </tr>                       
                         <tr>
                           <td style="font-size:10px; text-align:center;">5번</td>
                           <td style="font-size:10px; text-align:center;">3-1</td>
-                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB5" name="5" class="rateCheckBox" value="5|3-1|25.4|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> &nbsp&nbsp<input type="checkbox" id="checkB5" name="5" class="rateCheckBox" value="5|3-1|25.4|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">10번</td>
                           <td style="font-size:10px; text-align:center;">2-2</td>
-                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate22} &nbsp&nbsp<input type="checkbox" id="checkB10" name="10" class="rateCheckBox" value="10|2-2|${gvolist.recVO.recoderate22}|${KEY_GVO.gameSeq}"></td>
+                          <td style="font-size:10px; text-align:center;"> ${gvolist.recVO.recoderate22} &nbsp&nbsp<input type="checkbox" id="checkB10" name="10" class="rateCheckBox" value="10|2-2|${gvolist.recVO.recoderate22}|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td>
                           <td style="font-size:10px; text-align:center;">15번</td>
                           <td style="font-size:10px; text-align:center;">1-2</td>
-                          <td style="font-size:10px; text-align:center;">&nbsp&nbsp<input type="checkbox" id="checkB15" name="15" class="rateCheckBox" value="15|1-2|7.4|${KEY_GVO.gameSeq}"></td> 
+                          <td style="font-size:10px; text-align:center;">&nbsp&nbsp<input type="checkbox" id="checkB15" name="15" class="rateCheckBox" value="15|1-2|7.4|${KEY_GVO.gameSeq}|${gvolist.matchSeq}"></td> 
                           <td style="font-size:10px; text-align:center;"></td>
-                          <td></td>
                           <td></td>
                         </tr>                        
                       </tbody>

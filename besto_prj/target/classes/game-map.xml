@@ -72,7 +72,8 @@
 		<result property="recoderateList" 		column="betting_hitrate" />
 		<result property="inputCashList" 		column="betting_price" />
 		<result property="gameSeq" 		column="game_seq" />	
-		<result property="usersSeq" 	column="users_seq" />					
+		<result property="usersSeq" 	column="users_seq" />
+		<result property="recordBundle" 	column="record_bundle" />					
 	</resultMap>	
 	
 	<resultMap id="victoryRateMap" type="com.com.game.VictoryRateVO">
@@ -84,15 +85,16 @@
 	
 	<resultMap id="bettingMap" type="com.com.game.BettingVO">
 		<id 	property="bettingSeq" 		column="betting_seq" />
-		<result property="bettingContent" 		column="betting_content" />
-		<result property="bettingPrice" 		column="betting_price" />
+		<result property="bettingContent" 	column="betting_content" />
+		<result property="bettingPrice" 	column="betting_price" />
 		<result property="bettingRegdate" 	column="betting_regdate" />			
 		<result property="bettingHityn" 	column="betting_hityn" />	
 		<result property="bettingHitrate" 	column="betting_hitrate" />	
-		<result property="gameSeq" 	column="game_seq" />	
-		<result property="usersSeq" 	column="users_seq" />
-		<result property="maxSeq" 	column="max_seq" />	
-		<result property="siezSeq" 	column="size_seq" />		
+		<result property="gameSeq" 			column="game_seq" />	
+		<result property="usersSeq" 		column="users_seq" />
+		<result property="maxSeq" 			column="max_seq" />	
+		<result property="siezSeq" 			column="size_seq" />	
+		<result property="recordBundle" 	column="record_bundle" />
 	</resultMap>	
 	
 	<resultMap id="memberMap" type="com.com.member.MemberVO">
@@ -125,6 +127,7 @@
 		<result property="matchVs" 			column="match_vs" />
 		<result property="registerYn" 		column="register_yn" />
 	</resultMap>
+	
 	
  	<sql id="commonSelect">user_name, user_gubun</sql>
  	
@@ -163,8 +166,8 @@
 	
 	<!-- 기록식 게임 구매사항 insert -->
 	<insert id="recordBuyInsert" parameterType="com.com.game.RecordRateVO">
-		insert into betting(betting_seq, betting_content, betting_price, betting_hityn, betting_regdate, betting_hitrate, game_seq, users_seq)
-    	values(betting_seq.nextval, 'r', #{inputCashList}, 'n', sysdate, #{recoderateList}, #{gameSeq}, #{usersSeq})
+		insert into betting(betting_seq, betting_content, betting_price, betting_hityn, betting_regdate, betting_hitrate, game_seq, users_seq, record_bundle)
+    	values(betting_seq.nextval, 'r', #{inputCashList}, 'n', sysdate, #{recoderateList}, #{gameSeq}, #{usersSeq}, #{recordBundle})
 	</insert>
 	
 	<!-- 기록식 게임 카트 insert -->
@@ -281,6 +284,11 @@
  	<update id="gameStatusUpdate" parameterType="com.com.game.GameVO">
 		update game set game_status='f' where game_seq = #{gameSeq}
 	</update>
+	
+	<select id="recordBundleNextval" resultType="int">
+ 		select record_bundle_seq.nextval as record_bundle
+ 		from dual
+ 	</select>
  	
  <!-- 	<select id="objectGame" parameterType="com.com.game.GameVO" resultMap="matchMap">
  		select match_starttime,match_hometeam,match_awayteam,match_stadium

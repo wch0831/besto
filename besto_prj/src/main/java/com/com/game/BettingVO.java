@@ -11,8 +11,15 @@ public class BettingVO {
 	private int usersSeq;
 	private int maxSeq;
 	private int siezSeq;
+	private int recordBundle;
 	
 	
+	public int getRecordBundle() {
+		return recordBundle;
+	}
+	public void setRecordBundle(int recordBundle) {
+		this.recordBundle = recordBundle;
+	}
 	public int getMaxSeq() {
 		return maxSeq;
 	}

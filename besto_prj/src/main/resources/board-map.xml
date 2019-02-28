@@ -28,7 +28,7 @@
 		<result property="usersName" 			column="users_name" />
 		<result property="flist" 				column="flist" />
 	</resultMap>
-	
+
 	<!-- 댓글 -->
    <resultMap id="replyMap" type="com.com.board.ReplyVO">
       <id     property="replySeq"       	column="reply_seq" />

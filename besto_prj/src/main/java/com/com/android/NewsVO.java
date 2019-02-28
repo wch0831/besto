@@ -1,4 +1,4 @@
-package com.com.com;
+package com.com.android;
 
 public class NewsVO {
 	

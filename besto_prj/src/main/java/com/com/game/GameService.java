@@ -24,7 +24,7 @@ public interface GameService {
 	public ArrayList<MatchVO> svcGameAvailableSchedule(int seq);
 	
 	
-	/* ¾Èµå·ÎÀÌµå */
+	/* ï¿½Èµï¿½ï¿½ï¿½Ìµï¿½ */
 	public ArrayList<MatchVO> mGameAvailableSchedule();
 	public ArrayList<GameVO> svcGameSchedule();
 	
@@ -33,4 +33,5 @@ public interface GameService {
 	public int svcMaxBettingSeq();
 	public ArrayList<BettingVO> svcBettingSeqSelect(BettingVO vo);
 	public int svcGameStatusUpdate(GameVO vo);
+	public int svcRecordBundleNextval();
 }

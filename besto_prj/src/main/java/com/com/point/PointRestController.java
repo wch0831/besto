@@ -61,9 +61,9 @@ public class PointRestController {
 			paramMap.put("total_amount", total_amount);						////***포인트금액
 			paramMap.put("vat_amount", "200");		//금액*10%
 			paramMap.put("tax_free_amount", "0");	
-			paramMap.put("approval_url", "http://127.0.0.1/recharge.do?pointChange="+total_amount);			////***성공시 보여질 페이지
-			paramMap.put("fail_url", "http://127.0.0.1/kakaopay_fail");		////***실패시 보여질 페이지
-			paramMap.put("cancel_url", "http://127.0.0.1/kakaopay_fail");	
+			paramMap.put("approval_url", "http://127.0.0.1:8087/recharge.do?pointChange="+total_amount);			////***성공시 보여질 페이지
+			paramMap.put("fail_url", "http://127.0.0.1:8087/kakaopay_fail");		////***실패시 보여질 페이지
+			paramMap.put("cancel_url", "http://127.0.0.1:8087/kakaopay_fail");	
 			HashMap<String, Object> repAccessTokenMap =  requestUtil.sendPostReturnMap("https://kapi.kakao.com/v1/payment/ready", paramMap, access_token);
 			System.out.println(repAccessTokenMap);
 			return repAccessTokenMap;

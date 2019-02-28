@@ -16,7 +16,15 @@ public class RecordRateVO {
 	private int gameSeq;
 	private int usersSeq;
 	private String passWord;
+	private int recordBundle;
 	
+	
+	public int getRecordBundle() {
+		return recordBundle;
+	}
+	public void setRecordBundle(int recordBundle) {
+		this.recordBundle = recordBundle;
+	}
 	public String getPassWord() {
 		return passWord;
 	}
