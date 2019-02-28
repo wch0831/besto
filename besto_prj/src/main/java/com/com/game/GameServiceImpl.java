@@ -128,6 +128,25 @@ public class GameServiceImpl implements GameService{
 		return gameMapper.selectVictorySelect(gseq);
 	}
 
+	
+
+	@Override
+	public int selectBettingSeqNextValForSaveIntProperty() {
+		return gameMapper.selectBettingSeqNextValForSaveIntProperty();
+	}
+	@Override
+	public int vintoryRateInsert(RecordRateVO vo) {
+		return gameMapper.vintoryRateInsert(vo);
+	}
+
+
+
+	@Override
+	public int victoryRateInsertAfterOneInsert(RecordRateVO vo) {
+		// TODO Auto-generated method stub
+		return gameMapper.victoryRateInsertAfterOneInsert(vo);
+	}
+
 
 
 }

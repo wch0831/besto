@@ -23,4 +23,9 @@ public interface GameService {
 	public int svcCartInsert(MypageVO mvo);
 	public ArrayList<MatchVO> svcGameAvailableSchedule(int seq);
 	public ArrayList<GameVO> svcGameSchedule();
+	
+	//LMK
+	public int selectBettingSeqNextValForSaveIntProperty();
+	public int vintoryRateInsert(RecordRateVO vo);
+	public int victoryRateInsertAfterOneInsert(RecordRateVO vo);
 }

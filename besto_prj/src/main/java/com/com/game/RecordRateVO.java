@@ -17,7 +17,37 @@ public class RecordRateVO {
 	private int usersSeq;
 	private String passWord;
 	
+	private String expect;
+	private float baedang;
+	private int bettingSeq;
 	
+
+	private String baedangsum;
+	
+	public String getBaedangsum() {
+		return baedangsum;
+	}
+	public void setBaedangsum(String baedangsum) {
+		this.baedangsum = baedangsum;
+	}
+	public String getExpect() {
+		return expect;
+	}
+	public void setExpect(String expect) {
+		this.expect = expect;
+	}
+	public float getBaedang() {
+		return baedang;
+	}
+	public void setBaedang(float baedang) {
+		this.baedang = baedang;
+	}
+	public int getBettingSeq() {
+		return bettingSeq;
+	}
+	public void setBettingSeq(int bettingSeq) {
+		this.bettingSeq = bettingSeq;
+	}
 	public String getPassWord() {
 		return passWord;
 	}
