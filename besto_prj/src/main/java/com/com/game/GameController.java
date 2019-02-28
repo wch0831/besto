@@ -3,6 +3,7 @@ package com.com.game;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.com.point.PointVO;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
@@ -36,6 +38,65 @@ public class GameController {
 			System.out.println(rateVO.getInputCashList());
 		}		
 	}
+	
+	
+//	@RequestMapping(value="/passCheck2.do", method = RequestMethod.POST)
+//	public void checkPass2(HttpServletRequest request,@RequestBody ArrayList<RecordRateVO> list) { 
+//		HttpSession session = request.getSession();
+//		int useq = (Integer) session.getAttribute("SESS_SEQ");
+//		int res = 0;
+//		int pres = 0;
+//		int betSeq=0;
+//		String returnRes="";
+//		System.out.println(list.size());
+////		for(RecordRateVO rateVO : list) {
+////			
+////			
+////		}		
+//	}
+	
+	
+	
+//	@RequestMapping(value="/passCheck2.do", method = RequestMethod.POST)
+//	public String asdasdcheckPass2(HttpServletRequest request, MatchVO matchVO) {
+//		HttpSession session = request.getSession();
+//		int useq = (Integer) session.getAttribute("SESS_SEQ");
+//		int res = 0;
+//		int pres = 0;
+//		int betSeq=0;
+//		String returnRes="";
+//		ArrayList<PointVO> plist = new ArrayList<PointVO>();
+//		System.out.println(matchVO.getRecordRateVOList().size());
+//		
+//		
+//		System.out.println(matchVO.getRecordRateVOList().get(2).getPassWord());
+//		if(matchVO.getRecordRateVOList().get(matchVO.getRecordRateVOList().size()-1).getPassWord().equals(gameService.svcUserPw(useq))) {
+//			for(int i=0; i<matchVO.getRecordRateVOList().size()-1 ; i++) {
+//				matchVO.getRecordRateVOList().get(i).setUsersSeq(useq);
+//				//한줄씩 다 인설트한후에
+//				//배팅테이블에 종합 한건 인설트
+//
+//				betSeq=gameService.selectBettingSeqNextValForSaveIntProperty();
+//				
+//				
+//				//EXPECTATION 인설트 할부분--------
+//				res += gameService.vintoryRateInsert(matchVO.getRecordRateVOList().get(i));
+//				System.out.println(res + "건 게임 구매 완료");
+//
+//				
+//				
+//				returnRes="sucess";
+//			}
+//			
+//			
+//			//종합 한건인설트자리---------
+//			
+//			
+//		}else {
+//			returnRes="fail";
+//		}
+//		return returnRes;
+//}
 	
 	
 	

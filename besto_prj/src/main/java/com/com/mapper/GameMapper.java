@@ -38,10 +38,20 @@ public interface GameMapper {
 	/* �ȵ���̵� */
 	public ArrayList<MatchVO> mGameAvailableSchedule();
 	public GameVO selectVictorySelect(int gseq);
+
+	public int selectBettingSeqNextValForSaveIntProperty();
+	public int vintoryRateInsert(RecordRateVO vo);
+	public int victoryRateInsertAfterOneInsert(RecordRateVO vo);
+
+	
 	public ArrayList<MatchVO> deadlineSelect(int seq);
 	public int matchStatusUpdate(MatchVO vo);
 	public int maxBettingSeq();
 	public ArrayList<BettingVO> bettingSeqSelect(BettingVO vo);
 	public int gameStatusUpdate(GameVO vo);
 	public int recordBundleNextval();
+	
+	public int selectCartSeqNextValForSaveIntProperty();
+	public int cartVintoryRateInsert(RecordRateVO vo);
+	public int victoryRateInsertCart(RecordRateVO vo);
 }

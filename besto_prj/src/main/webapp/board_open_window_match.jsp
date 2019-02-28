@@ -30,20 +30,24 @@ $(document).ready(function() {
 			var param = {};
 			var loopCount = 1;
 			var idx = 0;
-			var pass = $("#pass").val();
+			var pass = $("#passWord").val();
+			console.log($("#rateForm").serializeArray());
 			$("#rateForm").serializeArray().map(function(x){
-				param['victoryRateVOList[' + idx +'].'+x.name+''] = x.value ;
-/* 				param['victoryRateVOList[' + idx +'].passWord'] = pass; */
-				idx++;
+				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
 				loopCount++;
+				if(loopCount%5 == 0) {
+					idx++;
+					loopCount=1;
+				}
+				
 			}); 
+			console.log(loopCount);
 			console.log(param);
-			
 			$.ajax({ 
 					type:"post",
 			        url:"/passCheck2.do",
-			        contentType : "application/x-www-form-urlencoded; charset=UTF-8", 
-			        data : param, 
+	                contentType : "application/x-www-form-urlencoded; charset=UTF-8", 
+			        data : param,
 					success:function(res){
 							console.log(res);
 							if(res == "fail"){
@@ -60,45 +64,6 @@ $(document).ready(function() {
 			}); 
 		});
 		
-	/* 	$("#buyButton").click(function(){
-			var param = {};
-			var loopCount = 1;
-			var idx = 0;
-			//var pass = $("password[name=pass]").val();
-			var pass = $("#pass").val();
-			
-			$("#rateForm").serializeArray().map(function(x){
-				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
-				param['recordRateVOList[' + idx +'].passWord'] = pass;
-				if(loopCount%5 == 0) idx++;
-				loopCount++;
-			}); 
-			
-			console.log(param);
-			
-			$.ajax({ 
-					type:"post",
-			        url:"/passCheck.do",
-			        contentType : "application/x-www-form-urlencoded; charset=UTF-8", 
-			        data : param, 
-					success:function(res){
-							console.log(res);
-							if(res == "fail"){
-								alert("잘못된 비밀번호입니다.");
-								$("#pass").val("");
-							} else{
-								alert("결제 되었습니다.");
-								$(".trcl").remove();
-								$("#pass").val("");
-							}
-							
-							
-					}
-			}); 
-		}); */
-		
-		
-		
 		$("#cartButton").click(function(){
 			var param = {};
 			var loopCount = 1;
@@ -106,15 +71,17 @@ $(document).ready(function() {
 			
 			$("#rateForm").serializeArray().map(function(x){
 				param['recordRateVOList[' + idx +'].'+x.name+''] = x.value ;
-				if(loopCount%5 == 0) idx++;
 				loopCount++;
+				if(loopCount%5 == 0) {
+					idx++;
+					loopCount=1;
+				}
+				
 			}); 
-			
-			console.log(param);
 			
 			$.ajax({ 
 					type:"post",
-			        url:"/cartInsert2.do",
+			        url:"/cartInsertV.do",
 			        contentType : "application/x-www-form-urlencoded; charset=UTF-8", 
 			        data : param, 
 					success:function(res){
@@ -150,9 +117,9 @@ $(document).ready(function() {
 			console.log($("#"+arr[0]+"checkB"+cnt).is(":checked"),$("#"+arr[0]+"checkB"+cnt1).is(":checked"),$("#"+arr[0]+"checkB"+cnt2).is(":checked"))
 			if($("#"+arr[0]+"checkB"+cnt).is(":checked") && !$("#"+arr[0]+"checkB"+cnt1).is(":checked") && !$("#"+arr[0]+"checkB"+cnt2).is(":checked")){
 				beadang=beadang*arr[2];
-				$("#baedang").val(beadang.toFixed(2));
-				var baedangr = $("#baedang").val();
-				var batmoney= $("#input_cash").val();
+				$("#baedangsum").val(beadang.toFixed(2));
+				var baedangr = $("#baedangsum").val();
+				var batmoney= $("#inputCashList").val();
 				var res=baedangr*batmoney;
 				$("#yesang").val(res.toFixed(2));
 				htmlStr += "<tr id='"+arr[0]+"newtd"+cnt+"'>";
@@ -162,14 +129,14 @@ $(document).ready(function() {
 				htmlStr += "<input type='hidden' class='"+arr[0]+"vava"+cnt+"' name='matchSeqList' value='"+arr[0]+"'>";
 				htmlStr += "<input type='hidden' class='"+arr[0]+"vava"+cnt+"' name='scoreList' value='"+arr[1]+"'>";
 				htmlStr += "<input type='hidden' class='"+arr[0]+"vava"+cnt+" recoderateList"+cnt+"' name='recoderateList' value='"+arr[2]+"'>";
-				htmlStr += "<input type='hidden' class='"+arr[0]+"vava"+cnt+"' name='gseq' value='"+arr[3]+"'>";
+				htmlStr += "<input type='hidden' class='"+arr[0]+"vava"+cnt+"' name='gameSeq' value='"+arr[3]+"'>";
 		        $('#rateTbody').append(htmlStr);
 			} else if($("#"+arr[0]+"checkB"+cnt).is(":checked")==false){
 				var thisbaedang=$(".recoderateList"+cnt).val();
 				beadang=beadang/thisbaedang;
-				$("#baedang").val(beadang.toFixed(2));
-				var baedangr = $("#baedang").val();
-				var batmoney= $("#input_cash").val();
+				$("#baedangsum").val(beadang.toFixed(2));
+				var baedangr = $("#baedangsum").val();
+				var batmoney= $("#inputCashList").val();
 				var res=baedangr*batmoney;
 				$("#yesang").val(res.toFixed(2))
 				$("#"+arr[0]+"newtd"+cnt).remove();
@@ -181,10 +148,9 @@ $(document).ready(function() {
 			}
 		});
 		
- 		$("#input_cash").change(function(){
-			console.log('qq');
-			var baedangr = $("#baedang").val();
-			var batmoney= $("#input_cash").val();
+ 		$("#inputCashList").change(function(){
+			var baedangr = $("#baedangsum").val();
+			var batmoney= $("#inputCashList").val();
 			var res=baedangr*batmoney;
 			   $("#yesang").val(res.toFixed(2));
 		});
@@ -196,12 +162,12 @@ $(document).ready(function() {
 		   var thisbaedang=$(".recoderateList"+arr[1]).val();
 		   beadang=beadang/thisbaedang;
 		   console.log(arr[0],arr[1],beadang);
-		   var baedangr = $("#baedang").val();
-		   var batmoney= $("#input_cash").val();
+		   var baedangr = $("#baedangsum").val();
+		   var batmoney= $("#inputCashList").val();
 		   var res=baedangr*batmoney;
 		   $("#yesang").val(res.toFixed(2));
 		   $("#"+arr[0]+"checkB"+arr[1]).prop("checked", false);
-		   $("#baedang").val(beadang.toFixed(2));
+		   $("#baedangsum").val(beadang.toFixed(2));
 		   $("#"+arr[0]+"newtd"+arr[1]).remove();
 		   $("."+arr[0]+"vava"+arr[1]).remove();
 		   
@@ -267,9 +233,9 @@ $(document).ready(function() {
                           <td>프리미어 리그</td>
                           <td><span class="badge badge-info">일반</span></td>
                           <td>${gvolist.homeTeamName} <span class="badge badge-danger">VS</span> ${gvolist.awayTeamName} </td>
-                          <td><font color="red">승</font>${gvolist.vicVO.victoryrateWin}<input type="checkbox" id="${gvolist.matchSeq}checkB1" name="1" class="rateCheckBox"value="${gvolist.matchSeq}|승|${gvolist.vicVO.victoryrateWin}|${KEY_GVO.gameSeq}"></td>
-                          <td>무${gvolist.vicVO.victoryrateDraw}<input type="checkbox" id="${gvolist.matchSeq}checkB2" name="2" class="rateCheckBox"value="${gvolist.matchSeq}|무|${gvolist.vicVO.victoryrateDraw}|${KEY_GVO.gameSeq}"></td>
-                          <td><font color="blue">패</font>${gvolist.vicVO.victoryrateLose}<input type="checkbox" id="${gvolist.matchSeq}checkB3" name="3" class="rateCheckBox"value="${gvolist.matchSeq}|패|${gvolist.vicVO.victoryrateLose}|${KEY_GVO.gameSeq}"></td>
+                          <td><font color="red">승</font>${gvolist.vicVO.victoryrateWin}<input type="checkbox" id="${gvolist.matchSeq}checkB1" name="1" class="rateCheckBox"value="${gvolist.matchSeq}|1|${gvolist.vicVO.victoryrateWin}|${KEY_GVO.gameSeq}"></td>
+                          <td>무${gvolist.vicVO.victoryrateDraw}<input type="checkbox" id="${gvolist.matchSeq}checkB2" name="2" class="rateCheckBox"value="${gvolist.matchSeq}|2|${gvolist.vicVO.victoryrateDraw}|${KEY_GVO.gameSeq}"></td>
+                          <td><font color="blue">패</font>${gvolist.vicVO.victoryrateLose}<input type="checkbox" id="${gvolist.matchSeq}checkB3" name="3" class="rateCheckBox"value="${gvolist.matchSeq}|3|${gvolist.vicVO.victoryrateLose}|${KEY_GVO.gameSeq}"></td>
                           <td>--</td>
                         </tr>
                        </c:forEach>
@@ -302,18 +268,21 @@ $(document).ready(function() {
                     </tbody>
 						                    	
                   </table>
-                  	<p>▷ 예상 적중 배당률 : <input id="baedang" class="lmk" type="text" size="10.5%" readonly><b>배</b></p>
+                  	<p>▷ 예상 적중 배당률 : <input id="baedangsum" name="baedangsum"class="lmk" type="text" size="10.5%" readonly><b>배</b></p>
                   <hr>
-                 	<p>▷ 베팅금액 : <input id="input_cash" class="lmk" type="text" size="10.5%"> <strong>원</strong></p>
+                 	<p>▷ 베팅금액 : <input id="inputCashList" name="inputCashList" class="lmk" type="text" size="10.5%"> <strong>원</strong></p>
                   <hr>
                   	<p>▷ 예상적중금 : <input id="yesang" type="text" size="10.5%" readonly><strong>원</strong>입니다.</p>
                   <hr>
+                  	
                   <p>※ 구매가능 금액은 <font color="red">50,000 </font><strong>원</strong> 입니다.</p>
-                  <p>※ 비밀번호를 입력하세요 <input class="input_cash pull-right" id="pass" name="pass" type="password" size="10.5%"> </p>
+                  <p>※ 비밀번호를 입력하세요 <input class="input_cash pull-right" id="passWord" name="passWord" type="password" size="10.5%"> </p>
                   	<button type="button" id="cartButton" class="btn btn-sm btn-default">카트담기</button>
                   	<button type="button" id="buyButton" class="btn btn-sm btn-danger pull-right">바로구매</button>
-                  	</form>
+                </form>
                 </div>
+                
+                
               </div>
             </div>
           </div>

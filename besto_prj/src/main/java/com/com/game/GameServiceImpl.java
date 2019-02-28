@@ -133,8 +133,7 @@ public class GameServiceImpl implements GameService{
 		return gameMapper.selectVictorySelect(gseq);
 	}
 
-
-
+	
 	@Override
 	public ArrayList<MatchVO> svcGameDeadline(int seq) {
 		return gameMapper.deadlineSelect(seq);
@@ -166,6 +165,40 @@ public class GameServiceImpl implements GameService{
 	@Override
 	public int svcGameStatusUpdate(GameVO vo) {
 		return gameMapper.gameStatusUpdate(vo);
+	}
+
+	
+	
+	@Override
+	public int selectBettingSeqNextValForSaveIntProperty() {
+		return gameMapper.selectBettingSeqNextValForSaveIntProperty();
+	}
+	
+	@Override
+	public int vintoryRateInsert(RecordRateVO vo) {
+		return gameMapper.vintoryRateInsert(vo);
+	}
+
+	@Override
+	public int victoryRateInsertAfterOneInsert(RecordRateVO vo) {
+		return gameMapper.victoryRateInsertAfterOneInsert(vo);
+	}
+
+	
+	
+	@Override
+	public int selectCartSeqNextValForSaveIntProperty() {
+		return gameMapper.selectCartSeqNextValForSaveIntProperty();
+	}
+
+	@Override
+	public int cartVintoryRateInsert(RecordRateVO vo) {
+		return gameMapper.cartVintoryRateInsert(vo);
+	}
+
+	@Override
+	public int victoryRateInsertCart(RecordRateVO vo) {
+		return gameMapper.victoryRateInsertCart(vo);
 	}
 
 
